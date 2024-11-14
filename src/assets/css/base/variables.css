@@ -1,0 +1,13 @@
+:root {
+  --main-text-size: 18px;
+  --main-medium-size: 50px;
+  --site-weight-number: 900;
+  --main-percentage-size: 50%;
+  --main-second-number: 500ms;
+  --main-dark-color: rgba(30, 36, 44, 1);
+  --main-light-color: #ffffff;
+  --main-orange-color: #f69419;
+  --footer-bottom-color: rgba(41, 47, 55, 1);
+  --site-navigation-color: #09124240;
+  --site-contact-text-color: #23212a;
+}
