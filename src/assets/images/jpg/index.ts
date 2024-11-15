@@ -1,4 +1,5 @@
 import HeroBackgroundImage from "./hero-background-image.jpg";
+import AboutBackgroundImage from "./about-background.jpg";
 import {
   FooterPicture1,
   FooterPicture2,
@@ -18,4 +19,5 @@ export {
   FooterPicture6,
   FooterPicture7,
   HeroBackgroundImage,
+  AboutBackgroundImage,
 };

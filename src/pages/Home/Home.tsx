@@ -1,5 +1,11 @@
+import { About } from "./components";
+
 const Home = () => {
-  return <h1>Home page</h1>;
+  return (
+    <>
+      <About />
+    </>
+  );
 };
 
 export default Home;
