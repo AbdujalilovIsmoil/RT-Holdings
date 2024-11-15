@@ -1,0 +1,145 @@
+.info {
+  margin-bottom: 100px;
+}
+
+.info__content {
+  margin: 0 auto;
+  max-width: 780px;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.info__content-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 69.11px;
+  color: var(--main-dark-color);
+}
+
+.info__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-about-text-color);
+}
+
+.info {
+  margin-bottom: 100px;
+}
+
+.info__background {
+  padding: 70px 0px 80px 0px;
+}
+
+.info__images-container {
+  width: 100%;
+  max-width: 400px;
+  min-height: 645px;
+  position: relative;
+}
+
+.info__content {
+  text-align: center;
+}
+
+.info__content {
+  margin: 0 auto;
+  max-width: 780px;
+  margin-bottom: 35px;
+}
+
+.info__content-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  line-height: 69.11px;
+  color: var(--main-dark-color);
+}
+
+.info__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-about-text-color);
+}
+
+.info__images-container-image {
+  top: 0;
+  object-fit: cover;
+  position: absolute;
+  border-radius: 30px;
+}
+
+.info__images-container-image:nth-child(1) {
+  width: 460px;
+  height: 370px;
+}
+
+.info__images-container-image:nth-child(2) {
+  top: 280px;
+  left: -95px;
+  width: 320px;
+  height: 255px;
+}
+
+.info__images-container-image:nth-child(3) {
+  top: 430px;
+  right: 0;
+  width: 260px;
+  height: 210px;
+}
+
+.info__container {
+  gap: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.info__question {
+  max-width: 575px;
+}
+
+.info__question:nth-child(1) {
+  margin-bottom: 30px;
+}
+
+.info__question:nth-child(2) {
+  margin-bottom: 60px;
+}
+
+.info__question-title {
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 46px;
+  margin-bottom: 28px;
+  color: var(--main-dark-color);
+}
+
+.info__question-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 30px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-about-content-color);
+}
+
+.info__answers-list {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info__anwers-item {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.info__answers-item-icon {
+  width: 18px;
+  height: 12px;
+}

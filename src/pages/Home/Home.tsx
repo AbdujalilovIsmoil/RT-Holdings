@@ -1,8 +1,9 @@
-import { About } from "./components";
+import { About, Hero } from "./components";
 
 const Home = () => {
   return (
     <>
+      <Hero />
       <About />
     </>
   );
