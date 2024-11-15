@@ -3,6 +3,14 @@ import HeroBackgroundImage from "./hero-background-image.jpg";
 import HeroBackgroundImage1 from "./hero-background-image-1.jpg";
 import HeroBackgroundImage2 from "./hero-background-image-2.jpg";
 import {
+  PortfolioImage1,
+  PortfolioImage2,
+  PortfolioImage3,
+  PortfolioImage4,
+  PortfolioImage5,
+} from "./portfolio";
+
+import {
   FooterPicture1,
   FooterPicture2,
   FooterPicture3,
@@ -20,6 +28,11 @@ export {
   FooterPicture5,
   FooterPicture6,
   FooterPicture7,
+  PortfolioImage1,
+  PortfolioImage2,
+  PortfolioImage3,
+  PortfolioImage4,
+  PortfolioImage5,
   HeroBackgroundImage,
   HeroBackgroundImage1,
   HeroBackgroundImage2,

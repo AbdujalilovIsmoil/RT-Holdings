@@ -1,0 +1,87 @@
+.portfolio {
+  margin-bottom: 120px;
+}
+
+.portfolio__content {
+  margin: 0 auto;
+  max-width: 780px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.portfolio__content-title {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 69.11px;
+  color: var(--main-dark-color);
+}
+
+.portfolio__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-about-text-color);
+}
+
+.portfolio__filter-list {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.portfolio__filter-item-btn {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px 30px;
+  border-radius: 50px;
+  line-height: 22.77px;
+  color: var(--main-dark-color);
+  font-family: "Be Vietnam Pro";
+  background-color: transparent;
+  border: 1px solid var(--main-dark-color);
+}
+
+.portfolio__filter-item-btn--active {
+  color: var(--main-light-color);
+  background-color: var(--main-dark-color);
+}
+
+.portfolio__cards {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.portfolio__card {
+  height: 410px;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.portfolio__card-content {
+  padding: 20px;
+  border-radius: 6px;
+  background: linear-gradient(111.8deg, #2b2f53 16.5%, #1d1c34 77.09%);
+}
+
+.portfolio__card-content-heading {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  margin-bottom: 2px;
+  font-family: "Poppins";
+  color: var(--main-poppins-color);
+}
+
+.portfolio__card-content-name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+}
