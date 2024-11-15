@@ -1,5 +1,6 @@
 import "./index.css";
 import { Button } from "../../../../components";
+import { PortfolioImage6 } from "../../../../assets/images/jpg/portfolio";
 import {
   PortfolioImage1,
   PortfolioImage2,
@@ -7,7 +8,6 @@ import {
   PortfolioImage4,
   PortfolioImage5,
 } from "../../../../assets/images/jpg";
-import { PortfolioImage6 } from "../../../../assets/images/jpg/portfolio";
 
 const Portfolio = () => {
   const getBackgroundImage = (image: string) => {
