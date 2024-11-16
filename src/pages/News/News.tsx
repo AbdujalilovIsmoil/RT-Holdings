@@ -1,5 +1,13 @@
+import { Hero, Info, Post } from "./components";
+
 const News = () => {
-  return <h1>News page</h1>;
+  return (
+    <>
+      <Hero />
+      <Post />
+      <Info />
+    </>
+  );
 };
 
 export default News;
