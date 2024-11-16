@@ -1,6 +1,6 @@
 import "./index.css";
 import { NavLink } from "react-router-dom";
-import { HeroBackgroundImage1 } from "../../../../assets/images/jpg";
+import { HeroBackgroundImage3 } from "../../../../assets/images/jpg";
 import {
   FaFacebook,
   IoLogoInstagram,
@@ -11,7 +11,7 @@ const Hero = () => {
   const heroStyle = {
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    backgroundImage: `linear-gradient(90deg, rgba(30, 36, 44, 0.8) 0%, rgba(30, 36, 44, 0.8) 43.96%, rgba(30, 36, 44, 0.8) 66.39%), url(${HeroBackgroundImage1})`,
+    backgroundImage: `linear-gradient(90deg, rgba(30, 36, 44, 0.8) 0%, rgba(30, 36, 44, 0.8) 43.96%, rgba(30, 36, 44, 0.8) 66.39%), url(${HeroBackgroundImage3})`,
   };
 
   return (
@@ -35,22 +35,22 @@ const Hero = () => {
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/projects">
+                <NavLink className="nav__item-link" to="/">
                   Projects
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/news">
+                <NavLink className="nav__item-link" to="/">
                   News
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/sale">
+                <NavLink className="nav__item-link" to="/">
                   Sale
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/contact">
+                <NavLink className="nav__item-link" to="/">
                   Contact Us
                 </NavLink>
               </li>
@@ -84,7 +84,7 @@ const Hero = () => {
 
       <div className="container">
         <div className="content">
-          <h2 className="content-title">About us</h2>
+          <h2 className="content-title">Contact us</h2>
           <p className="content-text">
             Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate
             aliquet at suspendisse dui semper feugiat.

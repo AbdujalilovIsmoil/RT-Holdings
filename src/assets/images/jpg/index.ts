@@ -2,6 +2,7 @@ import AboutBackgroundImage from "./about-background.jpg";
 import HeroBackgroundImage from "./hero-background-image.jpg";
 import HeroBackgroundImage1 from "./hero-background-image-1.jpg";
 import HeroBackgroundImage2 from "./hero-background-image-2.jpg";
+import HeroBackgroundImage3 from "./hero-background-image-3.jpg";
 import {
   PortfolioImage1,
   PortfolioImage2,
@@ -36,5 +37,6 @@ export {
   HeroBackgroundImage,
   HeroBackgroundImage1,
   HeroBackgroundImage2,
+  HeroBackgroundImage3,
   AboutBackgroundImage,
 };

@@ -1,5 +1,12 @@
+import { Hero, Form } from "./components";
+
 const Contact = () => {
-  return <h1>Contact page</h1>;
+  return (
+    <>
+      <Hero />
+      <Form />
+    </>
+  );
 };
 
 export default Contact;
