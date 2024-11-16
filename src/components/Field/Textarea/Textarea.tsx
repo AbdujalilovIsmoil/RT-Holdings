@@ -1,12 +1,10 @@
 import { FC } from "react";
 import { FieldInterface } from "../../../typescript";
 
-interface Textarea extends FieldInterface {
-  children: React.ReactNode;
-}
+interface Textarea extends FieldInterface {}
 
-const Textarea: FC<Textarea> = ({ children, ...props }) => {
-  return <textarea {...props}>{children}</textarea>;
+const Textarea: FC<Textarea> = ({ ...props }) => {
+  return <textarea {...props}></textarea>;
 };
 
 export default Textarea;

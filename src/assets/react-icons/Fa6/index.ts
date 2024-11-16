@@ -1,3 +1,3 @@
-import { FaFacebook, FaPhone } from "react-icons/fa6";
+import { FaFacebook, FaPhone, FaCircleCheck } from "react-icons/fa6";
 
-export { FaFacebook, FaPhone };
+export { FaFacebook, FaPhone, FaCircleCheck };

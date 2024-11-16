@@ -1,13 +1,14 @@
 export interface FieldInterface {
-  type?: string;
-  value: string;
-  required: boolean;
-  className: string;
-  onChange: (e: unknown) => void;
+  value?: string;
+  required?: boolean;
+  className?: string;
+  placeholder?: string;
+  onChange?: (e: unknown) => void;
+  type?: "text" | "email" | "number";
 }
 
 export interface UIInterface {
   className: string;
   onClick?: () => void;
-  type: "button";
+  type?: "button" | "submit";
 }
