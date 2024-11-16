@@ -1,5 +1,12 @@
+import { Hero, Services } from "./components";
+
 const Sale = () => {
-  return <h1>Sale page</h1>;
+  return (
+    <>
+      <Hero />
+      <Services />
+    </>
+  );
 };
 
 export default Sale;

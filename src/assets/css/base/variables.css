@@ -6,14 +6,19 @@
   --main-second-number: 500ms;
   --main-dark-color: #1e242c;
   --main-light-color: #ffffff;
+  --main-input-color: #C2C4CA;
+  --main-break-color: #000000;
   --main-orange-color: #f69419;
+  --search-border-color: #eef0f4;
   --footer-bottom-color: #292f37;
   --main-services-color: #666666;
   --main-poppins-color: #FFFFFF80;
   --main-contact-color: #191A1980;
   --main-about-text-color: #8a8a8a;
+  --search-background-color: #f7f7f7;
   --site-navigation-color: #09124240;
   --site-contact-text-color: #23212a;
   --main-service-link-color: #111D15;
+  --pagination-border-color: #EEEEEE;
   --main-about-content-color: #1c1d20;
 }

@@ -1,4 +1,4 @@
 import Projects from "./Projects";
-import { Portfolio } from "./components";
+// import { Portfolio } from "./components";
 
 export default Projects;

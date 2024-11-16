@@ -4,7 +4,7 @@ export interface FieldInterface {
   className?: string;
   placeholder?: string;
   onChange?: (e: unknown) => void;
-  type?: "text" | "email" | "number";
+  type?: "text" | "email" | "number" | "search";
 }
 
 export interface UIInterface {
