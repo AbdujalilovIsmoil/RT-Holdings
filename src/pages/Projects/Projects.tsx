@@ -1,5 +1,12 @@
+import { Hero, Portfolio } from "./components";
+
 const Projects = () => {
-  return <h1>Projects page</h1>;
+  return (
+    <>
+      <Hero />
+      <Portfolio />
+    </>
+  );
 };
 
 export default Projects;
