@@ -27,6 +27,7 @@ const Services = () => {
 
         <Swiper
           loop
+          grabCursor
           slidesPerView={3}
           spaceBetween={20}
           modules={[Autoplay]}

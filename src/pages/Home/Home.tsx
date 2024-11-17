@@ -1,12 +1,12 @@
-import { About, Hero, Services } from "./components";
+import { About, Hero, Services, Portfolio } from "./components";
 
 const Home = () => {
   return (
     <>
       <Hero />
       <About />
-
       <Services />
+      <Portfolio />
     </>
   );
 };
