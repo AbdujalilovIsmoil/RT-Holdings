@@ -1,7 +1,7 @@
 import "./index.css";
 import { Link } from "react-router-dom";
-import { Button, Input, Pagination } from "../../../../components";
 import { IoSearch } from "../../../../assets/react-icons";
+import { Button, Input, Pagination } from "../../../../components";
 import {
   ServicesImage1,
   ServicesImage2,

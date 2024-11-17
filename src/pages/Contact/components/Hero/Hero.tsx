@@ -35,22 +35,22 @@ const Hero = () => {
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/">
+                <NavLink className="nav__item-link" to="/pages/projects">
                   Projects
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/">
+                <NavLink className="nav__item-link" to="/pages/news">
                   News
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/">
+                <NavLink className="nav__item-link" to="/pages/sale">
                   Sale
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/">
+                <NavLink className="nav__item-link" to="/pages/contact">
                   Contact Us
                 </NavLink>
               </li>
