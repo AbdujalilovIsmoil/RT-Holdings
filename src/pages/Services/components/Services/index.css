@@ -58,6 +58,7 @@
   border-radius: 6px;
   line-height: 20.24px;
   display: inline-block;
+  background-color: transparent;
   font-family: "Be Vietnam Pro";
   color: var(--main-services-color);
   border: 1px solid var(--main-services-color);

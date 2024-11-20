@@ -23,39 +23,85 @@ const Hero = () => {
             <ul className="nav__list">
               <li className="nav__item">
                 <NavLink
-                  className="nav__item-link nav__item-link--active"
                   to="/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
                 >
                   Home
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/about">
+                <NavLink
+                  to="/pages/about"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
+                >
                   About Us
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/projects">
+                <NavLink
+                  to="/pages/projects"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
+                >
                   Projects
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/news">
+                <NavLink
+                  to="/pages/news"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
+                >
                   News
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/sale">
+                <NavLink
+                  to="/pages/sale"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
+                >
                   Sale
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/services">
+                <NavLink
+                  to="/pages/services"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
+                >
                   Services
                 </NavLink>
               </li>
               <li className="nav__item">
-                <NavLink className="nav__item-link" to="/pages/contact">
+                <NavLink
+                  to="/pages/contact"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav__item-link nav__item-link--active"
+                      : "nav__item-link"
+                  }
+                >
                   Contact Us
                 </NavLink>
               </li>

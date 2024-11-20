@@ -1,3 +1,3 @@
-import { IoLogoInstagram, IoSearch } from "react-icons/io5";
+import { IoLogoInstagram, IoSearch, IoCloseSharp } from "react-icons/io5";
 
-export { IoLogoInstagram, IoSearch };
+export { IoLogoInstagram, IoSearch, IoCloseSharp };

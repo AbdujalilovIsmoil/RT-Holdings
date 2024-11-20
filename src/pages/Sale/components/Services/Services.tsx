@@ -1,16 +1,22 @@
 import "./index.css";
-import { Link } from "react-router-dom";
 import { IoSearch } from "../../../../assets/react-icons";
-import { Button, Input, Pagination } from "../../../../components";
+import { Button, Input, Modal, Pagination } from "../../../../components";
 import {
   ServicesImage1,
   ServicesImage2,
   ServicesImage3,
 } from "../../../../assets/images/png";
 
-const Services = () => {
+interface serviceType {
+  isActive: boolean;
+  openModal: () => void;
+}
+
+const Services = ({ openModal, isActive }: serviceType) => {
   return (
     <section className="service">
+      <Modal isActive={isActive} openModal={openModal} />
+
       <div className="container">
         <div className="services__content">
           <h2 className="services__content-title">Our Services</h2>
@@ -47,9 +53,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -65,9 +75,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -83,9 +97,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -101,9 +119,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -119,9 +141,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -137,9 +163,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -155,9 +185,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -173,9 +207,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -191,9 +229,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -209,9 +251,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -227,9 +273,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
           <li className="services__card">
             <img
@@ -245,9 +295,13 @@ const Services = () => {
               sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
               sed vitae.
             </p>
-            <Link className="services__card-link" to="/">
+            <Button
+              type="button"
+              onClick={openModal}
+              className="services__card-btn"
+            >
               Lorem ipsum dolor.
-            </Link>
+            </Button>
           </li>
         </ul>
 

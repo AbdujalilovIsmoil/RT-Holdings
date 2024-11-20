@@ -2,9 +2,9 @@ import { FiPhone } from "./Fi";
 import { AiFillInstagram } from "./Ai";
 import { IoIosArrowRoundBack } from "./Io";
 import { MdOutlineMailOutline } from "./Md";
-import { IoLogoInstagram, IoSearch } from "./Io5";
 import { FaTelegramPlane, FaYoutube } from "./Fa";
 import { FaFacebook, FaPhone, FaCircleCheck } from "./Fa6";
+import { IoLogoInstagram, IoSearch, IoCloseSharp } from "./Io5";
 
 export {
   FiPhone,
@@ -12,6 +12,7 @@ export {
   IoSearch,
   FaYoutube,
   FaFacebook,
+  IoCloseSharp,
   FaCircleCheck,
   IoLogoInstagram,
   AiFillInstagram,

@@ -1,5 +1,15 @@
 import { Footer, Header } from "./Layouts";
-import { Button, Loader, Pagination } from "./UI";
 import { Input, Select, Textarea } from "./Field";
+import { Button, Loader, Pagination, Modal } from "./UI";
 
-export { Button, Input, Loader, Select, Textarea, Footer, Header, Pagination };
+export {
+  Modal,
+  Input,
+  Button,
+  Loader,
+  Select,
+  Footer,
+  Header,
+  Textarea,
+  Pagination,
+};
