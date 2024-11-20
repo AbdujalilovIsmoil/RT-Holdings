@@ -1,6 +1,7 @@
 import {
   Hero,
   About,
+  Contact,
   Carousel,
   Services,
   Portfolio,
@@ -16,6 +17,7 @@ const Home = () => {
       <Portfolio />
       <LatestNews />
       <Carousel />
+      <Contact />
     </>
   );
 };
