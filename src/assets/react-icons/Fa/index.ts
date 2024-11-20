@@ -1,3 +1,8 @@
-import { FaTelegramPlane, FaYoutube } from "react-icons/fa";
+import {
+  FaRegStar,
+  FaYoutube,
+  FaRegUser,
+  FaTelegramPlane,
+} from "react-icons/fa";
 
-export { FaTelegramPlane, FaYoutube };
+export { FaTelegramPlane, FaYoutube, FaRegUser, FaRegStar };
