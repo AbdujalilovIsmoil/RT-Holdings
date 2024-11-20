@@ -1,0 +1,104 @@
+.latest-news {
+  padding: 60px 0px;
+  margin-bottom: 100px;
+}
+
+.latest-news__container {
+  gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.latest-news__content {
+  max-width: 615px;
+}
+
+.latest-news__content-span {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 4.5px 9px;
+  position: relative;
+  font-family: "Exo";
+  margin-bottom: 25px;
+  line-height: 18.61px;
+  display: inline-block;
+  color: var(--main-light-color);
+  background-color: var(--main-latest-news-color);
+}
+
+.latest-news__content-span::before {
+  top: 0;
+  left: -5px;
+  width: 5px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    94.06deg,
+    #ffb629 -1.21%,
+    #ffda56 58.66%,
+    #ffd7a6 116.84%
+  );
+}
+
+.latest-news__content-title {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: "Exo";
+  margin-bottom: 20px;
+  line-height: 66.45px;
+  text-transform: capitalize;
+  color: var(--main-latest-news-title-color);
+}
+
+.latest-news__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  font-family: "Exo";
+  margin-bottom: 45px;
+  color: var(--main-services-color);
+}
+
+.latest-news__content-link {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 40px;
+  font-family: "Exo";
+  line-height: 21.6px;
+  color: var(--site-contact-text-color);
+  border: 1px solid var(--main-orange-color);
+  background-color: var(--main-orange-color);
+  transition: background-color 150ms linear, color 150ms linear;
+}
+
+.latest-news__content-link:hover {
+  background-color: transparent;
+  color: var(--main-orange-color);
+}
+
+.latest-news__box {
+  position: relative;
+  padding: 0px 40px 40px 0px;
+}
+
+.latest-news__box-image {
+  width: 500px;
+  height: 530px;
+  object-fit: cover;
+  position: relative;
+  border-radius: 20px;
+}
+
+.latest-news__box::before {
+  right: 0;
+  bottom: 0;
+  content: "";
+  opacity: 10%;
+  width: 500px;
+  height: 530px;
+  position: absolute;
+  border-radius: 20px;
+  background-color: var(--main-orange-color);
+}

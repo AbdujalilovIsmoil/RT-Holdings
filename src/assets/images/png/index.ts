@@ -1,3 +1,4 @@
+import LatestNewsImage from "./latest-news.png";
 import { AboutImage1, AboutImage2, AboutImage3 } from "./about";
 import {
   ServicesImage1,
@@ -14,4 +15,5 @@ export {
   ServicesImage2,
   ServicesImage3,
   ServicesImage4,
+  LatestNewsImage,
 };

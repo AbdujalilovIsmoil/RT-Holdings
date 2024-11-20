@@ -6,21 +6,23 @@
   --main-second-number: 500ms;
   --main-dark-color: #1e242c;
   --main-light-color: #ffffff;
-  --main-input-color: #C2C4CA;
+  --main-input-color: #c2c4ca;
   --main-break-color: #000000;
   --main-orange-color: #f69419;
   --main-modal-color: #00111380;
   --search-border-color: #eef0f4;
   --footer-bottom-color: #292f37;
   --main-services-color: #666666;
-  --main-poppins-color: #FFFFFF80;
-  --main-contact-color: #191A1980;
+  --main-poppins-color: #ffffff80;
+  --main-contact-color: #191a1980;
   --main-about-text-color: #8a8a8a;
   --search-background-color: #f7f7f7;
   --site-navigation-color: #09124240;
   --site-contact-text-color: #23212a;
-  --main-service-link-color: #111D15;
-  --pagination-border-color: #EEEEEE;
+  --main-service-link-color: #111d15;
+  --pagination-border-color: #eeeeee;
+  --main-latest-news-color: #041c3780;
   --main-about-content-color: #1c1d20;
   --main-modal-background-color: #f6f8fa;
+  --main-latest-news-title-color: #282b4c;
 }

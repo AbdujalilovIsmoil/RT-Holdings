@@ -9,8 +9,6 @@ type activeType = {
 };
 
 const Modal = ({ isActive, openModal }: activeType) => {
-  console.log(isActive);
-
   return (
     <section className={`modal ${isActive && "modal--active"}`}>
       <div className="modal__container container">
