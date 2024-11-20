@@ -1,0 +1,70 @@
+.service {
+  margin-bottom: 120px;
+}
+
+.services__content {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.services__content-title {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 72.8px;
+  color: var(--main-dark-color);
+}
+
+.services__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-about-text-color);
+}
+
+.services__cards {
+  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.services__card-image {
+  height: 265px;
+  margin-bottom: 16px;
+  border-radius: 30px;
+}
+
+.services__card-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.8px;
+  margin-bottom: 16px;
+  font-family: "Be Vietnam Pro";
+}
+
+.services__card-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 40px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-services-color);
+}
+
+.services__card-link {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 20px;
+  border-radius: 6px;
+  line-height: 20.24px;
+  display: inline-block;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-services-color);
+  border: 1px solid var(--main-services-color);
+  transition: color 150ms linear, background-color 150ms linear;
+
+  &:hover {
+    color: var(--main-light-color);
+    background-color: var(--main-services-color);
+  }
+}

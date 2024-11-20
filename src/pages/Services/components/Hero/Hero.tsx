@@ -1,6 +1,6 @@
 import "./index.css";
 import { NavLink } from "react-router-dom";
-import { HeroBackgroundImage3 } from "../../../../assets/images/jpg";
+import { HeroBackgroundImage1 } from "../../../../assets/images/jpg";
 import {
   FaFacebook,
   IoLogoInstagram,
@@ -11,7 +11,7 @@ const Hero = () => {
   const heroStyle = {
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    backgroundImage: `linear-gradient(90deg, rgba(30, 36, 44, 0.8) 0%, rgba(30, 36, 44, 0.8) 43.96%, rgba(30, 36, 44, 0.8) 66.39%), url(${HeroBackgroundImage3})`,
+    backgroundImage: `linear-gradient(90deg, rgba(30, 36, 44, 0.8) 0%, rgba(30, 36, 44, 0.8) 43.96%, rgba(30, 36, 44, 0.8) 66.39%), url(${HeroBackgroundImage1})`,
   };
 
   return (
@@ -89,7 +89,7 @@ const Hero = () => {
 
       <div className="container">
         <div className="content">
-          <h2 className="content-title">Sale</h2>
+          <h2 className="content-title">Our Services</h2>
           <p className="content-text">
             Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate
             aliquet at suspendisse dui semper feugiat.

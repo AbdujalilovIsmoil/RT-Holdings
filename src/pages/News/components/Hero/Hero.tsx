@@ -50,6 +50,11 @@ const Hero = () => {
                 </NavLink>
               </li>
               <li className="nav__item">
+                <NavLink className="nav__item-link" to="/pages/services">
+                  Services
+                </NavLink>
+              </li>
+              <li className="nav__item">
                 <NavLink className="nav__item-link" to="/pages/contact">
                   Contact Us
                 </NavLink>
