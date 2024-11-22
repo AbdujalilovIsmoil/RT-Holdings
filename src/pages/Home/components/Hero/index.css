@@ -3,14 +3,23 @@
 }
 
 .site-hero {
+  margin-top: -63.5px;
+  padding-top: calc(
+    (var(--main-medium-size) * 2) + var(--main-text-size) + 8px
+  );
+
   padding-bottom: calc(
-    (var(--main-medium-size) * 2) + var(--main-text-size) + 6px
+    (var(--main-medium-size) * 2) + var(--main-text-size) + 8px
   );
 }
 
 .site__navigation {
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  position: sticky;
   background-color: var(--site-navigation-color);
-  margin-bottom: calc(var(--main-medium-size) - 10px);
+  /* margin-bottom: calc(var(--main-medium-size) - 10px); */
 }
 
 .site__container {

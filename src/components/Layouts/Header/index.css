@@ -3,10 +3,7 @@
 }
 
 .header__top {
-  top: 0;
-  z-index: 2;
   width: 100%;
-  position: sticky;
   padding: var(--main-text-size) 0px;
   background-color: var(--main-dark-color);
 }

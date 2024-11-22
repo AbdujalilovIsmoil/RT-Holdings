@@ -3,7 +3,7 @@
 }
 
 .site__navigation {
-  background-color: var(--site-navigation-color);
+  /* background-color: var(--site-navigation-color); */
   margin-bottom: calc(var(--main-medium-size) - 10px);
 }
 

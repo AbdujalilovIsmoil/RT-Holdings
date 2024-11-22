@@ -4,7 +4,7 @@
 
 .site__navigation {
   background-color: var(--site-navigation-color);
-  margin-bottom: calc(var(--main-medium-size) - 10px);
+  /* margin-bottom: calc(var(--main-medium-size) - 10px); */
 }
 
 .site__container {
