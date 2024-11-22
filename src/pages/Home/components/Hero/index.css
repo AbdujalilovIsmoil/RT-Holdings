@@ -112,6 +112,7 @@
 }
 
 .site-hero__content-title {
+  color: var(--main-light-color);
   font-size: var(--main-medium-size);
   font-weight: calc(var(--site-weight-number) - 200);
   line-height: calc(var(--main-medium-size) + 7.5px);
