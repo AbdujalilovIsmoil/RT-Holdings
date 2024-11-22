@@ -1,10 +1,10 @@
 import "./index.css";
 import "swiper/swiper-bundle.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { ServicesImage4 } from "../../../../assets/images/png";
-import { SiteCardLogo } from "../../../../assets/images/svg";
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SiteCardLogo } from "../../../../assets/images/svg";
+import { ServicesImage4 } from "../../../../assets/images/png";
 
 const Services = () => {
   const backgroundStyle = {
@@ -61,9 +61,9 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-                <Link to="/" className="services-card__footer-btn">
+                {/* <Link to="/" className="services-card__footer-btn">
                   Lorem ipsum
-                </Link>
+                </Link> */}
               </div>
             </div>
           </SwiperSlide>
@@ -92,9 +92,9 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-                <Link to="/" className="services-card__footer-btn">
+                {/* <Link to="/" className="services-card__footer-btn">
                   Lorem ipsum
-                </Link>
+                </Link> */}
               </div>
             </div>
           </SwiperSlide>
@@ -123,9 +123,9 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-                <Link to="/" className="services-card__footer-btn">
+                {/* <Link to="/" className="services-card__footer-btn">
                   Lorem ipsum
-                </Link>
+                </Link> */}
               </div>
             </div>
           </SwiperSlide>
@@ -154,9 +154,9 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-                <Link to="/" className="services-card__footer-btn">
+                {/* <Link to="/" className="services-card__footer-btn">
                   Lorem ipsum
-                </Link>
+                </Link> */}
               </div>
             </div>
           </SwiperSlide>
@@ -185,9 +185,9 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-                <Link to="/" className="services-card__footer-btn">
+                {/* <Link to="/" className="services-card__footer-btn">
                   Lorem ipsum
-                </Link>
+                </Link> */}
               </div>
             </div>
           </SwiperSlide>
@@ -216,9 +216,9 @@ const Services = () => {
                     />
                   </Link>
                 </div>
-                <Link to="/" className="services-card__footer-btn">
+                {/* <Link to="/" className="services-card__footer-btn">
                   Lorem ipsum
-                </Link>
+                </Link> */}
               </div>
             </div>
           </SwiperSlide>
