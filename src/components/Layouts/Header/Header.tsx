@@ -1,9 +1,58 @@
 import "./index.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { siteLogo } from "../../../assets/images/svg";
 import { FiPhone, MdOutlineMailOutline } from "../../../assets/react-icons";
+import {
+  FaFacebook,
+  IoLogoInstagram,
+  FaTelegramPlane,
+} from "../../../assets/react-icons";
 
 const Header = () => {
+  interface linksType {
+    id: number;
+    path: string;
+    title: string;
+  }
+
+  const links: linksType[] = [
+    {
+      id: 1,
+      path: "/",
+      title: "Home",
+    },
+    {
+      id: 2,
+      title: "About Us",
+      path: "/pages/about",
+    },
+    {
+      id: 3,
+      title: "Projects",
+      path: "/pages/projects",
+    },
+    {
+      id: 4,
+      title: "News",
+      path: "/pages/news",
+    },
+    {
+      id: 5,
+      title: "Sale",
+      path: "/pages/sale",
+    },
+    {
+      id: 6,
+      title: "Services",
+      path: "/pages/services",
+    },
+    {
+      id: 7,
+      title: "Contact Us",
+      path: "/pages/contact",
+    },
+  ];
+
   return (
     <>
       <div className="header__top">
@@ -53,6 +102,55 @@ const Header = () => {
               </a>
             </li>
           </ul>
+        </div>
+      </div>
+
+      <div className="site__navigation">
+        <div className="site__container container">
+          <nav className="nav">
+            <ul className="nav__list">
+              {links.length > 0 &&
+                links.map((el) => {
+                  return (
+                    <li className="nav__item" key={el.id}>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive
+                            ? "nav__item-link nav__item-link--active"
+                            : "nav__item-link"
+                        }
+                        to={el.path}
+                      >
+                        {el.title}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+            </ul>
+          </nav>
+
+          <div className="site__contact">
+            <ul className="site__medias">
+              <li className="site__meda">
+                <a href="#" target="_blank">
+                  <IoLogoInstagram className="site__media-icon" />
+                </a>
+              </li>
+              <li className="site__meda">
+                <a href="#" target="_blank">
+                  <FaFacebook className="site__media-icon" />
+                </a>
+              </li>
+              <li className="site__meda">
+                <a href="#" target="_blank">
+                  <FaTelegramPlane className="site__media-icon" />
+                </a>
+              </li>
+            </ul>
+            <a className="site__contact-link" href="#">
+              Contact Us
+            </a>
+          </div>
         </div>
       </div>
     </>

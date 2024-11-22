@@ -1,9 +1,13 @@
-import { Hero, Post, Portfolio } from "./components";
+import { Post } from "./components";
+import { useLocation } from "react-router-dom";
+import { Hero, Portfolio } from "../../components";
 
 const Services = () => {
+  const location = useLocation();
+
   return (
     <>
-      <Hero />
+      <Hero page={location.pathname} />
       <Post />
       <Portfolio />
     </>

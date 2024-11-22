@@ -1,12 +1,14 @@
-import { Hero, Form } from "./components";
+import { useLocation } from "react-router-dom";
+import { Contact, Hero } from "../../components";
 
-const Contact = () => {
+const ContactComponent = () => {
+  const location = useLocation();
   return (
     <>
-      <Hero />
-      <Form />
+      <Hero page={location.pathname} />
+      <Contact />
     </>
   );
 };
 
-export default Contact;
+export default ContactComponent;
