@@ -2,6 +2,10 @@
   margin-bottom: 80px;
   padding: 60px 0px 150px 0px;
   background: linear-gradient(180deg, #191a19 0%, rgba(0, 0, 0, 0) 152.79%);
+
+  @media only screen and (max-width: 576px) {
+    padding: 60px 0px;
+  }
 }
 
 .contact__content {
@@ -14,14 +18,25 @@
   margin-bottom: 40px;
   line-height: 66.45px;
   color: var(--main-light-color);
+
+  @media only screen and (max-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
 }
 
 .contact__list {
   gap: 40px;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 80px;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 576px) {
+    gap: 25px;
+    margin-bottom: 40px;
+  }
 }
 
 .contact__itme {
@@ -33,6 +48,10 @@
 .contact__item-icon {
   font-size: 24px;
   color: var(--main-light-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 20px;
+  }
 }
 
 .contact__item-text {
@@ -40,16 +59,23 @@
   font-weight: 500;
   line-height: 31.9px;
   color: var(--main-light-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 20px;
+  }
 }
 
 .contact-request__content {
   margin-bottom: 25px;
+  @media only screen and (max-width: 576px) {
+    text-align: center;
+  }
 }
 
 .contact-request__content-title {
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   line-height: 30.36px;
   font-family: "Be Vietnam Pro";
   color: var(--main-light-color);
@@ -62,6 +88,13 @@
   padding: 45px 90px;
   border-radius: 15px;
   background-color: var(--main-orange-color);
+
+  @media only screen and (max-width: 768px) {
+    padding: 45px;
+  }
+  @media only screen and (max-width: 576px) {
+    padding: 20px;
+  }
 }
 
 .contact-request__content-text {
@@ -76,6 +109,10 @@
   gap: 18px;
   display: flex;
   align-items: center;
+
+  @media only screen and (max-width: 576px) {
+    flex-direction: column;
+  }
 }
 
 .contact-request-form__box-input {
@@ -88,6 +125,10 @@
   color: var(--main-contact-color);
   border: 1px solid var(--main-light-color);
   background-color: var(--main-light-color);
+
+  @media only screen and (max-width: 576px) {
+    padding: 25px;
+  }
 }
 
 .contact-request-form__box {
@@ -105,6 +146,10 @@
   color: var(--main-contact-color);
   border: 1px solid var(--main-light-color);
   background-color: var(--main-light-color);
+
+  @media only screen and (max-width: 576px) {
+    padding: 25px;
+  }
 }
 
 .contact-request-form__box-submit {
@@ -119,6 +164,10 @@
   border: 1px solid var(--main-dark-color);
   background-color: var(--main-dark-color);
   transition: color 150ms linear, background-color 150ms linear;
+
+  @media only screen and (max-width: 576px) {
+    font-size: 18px;
+  }
 
   &:hover {
     background-color: transparent;

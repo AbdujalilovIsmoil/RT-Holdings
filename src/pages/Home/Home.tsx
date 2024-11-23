@@ -7,11 +7,11 @@ const Home = () => {
 
   return (
     <>
-      <Hero page={location.pathname} />
-      <About />
+      {/* <Hero page={location.pathname} /> */}
+      {/* <About /> */}
       <Services />
-      <Portfolio />
-      <LatestNews />
+      {/* <Portfolio /> */}
+      {/* <LatestNews /> */}
       <Carousel />
       <Contact />
     </>
