@@ -1,5 +1,6 @@
 import "./index.css";
 import { Link, NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { siteLogo } from "../../../assets/images/svg";
 import { FiPhone, MdOutlineMailOutline } from "../../../assets/react-icons";
 import {
@@ -9,6 +10,21 @@ import {
 } from "../../../assets/react-icons";
 
 const Header = () => {
+  const navigationRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navigationRef.current) {
+        setIsScrolled(navigationRef?.current?.clientHeight < window.scrollY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   interface linksType {
     id: number;
     path: string;
@@ -55,7 +71,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="header__top">
+      <div className="header__top" ref={navigationRef}>
         <div className="header__top-container container">
           <Link to="/">
             <img
@@ -105,7 +121,9 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="site__navigation">
+      <div
+        className={`site-navigation ${isScrolled && "site-navigation--scroll"}`}
+      >
         <div className="site__container container">
           <nav className="nav">
             <ul className="nav__list">

@@ -2,10 +2,10 @@
   margin-bottom: 60px;
 }
 
-.site__navigation {
+/* .site-navigation {
   margin-bottom: -50px;
   background-color: var(--site-navigation-color);
-}
+} */
 
 .site__container {
   display: flex;
@@ -118,12 +118,18 @@
   );
 }
 
-.site__navigation {
+.site-navigation {
   top: 0;
   z-index: 2;
   width: 100%;
   position: sticky;
+  transition: background-color 150ms linear;
   background-color: var(--site-navigation-color);
+}
+
+.site-navigation--scroll {
+  background-color: var(--main-dark-color);
+  transition: background-color 150ms linear;
 }
 
 .site__container {
