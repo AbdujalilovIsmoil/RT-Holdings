@@ -2,6 +2,7 @@ import Hero from "./Hero";
 import Post from "./Post";
 import Info from "./Info";
 import Modal from "./Modal";
+import Texts from "./Texts";
 import Contact from "./Contact";
 import { Button } from "./Button";
 import { Loader } from "./Loader";
@@ -15,6 +16,7 @@ export {
   Info,
   Hero,
   Modal,
+  Texts,
   Button,
   Loader,
   Contact,

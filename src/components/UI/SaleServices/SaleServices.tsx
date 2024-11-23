@@ -28,7 +28,7 @@ const Services = ({ openModal, isActive, isOpen, data }: serviceType) => {
         {data.length > 0 &&
           data.map((el: textsTypes) => {
             return (
-              <div className="services__content">
+              <div className="services__content services__contents">
                 <h2 className="services__content-title">{el.title}</h2>
                 <p className="services__content-text">{el.text}</p>
               </div>

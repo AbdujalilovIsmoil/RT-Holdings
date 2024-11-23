@@ -1,0 +1,25 @@
+.all__content {
+  text-align: center;
+}
+
+.all__content {
+  margin: 0 auto;
+  max-width: 780px;
+  margin-bottom: 35px;
+}
+
+.all__content-title {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 69.11px;
+  color: var(--main-dark-color);
+}
+
+.all__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-about-text-color);
+}

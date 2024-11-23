@@ -1,5 +1,5 @@
 import "./index.css";
-import { Button } from "../../../components";
+import { Button, Texts } from "../../../components";
 import { PortfolioImage6 } from "../../../assets/images/jpg/portfolio";
 import {
   PortfolioImage1,
@@ -21,14 +21,12 @@ const Portfolio = () => {
   return (
     <section className="portfolio">
       <div className="container">
-        <div className="portfolio__content">
-          <h2 className="portfolio__content-title">Portfolio</h2>
-          <p className="portfolio__content-text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
+        <Texts
+          title="Portfolio"
+          text="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.....
-          </p>
-        </div>
+            ever since the 1500s....."
+        />
 
         <ul className="portfolio__filter-list">
           <li className="portfolio__filter-item">

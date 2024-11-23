@@ -6,6 +6,7 @@ import {
   AboutImage2,
   AboutImage3,
 } from "../../../assets/images/png";
+import Texts from "../Texts";
 
 const Info = () => {
   const backgroundStyle = {
@@ -17,14 +18,12 @@ const Info = () => {
   return (
     <section className="info">
       <div className="container">
-        <div className="info__content">
-          <h2 className="info__content-title">Lorem ipsum dolor</h2>
-          <p className="info__content-text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
+        <Texts
+          title="Lorem ipsum dolor"
+          text=" Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.....
-          </p>
-        </div>
+            ever since the 1500s....."
+        />
 
         <div className="info__background" style={backgroundStyle}>
           <div className="info__container container">

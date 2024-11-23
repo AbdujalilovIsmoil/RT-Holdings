@@ -2,6 +2,10 @@
   margin-bottom: 120px;
 }
 
+.services__contents {
+  text-align: center;
+}
+
 .services__content-title {
   font-size: 52px;
   font-weight: 700;
@@ -67,6 +71,7 @@
 }
 
 .service__search {
+  max-width: 850px;
   padding: 30px 20px;
   position: relative;
   border-radius: 100px;

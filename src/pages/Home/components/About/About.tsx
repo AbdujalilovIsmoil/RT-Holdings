@@ -1,5 +1,6 @@
 import "./index.css";
 import { Link } from "react-router-dom";
+import { Texts } from "../../../../components";
 import { AboutIcon } from "../../../../assets/images/svg";
 import { AboutBackgroundImage } from "../../../../assets/images/jpg";
 import {
@@ -18,14 +19,12 @@ const About = () => {
   return (
     <section className="about">
       <div className="container">
-        <div className="about__content">
-          <h2 className="about__content-title">About us</h2>
-          <p className="about__content-text">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
+        <Texts
+          title="About us"
+          text="Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.....
-          </p>
-        </div>
+            ever since the 1500s....."
+        />
       </div>
 
       <div className="about__background" style={backgroundStyle}>
