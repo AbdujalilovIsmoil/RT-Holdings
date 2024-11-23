@@ -1,11 +1,20 @@
 .carousel {
   padding: 100px 0px;
+
+  @media only screen and (max-width: 650px) {
+    padding: 80px 0px;
+  }
 }
 
 .carousel__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media only screen and (max-width: 650px) {
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .carousel__box-small-text {
@@ -19,6 +28,10 @@
   display: inline-block;
   color: var(--main-light-color);
   background-color: var(--main-latest-news-color);
+
+  @media only screen and (max-width: 650px) {
+    margin-bottom: 10px;
+  }
 }
 
 .carousel__box-small-text::before {
@@ -42,6 +55,15 @@
   font-family: "Exo";
   margin-bottom: 40px;
   line-height: 66.45px;
+
+  @media only screen and (max-width: 850px) {
+    font-size: 36px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 }
 
 .carousel__box:last-child {
@@ -49,6 +71,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media only screen and (max-width: 650px) {
+    display: none;
+  }
 }
 
 .carousel__button {

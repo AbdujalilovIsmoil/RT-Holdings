@@ -47,6 +47,17 @@ const Carousel = () => {
           autoplay={{
             delay: 2500,
           }}
+          breakpoints={{
+            950: {
+              slidesPerView: 3,
+            },
+            650: {
+              slidesPerView: 2,
+            },
+            280: {
+              slidesPerView: 1,
+            },
+          }}
         >
           <SwiperSlide className="carousel__item">
             <div className="carousel__user">
