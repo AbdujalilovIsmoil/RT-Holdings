@@ -4,6 +4,10 @@
 
 .services__contents {
   text-align: center;
+
+  @media only screen and (max-width: 576px) {
+    text-align: center;
+  }
 }
 
 .services__content-title {
@@ -11,6 +15,17 @@
   font-weight: 700;
   line-height: 72.8px;
   color: var(--main-dark-color);
+
+  @media only screen and (max-width: 850px) {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 28px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
 }
 
 .services__content-text {

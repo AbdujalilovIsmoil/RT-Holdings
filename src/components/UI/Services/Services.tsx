@@ -35,6 +35,17 @@ const Services = () => {
           autoplay={{
             delay: 2500,
           }}
+          breakpoints={{
+            950: {
+              slidesPerView: 3,
+            },
+            650: {
+              slidesPerView: 2,
+            },
+            280: {
+              slidesPerView: 1,
+            },
+          }}
         >
           <SwiperSlide>
             <div className="services-card" style={backgroundStyle}>
