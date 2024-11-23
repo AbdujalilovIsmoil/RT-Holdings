@@ -1,11 +1,11 @@
 import { useLocation } from "react-router-dom";
 import {
-  Contact,
-  Hero,
-  Portfolio,
-  Services,
   Info,
+  Hero,
   Post,
+  Contact,
+  Services,
+  Portfolio,
 } from "../../components";
 
 const About = () => {

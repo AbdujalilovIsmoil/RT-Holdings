@@ -26,7 +26,7 @@
   color: var(--main-light-color);
 
   @media only screen and (max-width: 650px) {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 }
 
