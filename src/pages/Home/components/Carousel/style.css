@@ -66,12 +66,6 @@
   font-size: 15px;
 }
 
-.carousel__button--active {
-  color: var(--main-light-color);
-  border: 1px solid var(--main-dark-color);
-  background-color: var(--main-dark-color);
-}
-
 .carousel__item {
   padding: 20px;
   transition: background-color 150ms linear;
@@ -162,4 +156,10 @@
 
 .carousel-stars__item-icon--active {
   color: var(--main-dark-color);
+}
+
+.swiper-button-disabled {
+  color: var(--main-light-color);
+  border: 1px solid var(--main-dark-color);
+  background-color: var(--main-dark-color);
 }

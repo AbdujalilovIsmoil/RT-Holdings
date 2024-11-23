@@ -1,7 +1,7 @@
 import "./style.css";
-import { Autoplay } from "swiper/modules";
 import { Button } from "../../../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import {
   IoStar,
   FaRegUser,
@@ -19,12 +19,15 @@ const Carousel = () => {
             <h2 className="carousel__box-title">What Our Customer Say</h2>
           </div>
           <div className="carousel__box">
-            <Button type="button" className="carousel__button">
+            <Button
+              type="button"
+              className="carousel__button carousel__button--left"
+            >
               <FaArrowLeftLong className="carousel__button-icon" />
             </Button>
             <Button
               type="button"
-              className="carousel__button carousel__button--active"
+              className="carousel__button carousel__button--active carousel__button--next"
             >
               <FaArrowRightLong className="carousel__button-icon" />
             </Button>
@@ -32,12 +35,15 @@ const Carousel = () => {
         </div>
 
         <Swiper
-          loop
           grabCursor
           spaceBetween={20}
+          navigation={{
+            nextEl: ".carousel__button--next",
+            prevEl: ".carousel__button--left",
+          }}
           slidesPerView={3}
-          modules={[Autoplay]}
           className="carousel__list"
+          modules={[Autoplay, Navigation]}
           autoplay={{
             delay: 2500,
           }}
