@@ -2,7 +2,17 @@ import "./index.css";
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { siteLogo } from "../../../assets/images/svg";
-import { FiPhone, MdOutlineMailOutline } from "../../../assets/react-icons";
+import {
+  FlagImage1,
+  FlagImage2,
+  FlagImage3,
+  FlagImage4,
+} from "../../../assets/images/png";
+import {
+  FiPhone,
+  FaAngleDown,
+  MdOutlineMailOutline,
+} from "../../../assets/react-icons";
 import {
   FaFacebook,
   IoLogoInstagram,
@@ -10,7 +20,17 @@ import {
 } from "../../../assets/react-icons";
 
 const Header = () => {
+  interface flagDataType {
+    flag: string;
+    lang: string;
+  }
+
   const navigationRef = useRef<HTMLDivElement>(null);
+  const [flagData, setFlagData] = useState<flagDataType>({
+    lang: "uz",
+    flag: FlagImage1,
+  });
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -68,6 +88,11 @@ const Header = () => {
       path: "/pages/contact",
     },
   ];
+
+  const setLangData = (data: flagDataType) => {
+    setIsOpen(false);
+    setFlagData(data);
+  };
 
   return (
     <>
@@ -148,6 +173,79 @@ const Header = () => {
           </nav>
 
           <div className="site__contact">
+            <div className="site__languages">
+              <div
+                role="button"
+                onClick={() => setIsOpen((prevState) => !prevState)}
+                className={`site__language ${isOpen && "site__language--open"}`}
+              >
+                <img
+                  width={35}
+                  height={35}
+                  alt="flag-image"
+                  src={flagData.flag}
+                  className="site__language-image"
+                />
+                <p className="site__language-text">{flagData.lang}</p>
+
+                <FaAngleDown className="site__language-icon" />
+              </div>
+
+              <ul className={`site__languages-list ${isOpen && "site__languages-list--open"}`}>
+                <li
+                  className="site__languages-item"
+                  onClick={() => setLangData({ lang: "uz", flag: FlagImage1 })}
+                >
+                  <img
+                    width={35}
+                    height={35}
+                    alt="flag-image"
+                    src={FlagImage1}
+                    className="site__languages-item-image"
+                  />
+                  <p className="site__languages-item-text">uz</p>
+                </li>
+                <li
+                  className="site__languages-item"
+                  onClick={() => setLangData({ lang: "ru", flag: FlagImage3 })}
+                >
+                  <img
+                    width={35}
+                    height={35}
+                    alt="flag-image"
+                    src={FlagImage3}
+                    className="site__languages-item-image"
+                  />
+                  <p className="site__languages-item-text">ru</p>
+                </li>
+                <li
+                  className="site__languages-item"
+                  onClick={() => setLangData({ lang: "en", flag: FlagImage2 })}
+                >
+                  <img
+                    width={35}
+                    height={35}
+                    alt="flag-image"
+                    src={FlagImage2}
+                    className="site__languages-item-image"
+                  />
+                  <p className="site__languages-item-text">en</p>
+                </li>
+                <li
+                  className="site__languages-item"
+                  onClick={() => setLangData({ lang: "ko", flag: FlagImage4 })}
+                >
+                  <img
+                    width={35}
+                    height={35}
+                    alt="flag-image"
+                    src={FlagImage4}
+                    className="site__languages-item-image"
+                  />
+                  <p className="site__languages-item-text">ko</p>
+                </li>
+              </ul>
+            </div>
             <ul className="site__medias">
               <li className="site__meda">
                 <a href="#" target="_blank">

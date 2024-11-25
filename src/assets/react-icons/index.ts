@@ -7,6 +7,7 @@ import { FaTelegramPlane, FaYoutube, FaRegUser, FaRegStar } from "./Fa";
 import {
   FaPhone,
   FaFacebook,
+  FaAngleDown,
   FaCircleCheck,
   FaArrowLeftLong,
   FaArrowRightLong,
@@ -21,6 +22,7 @@ export {
   FaYoutube,
   FaRegUser,
   FaFacebook,
+  FaAngleDown,
   IoCloseSharp,
   FaCircleCheck,
   IoLogoInstagram,

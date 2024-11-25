@@ -1,6 +1,7 @@
 import {
   FaPhone,
   FaFacebook,
+  FaAngleDown,
   FaCircleCheck,
   FaArrowLeftLong,
   FaArrowRightLong,
@@ -9,6 +10,7 @@ import {
 export {
   FaPhone,
   FaFacebook,
+  FaAngleDown,
   FaCircleCheck,
   FaArrowLeftLong,
   FaArrowRightLong,
