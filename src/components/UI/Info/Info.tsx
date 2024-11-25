@@ -6,7 +6,7 @@ import "./index.css";
 //   AboutImage2,
 //   AboutImage3,
 // } from "../../../assets/images/png";
-// import Texts from "../Texts";
+// import Texts from "../Texts"; 
 import { About } from "../../../pages/Home/components";
 
 const Info = () => {
