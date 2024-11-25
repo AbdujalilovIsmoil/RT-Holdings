@@ -1,31 +1,32 @@
 import "./index.css";
-import { AboutIcon } from "../../../assets/images/svg";
-import { AboutBackgroundImage } from "../../../assets/images/jpg";
-import {
-  AboutImage1,
-  AboutImage2,
-  AboutImage3,
-} from "../../../assets/images/png";
-import Texts from "../Texts";
+// import { AboutIcon } from "../../../assets/images/svg";
+// import { AboutBackgroundImage } from "../../../assets/images/jpg";
+// import {
+//   AboutImage1,
+//   AboutImage2,
+//   AboutImage3,
+// } from "../../../assets/images/png";
+// import Texts from "../Texts";
+import { About } from "../../../pages/Home/components";
 
 const Info = () => {
-  const backgroundStyle = {
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    backgroundImage: `url(${AboutBackgroundImage})`,
-  };
+  // const backgroundStyle = {
+  //   backgroundSize: "cover",
+  //   backgroundPosition: "center center",
+  //   backgroundImage: `url(${AboutBackgroundImage})`,
+  // };
 
   return (
     <section className="info">
       <div className="container">
-        <Texts
+        {/* <Texts
           title="Lorem ipsum dolor"
           text=" Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s....."
-        />
+        /> */}
 
-        <div className="info__background" style={backgroundStyle}>
+        {/* <div className="info__background" style={backgroundStyle}>
           <div className="info__container container">
             <div className="info__images-container">
               <img
@@ -124,7 +125,9 @@ const Info = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+
+        <About />
       </div>
     </section>
   );
