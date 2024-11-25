@@ -19,21 +19,19 @@ interface serviceType {
   openModal: () => void;
 }
 
-const Services = ({ openModal, isActive, isOpen, data }: serviceType) => {
+const Services = ({ openModal, isActive, isOpen }: serviceType) => {
   return (
     <section className="service">
       <Modal isActive={isActive} openModal={openModal} />
 
       <div className="container">
-        {data.length > 0 &&
-          data.map((el: textsTypes) => {
-            return (
-              <div className="services__content services__contents">
-                <h2 className="services__content-title">{el.title}</h2>
-                <p className="services__content-text">{el.text}</p>
-              </div>
-            );
-          })}
+        <div className="services__content services__contents">
+          <h2 className="services__content-title">Our Products</h2>
+          <p className="services__content-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
+            dolore!
+          </p>
+        </div>
 
         {isOpen && (
           <form className="service__search">

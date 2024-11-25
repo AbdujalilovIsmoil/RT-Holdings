@@ -41,12 +41,24 @@
   display: grid;
   margin-bottom: 60px;
   grid-template-columns: repeat(3, 1fr);
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .services__card-image {
   height: 265px;
   margin-bottom: 16px;
   border-radius: 30px;
+
+  @media only screen and (max-width: 576px) {
+    height: 200px;
+  }
 }
 
 .services__card-title {
@@ -55,6 +67,10 @@
   line-height: 28.8px;
   margin-bottom: 16px;
   font-family: "Be Vietnam Pro";
+
+  @media only screen and (max-width: 576px) {
+    font-size: 22px;
+  }
 }
 
 .services__card-text {
@@ -64,6 +80,11 @@
   margin-bottom: 40px;
   font-family: "Be Vietnam Pro";
   color: var(--main-services-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
 }
 
 .services__card-btn {
@@ -78,6 +99,11 @@
   color: var(--main-services-color);
   border: 1px solid var(--main-services-color);
   transition: color 150ms linear, background-color 150ms linear;
+
+  @media only screen and (max-width: 576px) {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 
   &:hover {
     color: var(--main-light-color);
