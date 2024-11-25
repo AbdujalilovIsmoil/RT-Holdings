@@ -180,8 +180,8 @@
   gap: 10px;
   display: flex;
   cursor: pointer;
+  padding: 10px 0px;
   align-items: center;
-  padding-bottom: 10px;
 }
 
 .site__language-image {

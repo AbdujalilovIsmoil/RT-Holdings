@@ -7,6 +7,10 @@
   display: grid;
   margin-bottom: 56px;
   grid-template-columns: repeat(7, auto);
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
 }
 
 .footer__picture-img {
@@ -31,6 +35,19 @@
 .footer__container {
   gap: 185px;
   display: flex;
+
+  @media only screen and (max-width: 1100px) {
+    gap: 0px;
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 768px) {
+    gap: 50px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-direction: column;
+  }
 }
 
 .footer__medias {
@@ -38,6 +55,11 @@
   display: flex;
   align-items: center;
   margin-bottom: 60px;
+
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 0px;
+    justify-content: center;
+  }
 }
 
 .footer__media-icon {
