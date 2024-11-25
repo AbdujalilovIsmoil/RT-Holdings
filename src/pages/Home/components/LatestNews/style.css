@@ -1,6 +1,11 @@
 .latest-news {
   padding: 60px 0px;
   margin-bottom: 100px;
+
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 0px;
+    padding: 0px 0px 60px 0px;
+  }
 }
 
 .latest-news__container {

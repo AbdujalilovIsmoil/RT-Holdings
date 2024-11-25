@@ -3,8 +3,15 @@ import { AiFillInstagram } from "./Ai";
 import { IoIosArrowRoundBack } from "./Io";
 import { MdOutlineMailOutline } from "./Md";
 import { IoLogoInstagram, IoSearch, IoCloseSharp, IoStar } from "./Io5";
-import { FaTelegramPlane, FaYoutube, FaRegUser, FaRegStar } from "./Fa";
 import {
+  FaTimes,
+  FaRegStar,
+  FaYoutube,
+  FaRegUser,
+  FaTelegramPlane,
+} from "./Fa";
+import {
+  FaBars,
   FaPhone,
   FaFacebook,
   FaAngleDown,
@@ -14,7 +21,9 @@ import {
 } from "./Fa6";
 
 export {
+  FaBars,
   IoStar,
+  FaTimes,
   FiPhone,
   FaPhone,
   IoSearch,

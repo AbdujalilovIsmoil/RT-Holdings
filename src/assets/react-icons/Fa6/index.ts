@@ -1,4 +1,5 @@
 import {
+  FaBars,
   FaPhone,
   FaFacebook,
   FaAngleDown,
@@ -8,6 +9,7 @@ import {
 } from "react-icons/fa6";
 
 export {
+  FaBars,
   FaPhone,
   FaFacebook,
   FaAngleDown,

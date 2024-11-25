@@ -9,7 +9,9 @@ import {
   FlagImage4,
 } from "../../../assets/images/png";
 import {
+  FaBars,
   FiPhone,
+  FaTimes,
   FaAngleDown,
   MdOutlineMailOutline,
 } from "../../../assets/react-icons";
@@ -18,8 +20,13 @@ import {
   IoLogoInstagram,
   FaTelegramPlane,
 } from "../../../assets/react-icons";
+import { Button } from "../../UI";
 
 const Header = () => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  const openToggleVisible = () => setIsVisible((prevState) => !prevState);
+
   interface flagDataType {
     flag: string;
     lang: string;
@@ -143,6 +150,24 @@ const Header = () => {
               </a>
             </li>
           </ul>
+
+          {isVisible ? (
+            <Button
+              type="button"
+              className="header__bars"
+              onClick={openToggleVisible}
+            >
+              <FaTimes className="header__bars-icon" />
+            </Button>
+          ) : (
+            <Button
+              type="button"
+              className="header__bars"
+              onClick={openToggleVisible}
+            >
+              <FaBars className="header__bars-icon" />
+            </Button>
+          )}
         </div>
       </div>
 
@@ -191,7 +216,11 @@ const Header = () => {
                 <FaAngleDown className="site__language-icon" />
               </div>
 
-              <ul className={`site__languages-list ${isOpen && "site__languages-list--open"}`}>
+              <ul
+                className={`site__languages-list ${
+                  isOpen && "site__languages-list--open"
+                }`}
+              >
                 <li
                   className="site__languages-item"
                   onClick={() => setLangData({ lang: "uz", flag: FlagImage1 })}
@@ -247,17 +276,17 @@ const Header = () => {
               </ul>
             </div>
             <ul className="site__medias">
-              <li className="site__meda">
+              <li className="site__media">
                 <a href="#" target="_blank">
                   <IoLogoInstagram className="site__media-icon" />
                 </a>
               </li>
-              <li className="site__meda">
+              <li className="site__media">
                 <a href="#" target="_blank">
                   <FaFacebook className="site__media-icon" />
                 </a>
               </li>
-              <li className="site__meda">
+              <li className="site__media">
                 <a href="#" target="_blank">
                   <FaTelegramPlane className="site__media-icon" />
                 </a>

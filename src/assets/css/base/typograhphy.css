@@ -22,7 +22,3 @@ body {
 a {
   text-decoration: none;
 }
-
-.main {
-  min-height: calc(50vh - 80px);
-}

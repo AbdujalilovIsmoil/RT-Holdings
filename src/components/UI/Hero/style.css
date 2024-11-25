@@ -136,6 +136,10 @@
   position: sticky;
   transition: background-color 150ms linear;
   background-color: var(--site-navigation-color);
+
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 }
 
 .site-navigation--scroll {
@@ -178,6 +182,10 @@
   display: flex;
   align-items: center;
   gap: calc(var(--main-text-size) + 6px);
+
+  @media only screen and (max-width: 1070px) {
+    display: none;
+  }
 }
 
 .site__media-icon {
