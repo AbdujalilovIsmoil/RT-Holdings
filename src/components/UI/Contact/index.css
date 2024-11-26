@@ -1,10 +1,10 @@
 .contact {
+  padding: 60px 0px;
   margin-bottom: 80px;
-  padding: 60px 0px 150px 0px;
   background: linear-gradient(180deg, #191a19 0%, rgba(0, 0, 0, 0) 152.79%);
 
   @media only screen and (max-width: 576px) {
-    padding: 60px 0px;
+    padding: 30px 0px;
   }
 }
 
@@ -21,6 +21,12 @@
 
   @media only screen and (max-width: 768px) {
     font-size: 36px;
+    line-height: 30px;
+    margin-bottom: 15px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 24px;
     margin-bottom: 15px;
   }
 }
@@ -29,13 +35,12 @@
   gap: 40px;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   align-items: center;
   justify-content: center;
 
   @media only screen and (max-width: 576px) {
-    gap: 25px;
-    margin-bottom: 40px;
+    display: none;
   }
 }
 
@@ -48,10 +53,6 @@
 .contact__item-icon {
   font-size: 24px;
   color: var(--main-light-color);
-
-  @media only screen and (max-width: 576px) {
-    font-size: 20px;
-  }
 }
 
 .contact__item-text {
@@ -59,10 +60,6 @@
   font-weight: 500;
   line-height: 31.9px;
   color: var(--main-light-color);
-
-  @media only screen and (max-width: 576px) {
-    font-size: 20px;
-  }
 }
 
 .contact-request__content {
@@ -85,7 +82,7 @@
   width: 100%;
   margin: 0 auto;
   max-width: 1120px;
-  padding: 45px 90px;
+  padding: 45px;
   border-radius: 15px;
   background-color: var(--main-orange-color);
 
@@ -103,6 +100,10 @@
   line-height: 25.3px;
   font-family: "Be Vietnam Pro";
   color: var(--main-light-color);
+
+  @media only screen and (max-width: 578px) {
+    display: none;
+  }
 }
 
 .contact-request-form__box {
@@ -117,17 +118,19 @@
 
 .contact-request-form__box-input {
   width: 100%;
+  outline: none;
+  padding: 25px;
   font-size: 20px;
   font-weight: 400;
-  padding: 25px 65px;
   border-radius: 15px;
   line-height: 25.3px;
   color: var(--main-contact-color);
   border: 1px solid var(--main-light-color);
   background-color: var(--main-light-color);
 
-  @media only screen and (max-width: 576px) {
-    padding: 25px;
+  @media only screen and (max-width: 578px) {
+    padding: 18px;
+    font-size: 16px;
   }
 }
 
@@ -137,15 +140,21 @@
 
 .contact-request-form__box-textarea {
   width: 100%;
+  padding: 25px;
   height: 150px;
+  outline: none;
   font-size: 20px;
   font-weight: 400;
-  padding: 25px 65px;
   margin-bottom: 10px;
   border-radius: 15px;
   color: var(--main-contact-color);
   border: 1px solid var(--main-light-color);
   background-color: var(--main-light-color);
+
+  @media only screen and (max-width: 578px) {
+    padding: 18px;
+    font-size: 16px;
+  }
 
   @media only screen and (max-width: 576px) {
     padding: 25px;
@@ -166,7 +175,8 @@
   transition: color 150ms linear, background-color 150ms linear;
 
   @media only screen and (max-width: 576px) {
-    font-size: 18px;
+    padding: 18px;
+    font-size: 16px;
   }
 
   &:hover {
