@@ -4,17 +4,16 @@
   @media only screen and (max-width: 650px) {
     padding: 0px 0px 80px 0px;
   }
+
+  @media only screen and (max-width: 576px) {
+    padding-bottom: 80px;
+  }
 }
 
 .carousel__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media only screen and (max-width: 650px) {
-    text-align: center;
-    justify-content: center;
-  }
 }
 
 .carousel__box-small-text {
@@ -60,9 +59,13 @@
     font-size: 36px;
   }
 
+  @media only screen and (max-width: 650px) {
+    margin-bottom: 20px;
+  }
+
   @media only screen and (max-width: 576px) {
     font-size: 28px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
 }
 
@@ -178,6 +181,10 @@
   font-size: 35px;
   transition: color 150ms linear;
   color: var(--main-orange-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 25px;
+  }
 }
 
 .carousel-stars__item-icon--active {
