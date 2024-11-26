@@ -4,7 +4,7 @@ import { Footer, Header } from "../components";
 const Routes = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main className="main">
         <Outlet />
       </main>
