@@ -1,8 +1,8 @@
 .services {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 
   @media only screen and (max-width: 650px) {
-    padding: 0px 0px;
+    margin-bottom: 50px;
   }
 }
 
@@ -10,7 +10,7 @@
   margin-bottom: 40px;
   @media only screen and (max-width: 576px) {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
