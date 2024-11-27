@@ -9,13 +9,18 @@
 .portfolio__filter-list {
   gap: 20px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 50px;
   justify-content: center;
 
+  @media only screen and (max-width: 980px) {
+    max-width: 700px;
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+
   @media only screen and (max-width: 576px) {
-    margin-bottom: 30px;
+    margin: 0px auto 30px auto;
   }
 }
 
@@ -30,12 +35,13 @@
   background-color: transparent;
   border: 1px solid var(--main-dark-color);
 
-  @media only screen and (max-width: 768px) {
-    padding: 10px 20px;
+  @media only screen and (max-width: 980px) {
+    white-space: nowrap;
   }
 
   @media only screen and (max-width: 768px) {
     font-size: 14px;
+    padding: 10px 20px;
   }
 }
 
@@ -66,7 +72,8 @@
   justify-content: flex-end;
 
   @media only screen and (max-width: 576px) {
-    height: 300px;
+    height: 275px;
+    padding: 10px;
   }
 }
 
@@ -74,6 +81,10 @@
   padding: 20px;
   border-radius: 6px;
   background: linear-gradient(111.8deg, #2b2f53 16.5%, #1d1c34 77.09%);
+
+  @media only screen and (max-width: 576px) {
+    padding: 10px;
+  }
 }
 
 .portfolio__card-content-heading {
@@ -91,4 +102,8 @@
   line-height: 22.77px;
   font-family: "Be Vietnam Pro";
   color: var(--main-light-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 16px;
+  }
 }
