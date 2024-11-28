@@ -263,3 +263,116 @@
   font-family: "Be Vietnam Pro";
   color: var(--main-dark-color);
 }
+
+/* header-close */
+
+.header-close {
+  top: 0;
+  z-index: 3;
+  left: -100%;
+  width: 100%;
+  position: fixed;
+  min-height: 100vh;
+  transition: left 150ms linear;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-close--open {
+  left: 0;
+}
+
+.header-close__btn {
+  top: 25px;
+  right: 10px;
+  border: none;
+  position: absolute;
+  background-color: transparent;
+}
+
+.header-close__btn-times {
+  font-size: 22px;
+  transition: transform 300ms linear;
+}
+
+.header-close__btn-times:hover {
+  transform: rotate(180deg);
+}
+
+.header-close__background {
+  max-width: 85%;
+  padding: 25px 0px;
+  position: relative;
+  min-height: inherit;
+  background-color: var(--main-light-color);
+}
+
+.header-close__medias {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0px;
+}
+
+.header-close__link {
+  gap: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.header-close__media {
+  padding: 10px 0px;
+}
+
+.header-close__bg {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-orange-color);
+}
+
+.header-close__link-icon {
+  font-size: 18px;
+  color: var(--main-light-color);
+}
+
+.header-close__link-text {
+  color: var(--main-dark-color);
+}
+
+.header-close__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-close__list {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-close__item-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--main-dark-color);
+  font-size: calc(var(--main-text-size) - 2px);
+}
+
+.header-close__item-arrow {
+  transform: rotate(-90deg);
+  color: var(--main-dark-color);
+
+  font-size: calc(var(--main-text-size) - 2px);
+}
+
+.header-close__item-link--active {
+  color: var(--main-orange-color);
+
+  .header-close__item-arrow {
+    color: var(--main-orange-color);
+  }
+}

@@ -1,4 +1,5 @@
 import "./index.css";
+import { Button } from "../../UI";
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { siteLogo } from "../../../assets/images/svg";
@@ -20,7 +21,6 @@ import {
   IoLogoInstagram,
   FaTelegramPlane,
 } from "../../../assets/react-icons";
-import { Button } from "../../UI";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -103,6 +103,71 @@ const Header = () => {
 
   return (
     <>
+      <div className={`header-close ${isVisible ? "header-close--open" : ""}`}>
+        <div className="header-close__background">
+          <div className="container">
+            <Button
+              type="button"
+              onClick={openToggleVisible}
+              className="header-close__btn"
+            >
+              <FaTimes className="header-close__btn-times" />
+            </Button>
+            <ul className="header-close__medias">
+              <li className="header-close__media">
+                <a className="header-close__link" target="_blank" href="#">
+                  <div className="header-close__bg">
+                    <MdOutlineMailOutline className="header-close__link-icon" />
+                  </div>
+                  <p className="header-close__link-text">Lorem@gmail.com</p>
+                </a>
+              </li>
+              <li className="header-close__media">
+                <a className="header-close__link" href="tel:+998905555555">
+                  <div className="header-close__bg">
+                    <FiPhone className="header-close__link-icon" />
+                  </div>
+
+                  <p className="header-close__link-text">+998 90 555 55 55</p>
+                </a>
+              </li>
+              <li className="header-close__media">
+                <a className="header-close__link" href="tel:+998905555555">
+                  <div className="header-close__bg">
+                    <FiPhone className="header-close__link-icon" />
+                  </div>
+
+                  <p className="header-close__link-text">+998 90 555 55 55</p>
+                </a>
+              </li>
+            </ul>
+
+            <ul className="header-close__list">
+              {links.length > 0 &&
+                links.map((el: linksType) => {
+                  return (
+                    <li className="header-close__item">
+                      <NavLink
+                        key={el.id}
+                        to={el.path}
+                        onClick={openToggleVisible}
+                        className={({ isActive }) =>
+                          isActive
+                            ? "header-close__item-link header-close__item-link--active"
+                            : "header-close__item-link"
+                        }
+                      >
+                        {el.title}
+                        <FaAngleDown className="header-close__item-arrow" />
+                      </NavLink>
+                    </li>
+                  );
+                })}
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div className="header__top" ref={navigationRef}>
         <div className="header__top-container container">
           <Link to="/">
@@ -151,23 +216,13 @@ const Header = () => {
             </li>
           </ul>
 
-          {isVisible ? (
-            <Button
-              type="button"
-              className="header__bars"
-              onClick={openToggleVisible}
-            >
-              <FaTimes className="header__bars-icon" />
-            </Button>
-          ) : (
-            <Button
-              type="button"
-              className="header__bars"
-              onClick={openToggleVisible}
-            >
-              <FaBars className="header__bars-icon" />
-            </Button>
-          )}
+          <Button
+            type="button"
+            className="header__bars"
+            onClick={openToggleVisible}
+          >
+            <FaBars className="header__bars-icon" />
+          </Button>
         </div>
       </div>
 
