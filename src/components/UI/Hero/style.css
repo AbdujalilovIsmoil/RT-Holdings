@@ -112,7 +112,7 @@
 }
 
 .site-hero {
-  margin-top: -63.5px;
+  /* margin-top: -63.5px; */
   padding-top: calc(
     (var(--main-medium-size) * 2) + var(--main-text-size) + 8px
   );
@@ -138,17 +138,17 @@
   width: 100%;
   position: sticky;
   transition: background-color 150ms linear;
-  background-color: var(--site-navigation-color);
+  background-color: var(--main-dark-color);
 
   @media only screen and (max-width: 900px) {
     display: none;
   }
 }
 
-.site-navigation--scroll {
-  background-color: var(--main-dark-color);
+/* .site-navigation--scroll {
+ 
   transition: background-color 150ms linear;
-}
+} */
 
 .site__container {
   display: flex;

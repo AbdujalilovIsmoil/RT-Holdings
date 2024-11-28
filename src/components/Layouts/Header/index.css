@@ -24,7 +24,7 @@
   background-color: var(--main-dark-color);
 
   @media only screen and (max-width: 900px) {
-    padding: 0px 0px 65px 0px;
+    padding: 10px 0px 10px 0px;
   }
 }
 
@@ -47,6 +47,11 @@
 .header__top-logo {
   height: calc(var(--main-medium-size) + 20px);
   width: calc(var(--main-medium-size) * 4) + calc(var(--main-text-size) - 8px);
+
+  @media only screen and (max-width: 576px) {
+    height: calc(var(--main-medium-size) + 5px);
+    width: calc(var(--main-medium-size) * 4) + calc(var(--main-text-size) - 8px);
+  }
 }
 
 .header__background {
