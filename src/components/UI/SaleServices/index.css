@@ -1,13 +1,13 @@
 .service {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
+
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 50px;
+  }
 }
 
 .services__contents {
   text-align: center;
-
-  @media only screen and (max-width: 576px) {
-    text-align: center;
-  }
 }
 
 .services__content-title {
