@@ -24,9 +24,8 @@ select {
   background-size: 1em;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background-position: 95%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6"><path fill="none" stroke="black" stroke-width="1.5" d="M1 1l4 4 4-4"/></svg>')
-    no-repeat right center;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6" width="20"><path fill="none" stroke="black" stroke-width="1.5" d="M1 1l4 4 4-4"/></svg>')
+    no-repeat 95% center;
 }
 
 .contact__content {
