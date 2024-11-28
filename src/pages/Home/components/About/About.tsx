@@ -77,11 +77,11 @@ const About = () => {
                   </li>
                   <li className="about__anwers-item">
                     <img
-                      className="about__answers-item-icon"
-                      src={AboutIcon}
+                      alt="icon"
                       width={18}
                       height={12}
-                      alt="icon"
+                      src={AboutIcon}
+                      className="about__answers-item-icon"
                     />
                     <p className="about__answers-item-text">Lorem ipsum</p>
                   </li>

@@ -122,10 +122,13 @@
   );
 
   @media only screen and (max-width: 992px) {
-    text-align: center;
     padding-bottom: calc(
       (var(--main-medium-size)) + var(--main-text-size) + 8px
     );
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding-top: 75px;
   }
 }
 
@@ -247,6 +250,11 @@
   max-width: calc(
     var(--main-medium-size) * 11 + (calc(var(--main-text-size) * 2) - 6px)
   );
+
+  @media only screen and (max-width: 992px) {
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 .site-hero__content-title {
