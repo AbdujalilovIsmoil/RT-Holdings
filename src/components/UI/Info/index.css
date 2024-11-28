@@ -1,5 +1,9 @@
 .info {
   margin-bottom: 100px;
+
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 50px;
+  }
 }
 
 .info__content {
@@ -23,10 +27,6 @@
   line-height: 22.77px;
   font-family: "Be Vietnam Pro";
   color: var(--main-about-text-color);
-}
-
-.info {
-  margin-bottom: 100px;
 }
 
 .info__background {
