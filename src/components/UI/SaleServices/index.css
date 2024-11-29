@@ -67,10 +67,15 @@
 }
 
 .services__card-title {
+  line-clamp: 1;
   font-size: 24px;
   font-weight: 600;
+  overflow: hidden;
   line-height: 28.8px;
   margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   font-family: "Be Vietnam Pro";
 
   @media only screen and (max-width: 576px) {
