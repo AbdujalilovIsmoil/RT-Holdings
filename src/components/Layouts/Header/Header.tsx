@@ -107,14 +107,14 @@ const Header = () => {
         <div className="header-close__background">
           <div className="header-close__top">
             <div className="header-close__container container">
-              <Link to="/" onClick={openToggleVisible}>
+              {/* <Link to="/" onClick={openToggleVisible}>
                 <img
                   width={78}
                   height={26}
                   src={siteLogo}
                   className="header-close__top-logo"
                 />
-              </Link>
+              </Link> */}
               <Button
                 type="button"
                 onClick={openToggleVisible}
