@@ -24,7 +24,7 @@ const LatestNews = () => {
             senectus vel eu fermentum amet tellus turpis tellus. Porta arcu
             feugiat augue dolor faucibus purus.
           </p>
-          <Link className="latest-news__content-link" to="/">
+          <Link className="latest-news__content-link" to="/pages/news">
             Lorem ipsum dolor.
           </Link>
         </div>

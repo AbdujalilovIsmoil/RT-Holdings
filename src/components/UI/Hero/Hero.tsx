@@ -1,6 +1,5 @@
 import "./style.css";
-import { Button } from "../Button";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   HeroBackgroundImage,
   HeroBackgroundImage1,
@@ -117,15 +116,15 @@ const Hero = ({ page }: { page: string }) => {
             </p>
 
             <div className="site-hero__buttons">
-              <Button
-                type="button"
+              <Link
+                to="/pages/services"
                 className="site-hero__buttons-button site-hero__buttons-button--active"
               >
                 Explore Our Services
-              </Button>
-              <Button className="site-hero__buttons-button" type="button">
+              </Link>
+              <Link to="/pages/about" className="site-hero__buttons-button">
                 Learn More About Us
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

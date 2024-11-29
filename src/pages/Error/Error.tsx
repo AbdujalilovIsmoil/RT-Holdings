@@ -1,7 +1,14 @@
-import { NotFound } from "../../assets/images/png";
 import "./index.css";
+import { useEffect } from "react";
+import { NotFound } from "../../assets/images/png";
 
 const Error = () => {
+  useEffect(() => {
+    scrollTo({
+      top: 0,
+    });
+  }, []);
+
   return (
     <section className="not-found">
       <div className="container">

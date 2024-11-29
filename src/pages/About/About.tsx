@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
   Info,
@@ -10,6 +11,12 @@ import {
 
 const About = () => {
   const location = useLocation();
+
+  useEffect(() => {
+    scrollTo({
+      top: 0,
+    });
+  }, []);
 
   return (
     <>
