@@ -105,14 +105,26 @@ const Header = () => {
     <>
       <div className={`header-close ${isVisible ? "header-close--open" : ""}`}>
         <div className="header-close__background">
+          <div className="header-close__top">
+            <div className="header-close__container container">
+              <Link to="/" onClick={openToggleVisible}>
+                <img
+                  width={78}
+                  height={26}
+                  src={siteLogo}
+                  className="header-close__top-logo"
+                />
+              </Link>
+              <Button
+                type="button"
+                onClick={openToggleVisible}
+                className="header-close__btn"
+              >
+                <FaTimes className="header-close__btn-times" />
+              </Button>
+            </div>
+          </div>
           <div className="container">
-            <Button
-              type="button"
-              onClick={openToggleVisible}
-              className="header-close__btn"
-            >
-              <FaTimes className="header-close__btn-times" />
-            </Button>
             <ul className="header-close__medias">
               <li className="header-close__media">
                 <a className="header-close__link" target="_blank" href="#">
