@@ -308,7 +308,6 @@
   max-width: 500px;
   margin: 25px 0px;
   overflow-x: scroll;
-  /* flex-direction: column; */
 }
 
 .header-close__link {
@@ -319,22 +318,13 @@
 }
 
 .header-close__media {
-  padding: 5px 0px;
-}
-
-.header-close__bg {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--main-orange-color);
+  padding: 10px;
+  background-color: var(--search-background-color);
 }
 
 .header-close__link-icon {
   font-size: 18px;
-  color: var(--main-light-color);
+  color: var(--main-orange-color);
 }
 
 .header-close__link-text {
