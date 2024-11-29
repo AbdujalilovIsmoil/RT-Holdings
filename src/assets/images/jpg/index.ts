@@ -10,6 +10,7 @@ import {
   PortfolioImage3,
   PortfolioImage4,
   PortfolioImage5,
+  PortfolioImage6,
 } from "./portfolio";
 
 import {
@@ -35,6 +36,7 @@ export {
   PortfolioImage3,
   PortfolioImage4,
   PortfolioImage5,
+  PortfolioImage6,
   HeroBackgroundImage,
   HeroBackgroundImage1,
   HeroBackgroundImage2,

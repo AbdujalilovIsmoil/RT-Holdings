@@ -1,12 +1,13 @@
 import "./index.css";
+import { Link } from "react-router-dom";
 import { Button, Texts } from "../../../components";
-import { PortfolioImage6 } from "../../../assets/images/jpg/portfolio";
 import {
   PortfolioImage1,
   PortfolioImage2,
   PortfolioImage3,
   PortfolioImage4,
   PortfolioImage5,
+  PortfolioImage6,
 } from "../../../assets/images/jpg";
 
 const Portfolio = () => {
@@ -60,83 +61,107 @@ const Portfolio = () => {
         </ul>
 
         <ul className="portfolio__cards">
-          <li
-            className="portfolio__card"
-            style={getBackgroundImage(PortfolioImage1)}
-          >
-            <div className="portfolio__card-content">
-              <span className="portfolio__card-content-heading">
-                <em>Product Name</em>
-              </span>
-              <h3 className="portfolio__card-content-name">
-                Lorem ipsum dolor
-              </h3>
-            </div>
+          <li className="portfolio__card-item">
+            <Link to="/pages/projects/1">
+              <div
+                className="portfolio__card"
+                style={getBackgroundImage(PortfolioImage1)}
+              >
+                <div className="portfolio__card-content">
+                  <span className="portfolio__card-content-heading">
+                    <em>Product Name</em>
+                  </span>
+                  <h3 className="portfolio__card-content-name">
+                    Lorem ipsum dolor
+                  </h3>
+                </div>
+              </div>
+            </Link>
           </li>
-          <li
-            className="portfolio__card"
-            style={getBackgroundImage(PortfolioImage2)}
-          >
-            <div className="portfolio__card-content">
-              <span className="portfolio__card-content-heading">
-                <em>Product Name</em>
-              </span>
-              <h3 className="portfolio__card-content-name">
-                Lorem ipsum dolor
-              </h3>
-            </div>
+          <li className="portfolio__card-item">
+            <Link to="/pages/projects/1">
+              <div
+                className="portfolio__card"
+                style={getBackgroundImage(PortfolioImage2)}
+              >
+                <div className="portfolio__card-content">
+                  <span className="portfolio__card-content-heading">
+                    <em>Product Name</em>
+                  </span>
+                  <h3 className="portfolio__card-content-name">
+                    Lorem ipsum dolor
+                  </h3>
+                </div>
+              </div>
+            </Link>
           </li>
-          <li
-            className="portfolio__card"
-            style={getBackgroundImage(PortfolioImage3)}
-          >
-            <div className="portfolio__card-content">
-              <span className="portfolio__card-content-heading">
-                <em>Product Name</em>
-              </span>
-              <h3 className="portfolio__card-content-name">
-                Lorem ipsum dolor
-              </h3>
-            </div>
+          <li className="portfolio__card-item">
+            <Link to="/pages/projects/1">
+              <div
+                className="portfolio__card"
+                style={getBackgroundImage(PortfolioImage3)}
+              >
+                <div className="portfolio__card-content">
+                  <span className="portfolio__card-content-heading">
+                    <em>Product Name</em>
+                  </span>
+                  <h3 className="portfolio__card-content-name">
+                    Lorem ipsum dolor
+                  </h3>
+                </div>
+              </div>
+            </Link>
           </li>
-          <li
-            className="portfolio__card"
-            style={getBackgroundImage(PortfolioImage4)}
-          >
-            <div className="portfolio__card-content">
-              <span className="portfolio__card-content-heading">
-                <em>Product Name</em>
-              </span>
-              <h3 className="portfolio__card-content-name">
-                Lorem ipsum dolor
-              </h3>
-            </div>
+          <li className="portfolio__card-item">
+            <Link to="/pages/projects/1">
+              <div
+                className="portfolio__card"
+                style={getBackgroundImage(PortfolioImage4)}
+              >
+                <div className="portfolio__card-content">
+                  <span className="portfolio__card-content-heading">
+                    <em>Product Name</em>
+                  </span>
+                  <h3 className="portfolio__card-content-name">
+                    Lorem ipsum dolor
+                  </h3>
+                </div>
+              </div>
+            </Link>
           </li>
-          <li
-            className="portfolio__card"
-            style={getBackgroundImage(PortfolioImage5)}
-          >
-            <div className="portfolio__card-content">
-              <span className="portfolio__card-content-heading">
-                <em>Product Name</em>
-              </span>
-              <h3 className="portfolio__card-content-name">
-                Lorem ipsum dolor
-              </h3>
-            </div>
+          <li className="portfolio__card-item">
+            <Link to="/pages/projects/1">
+              <div
+                className="portfolio__card"
+                style={getBackgroundImage(PortfolioImage5)}
+              >
+                <div className="portfolio__card-content">
+                  <span className="portfolio__card-content-heading">
+                    <em>Product Name</em>
+                  </span>
+                  <h3 className="portfolio__card-content-name">
+                    Lorem ipsum dolor
+                  </h3>
+                </div>
+              </div>
+            </Link>
           </li>
-          <li
-            className="portfolio__card"
-            style={getBackgroundImage(PortfolioImage6)}
-          >
-            <div className="portfolio__card-content">
-              <span className="portfolio__card-content-heading">
-                <em>Product Name</em>
-              </span>
-              <h3 className="portfolio__card-content-name">
-                Lorem ipsum dolor
-              </h3>
-            </div>
+          <li className="portfolio__card-item">
+            <Link to="/pages/projects/1">
+              <div
+                className="portfolio__card"
+                style={getBackgroundImage(PortfolioImage6)}
+              >
+                <div className="portfolio__card-content">
+                  <span className="portfolio__card-content-heading">
+                    <em>Product Name</em>
+                  </span>
+                  <h3 className="portfolio__card-content-name">
+                    Lorem ipsum dolor
+                  </h3>
+                </div>
+              </div>
+            </Link>
           </li>
         </ul>
       </div>

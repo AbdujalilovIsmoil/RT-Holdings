@@ -60,6 +60,12 @@ const Hero = ({ page }: { page: string }) => {
       path: "/pages/contact",
       text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
     },
+    {
+      id: 7,
+      title: "Contact us",
+      path: "/pages/contact",
+      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+    },
   ];
 
   const location = useLocation();

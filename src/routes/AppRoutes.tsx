@@ -10,6 +10,7 @@ const About = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 const Projects = lazy(() => import("../pages/Projects"));
 const Services = lazy(() => import("../pages/Services"));
+const PortfolioView = lazy(() => import("../pages/PortfolioView"));
 
 const routes = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const routes = createBrowserRouter([
       {
         element: <Services />,
         path: "/pages/services",
+      },
+      {
+        element: <PortfolioView />,
+        path: "/pages/projects/:id",
       },
       {
         path: "*",
