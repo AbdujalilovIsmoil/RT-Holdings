@@ -24,6 +24,10 @@
   }
 }
 
+.portfolio__filter-list::-webkit-scrollbar {
+  display: none;
+}
+
 .portfolio__filter-item-btn {
   font-size: 18px;
   font-weight: 400;
