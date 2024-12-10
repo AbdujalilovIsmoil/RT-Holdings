@@ -1,15 +1,28 @@
+// {
+//   "parser": "@babel/eslint-parser",
+//   "plugins": ["@typescript-eslint"],
+//   "extends": [
+//     "eslint:recommended",
+//     "plugin:@typescript-eslint/recommended",
+//     "next/core-web-vitals"
+//   ],
+//   "rules": {
+//     "react/no-unescaped-entities": "off",
+//     "@typescript-eslint/no-explicit-any": "warn",
+//     "react-hooks/exhaustive-deps": "warn",
+//     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+//   }
+// }
+
 {
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
   "plugins": ["@typescript-eslint"],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "rules": {
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "react-hooks/exhaustive-deps": "warn",
-    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
+    "@typescript-eslint/no-unused-vars": "off"
   }
 }
