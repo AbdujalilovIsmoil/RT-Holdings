@@ -1,3 +1,3 @@
-import Projects from "./Projects";
+import Portfolio from "./projects";
 
-export default Projects;
+export default Portfolio;

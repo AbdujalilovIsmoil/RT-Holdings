@@ -1,13 +1,12 @@
-import { Footer, Header } from "./Layouts";
-import { Input, Select, Textarea } from "./Field";
+import { Input, Textarea } from "./Field";
+import { Header, Footer } from "./Layouts";
 import {
-  Post,
   Hero,
+  Post,
   Info,
-  Modal,
   Texts,
+  Modal,
   Button,
-  Loader,
   Contact,
   Services,
   Portfolio,
@@ -19,17 +18,15 @@ export {
   Post,
   Info,
   Hero,
-  Modal,
   Texts,
   Input,
+  Modal,
   Button,
-  Loader,
-  Select,
-  Footer,
   Header,
+  Footer,
   Contact,
-  Services,
   Textarea,
+  Services,
   Portfolio,
   Pagination,
   SaleServices,

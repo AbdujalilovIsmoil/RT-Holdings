@@ -1,5 +1,4 @@
-import { Input } from "./Input";
-import { Select } from "./Select";
-import { Textarea } from "./Textarea";
+import Input from "./Input";
+import Textarea from "./Textarea";
 
-export { Input, Select, Textarea };
+export { Input, Textarea };

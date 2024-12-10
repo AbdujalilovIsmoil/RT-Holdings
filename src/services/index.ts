@@ -1,3 +1,3 @@
-import api from "./axios";
+import api from "./api";
 
-export { api };
+export default api;

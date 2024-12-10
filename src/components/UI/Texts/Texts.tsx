@@ -1,4 +1,5 @@
-import "./index.css";
+import classNames from "classnames";
+import styles from "./index.module.css";
 
 interface textTypes {
   text: string;
@@ -7,9 +8,9 @@ interface textTypes {
 
 const Texts = ({ text, title }: textTypes) => {
   return (
-    <div className="all__content">
-      <h2 className="all__content-title">{title}</h2>
-      <p className="all__content-text">{text}</p>
+    <div className={classNames(styles["all__content"])}>
+      <h2 className={classNames(styles["all__content-title"])}>{title}</h2>
+      <p className={classNames(styles["all__content-text"])}>{text}</p>
     </div>
   );
 };

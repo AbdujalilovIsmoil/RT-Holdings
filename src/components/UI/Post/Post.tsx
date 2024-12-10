@@ -1,19 +1,23 @@
-import "./index.css";
-import { HeroBackgroundImage2 } from "../../../assets/images/jpg";
+import Image from "next/image";
+import classNames from "classnames";
+import styles from "./index.module.css";
 
 const Post = () => {
   return (
-    <section className="post">
+    <section className={classNames(styles["post"])}>
       <div className="container">
-        <div className="post__content">
-          <img
+        <div className={classNames(styles["post__content"])}>
+          <Image
             alt="image"
+            width={500}
             height={510}
-            src={HeroBackgroundImage2}
-            className="post__content-image"
+            src="/images/jpg/hero-background-image-1.jpg"
+            className={classNames(styles["post__content-image"])}
           />
-          <h2 className="post__content-title">Lorem ipsum dolor sit</h2>
-          <p className="post__content-text">
+          <h2 className={classNames(styles["post__content-title"])}>
+            Lorem ipsum dolor sit
+          </h2>
+          <p className={classNames(styles["post__content-text"])}>
             Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam eaque ipsa,
             quae ab illo inventore veritatis et quasi architecto beatae vitae

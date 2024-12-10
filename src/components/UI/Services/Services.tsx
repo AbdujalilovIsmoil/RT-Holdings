@@ -1,26 +1,26 @@
-import "./index.css";
+import Link from "next/link";
+import Image from "next/image";
 import "swiper/swiper-bundle.css";
-import { Link } from "react-router-dom";
+import classNames from "classnames";
+import styles from "./index.module.css";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { SiteCardLogo } from "../../../assets/images/svg";
-import { ServicesImage4 } from "../../../assets/images/png";
 
 const Services = () => {
   const backgroundStyle = {
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    backgroundImage: `linear-gradient(0deg, rgba(28, 28, 28, 0.5) 0%, rgba(28, 28, 28, 0) 50%), url(${ServicesImage4})`,
+    backgroundImage: `linear-gradient(0deg, rgba(28, 28, 28, 0.5) 0%, rgba(28, 28, 28, 0) 50%), url(/images/png/services/services-image-4.png)`,
   };
 
   return (
-    <section className="services">
+    <section className={classNames(styles["services"])}>
       <div className="container">
-        <div className="services__content">
-          <span className="services__content-small">
+        <div className={classNames(styles["services__content"])}>
+          <span className={classNames(styles["services__content-small"])}>
             Lorem ipsum dolor sit amet.
           </span>
-          <h2 className="services__content-title">
+          <h2 className={classNames(styles["services__content-title"])}>
             Lorem ipsum dolor sit amet consectetur.
           </h2>
         </div>
@@ -31,7 +31,7 @@ const Services = () => {
           slidesPerView={3}
           spaceBetween={20}
           modules={[Autoplay]}
-          className="services-cards"
+          className={classNames(styles["services-cards"])}
           autoplay={{
             delay: 2500,
           }}
@@ -48,188 +48,224 @@ const Services = () => {
           }}
         >
           <SwiperSlide>
-            <div className="services-card" style={backgroundStyle}>
-              <div className="services-card__content">
-                <h2 className="services-card__content-title">
+            <div
+              style={backgroundStyle}
+              className={classNames(styles["services-card"])}
+            >
+              <div className={classNames(styles["services-card__content"])}>
+                <h2
+                  className={classNames(styles["services-card__content-title"])}
+                >
                   Innovative technologies
                 </h2>
-                <p className="services-card__content-text">
+                <p
+                  className={classNames(styles["services-card__content-text"])}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
+                  typesetting industry. Lorem Ipsum has been the industrys
                   standard dummy text ever since the 1500s,
                 </p>
               </div>
 
-              <div className="services-card__footer">
-                <div className="services-card__box">
-                  <Link to="/">
-                    <img
+              <div className={classNames(styles["services-card__footer"])}>
+                <div className={classNames(styles["services-card__box"])}>
+                  <Link href="/">
+                    <Image
                       height={44}
                       width={130}
                       alt="RT Holdings"
-                      src={SiteCardLogo}
-                      className="services-card__footer-image"
+                      src="/images/svg/site-card-logo.svg"
+                      className={classNames(
+                        styles["services-card__footer-image"]
+                      )}
                     />
                   </Link>
                 </div>
-                {/* <Link to="/" className="services-card__footer-btn">
-                  Lorem ipsum
-                </Link> */}
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="services-card" style={backgroundStyle}>
-              <div className="services-card__content">
-                <h2 className="services-card__content-title">
+            <div
+              style={backgroundStyle}
+              className={classNames(styles["services-card"])}
+            >
+              <div className={classNames(styles["services-card__content"])}>
+                <h2
+                  className={classNames(styles["services-card__content-title"])}
+                >
                   Innovative technologies
                 </h2>
-                <p className="services-card__content-text">
+                <p
+                  className={classNames(styles["services-card__content-text"])}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s,
                 </p>
               </div>
 
-              <div className="services-card__footer">
-                <div className="services-card__box">
-                  <Link to="/">
-                    <img
+              <div className={classNames(styles["services-card__footer"])}>
+                <div className={classNames(styles["services-card__box"])}>
+                  <Link href="/">
+                    <Image
                       height={44}
                       width={130}
                       alt="RT Holdings"
-                      src={SiteCardLogo}
-                      className="services-card__footer-image"
+                      src="/images/svg/site-card-logo.svg"
+                      className={classNames(
+                        styles["services-card__footer-image"]
+                      )}
                     />
                   </Link>
                 </div>
-                {/* <Link to="/" className="services-card__footer-btn">
-                  Lorem ipsum
-                </Link> */}
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="services-card" style={backgroundStyle}>
-              <div className="services-card__content">
-                <h2 className="services-card__content-title">
+            <div
+              style={backgroundStyle}
+              className={classNames(styles["services-card"])}
+            >
+              <div className={classNames(styles["services-card__content"])}>
+                <h2
+                  className={classNames(styles["services-card__content-title"])}
+                >
                   Innovative technologies
                 </h2>
-                <p className="services-card__content-text">
+                <p
+                  className={classNames(styles["services-card__content-text"])}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s,
                 </p>
               </div>
 
-              <div className="services-card__footer">
-                <div className="services-card__box">
-                  <Link to="/">
-                    <img
+              <div className={classNames(styles["services-card__footer"])}>
+                <div className={classNames(styles["services-card__box"])}>
+                  <Link href="/">
+                    <Image
                       height={44}
                       width={130}
                       alt="RT Holdings"
-                      src={SiteCardLogo}
-                      className="services-card__footer-image"
+                      src="/images/svg/site-card-logo.svg"
+                      className={classNames(
+                        styles["services-card__footer-image"]
+                      )}
                     />
                   </Link>
                 </div>
-                {/* <Link to="/" className="services-card__footer-btn">
-                  Lorem ipsum
-                </Link> */}
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="services-card" style={backgroundStyle}>
-              <div className="services-card__content">
-                <h2 className="services-card__content-title">
+            <div
+              style={backgroundStyle}
+              className={classNames(styles["services-card"])}
+            >
+              <div className={classNames(styles["services-card__content"])}>
+                <h2
+                  className={classNames(styles["services-card__content-title"])}
+                >
                   Innovative technologies
                 </h2>
-                <p className="services-card__content-text">
+                <p
+                  className={classNames(styles["services-card__content-text"])}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s,
                 </p>
               </div>
 
-              <div className="services-card__footer">
-                <div className="services-card__box">
-                  <Link to="/">
-                    <img
+              <div className={classNames(styles["services-card__footer"])}>
+                <div className={classNames(styles["services-card__box"])}>
+                  <Link href="/">
+                    <Image
                       height={44}
                       width={130}
                       alt="RT Holdings"
-                      src={SiteCardLogo}
-                      className="services-card__footer-image"
+                      src="/images/svg/site-card-logo.svg"
+                      className={classNames(
+                        styles["services-card__footer-image"]
+                      )}
                     />
                   </Link>
                 </div>
-                {/* <Link to="/" className="services-card__footer-btn">
-                  Lorem ipsum
-                </Link> */}
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="services-card" style={backgroundStyle}>
-              <div className="services-card__content">
-                <h2 className="services-card__content-title">
+            <div
+              style={backgroundStyle}
+              className={classNames(styles["services-card"])}
+            >
+              <div className={classNames(styles["services-card__content"])}>
+                <h2
+                  className={classNames(styles["services-card__content-title"])}
+                >
                   Innovative technologies
                 </h2>
-                <p className="services-card__content-text">
+                <p
+                  className={classNames(styles["services-card__content-text"])}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s,
                 </p>
               </div>
 
-              <div className="services-card__footer">
-                <div className="services-card__box">
-                  <Link to="/">
-                    <img
+              <div className={classNames(styles["services-card__footer"])}>
+                <div className={classNames(styles["services-card__box"])}>
+                  <Link href="/">
+                    <Image
                       height={44}
                       width={130}
                       alt="RT Holdings"
-                      src={SiteCardLogo}
-                      className="services-card__footer-image"
+                      src="/images/svg/site-card-logo.svg"
+                      className={classNames(
+                        styles["services-card__footer-image"]
+                      )}
                     />
                   </Link>
                 </div>
-                {/* <Link to="/" className="services-card__footer-btn">
-                  Lorem ipsum
-                </Link> */}
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="services-card" style={backgroundStyle}>
-              <div className="services-card__content">
-                <h2 className="services-card__content-title">
+            <div
+              style={backgroundStyle}
+              className={classNames(styles["services-card"])}
+            >
+              <div className={classNames(styles["services-card__content"])}>
+                <h2
+                  className={classNames(styles["services-card__content-title"])}
+                >
                   Innovative technologies
                 </h2>
-                <p className="services-card__content-text">
+                <p
+                  className={classNames(styles["services-card__content-text"])}
+                >
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s,
                 </p>
               </div>
 
-              <div className="services-card__footer">
-                <div className="services-card__box">
-                  <Link to="/">
-                    <img
+              <div className={classNames(styles["services-card__footer"])}>
+                <div className={classNames(styles["services-card__box"])}>
+                  <Link href="/">
+                    <Image
                       height={44}
                       width={130}
                       alt="RT Holdings"
-                      src={SiteCardLogo}
-                      className="services-card__footer-image"
+                      src="/images/svg/site-card-logo.svg"
+                      className={classNames(
+                        styles["services-card__footer-image"]
+                      )}
                     />
                   </Link>
                 </div>
-                {/* <Link to="/" className="services-card__footer-btn">
-                  Lorem ipsum
-                </Link> */}
               </div>
             </div>
           </SwiperSlide>

@@ -1,0 +1,17 @@
+image: node:20
+
+stages:
+  - install
+
+cache:
+  key: default
+  paths:
+    - node_modules/
+    - .next/cache/
+
+install:
+  stage: install
+  script:
+    - npm ci --force
+    - npm install @babel/eslint-parser --save-dev
+    - npm run build

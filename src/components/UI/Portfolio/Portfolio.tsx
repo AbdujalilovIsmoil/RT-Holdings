@@ -1,16 +1,49 @@
-import "./index.css";
-import { Link } from "react-router-dom";
-import { Button, Texts } from "../../../components";
-import {
-  PortfolioImage1,
-  PortfolioImage2,
-  PortfolioImage3,
-  PortfolioImage4,
-  PortfolioImage5,
-  PortfolioImage6,
-} from "../../../assets/images/jpg";
+"use client";
+
+import Link from "next/link";
+import classNames from "classnames";
+import styles from "./index.module.css";
+import Texts from "@/components/UI/Texts";
+import Button from "@/components/UI/Button";
+import { useEffect, useState } from "react";
 
 const Portfolio = () => {
+  interface categoryDataTypes {
+    id: number;
+    title_uz: string;
+    title_ru: string;
+    title_en: string;
+    title_ko: string;
+  }
+
+  interface dataTypes {
+    id: number;
+    link: string;
+    image: string;
+    name_uz: string;
+    name_ru: string;
+    name_en: string;
+    name_ko: string;
+    service: number;
+    service_name: string;
+  }
+
+  const [data, setData] = useState<dataTypes[]>([
+    {
+      id: 0,
+      link: "",
+      image: "",
+      service: 0,
+      name_en: "",
+      name_ko: "",
+      name_ru: "",
+      name_uz: "",
+      service_name: "",
+    },
+  ]);
+
+  const [categoryData, setCategoryData] = useState<categoryDataTypes[]>([]);
+
   const getBackgroundImage = (image: string) => {
     return {
       backgroundSize: "cover",
@@ -19,8 +52,20 @@ const Portfolio = () => {
     };
   };
 
+  useEffect(() => {
+    fetch("https://api.rtholdings.uz/api/v1/common/project/list/")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+
+    fetch("https://api.rtholdings.uz/api/v1/common/project-category/list")
+      .then((res) => res.json())
+      .then((data) => setCategoryData(data));
+  }, []);
+
   return (
-    <section className="portfolio">
+    <section className={classNames(styles["portfolio"])}>
       <div className="container">
         <Texts
           title="Portfolio"
@@ -29,140 +74,68 @@ const Portfolio = () => {
             ever since the 1500s....."
         />
 
-        <ul className="portfolio__filter-list">
-          <li className="portfolio__filter-item">
-            <Button className="portfolio__filter-item-btn" type="button">
-              All
-            </Button>
-          </li>
-          <li className="portfolio__filter-item">
-            <Button className="portfolio__filter-item-btn" type="button">
-              Lorem ipsum
-            </Button>
-          </li>
-          <li className="portfolio__filter-item">
-            <Button
-              className="portfolio__filter-item-btn portfolio__filter-item-btn--active"
-              type="button"
-            >
-              Lorem ipsum dolor
-            </Button>
-          </li>
-          <li className="portfolio__filter-item">
-            <Button className="portfolio__filter-item-btn" type="button">
-              Lorem ipsum
-            </Button>
-          </li>
-          <li className="portfolio__filter-item">
-            <Button className="portfolio__filter-item-btn" type="button">
-              Lorem
-            </Button>
-          </li>
+        <ul className={classNames(styles["portfolio__filter-list"])}>
+          {categoryData.length > 0 &&
+            categoryData.map((el: categoryDataTypes, index) => {
+              return (
+                <li
+                  key={index}
+                  className={classNames(styles["portfolio__filter-item"])}
+                >
+                  <Button
+                    type="button"
+                    className={classNames(
+                      styles["portfolio__filter-item-btn"],
+                      styles["portfolio__filter-item-btn--active"]
+                    )}
+                  >
+                    {el && el?.title_uz}
+                  </Button>
+                </li>
+              );
+            })}
         </ul>
 
-        <ul className="portfolio__cards">
-          <li className="portfolio__card-item">
-            <Link to="/pages/projects/1">
-              <div
-                className="portfolio__card"
-                style={getBackgroundImage(PortfolioImage1)}
-              >
-                <div className="portfolio__card-content">
-                  <span className="portfolio__card-content-heading">
-                    <em>Product Name</em>
-                  </span>
-                  <h3 className="portfolio__card-content-name">
-                    Lorem ipsum dolor
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="portfolio__card-item">
-            <Link to="/pages/projects/1">
-              <div
-                className="portfolio__card"
-                style={getBackgroundImage(PortfolioImage2)}
-              >
-                <div className="portfolio__card-content">
-                  <span className="portfolio__card-content-heading">
-                    <em>Product Name</em>
-                  </span>
-                  <h3 className="portfolio__card-content-name">
-                    Lorem ipsum dolor
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="portfolio__card-item">
-            <Link to="/pages/projects/1">
-              <div
-                className="portfolio__card"
-                style={getBackgroundImage(PortfolioImage3)}
-              >
-                <div className="portfolio__card-content">
-                  <span className="portfolio__card-content-heading">
-                    <em>Product Name</em>
-                  </span>
-                  <h3 className="portfolio__card-content-name">
-                    Lorem ipsum dolor
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="portfolio__card-item">
-            <Link to="/pages/projects/1">
-              <div
-                className="portfolio__card"
-                style={getBackgroundImage(PortfolioImage4)}
-              >
-                <div className="portfolio__card-content">
-                  <span className="portfolio__card-content-heading">
-                    <em>Product Name</em>
-                  </span>
-                  <h3 className="portfolio__card-content-name">
-                    Lorem ipsum dolor
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="portfolio__card-item">
-            <Link to="/pages/projects/1">
-              <div
-                className="portfolio__card"
-                style={getBackgroundImage(PortfolioImage5)}
-              >
-                <div className="portfolio__card-content">
-                  <span className="portfolio__card-content-heading">
-                    <em>Product Name</em>
-                  </span>
-                  <h3 className="portfolio__card-content-name">
-                    Lorem ipsum dolor
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
-          <li className="portfolio__card-item">
-            <Link to="/pages/projects/1">
-              <div
-                className="portfolio__card"
-                style={getBackgroundImage(PortfolioImage6)}
-              >
-                <div className="portfolio__card-content">
-                  <span className="portfolio__card-content-heading">
-                    <em>Product Name</em>
-                  </span>
-                  <h3 className="portfolio__card-content-name">
-                    Lorem ipsum dolor
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
+        <ul className={classNames(styles["portfolio__cards"])}>
+          {data.length > 0 &&
+            data.map((el: dataTypes, index) => {
+              return (
+                <li
+                  key={index}
+                  className={classNames(styles["portfolio__card-item"])}
+                >
+                  <Link href={`/projects/${el && el?.id}`}>
+                    <div
+                      className={classNames(styles["portfolio__card"])}
+                      style={getBackgroundImage(
+                        `https://api.rtholdings.uz${el.image}`
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          styles["portfolio__card-content"]
+                        )}
+                      >
+                        <span
+                          className={classNames(
+                            styles["portfolio__card-content-heading"]
+                          )}
+                        >
+                          <em>{el && el.service_name}</em>
+                        </span>
+                        <h3
+                          className={classNames(
+                            styles["portfolio__card-content-name"]
+                          )}
+                        >
+                          {el && el.name_uz}
+                        </h3>
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
         </ul>
       </div>
     </section>

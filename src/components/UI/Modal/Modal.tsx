@@ -1,44 +1,63 @@
-import "./style.css";
-import { Button } from "../Button";
-import { IoCloseSharp } from "../../../assets/react-icons";
-import { HeroBackgroundImage1 } from "../../../assets/images/jpg";
+import Image from "next/image";
+import classNames from "classnames";
+import styles from "./index.module.css";
+import Button from "@/components/UI/Button";
+import { IoCloseSharp } from "../../../../public/react-icons";
+
+interface salesTypes {
+  id: number;
+  image: string;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  title_ko: string;
+  description_uz: string;
+  description_ru: string;
+  description_en: string;
+  description_ko: string;
+}
 
 type activeType = {
   isActive: boolean;
+  data?: salesTypes;
   openModal: () => void;
 };
 
-const Modal = ({ isActive, openModal }: activeType) => {
+const Modal = ({ isActive, openModal, data }: activeType) => {
   return (
-    <section className={`modal ${isActive && "modal--active"}`}>
-      <div className="modal__container container">
-        <div className="modal__background">
-          <div className="modal__header">
-            <h2 className="modal__header-title">Lorem ipsum dolor.</h2>
-            <Button onClick={openModal} className="modal__button" type="button">
-              <IoCloseSharp className="modal__button-icon" />
+    <section
+      className={classNames(styles["modal"], {
+        [styles["modal--active"]]: isActive,
+      })}
+    >
+      <div className={classNames(styles["modal__container"], "container")}>
+        <div className={classNames(styles["modal__background"])}>
+          <div className={classNames(styles["modal__header"])}>
+            <h2 className={classNames(styles["modal__header-title"])}>
+              {data && data?.title_uz}
+            </h2>
+            <Button
+              onClick={openModal}
+              className={classNames(styles["modal__button"])}
+              type="button"
+            >
+              <IoCloseSharp
+                className={classNames(styles["modal__button-icon"])}
+              />
             </Button>
           </div>
 
-          <img
+          <Image
+            width={100}
             height={300}
-            width="100%"
             alt="background-image"
-            src={HeroBackgroundImage1}
-            className="modal__header-image"
+            src={`https://api.rtholdings.uz${data?.image}`}
+            className={classNames(styles["modal__header-image"])}
           />
 
-          <div className="modal__content">
-            <p className="modal__content-text">
-              Lorem ipsum dolor sit amet consectetur. Libero volutpat
-              consectetur velit nisl egestas et mauris fermentum. Est porttitor
-              nibh sapien sed mauris egestas amet amet. Viverra dui scelerisque
-              elit non. Orci sit tortor diam aliquam. Diam blandit pulvinar
-              habitant morbi accumsan tempus tellus adipiscing. Diam eu
-              adipiscing velit id enim pellentesque enim fusce. Ipsum morbi
-              tempus in pellentesque nulla. Erat consectetur urna semper sed mi
-              et ullamcorper feugiat. Nec nec erat fermentum tortor fringilla
-              arcu augue sed.
+          <div className={classNames(styles["modal__content"])}>
+            <p className={classNames(styles["modal__content-text"])}>
+              {data && data?.description_uz}
             </p>
           </div>
         </div>

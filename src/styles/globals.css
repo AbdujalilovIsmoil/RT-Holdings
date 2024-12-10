@@ -1,0 +1,111 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+i,
+button {
+  cursor: pointer;
+}
+
+input {
+  background-color: transparent;
+}
+
+.visually-hidden {
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(100%);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px 60px;
+  max-width: 1440px;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 40px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding: 0 10px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Exo";
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --main-text-size: 18px;
+  --main-medium-size: 50px;
+  --site-weight-number: 900;
+  --main-percentage-size: 50%;
+  --main-second-number: 500ms;
+  --main-dark-color: #1e242c;
+  --main-light-color: #ffffff;
+  --main-input-color: #c2c4ca;
+  --main-break-color: #000000;
+  --main-orange-color: #f69419;
+  --main-modal-color: #00111380;
+  --search-border-color: #eef0f4;
+  --footer-bottom-color: #292f37;
+  --main-services-color: #666666;
+  --main-customer-color: #f4f4f4;
+  --costomer-user-color: #787f95;
+  --main-poppins-color: #ffffff80;
+  --main-contact-color: #191a1980;
+  --customer-title-color: #091242;
+  --main-about-text-color: #8a8a8a;
+  --search-background-color: #f7f7f7;
+  --site-contact-text-color: #23212a;
+  --main-service-link-color: #111d15;
+  --site-navigation-color: #09124240;
+  --pagination-border-color: #eeeeee;
+  --main-latest-news-color: #041c3780;
+  --main-about-content-color: #1c1d20;
+  --main-modal-background-color: #f6f8fa;
+  --main-latest-news-title-color: #282b4c;
+}
+
+.swiper-button-disabled {
+  color: var(--main-light-color);
+  border: 1px solid var(--main-dark-color) !important;
+  background-color: var(--main-dark-color) !important;
+}

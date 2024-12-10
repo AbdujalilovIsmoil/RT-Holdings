@@ -1,11 +1,13 @@
-import "./index.css";
-import { IoSearch } from "../../../assets/react-icons";
-import { Button, Input, Modal, Pagination } from "../../../components";
-import {
-  ServicesImage1,
-  ServicesImage2,
-  ServicesImage3,
-} from "../../../assets/images/png";
+"use client";
+
+import Image from "next/image";
+import classNames from "classnames";
+import styles from "./index.module.css";
+import Modal from "@/components/UI/Modal";
+import { useEffect, useState } from "react";
+import Button from "@/components/UI/Button";
+import Input from "@/components/Field/Input";
+import { IoSearch } from "../../../../public/react-icons";
 
 interface textsTypes {
   text: string;
@@ -19,305 +21,147 @@ interface serviceType {
   openModal: () => void;
 }
 
-const Services = ({ openModal, isActive, isOpen }: serviceType) => {
+interface salesTypes {
+  id: number;
+  image: string;
+  title_uz: string;
+  title_ru: string;
+  title_en: string;
+  title_ko: string;
+  description_uz: string;
+  description_ru: string;
+  description_en: string;
+  description_ko: string;
+}
+
+const Services = ({ openModal, isActive, isOpen, data }: serviceType) => {
+  const [oneData, setOneData] = useState<salesTypes>({
+    id: 0,
+    image: "",
+    title_en: "",
+    title_ko: "",
+    title_ru: "",
+    title_uz: "",
+    description_en: "",
+    description_ko: "",
+    description_ru: "",
+    description_uz: "",
+  });
+  const [datas, setData] = useState<salesTypes[]>([
+    {
+      id: 0,
+      image: "",
+      title_en: "",
+      title_ko: "",
+      title_ru: "",
+      title_uz: "",
+      description_en: "",
+      description_ko: "",
+      description_ru: "",
+      description_uz: "",
+    },
+  ]);
+
+  useEffect(() => {
+    fetch("https://api.rtholdings.uz/api/v1/common/news/list/")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
+
+  const getOneData = (id: number) => {
+    fetch(`https://api.rtholdings.uz/api/v1/common/news/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setOneData(data);
+        openModal();
+      });
+  };
+
   return (
-    <section className="service">
-      <Modal isActive={isActive} openModal={openModal} />
+    <>
+      <section className={classNames(styles["service"])}>
+        <Modal data={oneData} isActive={isActive} openModal={openModal} />
 
-      <div className="container">
-        <div className="services__content services__contents">
-          <h2 className="services__content-title">Our Products</h2>
-          <p className="services__content-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-            dolore!
-          </p>
+        <div className="container">
+          {data.length > 0 &&
+            data.map((el: textsTypes, index) => {
+              return (
+                <div
+                  key={index}
+                  className={classNames(
+                    styles["services__content"],
+                    styles["services__contents"]
+                  )}
+                >
+                  <h2 className={classNames(styles["services__content-title"])}>
+                    {el && el.title}
+                  </h2>
+                  <p className={classNames(styles["services__content-text"])}>
+                    {el && el.text}
+                  </p>
+                </div>
+              );
+            })}
+
+          {isOpen && (
+            <form className={classNames(styles["service__search"])}>
+              <IoSearch className={classNames(styles["search__search-icon"])} />
+              <Input
+                required
+                type="search"
+                placeholder="Lorem ipsum"
+                className={classNames(styles["service__search-input"])}
+              />
+              <Button
+                type="submit"
+                className={classNames(styles["service__search-submit"])}
+              >
+                Search
+              </Button>
+            </form>
+          )}
+
+          <ul className={classNames(styles["services__cards"])}>
+            {datas.length > 0 &&
+              datas.map((el: salesTypes) => {
+                return (
+                  <li
+                    key={el?.id}
+                    className={classNames(styles["services__card"])}
+                  >
+                    <Image
+                      width={400}
+                      height={265}
+                      alt="services image 1"
+                      src={`https://api.rtholdings.uz${el && el?.image}`}
+                      className={classNames(styles["services__card-image"])}
+                    />
+                    <h3 className={classNames(styles["services__card-title"])}>
+                      {el && el.title_uz}
+                    </h3>
+                    <p className={classNames(styles["services__card-text"])}>
+                      {el && el.description_uz}
+                    </p>
+                    <Button
+                      type="button"
+                      onClick={() => {
+                        getOneData(el?.id);
+                      }}
+                      className={classNames(styles["services__card-btn"])}
+                    >
+                      Lorem ipsum dolor.
+                    </Button>
+                  </li>
+                );
+              })}
+          </ul>
+
+          {/* <Pagination itemsPerPage={1} /> */}
         </div>
-
-        {isOpen && (
-          <form className="service__search">
-            <IoSearch className="search__search-icon" />
-            <Input
-              required
-              type="search"
-              placeholder="Lorem ipsum"
-              className="service__search-input"
-            />
-            <Button type="submit" className="service__search-submit">
-              Search
-            </Button>
-          </form>
-        )}
-
-        <ul className="services__cards">
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage1}
-              alt="services image 1"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage2}
-              alt="services image 2"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage3}
-              alt="services image 3"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage1}
-              alt="services image 1"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage2}
-              alt="services image 2"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage3}
-              alt="services image 3"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage1}
-              alt="services image 1"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage2}
-              alt="services image 2"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage3}
-              alt="services image 3"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage1}
-              alt="services image 1"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage2}
-              alt="services image 2"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-          <li className="services__card">
-            <img
-              width={400}
-              height={265}
-              src={ServicesImage3}
-              alt="services image 3"
-              className="services__card-image"
-            />
-            <h3 className="services__card-title">Lorem ipsum dolor sit</h3>
-            <p className="services__card-text">
-              Lorem ipsum dolor sit amet consectetur. Id purus imperdiet rhoncus
-              sociis pulvinar eu. Sem sit volutpat nisl lorem lacinia faucibus
-              sed vitae.
-            </p>
-            <Button
-              type="button"
-              onClick={openModal}
-              className="services__card-btn"
-            >
-              Lorem ipsum dolor.
-            </Button>
-          </li>
-        </ul>
-
-        <Pagination itemsPerPage={1} />
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

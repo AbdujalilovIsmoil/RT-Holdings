@@ -1,19 +1,20 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { Portfolio, Hero } from "../../components";
+"use client";
+
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Hero from "@/components/UI/Hero";
+import Portfolio from "@/components/UI/Portfolio";
 
 const Projects = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    scrollTo({
-      top: 0,
-    });
-  }, []);
+  const router = useRouter();
 
   return (
     <>
-      <Hero page={location.pathname} />
+      <Head>
+        <title>Portfolio</title>
+      </Head>
+
+      <Hero page={router && router.pathname} />
       <Portfolio />
     </>
   );

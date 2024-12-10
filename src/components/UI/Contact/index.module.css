@@ -1,0 +1,197 @@
+.contact {
+  padding: 60px 0px;
+  margin-bottom: 80px;
+  background: linear-gradient(180deg, #191a19 0%, rgba(0, 0, 0, 0) 152.79%);
+
+  @media only screen and (max-width: 576px) {
+    padding: 30px 0px;
+  }
+}
+
+.select {
+  padding: 0 10px;
+  appearance: none;
+  padding-right: 3em;
+  background-size: 1em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 6" width="20"><path fill="none" stroke="black" stroke-width="1.5" d="M1 1l4 4 4-4"/></svg>')
+    no-repeat 95% center;
+}
+
+.contact__content {
+  text-align: center;
+}
+
+.contact__content-title {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  line-height: 66.45px;
+  color: var(--main-light-color);
+
+  @media only screen and (max-width: 768px) {
+    font-size: 36px;
+    line-height: 30px;
+    margin-bottom: 15px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+}
+
+.contact__list {
+  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: 576px) {
+    display: none;
+  }
+}
+
+.contact__itme {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contact__item-icon {
+  font-size: 24px;
+  color: var(--main-light-color);
+}
+
+.contact__item-text {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 31.9px;
+  color: var(--main-light-color);
+}
+
+.contact-request__content {
+  margin-bottom: 25px;
+  @media only screen and (max-width: 576px) {
+    text-align: center;
+  }
+}
+
+.contact-request__content-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 30.36px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+}
+
+.contact-request {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 45px;
+  border-radius: 15px;
+  background-color: var(--main-orange-color);
+
+  @media only screen and (max-width: 768px) {
+    padding: 45px;
+  }
+  @media only screen and (max-width: 576px) {
+    padding: 20px;
+  }
+}
+
+.contact-request__content-text {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25.3px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+
+  @media only screen and (max-width: 578px) {
+    display: none;
+  }
+}
+
+.contact-request-form__box {
+  gap: 18px;
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 576px) {
+    flex-direction: column;
+  }
+}
+
+.contact-request-form__box-input {
+  width: 100%;
+  outline: none;
+  padding: 25px;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 15px;
+  line-height: 25.3px;
+  color: var(--main-contact-color);
+  border: 1px solid var(--main-light-color);
+  background-color: var(--main-light-color);
+
+  @media only screen and (max-width: 578px) {
+    padding: 18px;
+    font-size: 16px;
+  }
+}
+
+.contact-request-form__box {
+  margin-bottom: 18px;
+}
+
+.contact-request-form__box-textarea {
+  width: 100%;
+  padding: 25px;
+  height: 150px;
+  outline: none;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  color: var(--main-contact-color);
+  border: 1px solid var(--main-light-color);
+  background-color: var(--main-light-color);
+
+  @media only screen and (max-width: 578px) {
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding: 25px;
+  }
+}
+
+.contact-request-form__box-submit {
+  width: 100%;
+  padding: 24px;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 15px;
+  line-height: 27.83px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+  border: 1px solid var(--main-dark-color);
+  background-color: var(--main-dark-color);
+  transition: color 150ms linear, background-color 150ms linear;
+
+  @media only screen and (max-width: 576px) {
+    padding: 18px;
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: var(--main-dark-color);
+  }
+}

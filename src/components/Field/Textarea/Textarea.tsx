@@ -1,9 +1,7 @@
 import { FC } from "react";
 import { FieldInterface } from "../../../typescript";
 
-interface Textarea extends FieldInterface {}
-
-const Textarea: FC<Textarea> = ({ ...props }) => {
+const Textarea: FC<FieldInterface> = ({ ...props }) => {
   return <textarea {...props}></textarea>;
 };
 
