@@ -1,4 +1,4 @@
 import { Button } from "./ui";
-import { Footer, Header } from "./layouts";
+import { Footer, Header, Nav } from "./layouts";
 
-export { Button, Footer, Header };
+export { Button, Footer, Header, Nav };
