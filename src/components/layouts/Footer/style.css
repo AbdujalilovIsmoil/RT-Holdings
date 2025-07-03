@@ -1,6 +1,5 @@
 .footer {
   background-color: var(--main-dark-color);
-  padding-top: calc(var(--main-text-size) + 2px);
 }
 
 .footer__pictures {
@@ -35,6 +34,7 @@
 .footer__container {
   gap: 185px;
   display: flex;
+  padding: calc(var(--main-text-size) + 2px) 0;
 
   @media only screen and (max-width: 1100px) {
     gap: 0px;
