@@ -109,3 +109,7 @@ a {
   border: 1px solid var(--main-dark-color) !important;
   background-color: var(--main-dark-color) !important;
 }
+
+.main {
+  min-height: calc(100vh - 300px);
+}

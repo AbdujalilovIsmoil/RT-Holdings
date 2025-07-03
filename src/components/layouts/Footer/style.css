@@ -1,0 +1,151 @@
+.footer {
+  background-color: var(--main-dark-color);
+  padding-top: calc(var(--main-text-size) + 2px);
+}
+
+.footer__pictures {
+  display: grid;
+  margin-bottom: 56px;
+  grid-template-columns: repeat(7, auto);
+
+  @media only screen and (max-width: 1100px) {
+    display: none;
+  }
+}
+
+.footer__picture-img {
+  height: 120px;
+  object-fit: cover;
+}
+
+.footer__box-image {
+  height: 70px;
+  width: 210px;
+  margin-bottom: 40px;
+}
+
+.footer__box-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 45px;
+  color: var(--main-light-color);
+}
+
+.footer__container {
+  gap: 185px;
+  display: flex;
+
+  @media only screen and (max-width: 1100px) {
+    gap: 0px;
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 768px) {
+    gap: 50px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-direction: column;
+  }
+}
+
+.footer__medias {
+  gap: 35px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 0px;
+    justify-content: center;
+  }
+}
+
+.footer__media-icon {
+  font-size: 25px;
+  color: var(--main-light-color);
+  transition: color 150ms linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+  }
+}
+
+.footer__bottom {
+  text-align: center;
+  padding: var(--main-text-size);
+  background-color: var(--footer-bottom-color);
+}
+
+.footer__bottom-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: var(--main-light-color);
+}
+
+.footer__links-group {
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__box-title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 28.6px;
+  margin-bottom: 35px;
+  text-decoration: underline;
+  color: var(--main-light-color);
+}
+
+.footer__link-group-link {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  transition: color 150ms linear;
+  color: var(--main-light-color);
+
+  &:hover {
+    color: var(--main-orange-color);
+  }
+}
+
+.footer__phones {
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__phone-container {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.footer__box-phone-icon {
+  font-size: 24px;
+  color: var(--main-light-color);
+  transition: color 150ms linear;
+}
+
+.footer__box-phone-number {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25.6px;
+  color: var(--main-light-color);
+  transition: color 150ms linear;
+}
+
+.footer__box:nth-child(1) {
+  max-width: 380px;
+}
+
+.footer__phone:hover .footer__box-phone-icon {
+  color: var(--main-orange-color);
+}
+
+.footer__phone:hover .footer__box-phone-number {
+  color: var(--main-orange-color);
+}
