@@ -96,7 +96,7 @@ const Header = () => {
     phone_numbers: phoneNumbersTypes[];
   }
 
-  const [data, setData] = useState<servicesTypes>({
+  const [data] = useState<servicesTypes>({
     id: 1,
     email: "",
     youtube_link: "",
