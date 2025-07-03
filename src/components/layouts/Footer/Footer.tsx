@@ -3,6 +3,7 @@
 import "./style.css";
 import Link from "next/link";
 import Image from "next/image";
+import { header } from "@/data";
 import {
   FaPhone,
   FaYoutube,
@@ -71,54 +72,21 @@ const Footer = () => {
           <div className='footer__box'>
             <h2 className='footer__box-title'>Sahifalar</h2>
             <ul className='footer__links-group'>
-              <li className='footer__link-group'>
-                <Link
-                  href='/pages/about'
-                  className='footer__link-group-link'
-                >
-                  Biz haqimizda
-                </Link>
-              </li>
-              <li className='footer__link-group'>
-                <Link
-                  href='/pages/projects'
-                  className='footer__link-group-link'
-                >
-                  Ishlar
-                </Link>
-              </li>
-              <li className='footer__link-group'>
-                <Link
-                  href='/pages/news'
-                  className='footer__link-group-link'
-                >
-                  Yangiliklar
-                </Link>
-              </li>
-              <li className='footer__link-group'>
-                <Link
-                  href='/pages/careers'
-                  className='footer__link-group-link'
-                >
-                  Sotuv
-                </Link>
-              </li>
-              <li className='footer__link-group'>
-                <Link
-                  href='/pages/careers'
-                  className='footer__link-group-link'
-                >
-                  Xizmatlar
-                </Link>
-              </li>
-              <li className='footer__link-group'>
-                <Link
-                  href='/pages/careers'
-                  className='footer__link-group-link'
-                >
-                  Biz bilan aloqa
-                </Link>
-              </li>
+              {header.links.map(el => {
+                return (
+                  <li
+                    key={el.id}
+                    className='footer__link-group'
+                  >
+                    <Link
+                      href={el.path}
+                      className='footer__link-group-link'
+                    >
+                      {el.title}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className='footer__box'>
