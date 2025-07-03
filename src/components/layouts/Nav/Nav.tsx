@@ -49,4 +49,6 @@ const Nav = memo(({ isScrolled }: { isScrolled: boolean }) => {
   );
 });
 
+Nav.displayName = "Nav";
+
 export default Nav;
