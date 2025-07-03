@@ -4,17 +4,20 @@ import {
   Post,
   Hero,
   Texts,
+  Modal,
   Button,
   ContactUI,
   AboutUsUI,
   Portfolio,
   Testimonials,
+  SalesServices,
 } from "./ui";
 
 export {
   Nav,
   Hero,
   Post,
+  Modal,
   Input,
   Texts,
   Button,
@@ -25,4 +28,5 @@ export {
   AboutUsUI,
   Portfolio,
   Testimonials,
+  SalesServices,
 };
