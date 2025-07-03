@@ -1,22 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { memo } from "react";
+import "../Header/style.css";
 import { header } from "@/data";
 import { closeNavbar } from "@/utility";
 import { usePathname } from "next/navigation";
 import { linksType } from "../Header/Header.d";
 
-const Nav = memo(({ isScrolled }: { isScrolled: boolean }) => {
+const Nav = () => {
   const pathName = usePathname();
 
   return (
-    <div>
-      <div
-        className={`site-navigation ${
-          isScrolled ? "site-navigation--scroll" : ""
-        }`}
-      >
+    <>
+      <div className='site-navigation'>
         <div className='site__container container'>
           <nav className='nav'>
             <ul className='nav__list'>
@@ -45,9 +41,9 @@ const Nav = memo(({ isScrolled }: { isScrolled: boolean }) => {
           </nav>
         </div>
       </div>
-    </div>
+    </>
   );
-});
+};
 
 Nav.displayName = "Nav";
 

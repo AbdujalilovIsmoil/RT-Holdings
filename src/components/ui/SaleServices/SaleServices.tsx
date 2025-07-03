@@ -3,7 +3,7 @@
 import "./style.css";
 import Image from "next/image";
 import { IoSearch } from "@/assets/react-icons";
-import { Button, Input, Modal } from "@/components";
+import { Button, Input, Modal, Pagination } from "@/components";
 
 interface serviceType {
   isOpen: boolean;
@@ -78,7 +78,7 @@ const Services = ({ openModal, isActive, isOpen }: serviceType) => {
             </li>
           </ul>
 
-          {/* <Pagination itemsPerPage={1} /> */}
+          <Pagination itemsPerPage={1} />
         </div>
       </section>
     </>

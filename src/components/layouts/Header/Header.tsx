@@ -4,12 +4,13 @@ import "./style.css";
 import Link from "next/link";
 import Image from "next/image";
 import { header } from "@/data";
+import { useState } from "react";
 import { linksType } from "./Header.d";
 import { closeNavbar } from "@/utility";
 import { Button, Nav } from "@/components";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { FaBars, FaTimes, FaAngleDown } from "@/assets/react-icons";
+import { FaBars } from "@/assets/react-icons";
+import { FaTimes, FaAngleDown } from "@/assets/react-icons";
 
 const Header = () => {
   const pathName = usePathname();
@@ -17,22 +18,6 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const openToggleVisible = () => setIsVisible(prevState => !prevState);
-
-  const navigationRef = useRef<HTMLDivElement>(null);
-
-  const [isScrolled, setIsScrolled] = useState<boolean>(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (navigationRef.current) {
-        setIsScrolled(navigationRef?.current?.clientHeight < window.scrollY);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header className='header'>
@@ -79,10 +64,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div
-        ref={navigationRef}
-        className='header__top'
-      >
+      <div className='header__top'>
         <div className='header__top-container container'>
           <Link href='/'>
             <Image
@@ -104,7 +86,7 @@ const Header = () => {
         </div>
       </div>
 
-      <Nav isScrolled={isScrolled} />
+      <Nav />
     </header>
   );
 };

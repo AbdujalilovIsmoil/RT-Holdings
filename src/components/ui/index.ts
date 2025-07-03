@@ -6,6 +6,7 @@ import Button from "./Button";
 import ContactUI from "./Contact";
 import AboutUsUI from "./AboutUs";
 import Portfolio from "./Portfolio";
+import Pagination from "./Pagination";
 import Testimonials from "./Testimonials";
 import SalesServices from "./SaleServices";
 
@@ -18,6 +19,7 @@ export {
   ContactUI,
   AboutUsUI,
   Portfolio,
+  Pagination,
   Testimonials,
   SalesServices,
 };

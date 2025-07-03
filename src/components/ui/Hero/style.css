@@ -145,11 +145,6 @@
   }
 }
 
-/* .site-navigation--scroll {
-   
-    transition: background-color 150ms linear;
-  } */
-
 .site__container {
   display: flex;
   align-items: center;

@@ -9,6 +9,7 @@ import {
   ContactUI,
   AboutUsUI,
   Portfolio,
+  Pagination,
   Testimonials,
   SalesServices,
 } from "./ui";
@@ -27,6 +28,7 @@ export {
   ContactUI,
   AboutUsUI,
   Portfolio,
+  Pagination,
   Testimonials,
   SalesServices,
 };
