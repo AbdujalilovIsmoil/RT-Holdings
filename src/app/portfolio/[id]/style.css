@@ -1,0 +1,373 @@
+.site-hero {
+  margin-bottom: 60px;
+}
+
+.site__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--main-medium-size);
+}
+
+.nav__item-link {
+  color: var(--main-light-color);
+  transition: color calc(var(--main-second-number) - 350ms) linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+  }
+}
+
+.nav__item-link--active {
+  color: var(--main-orange-color);
+}
+
+.site__contact {
+  display: flex;
+  align-items: center;
+  gap: var(--main-medium-size);
+}
+
+.site__medias {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--main-text-size) + 6px);
+}
+
+.site__media-icon {
+  color: var(--main-light-color);
+  font-size: calc(var(--main-text-size) + 2px);
+  transition: color calc(var(--main-second-number) - 350ms) linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+  }
+}
+
+.nav__item-link {
+  font-size: calc(var(--main-text-size) - 2px);
+  line-height: calc(var(--main-text-size) + 3.6px);
+  font-weight: calc(var(--site-weight-number) - 300);
+}
+
+.site__contact-link {
+  color: var(--site-contact-text-color);
+  background-color: var(--main-orange-color);
+  font-size: calc(var(--main-text-size) - 2px);
+  line-height: calc(var(--main-text-size) + 3.6px);
+  font-weight: calc(var(--site-weight-number) - 300);
+  border: calc(var(--main-text-size) - 17px) solid var(--main-orange-color);
+  padding: calc(var(--main-text-size) + 2px)
+    calc(var(--main-medium-size) + 20px);
+  transition: background-color calc(var(--main-second-number) - 350ms) linear,
+    color calc(var(--main-second-number) - 350ms) linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+    background-color: transparent;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 100px 0px;
+  text-align: center;
+}
+
+.content-title {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 78px;
+  margin-bottom: 25px;
+  color: var(--main-light-color);
+
+  @media only screen and (max-width: 992px) {
+    font-size: 45px;
+    margin-bottom: 15px;
+  }
+}
+
+.content-text {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+
+  @media only screen and (max-width: 992px) {
+    font-size: 16px;
+  }
+}
+
+/* site navigation */
+
+.site-hero {
+  padding-top: calc(
+    (var(--main-medium-size) * 2) + var(--main-text-size) + 8px
+  );
+
+  padding-bottom: calc(
+    (var(--main-medium-size) * 2) + var(--main-text-size) + 8px
+  );
+
+  @media only screen and (max-width: 992px) {
+    padding-bottom: calc(
+      (var(--main-medium-size)) + var(--main-text-size) + 8px
+    );
+  }
+
+  @media only screen and (max-width: 576px) {
+    padding-top: 75px;
+  }
+}
+
+.site-navigation {
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  position: sticky;
+  transition: background-color 150ms linear;
+  background-color: var(--main-dark-color);
+
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
+}
+
+.site__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--main-medium-size);
+}
+
+.nav__item-link {
+  color: var(--main-light-color);
+  transition: color calc(var(--main-second-number) - 350ms) linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+  }
+}
+
+.nav__item-link--active {
+  color: var(--main-orange-color);
+}
+
+.site__contact {
+  display: flex;
+  align-items: center;
+  gap: var(--main-medium-size);
+}
+
+.site__medias {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--main-text-size) + 6px);
+
+  @media only screen and (max-width: 1070px) {
+    display: none;
+  }
+}
+
+.site__media-icon {
+  color: var(--main-light-color);
+  font-size: calc(var(--main-text-size) + 2px);
+  transition: color calc(var(--main-second-number) - 350ms) linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+  }
+}
+
+.nav__item-link {
+  font-size: calc(var(--main-text-size) - 2px);
+  line-height: calc(var(--main-text-size) + 3.6px);
+  font-weight: calc(var(--site-weight-number) - 300);
+}
+
+.site__contact-link {
+  color: var(--site-contact-text-color);
+  background-color: var(--main-orange-color);
+  font-size: calc(var(--main-text-size) - 2px);
+  line-height: calc(var(--main-text-size) + 3.6px);
+  font-weight: calc(var(--site-weight-number) - 300);
+  border: calc(var(--main-text-size) - 17px) solid var(--main-orange-color);
+  padding: calc(var(--main-text-size) + 2px)
+    calc(var(--main-medium-size) + 20px);
+  transition: background-color calc(var(--main-second-number) - 350ms) linear,
+    color calc(var(--main-second-number) - 350ms) linear;
+
+  &:hover {
+    color: var(--main-orange-color);
+    background-color: transparent;
+  }
+}
+
+.site-hero__content-small {
+  position: relative;
+  display: inline-block;
+  color: var(--main-light-color);
+  background-color: var(--main-dark-color);
+  font-size: calc(var(--main-text-size) - 4px);
+  margin-bottom: calc(var(--main-text-size) - 8px);
+  line-height: calc(var(--main-text-size) + 0.61px);
+  font-weight: calc(var(--site-weight-number) - 500);
+  padding: 0px 0px 0px calc(var(--main-text-size) - 8px);
+
+  &::before {
+    left: 0;
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: calc(var(--main-text-size) - 14px);
+    background-color: var(--main-orange-color);
+  }
+}
+
+.site-hero__content {
+  max-width: calc(
+    var(--main-medium-size) * 11 + (calc(var(--main-text-size) * 2) - 6px)
+  );
+
+  @media only screen and (max-width: 992px) {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.site-hero__content-title {
+  color: var(--main-light-color);
+  font-size: var(--main-medium-size);
+  font-weight: calc(var(--site-weight-number) - 200);
+  line-height: calc(var(--main-medium-size) + 7.5px);
+  margin-bottom: calc(var(--main-medium-size) - 20px);
+
+  @media only screen and (max-width: 992px) {
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 32px;
+    line-height: 45px;
+  }
+}
+
+.site-hero__conetent-among {
+  color: var(--main-orange-color);
+}
+
+.site-hero__content-text {
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+  font-size: var(--main-text-size);
+  line-height: calc(var(--main-text-size) + 4.77px);
+  font-weight: calc(var(--site-weight-number) - 500);
+  margin-bottom: calc(var(--main-medium-size) + 30px);
+
+  @media only screen and (max-width: 992px) {
+    margin-bottom: var(--main-medium-size);
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: calc(var(--main-text-size) - 2px);
+    margin-bottom: calc(var(--main-medium-size) - 20px);
+  }
+}
+
+.site-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--main-text-size) + 7px);
+
+  @media only screen and (max-width: 992px) {
+    gap: 15px;
+    justify-content: center;
+  }
+}
+
+.site-hero__buttons-button {
+  border-radius: 6px;
+  font-family: "Be Vietnam Pro";
+  background-color: transparent;
+  color: var(--main-light-color);
+  border: 1px solid var(--main-light-color);
+  font-size: calc(var(--main-text-size) - 2px);
+  line-height: calc(var(--main-text-size) + 2.24px);
+  font-weight: calc(var(--site-weight-number) - 300);
+  padding: var(--main-text-size) calc(var(--main-text-size) * 2 - 4px);
+
+  @media only screen and (max-width: 576px) {
+    font-size: calc(var(--main-text-size) - 4px);
+  }
+}
+
+.site-hero__buttons-button--active {
+  color: var(--main-light-color);
+  border: 1px solid var(--main-orange-color);
+  background-color: var(--main-orange-color);
+}
+
+.post {
+  margin-bottom: 80px;
+
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 50px;
+  }
+}
+
+.post__content-image {
+  height: 510px;
+  object-fit: cover;
+  margin-bottom: 40px;
+
+  @media only screen and (max-width: 850px) {
+    height: 300px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    height: 250px;
+    margin-bottom: 10px;
+  }
+}
+
+.post__content-title {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  line-height: 46.52px;
+
+  @media only screen and (max-width: 850px) {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 576px) {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+
+.post__content-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24.32px;
+  font-family: "Be Vietnam Pro";
+
+  @media only screen and (max-width: 576px) {
+    font-size: 14px;
+  }
+}

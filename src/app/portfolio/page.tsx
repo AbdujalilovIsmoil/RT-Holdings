@@ -1,17 +1,17 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ContactUI, Hero } from "@/components";
+import { Hero, Portfolio } from "@/components";
 
-const Contact = () => {
+const PortfolioPage = () => {
   const pathName = usePathname();
 
   return (
     <>
       <Hero page={pathName} />
-      <ContactUI />
+      <Portfolio />
     </>
   );
 };
 
-export default Contact;
+export default PortfolioPage;

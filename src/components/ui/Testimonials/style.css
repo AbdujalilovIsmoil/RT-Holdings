@@ -1,0 +1,181 @@
+.carousel {
+  padding: 80px 0px;
+}
+
+.carousel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel__box-small-text {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 4.5px 9px;
+  position: relative;
+  font-family: "Exo";
+  margin-bottom: 25px;
+  line-height: 18.61px;
+  display: inline-block;
+  color: var(--main-light-color);
+  background-color: var(--main-latest-news-color);
+
+  @media only screen and (max-width: 650px) {
+    margin-bottom: 10px;
+  }
+}
+
+.carousel__box-small-text::before {
+  top: 0;
+  left: -5px;
+  width: 5px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(
+    94.06deg,
+    #ffb629 -1.21%,
+    #ffda56 58.66%,
+    #ffd7a6 116.84%
+  );
+}
+
+.carousel__box-title {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: "Exo";
+  margin-bottom: 40px;
+  line-height: 66.45px;
+
+  @media only screen and (max-width: 850px) {
+    font-size: 36px;
+  }
+
+  @media only screen and (max-width: 650px) {
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: 28px;
+    margin-bottom: 0px;
+  }
+}
+
+.carousel__box:last-child {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  @media only screen and (max-width: 650px) {
+    display: none;
+  }
+}
+
+.carousel__button {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-orange-color);
+  border: 1px solid var(--main-orange-color);
+}
+
+.carousel__button-icon {
+  font-size: 15px;
+}
+
+.carousel__item {
+  padding: 20px;
+  transition: background-color 150ms linear;
+  background-color: var(--main-customer-color);
+}
+
+.carousel__item:hover {
+  background-color: var(--main-dark-color);
+}
+
+.carousel__item:hover .carousel__info-fullname {
+  color: var(--main-light-color);
+}
+
+.carousel__item:hover .carousel__info-job {
+  color: var(--main-light-color);
+}
+
+.carousel__item:hover .carousel-text {
+  color: var(--main-light-color);
+}
+
+.carousel__item:hover .carousel-stars__item-icon--active {
+  color: var(--main-light-color);
+}
+
+.carousel__user {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.carousel__border {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--main-input-color);
+  background-color: var(--search-border-color);
+}
+
+.carousel__border-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.carousel__info-fullname {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Exo";
+  line-height: 26.58px;
+  transition: color 150ms linear;
+  color: var(--customer-title-color);
+}
+
+.carousel__info-job {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Exo";
+  line-height: 24.32px;
+  transition: color 150ms linear;
+  color: var(--customer-title-color);
+}
+
+.carousel-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 21.28px;
+  font-family: "Be Vietnam Pro";
+  transition: color 150ms linear;
+}
+
+.carousel-stars__list {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-stars__item-icon {
+  font-size: 35px;
+  transition: color 150ms linear;
+  color: var(--main-orange-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 25px;
+  }
+}

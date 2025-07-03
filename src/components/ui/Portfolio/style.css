@@ -1,0 +1,113 @@
+.portfolio {
+  margin-bottom: 120px;
+
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 80px;
+  }
+}
+
+.portfolio__filter-list {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  justify-content: center;
+
+  @media only screen and (max-width: 980px) {
+    max-width: 700px;
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
+
+  @media only screen and (max-width: 576px) {
+    margin: 0px auto 30px auto;
+  }
+}
+
+.portfolio__filter-list::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio__filter-item-btn {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px 30px;
+  border-radius: 50px;
+  line-height: 22.77px;
+  color: var(--main-dark-color);
+  font-family: "Be Vietnam Pro";
+  background-color: transparent;
+  border: 1px solid var(--main-dark-color);
+
+  @media only screen and (max-width: 980px) {
+    white-space: nowrap;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+.portfolio__filter-item-btn--active {
+  color: var(--main-light-color);
+  background-color: var(--main-dark-color);
+}
+
+.portfolio__cards {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portfolio__card {
+  height: 410px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media only screen and (max-width: 576px) {
+    height: 275px;
+    padding: 10px;
+  }
+}
+
+.portfolio__card-content {
+  padding: 20px;
+  border-radius: 6px;
+  background: linear-gradient(111.8deg, #2b2f53 16.5%, #1d1c34 77.09%);
+
+  @media only screen and (max-width: 576px) {
+    padding: 10px;
+  }
+}
+
+.portfolio__card-content-heading {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  margin-bottom: 2px;
+  font-family: "Poppins";
+  color: var(--main-poppins-color);
+}
+
+.portfolio__card-content-name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22.77px;
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+
+  @media only screen and (max-width: 576px) {
+    font-size: 16px;
+  }
+}

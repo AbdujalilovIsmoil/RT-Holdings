@@ -13,7 +13,7 @@ const header = {
     {
       id: 3,
       title: "Ishlar",
-      path: "/projects",
+      path: "/portfolio",
     },
     {
       id: 4,

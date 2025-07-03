@@ -1,0 +1,49 @@
+.post {
+  margin-bottom: 80px;
+
+  @media only screen and (max-width: 576px) {
+    margin-bottom: 50px;
+  }
+}
+
+.post__content-image {
+  height: 510px;
+  object-fit: cover;
+  margin-bottom: 40px;
+
+  @media only screen and (max-width: 850px) {
+    height: 300px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    height: 250px;
+    margin-bottom: 10px;
+  }
+}
+
+.post__content-title {
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  line-height: 46.52px;
+
+  @media only screen and (max-width: 850px) {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 576px) {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+}
+
+.post__content-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24.32px;
+  font-family: "Be Vietnam Pro";
+
+  @media only screen and (max-width: 576px) {
+    font-size: 14px;
+  }
+}
