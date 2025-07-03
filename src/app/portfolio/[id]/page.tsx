@@ -1,15 +1,8 @@
-"use client";
-
 import "./style.css";
 import Image from "next/image";
-import { useEffect } from "react";
 
-const Hero = ({ params }: { params: { id: string } }) => {
-  useEffect(() => {
-    scrollTo({
-      top: 0,
-    });
-  }, [params]);
+const Hero = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
 
   const heroStyle = {
     backgroundSize: "cover",
@@ -23,7 +16,7 @@ const Hero = ({ params }: { params: { id: string } }) => {
         style={heroStyle}
         className='site-hero'
       >
-        <h1 className='visually-hidden'>Project 1</h1>
+        <h1 className='visually-hidden'>Project {id}</h1>
         <div className='container'>
           <div className='content'>
             <h2 className='content-title'>Afisha Market</h2>
