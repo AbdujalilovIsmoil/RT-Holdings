@@ -12,7 +12,8 @@ interface serviceType {
 }
 
 const Services = ({ openModal, isActive, isOpen }: serviceType) => {
-  const getOneData = (_: number) => {
+  const getOneData = (value: number) => {
+    console.log(value);
     openModal();
   };
 
