@@ -64,13 +64,6 @@ const Hero = async ({ params }: { params: Promise<{ id: string }> }) => {
       <section className='post'>
         <div className='container'>
           <div className='post__content'>
-            {/* <Image
-              width={100}
-              alt='image'
-              height={510}
-              src={`${filterPortfolio?.image}`}
-              className='post__content-image'
-            /> */}
             <h2 className='post__content-title'>{filterPortfolio?.title}</h2>
             <p className='post__content-text'>{filterPortfolio?.description}</p>
           </div>

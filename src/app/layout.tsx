@@ -1,6 +1,6 @@
 import "./globals.css";
-import { Header, Footer } from "@/components";
 import "swiper/swiper-bundle.css";
+import { Header, Footer } from "@/components";
 import { Be_Vietnam_Pro, Exo, Poppins } from "next/font/google";
 
 const poppins = Poppins({

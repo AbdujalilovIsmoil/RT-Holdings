@@ -1,7 +1,12 @@
 import { FiPhone } from "./Fi";
 import { AiFillInstagram } from "./Ai";
 import { IoIosArrowRoundBack } from "./Io";
-import { MdOutlineMailOutline } from "./Md";
+import {
+  MdDateRange,
+  MdRealEstateAgent,
+  MdOutlineMailOutline,
+  MdOutlinePriceChange,
+} from "./Md";
 import { IoLogoInstagram, IoSearch, IoCloseSharp, IoStar } from "./Io5";
 import {
   FaTimes,
@@ -31,6 +36,7 @@ export {
   FaYoutube,
   FaRegUser,
   FaFacebook,
+  MdDateRange,
   FaAngleDown,
   IoCloseSharp,
   FaCircleCheck,
@@ -39,6 +45,8 @@ export {
   FaTelegramPlane,
   FaArrowLeftLong,
   FaArrowRightLong,
+  MdRealEstateAgent,
   IoIosArrowRoundBack,
+  MdOutlinePriceChange,
   MdOutlineMailOutline,
 };

@@ -1,9 +1,8 @@
 "use client";
 
-import "./style.css";
 import Image from "next/image";
 import { IoSearch } from "@/assets/react-icons";
-import { Button, Input, Modal, Pagination } from "@/components";
+import { Button, Input, Pagination } from "@/components";
 
 interface serviceType {
   isOpen: boolean;
@@ -15,7 +14,7 @@ interface serviceType {
   };
 }
 
-const Services = ({ openModal, isActive, isOpen, content }: serviceType) => {
+const Services = ({ openModal, content }: serviceType) => {
   const getOneData = (value: number) => {
     console.log(value);
     openModal();
@@ -24,34 +23,27 @@ const Services = ({ openModal, isActive, isOpen, content }: serviceType) => {
   return (
     <>
       <section className='service'>
-        <Modal
-          isActive={isActive}
-          openModal={openModal}
-        />
-
         <div className='container'>
           <div className='services__content services__contents'>
             <h2 className='services__content-title'>{content.title}</h2>
             <p className='services__content-text'>{content.description}</p>
           </div>
 
-          {isOpen && (
-            <form className='service__search'>
-              <IoSearch className='search__search-icon' />
-              <Input
-                required
-                type='search'
-                placeholder='Lorem ipsum'
-                className='service__search-input'
-              />
-              <Button
-                type='submit'
-                className='service__search-submit'
-              >
-                Search
-              </Button>
-            </form>
-          )}
+          <form className='service__search'>
+            <IoSearch className='search__search-icon' />
+            <Input
+              required
+              type='search'
+              placeholder='Lorem ipsum'
+              className='service__search-input'
+            />
+            <Button
+              type='submit'
+              className='service__search-submit'
+            >
+              Search
+            </Button>
+          </form>
 
           <ul className='services__cards'>
             <li className='services__card'>

@@ -25,13 +25,13 @@ const header = {
       title: "Sotuv",
       path: "/sale",
     },
+    // {
+    //   id: 6,
+    //   title: "Xizmatlar",
+    //   path: "/services",
+    // },
     {
       id: 6,
-      title: "Xizmatlar",
-      path: "/services",
-    },
-    {
-      id: 7,
       path: "/contact",
       title: "Biz bilan aloqa",
     },
