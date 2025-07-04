@@ -3,13 +3,13 @@
 import "./style.css";
 import Image from "next/image";
 import { useRef } from "react";
-import { Button } from "@/components";
+// import { Button } from "@/components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import {
   IoStar,
-  FaArrowLeftLong,
-  FaArrowRightLong,
+  // FaArrowLeftLong,
+  // FaArrowRightLong,
 } from "@/assets/react-icons";
 
 const Carousel = () => {
@@ -71,7 +71,7 @@ const Carousel = () => {
         >
           {[1, 2, 3, 4, 5, 6, 7, 8].map(el => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={el}>
                 <li className='carousel__item'>
                   <div className='carousel__user'>
                     <div className='carousel__border'>
