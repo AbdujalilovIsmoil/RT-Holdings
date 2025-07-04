@@ -5,10 +5,6 @@ import Link from "next/link";
 import { Texts } from "@/components";
 
 const Portfolio = () => {
-  const getBackgroundImage = (image: string) => {
-    return;
-  };
-
   const portfolioContent = [
     {
       id: 1,
