@@ -1,3 +1,6 @@
+import AkaTaxi from "./Aka-taxi.jpg";
+import RTMedline from "./rt-medline.jpg";
+import DreamExpress from "./dream-express.jpg";
 import AboutBackgroundImage from "./about-background.jpg";
 import HeroBackgroundImage from "./hero-background-image.jpg";
 import HeroBackgroundImage1 from "./hero-background-image-1.jpg";
@@ -24,6 +27,9 @@ import {
 } from "./footer-pictures";
 
 export {
+  AkaTaxi,
+  RTMedline,
+  DreamExpress,
   FooterPicture1,
   FooterPicture2,
   FooterPicture3,

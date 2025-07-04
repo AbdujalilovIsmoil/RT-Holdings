@@ -4,12 +4,6 @@ import Image from "next/image";
 import { Texts } from "@/components";
 
 const About = () => {
-  const backgroundStyle = {
-    backgroundImage: "",
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-  };
-
   return (
     <section className='about'>
       <div className='container'>
@@ -21,31 +15,28 @@ const About = () => {
         />
       </div>
 
-      <div
-        style={backgroundStyle}
-        className='about__background'
-      >
+      <div className='about__background'>
         <div className='about__container container'>
           <div className='about__images-container'>
             <Image
-              src='https://picsum.photos/460/370'
               width={460}
               height={370}
               alt='image name'
+              src='/images/jpg/Aka-taxi.jpg'
               className='about__images-container-image'
             />
             <Image
-              src='https://picsum.photos/460/370'
               width={320}
               height={255}
               alt='image name'
+              src='/images/jpg/dream-express.jpg'
               className='about__images-container-image'
             />
             <Image
-              src='https://picsum.photos/460/370'
               width={260}
               height={210}
               alt='image name'
+              src='/images/jpg/rt-medline.jpg'
               className='about__images-container-image'
             />
           </div>
@@ -54,11 +45,9 @@ const About = () => {
             <div className='about__questions'>
               <div className='about__question'>
                 <h3 className='about__question-title'>
-                  {/* {typeData ? typeData?.title_uz : ""} */}
                   RT Holdings haqida batafsil
                 </h3>
                 <p className='about__question-text'>
-                  {/* {typeData ? typeData?.text_uz : ""} */}
                   RT Holdings — 2013-yilda tashkil topgan va ko‘p tarmoqli
                   faoliyat olib boruvchi xalqaro kompaniya. Biz O‘zbekistonda
                   qurilish, sanoat va logistika sohalarida yuqori sifatli

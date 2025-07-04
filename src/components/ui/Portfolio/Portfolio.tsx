@@ -2,16 +2,33 @@
 
 import "./style.css";
 import Link from "next/link";
-import { Button, Texts } from "@/components";
+import { Texts } from "@/components";
 
 const Portfolio = () => {
   const getBackgroundImage = (image: string) => {
-    return {
-      backgroundSize: "cover",
-      backgroundImage: `url(${image})`,
-      backgroundPosition: "center center",
-    };
+    return;
   };
+
+  const portfolioContent = [
+    {
+      id: 1,
+      path: "aka-taxi",
+      title: "aka taxi",
+      image: "/images/jpg/Aka-taxi.jpg",
+    },
+    {
+      id: 2,
+      path: "dream-express",
+      title: "Dream Express",
+      image: "/images/jpg/dream-express.jpg",
+    },
+    {
+      id: 3,
+      path: "rt-medline",
+      title: "RT Medline",
+      image: "/images/jpg/rt-medline.jpg",
+    },
+  ];
 
   return (
     <section className='portfolio'>
@@ -22,52 +39,35 @@ const Portfolio = () => {
           natijaga yo‘naltirilgan yondashuvning amaliy ifodasidir.'
         />
 
-        <ul className='portfolio__filter-list'>
-          <li className='portfolio__filter-item'>
-            <Button
-              type='button'
-              className='portfolio__filter-item-btn portfolio__filter-item-btn--active'
-            >
-              All
-            </Button>
-          </li>
-          <li className='portfolio__filter-item'>
-            <Button
-              type='button'
-              className='portfolio__filter-item-btn'
-            >
-              Eccommerce
-            </Button>
-          </li>
-          <li className='portfolio__filter-item'>
-            <Button
-              type='button'
-              className='portfolio__filter-item-btn'
-            >
-              Landing
-            </Button>
-          </li>
-        </ul>
-
         <ul className='portfolio__cards'>
-          <li className='portfolio__card-item'>
-            <Link href={`/portfolio/1`}>
-              <div
-                className='portfolio__card'
-                style={getBackgroundImage("https://picsum.photos/460/370")}
+          {portfolioContent.map(el => {
+            return (
+              <li
+                key={el.id}
+                className='portfolio__card-item'
               >
-                <div className='portfolio__card-content'>
-                  <span className='portfolio__card-content-heading'>
-                    <em>Product name</em>
-                  </span>
-                  <h3 className='portfolio__card-content-name'>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ipsam, modi?
-                  </h3>
-                </div>
-              </div>
-            </Link>
-          </li>
+                <Link href={`/portfolio/${el.path}`}>
+                  <div
+                    className='portfolio__card'
+                    style={{
+                      backgroundSize: "cover",
+                      backgroundImage: `url(${el.image})`,
+                      backgroundPosition: "center center",
+                    }}
+                  >
+                    <div className='portfolio__card-content'>
+                      <span className='portfolio__card-content-heading'>
+                        <em>Product name</em>
+                      </span>
+                      <h3 className='portfolio__card-content-name'>
+                        {el.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
