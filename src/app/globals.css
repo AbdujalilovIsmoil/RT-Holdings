@@ -228,4 +228,88 @@ a {
   }
 }
 
+.site-hero__content {
+  max-width: calc(
+    var(--main-medium-size) * 11 + (calc(var(--main-text-size) * 2) - 6px)
+  );
 
+  @media only screen and (max-width: 992px) {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.site-hero__content-title {
+  color: var(--main-light-color);
+  font-size: var(--main-medium-size);
+  font-weight: calc(var(--site-weight-number) - 200);
+  line-height: calc(var(--main-medium-size) + 7.5px);
+  margin-bottom: calc(var(--main-medium-size) - 20px);
+
+  @media only screen and (max-width: 992px) {
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    font-size: 32px;
+    line-height: 45px;
+  }
+}
+
+.site-hero__conetent-among {
+  color: var(--main-orange-color);
+}
+
+.site-hero__content-text {
+  font-family: "Be Vietnam Pro";
+  color: var(--main-light-color);
+  font-size: var(--main-text-size);
+  line-height: calc(var(--main-text-size) + 4.77px);
+  font-weight: calc(var(--site-weight-number) - 500);
+  margin-bottom: calc(var(--main-medium-size) + 30px);
+
+  @media only screen and (max-width: 992px) {
+    margin-bottom: var(--main-medium-size);
+  }
+
+  @media only screen and (max-width: 576px) {
+    font-size: calc(var(--main-text-size) - 2px);
+    margin-bottom: calc(var(--main-medium-size) - 20px);
+  }
+}
+
+.site-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(var(--main-text-size) + 7px);
+
+  @media only screen and (max-width: 992px) {
+    gap: 15px;
+    justify-content: center;
+  }
+}
+
+.site-hero__buttons-button {
+  border-radius: 6px;
+  font-family: "Be Vietnam Pro";
+  background-color: transparent;
+  color: var(--main-light-color);
+  border: 1px solid var(--main-light-color);
+  font-size: calc(var(--main-text-size) - 2px);
+  line-height: calc(var(--main-text-size) + 2.24px);
+  font-weight: calc(var(--site-weight-number) - 300);
+  padding: var(--main-text-size) calc(var(--main-text-size) * 2 - 4px);
+
+  @media only screen and (max-width: 576px) {
+    font-size: calc(var(--main-text-size) - 4px);
+  }
+}
+
+.site-hero__buttons-button--active {
+  color: var(--main-light-color);
+  border: 1px solid var(--main-orange-color);
+  background-color: var(--main-orange-color);
+}

@@ -55,9 +55,7 @@ const Hero = ({ page }: { page: string }) => {
   const pathName = usePathname();
 
   const getImage = (page: string) => {
-    if (page === pathName && pathName === "/") {
-      return "hero-background-image.jpg";
-    } else if (page === "/about") {
+    if (page === "/about") {
       return "hero-background-image-1.jpg";
     } else if (page === "/contact") {
       return "hero-background-image-4.jpg";
@@ -82,49 +80,7 @@ const Hero = ({ page }: { page: string }) => {
 
   if (page === "/") {
     return (
-      <section
-        style={heroStyle}
-        className='site-hero'
-      >
-        <h1 className='visually-hidden'>RT Holdings</h1>
-
-        <div className='container'>
-          <div className='site-hero__content'>
-            <span className='site-hero__content-small'>
-              Yuqori sifatli texnikalar va ishonchli xizmatlar manzili.
-            </span>
-            <h2 className='site-hero__content-title'>
-              <span className='site-hero__conetent-among'>RT Holdings</span>
-              kompaniyasi O‘zbekiston va Markaziy Osiyo davlatlari qurilish,
-              sanoat, logistika va xizmat ko’rsatish sohalarida ishonchli
-              hamkordir. Bizning maqsadimiz mijozlarimizga sifatli, ishonchli va
-              tezkor xizmat ko’rsatishdir
-            </h2>
-
-            <p className='site-hero__content-text'>
-              Har bir mijoz uchun individual yondashuv, har bir loyiha uchun
-              yuqori mas’uliyat — bu bizning ish prinsipimizdir. RT Holdings
-              doimo ishonchli texnika, professional xizmat va o‘z vaqtida
-              yetkazib berishni kafolatlaydi.
-            </p>
-
-            <div className='site-hero__buttons'>
-              <Link
-                href='/services'
-                className='site-hero__buttons-button site-hero__buttons-button--active'
-              >
-                Xizmatlarimiz bilan tanishing
-              </Link>
-              <Link
-                href='/about'
-                className='site-hero__buttons-button'
-              >
-                Biz haqimizda ko'proq ma'lumot oling
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+     <></>
     );
   } else {
     return (
