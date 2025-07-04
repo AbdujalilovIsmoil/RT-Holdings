@@ -37,6 +37,16 @@ const Hero = async ({ params }: { params: Promise<{ id: string }> }) => {
         10 ga yaqin sohalarda o’z faoliyatini olib kelmoqda.
       `,
     },
+    {
+      id: 4,
+      path: "rt-motors",
+      title: "RT MOTORS",
+      image: "/images/jpg/rt-motors.jpg",
+      description: `
+        RT Motors - Janubiy Koreyadan hashamatlik avtomobillarni zakaz orqali butun dunyoqga
+        yetkazib beradi.
+      `,
+    },
   ];
 
   const filterPortfolio = portfolioContent.find(el => el.path === id);

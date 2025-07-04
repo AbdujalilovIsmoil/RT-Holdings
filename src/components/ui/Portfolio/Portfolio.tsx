@@ -24,6 +24,12 @@ const Portfolio = () => {
       title: "RT Medline",
       image: "/images/jpg/rt-medline.jpg",
     },
+    {
+      id: 4,
+      path: "rt-motors",
+      title: "RT MOTORS",
+      image: "/images/jpg/rt-motors.jpg",
+    },
   ];
 
   return (
