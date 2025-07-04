@@ -23,7 +23,7 @@ const Home = () => {
               Yuqori sifatli texnikalar va ishonchli xizmatlar manzili.
             </span>
             <h2 className='site-hero__content-title'>
-              <span className='site-hero__conetent-among'>RT Holdings</span>
+              <span className='site-hero__conetent-among'>RT Holdings</span>{" "}
               kompaniyasi O‘zbekiston va Markaziy Osiyo davlatlari qurilish,
               sanoat, logistika va xizmat ko’rsatish sohalarida ishonchli
               hamkordir. Bizning maqsadimiz mijozlarimizga sifatli, ishonchli va

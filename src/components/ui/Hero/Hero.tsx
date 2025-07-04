@@ -1,8 +1,6 @@
 "use client";
 
 import "./style.css";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const Hero = ({ page }: { page: string }) => {
   interface pageDataTypes {
@@ -11,6 +9,8 @@ const Hero = ({ page }: { page: string }) => {
     text: string;
     title: string;
   }
+
+  console.log(page);
 
   const pageData: pageDataTypes[] = [
     {
@@ -52,8 +52,6 @@ const Hero = ({ page }: { page: string }) => {
     },
   ];
 
-  const pathName = usePathname();
-
   const getImage = (page: string) => {
     if (page === "/about") {
       return "hero-background-image-1.jpg";
@@ -78,11 +76,7 @@ const Hero = ({ page }: { page: string }) => {
     )})`,
   };
 
-  if (page === "/") {
-    return (
-     <></>
-    );
-  } else {
+  if (page !== "/") {
     return (
       <section
         style={heroStyle}
