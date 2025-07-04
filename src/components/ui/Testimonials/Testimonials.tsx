@@ -21,10 +21,12 @@ const Carousel = () => {
       <div className='container'>
         <div className='carousel__header'>
           <div className='carousel__box'>
-            <span className='carousel__box-small-text'>Users</span>
-            <h2 className='carousel__box-title'>What Our Customer Say</h2>
+            <span className='carousel__box-small-text'>Foydalanuvchilar</span>
+            <h2 className='carousel__box-title'>
+              Biz haqimizda mijozlarimiz qanday fikrda?
+            </h2>
           </div>
-          <div className='carousel__box'>
+          {/* <div className='carousel__box'>
             <Button
               type='button'
               ref={leftButton}
@@ -39,7 +41,7 @@ const Carousel = () => {
             >
               <FaArrowRightLong className='carousel__button-icon' />
             </Button>
-          </div>
+          </div> */}
         </div>
 
         <Swiper
@@ -67,47 +69,56 @@ const Carousel = () => {
             },
           }}
         >
-          <SwiperSlide className='carousel__item'>
-            <div className='carousel__user'>
-              <div className='carousel__border'>
-                <Image
-                  width={50}
-                  height={50}
-                  alt='image'
-                  className='carousel__border-icon'
-                  src='https://picsum.photos/460/370'
-                />
-              </div>
-              <div className='carousel__info'>
-                <h3 className='carousel__info-fullname'>Abdujalilov Ismoil</h3>
-                <p className='carousel__info-job'>User</p>
-              </div>
-            </div>
-            <p className='carousel-text'>
-              <q>
-                <em>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aliquid facere voluptate sequi maiores, eaque, rerum a atque
-                  autem tenetur, temporibus inventore eveniet esse ex earum!
-                </em>
-              </q>
-            </p>
+          {[1, 2, 3, 4, 5, 6, 7, 8].map(el => {
+            return (
+              <SwiperSlide>
+                <li className='carousel__item'>
+                  <div className='carousel__user'>
+                    <div className='carousel__border'>
+                      <Image
+                        width={50}
+                        height={50}
+                        alt='image'
+                        className='carousel__border-icon'
+                        src='https://picsum.photos/460/370'
+                      />
+                    </div>
+                    <div className='carousel__info'>
+                      <h3 className='carousel__info-fullname'>
+                        Abdujalilov Ismoil
+                      </h3>
+                      <p className='carousel__info-job'>User</p>
+                    </div>
+                  </div>
+                  <p className='carousel-text'>
+                    <q>
+                      <em>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Aliquid facere voluptate sequi maiores, eaque, rerum a
+                        atque autem tenetur, temporibus inventore eveniet esse
+                        ex earum!
+                      </em>
+                    </q>
+                  </p>
 
-            <ul className='carousel-stars__list'>
-              {Array(5)
-                .fill(5)
-                .map((_, index) => {
-                  return (
-                    <li
-                      key={index}
-                      className='carousel-stars__item'
-                    >
-                      <IoStar className='carousel-stars__item-icon' />
-                    </li>
-                  );
-                })}
-            </ul>
-          </SwiperSlide>
+                  <ul className='carousel-stars__list'>
+                    {Array(5)
+                      .fill(5)
+                      .map((_, index) => {
+                        return (
+                          <li
+                            key={index}
+                            className='carousel-stars__item'
+                          >
+                            <IoStar className='carousel-stars__item-icon' />
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </li>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </section>

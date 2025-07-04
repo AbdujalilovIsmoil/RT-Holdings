@@ -17,6 +17,13 @@ const Sale = () => {
         isOpen={false}
         isActive={isActive}
         openModal={openModal}
+        content={{
+          title: "Sifatli mahsulotlar tanlovi",
+          description: `
+            RT Holdings sizga zamonaviy texnikalar, ishonchli uskunalar va qulay narxdagi
+            mahsulotlarni taklif etadi. Chegirmalar va mavjud imkoniyatlar bilan tanishing.
+          `,
+        }}
       />
     </>
   );

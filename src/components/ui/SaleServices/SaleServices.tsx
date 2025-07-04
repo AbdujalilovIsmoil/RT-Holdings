@@ -9,9 +9,13 @@ interface serviceType {
   isOpen: boolean;
   isActive: boolean;
   openModal: () => void;
+  content: {
+    title: string;
+    description: string;
+  };
 }
 
-const Services = ({ openModal, isActive, isOpen }: serviceType) => {
+const Services = ({ openModal, isActive, isOpen, content }: serviceType) => {
   const getOneData = (value: number) => {
     console.log(value);
     openModal();
@@ -27,12 +31,8 @@ const Services = ({ openModal, isActive, isOpen }: serviceType) => {
 
         <div className='container'>
           <div className='services__content services__contents'>
-            <h2 className='services__content-title'>Title 1</h2>
-            <p className='services__content-text'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Blanditiis, non suscipit vitae cumque cupiditate iusto provident
-              aspernatur molestiae aperiam magni?
-            </p>
+            <h2 className='services__content-title'>{content.title}</h2>
+            <p className='services__content-text'>{content.description}</p>
           </div>
 
           {isOpen && (

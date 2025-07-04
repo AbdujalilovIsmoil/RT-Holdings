@@ -15,51 +15,40 @@ const Hero = ({ page }: { page: string }) => {
   const pageData: pageDataTypes[] = [
     {
       id: 1,
-      title: "About us",
       path: "/about",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+      title: "Biz haqimizda",
+      text: "RT Holdings — qurilish, sanoat va logistika sohalarida faoliyat yurituvchi, ishonchli va yetakchi xalqaro kompaniya.",
     },
     {
       id: 2,
-      title: "Projects",
+      title: "Ishlar",
       path: "/portfolio",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+      text: "Amalga oshirilgan loyihalarimiz sifatli xizmat, tajriba va professionallikni yaqqol aks ettiradi.",
     },
     {
       id: 3,
-      title: "News",
       path: "/news",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+      title: "Yangiliklar",
+      text: "RT Holdings yangiliklari, hamkorliklar va sanoatdagi so‘nggi o‘zgarishlardan xabardor bo‘ling.",
     },
+
     {
       id: 4,
-      title: "News",
-      path: "/news",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+      path: "/sale",
+      title: "Sotuv",
+      text: "Turli yo‘nalishdagi yuqori sifatli texnikalar va mahsulotlarimiz bilan tanishing.",
     },
     {
       id: 5,
-      title: "Sale",
-      path: "/sale",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+      path: "/services",
+      title: "Bizning xizmatlar",
+      text: "Texnik maslahat, yetkazib berish va servis kabi ishonchli va tezkor xizmatlar taqdim etamiz.",
     },
     {
       id: 6,
-      title: "Our Services",
-      path: "/services",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
-    },
-    {
-      id: 7,
-      title: "Contact us",
       path: "/contact",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
-    },
-    {
-      id: 7,
-      title: "Contact us",
-      path: "/contact",
-      text: "Lorem ipsum dolor sit amet consectetur. Velit sagittis nec vulputate aliquet at suspendisse dui semper feugiat.",
+      title: "Biz bilan bog'lanish",
+      text: "Savol va buyurtmalar bo‘yicha biz bilan bog‘laning — mutaxassislarimiz yordam berishga tayyor.",
     },
   ];
 
@@ -102,7 +91,7 @@ const Hero = ({ page }: { page: string }) => {
         <div className='container'>
           <div className='site-hero__content'>
             <span className='site-hero__content-small'>
-              Lorem ipsum dolor sit amet.
+              Yuqori sifatli texnikalar va ishonchli xizmatlar manzili.
             </span>
             <h2 className='site-hero__content-title'>
               <span className='site-hero__conetent-among'>RT Holdings</span>
@@ -113,8 +102,10 @@ const Hero = ({ page }: { page: string }) => {
             </h2>
 
             <p className='site-hero__content-text'>
-              Lorem ipsum dolor sit amet consectetur. Velit sagittis nec
-              vulputate aliquet at suspendisse dui semper feugiat.
+              Har bir mijoz uchun individual yondashuv, har bir loyiha uchun
+              yuqori mas’uliyat — bu bizning ish prinsipimizdir. RT Holdings
+              doimo ishonchli texnika, professional xizmat va o‘z vaqtida
+              yetkazib berishni kafolatlaydi.
             </p>
 
             <div className='site-hero__buttons'>

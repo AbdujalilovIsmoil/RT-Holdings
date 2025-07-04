@@ -224,7 +224,7 @@
   margin-bottom: calc(var(--main-text-size) - 8px);
   line-height: calc(var(--main-text-size) + 0.61px);
   font-weight: calc(var(--site-weight-number) - 500);
-  padding: 0px 0px 0px calc(var(--main-text-size) - 8px);
+  padding: 0px 10px 0px calc(var(--main-text-size) - 8px);
 
   &::before {
     left: 0;

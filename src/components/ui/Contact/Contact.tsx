@@ -27,36 +27,35 @@ const FormComponent = () => {
       <section className='contact'>
         <div className='container'>
           <div className='contact__content'>
-            <h2 className='contact__content-title'>Contact Us</h2>
+            <h2 className='contact__content-title'>Biz haqimizda</h2>
             <ul className='contact__list'>
               <li className='contact__itme'>
                 <FaCircleCheck className='contact__item-icon' />
-                <p className='contact__item-text'>Qualified Specialists</p>
+                <p className='contact__item-text'>Malakali mutaxassislar</p>
               </li>
               <li className='contact__itme'>
                 <FaCircleCheck className='contact__item-icon' />
-                <p className='contact__item-text'>100% Satisfaction</p>
+                <p className='contact__item-text'>100% mijozlar mamnunligi</p>
               </li>
               <li className='contact__itme'>
                 <FaCircleCheck className='contact__item-icon' />
-                <p className='contact__item-text'>Transparent Pricing</p>
+                <p className='contact__item-text'>Shaffof narxlash</p>
               </li>
               <li className='contact__itme'>
                 <FaCircleCheck className='contact__item-icon' />
-                <p className='contact__item-text'>Quality Work</p>
+                <p className='contact__item-text'>Sifatli ish</p>
               </li>
             </ul>
           </div>
 
           <div className='contact-request'>
             <div className='contact-request__content'>
-              <h3 className='contact-request__content-title'>
-                Request A Quote
-              </h3>
+              <h3 className='contact-request__content-title'>Taklif so‘rash</h3>
               <p className='contact-request__content-text'>
-                Complete control over products allow us to our customers the
-                best quality prices and services. We take great pride in
-                everything that we do in Jhontraktor
+                Mahsulotlar ustidan to‘liq nazorat bizga mijozlarimizga eng
+                yuqori sifat, qulay narxlar va ishonchli xizmatlar taklif etish
+                imkonini beradi. Jhontraktor kompaniyasi sifatida biz qilayotgan
+                har bir ishimizdan faxrlanamiz.
               </p>
             </div>
 
@@ -67,7 +66,7 @@ const FormComponent = () => {
                   type='text'
                   name='name'
                   value={form.name}
-                  placeholder='Name'
+                  placeholder='Ism'
                   onChange={changeInput}
                   className='contact-request-form__box-input'
                 />
@@ -76,8 +75,8 @@ const FormComponent = () => {
                   type='email'
                   name='email'
                   value={form.email}
-                  placeholder='Email'
                   onChange={changeInput}
+                  placeholder='Elektron pochta'
                   className='contact-request-form__box-input'
                 />
               </label>
@@ -86,9 +85,9 @@ const FormComponent = () => {
                   required
                   type='number'
                   name='phone_number'
-                  placeholder='Phone'
                   onChange={changeInput}
                   value={form.phone_number}
+                  placeholder='Telefon raqam'
                   className='contact-request-form__box-input'
                 />
                 <select
@@ -98,8 +97,8 @@ const FormComponent = () => {
                   onChange={changeInput}
                   className='contact-request-form__box-input select'
                 >
-                  <option disabled>Select Your Service</option>
-                  <option value='value 1'>Value 1</option>
+                  <option disabled>Xizmat turini tanlang</option>
+                  <option value='value 1'>Qiymat 1</option>
                 </select>
               </label>
               <Textarea
@@ -112,7 +111,7 @@ const FormComponent = () => {
                 type='submit'
                 className='contact-request-form__box-submit'
               >
-                Submit Request
+                Murojaatni yuborish
               </Button>
             </form>
           </div>

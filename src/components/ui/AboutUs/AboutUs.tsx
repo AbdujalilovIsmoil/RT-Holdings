@@ -15,9 +15,9 @@ const About = () => {
       <div className='container'>
         <Texts
           title='Biz haqimizda'
-          text="Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s....."
+          text='Kompaniyamiz faoliyati, qadriyatlari va maqsadlari bilan tanishing — biz qanday 
+          ishlaymiz, kimlar bilan hamkorlik qilamiz va mijozlarimizga qanday yechimlar taklif 
+          etamiz.'
         />
       </div>
 
@@ -71,68 +71,11 @@ const About = () => {
                   mahsulotlarni import qilib, ulardan MDH davlatlari, Vetnam va
                   mintaqaviy bozorlar uchun eksport qilishdir.
                 </p>
-
-                {/* <ul className={classNames(styles["about__answers-list"])}>
-                  <li className={classNames(styles["about__anwers-item"])}>
-                    <Image
-                      alt="icon"
-                      width={18}
-                      height={12}
-                      src={"/images/svg/about-icon.svg"}
-                      className={classNames(styles["about__answers-item-icon"])}
-                    />
-                    <p
-                      className={classNames(styles["about__answers-item-text"])}
-                    >
-                      Lorem ipsum dolor
-                    </p>
-                  </li>
-                  <li className={classNames(styles["about__anwers-item"])}>
-                    <Image
-                      alt="icon"
-                      width={18}
-                      height={12}
-                      src={"/images/svg/about-icon.svg"}
-                      className={classNames(styles["about__answers-item-icon"])}
-                    />
-                    <p
-                      className={classNames(styles["about__answers-item-text"])}
-                    >
-                      Lorem ipsum
-                    </p>
-                  </li>
-                  <li className={classNames(styles["about__anwers-item"])}>
-                    <Image
-                      alt="icon"
-                      width={18}
-                      height={12}
-                      src={"/images/svg/about-icon.svg"}
-                      className={classNames(styles["about__answers-item-icon"])}
-                    />
-                    <p
-                      className={classNames(styles["about__answers-item-text"])}
-                    >
-                      Lorem ipsum dolor sit amet
-                    </p>
-                  </li>
-                  <li className={classNames(styles["about__anwers-item"])}>
-                    <Image
-                      alt="icon"
-                      width={18}
-                      height={12}
-                      src={"/images/svg/about-icon.svg"}
-                      className={classNames(styles["about__answers-item-icon"])}
-                    />
-                    <p
-                      className={classNames(styles["about__answers-item-text"])}
-                    >
-                      Lorem ipsum dolor sit
-                    </p>
-                  </li>
-                </ul> */}
               </div>
               <div className='about__question'>
-                <h3 className='about__question-title'>Lorem Ipsum Dolor</h3>
+                <h3 className='about__question-title'>
+                  Bizning ustuvorliklarimiz
+                </h3>
 
                 <ul className='about__answers-list'>
                   <li className='about__anwers-item'>
@@ -144,29 +87,7 @@ const About = () => {
                       className='about__answers-item-icon'
                     />
                     <p className='about__answers-item-text'>
-                      Lorem ipsum dolor
-                    </p>
-                  </li>
-                  <li className='about__anwers-item'>
-                    <Image
-                      alt='icon'
-                      width={18}
-                      height={12}
-                      src={"/images/svg/about-icon.svg"}
-                      className='about__answers-item-icon'
-                    />
-                    <p className='about__answers-item-text'>Lorem ipsum</p>
-                  </li>
-                  <li className='about__anwers-item'>
-                    <Image
-                      alt='icon'
-                      width={18}
-                      height={12}
-                      src={"/images/svg/about-icon.svg"}
-                      className='about__answers-item-icon'
-                    />
-                    <p className='about__answers-item-text'>
-                      Lorem ipsum dolor sit amet
+                      Innovatsiya • Global yondashuv • Professional xizmat
                     </p>
                   </li>
                   <li className='about__anwers-item'>
@@ -178,7 +99,31 @@ const About = () => {
                       className='about__answers-item-icon'
                     />
                     <p className='about__answers-item-text'>
-                      Lorem ipsum dolor sit
+                      Yuqori sifat • Keng imkoniyatlar • Mijozlarga sodiqlik
+                    </p>
+                  </li>
+                  <li className='about__anwers-item'>
+                    <Image
+                      alt='icon'
+                      width={18}
+                      height={12}
+                      src={"/images/svg/about-icon.svg"}
+                      className='about__answers-item-icon'
+                    />
+                    <p className='about__answers-item-text'>
+                      Tajriba • Texnologiya • Natijadorlik
+                    </p>
+                  </li>
+                  <li className='about__anwers-item'>
+                    <Image
+                      alt='icon'
+                      width={18}
+                      height={12}
+                      src={"/images/svg/about-icon.svg"}
+                      className='about__answers-item-icon'
+                    />
+                    <p className='about__answers-item-text'>
+                      Ishonchlilik • Mas’uliyat • Barqaror rivojlanish
                     </p>
                   </li>
                 </ul>
@@ -189,7 +134,7 @@ const About = () => {
               href='/about'
               className='about__box-btn'
             >
-              Batafsil
+              Batafsil ma'lumot
             </Link>
           </div>
         </div>

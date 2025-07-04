@@ -229,7 +229,7 @@
   margin-bottom: calc(var(--main-text-size) - 8px);
   line-height: calc(var(--main-text-size) + 0.61px);
   font-weight: calc(var(--site-weight-number) - 500);
-  padding: 0px 0px 0px calc(var(--main-text-size) - 8px);
+  padding: 0px calc(var(--main-text-size) - 8px);
 
   &::before {
     left: 0;
@@ -242,7 +242,7 @@
 }
 
 .site-hero__content {
-  max-width: 800px;
+  max-width: 700px;
 
   @media only screen and (max-width: 992px) {
     margin: 0 auto;

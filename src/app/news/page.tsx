@@ -28,6 +28,12 @@ const News = () => {
         isOpen={false}
         isActive={isActive}
         openModal={openModal}
+        content={{
+          title: "Dolzarb ma’lumotlar",
+          description: `RT Holdings faoliyatiga oid yangi loyihalar, hamkorliklar va 
+          mahsulotlar haqidagi eng dolzarb ma’lumotlarni shu yerda topasiz. Sizni qiziqtiradigan
+          barcha yangiliklar jamlangan!`,
+        }}
       />
     </>
   );
