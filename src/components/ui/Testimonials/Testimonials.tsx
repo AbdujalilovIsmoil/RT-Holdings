@@ -3,14 +3,9 @@
 import "./style.css";
 import Image from "next/image";
 import { useRef } from "react";
-// import { Button } from "@/components";
+import { IoStar } from "@/assets/react-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import {
-  IoStar,
-  // FaArrowLeftLong,
-  // FaArrowRightLong,
-} from "@/assets/react-icons";
 
 const Carousel = () => {
   const leftButton = useRef<null | HTMLButtonElement>(null);
@@ -26,22 +21,6 @@ const Carousel = () => {
               Biz haqimizda mijozlarimiz qanday fikrda?
             </h2>
           </div>
-          {/* <div className='carousel__box'>
-            <Button
-              type='button'
-              ref={leftButton}
-              className='carousel__button'
-            >
-              <FaArrowLeftLong className='carousel__button-icon' />
-            </Button>
-            <Button
-              type='button'
-              ref={rightButton}
-              className='carousel__button'
-            >
-              <FaArrowRightLong className='carousel__button-icon' />
-            </Button>
-          </div> */}
         </div>
 
         <Swiper
