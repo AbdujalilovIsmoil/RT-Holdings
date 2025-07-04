@@ -1,5 +1,4 @@
 import "./style.css";
-import Image from "next/image";
 
 const Hero = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
