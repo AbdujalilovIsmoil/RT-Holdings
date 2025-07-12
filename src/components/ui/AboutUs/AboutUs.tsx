@@ -21,7 +21,7 @@ const About = () => {
               width={590}
               height={400}
               className='about__box-image'
-              src='/images/jpg/about-image.jpg'
+              src='/images/png/about-image.png'
               alt='RT Holdings kompaniya haqida'
             />
           </div>
@@ -40,7 +40,7 @@ const About = () => {
                   hisoblanadi.
                 </p>
               </li>
-              <li className="about__item">
+              <li className='about__item'>
                 <p className='about__item-text'>
                   Biz Koreya va Yevropaning yetakchi brendlaridan maxsus
                   texnikalarni import qilamiz va mijozlarimizga zamonaviy,
