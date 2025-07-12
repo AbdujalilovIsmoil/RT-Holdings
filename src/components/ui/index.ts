@@ -8,8 +8,8 @@ import ContactUI from "./Contact";
 import AboutUsUI from "./AboutUs";
 import Portfolio from "./Portfolio";
 import Pagination from "./Pagination";
+import OurServices from "./OurServices";
 import Testimonials from "./Testimonials";
-import SalesServices from "./SaleServices";
 
 export {
   Hero,
@@ -22,6 +22,6 @@ export {
   AboutUsUI,
   Portfolio,
   Pagination,
+  OurServices,
   Testimonials,
-  SalesServices,
 };

@@ -11,8 +11,8 @@ import {
   AboutUsUI,
   Portfolio,
   Pagination,
+  OurServices,
   Testimonials,
-  SalesServices,
 } from "./ui";
 
 export {
@@ -31,6 +31,6 @@ export {
   AboutUsUI,
   Portfolio,
   Pagination,
+  OurServices,
   Testimonials,
-  SalesServices,
 };

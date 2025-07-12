@@ -1,0 +1,106 @@
+.our-services {
+  padding: 80px 0px;
+}
+
+.our-services__content {
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.our-services__content-title {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 28px;
+}
+
+.our-services__content-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: #8a8a8a;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.our-services__list {
+  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.our-services__item {
+  height: 100%;
+  background-color: #ffffff;
+  border: 1px solid #0000001a;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.our-services__item-box {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.our-services__item-img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.our-services__item-box-title {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0%;
+  margin-bottom: 16px;
+}
+
+.our-services__item-box-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #4a4a4a;
+  line-height: 150%;
+  letter-spacing: 0%;
+  margin-bottom: 45px;
+
+  line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.our-services__item-box-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0%;
+  border-radius: 50px;
+  display: inline-block;
+  -o-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border: 1px solid #000000;
+  -webkit-border-radius: 50px;
+  transition: color 150ms linear, background-color 150ms linear;
+  -o-transition: color 150ms linear, background-color 150ms linear;
+  -ms-transition: color 150ms linear, background-color 150ms linear;
+  -moz-transition: color 150ms linear, background-color 150ms linear;
+  -webkit-transition: color 150ms linear, background-color 150ms linear;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+}

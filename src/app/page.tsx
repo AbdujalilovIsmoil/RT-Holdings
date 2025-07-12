@@ -2,7 +2,13 @@
 
 import "./not-found.css";
 import Link from "next/link";
-import { AboutUsUI, ContactUI, Testimonials, Score } from "@/components";
+import {
+  Score,
+  AboutUsUI,
+  ContactUI,
+  OurServices,
+  Testimonials,
+} from "@/components";
 
 const Home = () => {
   return (
@@ -53,6 +59,7 @@ const Home = () => {
       </section>
       <AboutUsUI />
       <Score />
+      <OurServices />
       <Testimonials />
       <ContactUI />
     </>
