@@ -2,24 +2,15 @@
 
 import "./style.css";
 import Head from "next/head";
-import Image from "next/image";
-import { Hero } from "@/components";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { Button, Pagination } from "@/components";
-import { IoCloseSharp } from "@/assets/react-icons";
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect } from "react";
+import { Hero } from "@/components";
+import { Pagination } from "@/components";
+import { usePathname } from "next/navigation";
 
 const News = () => {
   const pathName = usePathname();
-  const [isActive, setIsActive] = useState<boolean>(false);
-
-  const openModal = () => setIsActive(prevState => !prevState);
-
-  const getOneData = (value: number) => {
-    console.log(value);
-    openModal();
-  };
 
   useEffect(() => {
     scrollTo({
