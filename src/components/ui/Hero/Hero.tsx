@@ -36,7 +36,7 @@ const Hero = ({ page }: { page: string }) => {
       id: 4,
       path: "/sale",
       title: "Sotuv",
-      text: "Turli yo‘nalishdagi yuqori sifatli texnikalar va mahsulotlarimiz bilan tanishing.",
+      text: "Har bir mijoz uchun individual yondashuv, har bir loyiha uchun yuqori mas’uliyat — bu bizning ish prinsipimizdir.",
     },
     {
       id: 5,
@@ -62,7 +62,7 @@ const Hero = ({ page }: { page: string }) => {
     } else if (page === "/news") {
       return "hero-background-image-2.jpg";
     } else if (page === "/sale") {
-      return "hero-background-image-1.jpg";
+      return "hero-background-image-5.jpg";
     } else if (page === "/services") {
       return "hero-background-image-1.jpg";
     }

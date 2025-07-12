@@ -1,8 +1,8 @@
 .service {
-  margin-bottom: 80px;
+  padding: 80px 0px;
 
   @media only screen and (max-width: 576px) {
-    margin-bottom: 50px;
+    padding: 50px 0px;
   }
 }
 
@@ -255,3 +255,4 @@
   align-items: center;
   justify-content: space-between;
 }
+
