@@ -1,6 +1,6 @@
-import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const News = () => {
   return (

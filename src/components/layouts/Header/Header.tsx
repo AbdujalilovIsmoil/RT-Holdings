@@ -87,20 +87,6 @@ const Header = () => {
     },
   ];
 
-  interface phoneNumbersTypes {
-    phone_number: string;
-  }
-
-  interface servicesTypes {
-    id: number;
-    email: string;
-    youtube_link: string;
-    telegram_link: string;
-    facebook_link: string;
-    instagram_link: string;
-    phone_numbers: phoneNumbersTypes[];
-  }
-
   const setLangData = (data: flagDataType) => {
     setIsOpen(false);
     setFlagData(data);
