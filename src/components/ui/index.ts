@@ -1,5 +1,6 @@
 import Hero from "./Hero";
 import Post from "./Post";
+import News from "./News";
 import Modal from "./Modal";
 import Texts from "./Texts";
 import Score from "./Score";
@@ -15,6 +16,7 @@ export {
   Hero,
   Post,
   Modal,
+  News,
   Texts,
   Score,
   Button,

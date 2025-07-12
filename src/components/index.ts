@@ -3,6 +3,7 @@ import { Footer, Header, Nav } from "./layouts";
 import {
   Post,
   Hero,
+  News,
   Texts,
   Modal,
   Score,
@@ -18,6 +19,7 @@ import {
 export {
   Nav,
   Hero,
+  News,
   Post,
   Modal,
   Score,

@@ -3,6 +3,7 @@
 import "./not-found.css";
 import Link from "next/link";
 import {
+  News,
   Score,
   AboutUsUI,
   ContactUI,
@@ -60,6 +61,7 @@ const Home = () => {
       <AboutUsUI />
       <Score />
       <OurServices />
+      <News />
       <Testimonials />
       <ContactUI />
     </>
