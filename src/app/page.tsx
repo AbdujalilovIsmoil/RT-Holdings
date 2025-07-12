@@ -20,14 +20,11 @@ const Home = () => {
         <div className='container'>
           <div className='site-hero__content'>
             <span className='site-hero__content-small'>
-              Yuqori sifatli texnikalar va ishonchli xizmatlar manzili.
+              Sizning tanlovingiz biz uchun muhim!
             </span>
             <h2 className='site-hero__content-title'>
-              <span className='site-hero__conetent-among'>RT Holdings</span>{" "}
-              kompaniyasi O‘zbekiston va Markaziy Osiyo davlatlari qurilish,
-              sanoat, logistika va xizmat ko’rsatish sohalarida ishonchli
-              hamkordir. Bizning maqsadimiz mijozlarimizga sifatli, ishonchli va
-              tezkor xizmat ko’rsatishdir
+              <span className='site-hero__conetent-among'>Maqsadlarimiz</span>{" "}
+              mijozlarimizga sifatli, ishonchli va tezkor xizmat ko’rsatishdir
             </h2>
 
             <p className='site-hero__content-text'>

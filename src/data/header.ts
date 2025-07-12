@@ -12,8 +12,8 @@ const header = {
     },
     {
       id: 3,
-      title: "Ishlar",
-      path: "/portfolio",
+      title: "Xizmatlar",
+      path: "/services",
     },
     {
       id: 4,
@@ -24,16 +24,6 @@ const header = {
       id: 5,
       title: "Sotuv",
       path: "/sale",
-    },
-    // {
-    //   id: 6,
-    //   title: "Xizmatlar",
-    //   path: "/services",
-    // },
-    {
-      id: 6,
-      path: "/contact",
-      title: "Biz bilan aloqa",
     },
   ],
 };

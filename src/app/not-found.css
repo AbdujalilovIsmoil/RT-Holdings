@@ -56,10 +56,10 @@
 
 .site-hero__content-title {
   color: var(--main-light-color);
-  font-size: 36px;
+  font-size: 40px;
+  line-height: 50px;
+  margin-bottom: 25px;
   font-weight: calc(var(--site-weight-number) - 200);
-  line-height: calc(var(--main-medium-size) + 7.5px);
-  margin-bottom: calc(var(--main-medium-size) - 20px);
 
   @media only screen and (max-width: 992px) {
     font-size: 32px;
@@ -72,20 +72,14 @@
 }
 
 .site-hero__content-text {
+  margin-bottom: 25px;
   font-family: "Be Vietnam Pro";
   color: var(--main-light-color);
   font-size: var(--main-text-size);
-  line-height: calc(var(--main-text-size) + 4.77px);
   font-weight: calc(var(--site-weight-number) - 500);
-  margin-bottom: calc(var(--main-medium-size) + 30px);
-
-  @media only screen and (max-width: 992px) {
-    margin-bottom: var(--main-medium-size);
-  }
 
   @media only screen and (max-width: 576px) {
     font-size: calc(var(--main-text-size) - 2px);
-    margin-bottom: calc(var(--main-medium-size) - 20px);
   }
 }
 
@@ -102,6 +96,7 @@
 
 .site-hero__buttons-button {
   border-radius: 6px;
+  padding: 16px 32px;
   font-family: "Be Vietnam Pro";
   background-color: transparent;
   color: var(--main-light-color);
@@ -109,7 +104,6 @@
   font-size: calc(var(--main-text-size) - 2px);
   line-height: calc(var(--main-text-size) + 2.24px);
   font-weight: calc(var(--site-weight-number) - 300);
-  padding: var(--main-text-size) calc(var(--main-text-size) * 2 - 4px);
 
   @media only screen and (max-width: 576px) {
     font-size: calc(var(--main-text-size) - 4px);

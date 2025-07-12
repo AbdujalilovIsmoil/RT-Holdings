@@ -133,16 +133,18 @@
 }
 
 .site-navigation {
-  top: 0;
   z-index: 2;
   width: 100%;
   position: sticky;
-  transition: background-color 150ms linear;
   background-color: var(--main-dark-color);
+  transition: background-color 150ms linear;
 
   @media only screen and (max-width: 900px) {
     display: none;
   }
+
+  backdrop-filter: blur(3px);
+  /* background: #09124240; */
 }
 
 .site__container {

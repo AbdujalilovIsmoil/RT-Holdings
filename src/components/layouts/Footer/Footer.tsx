@@ -94,29 +94,11 @@ const Footer = () => {
             <ul className='footer__phones'>
               <li className='footer__phone'>
                 <a
-                  href='tel:+99894-563-9595'
+                  href='tel:+99891-088-9595'
                   className='footer__phone-container'
                 >
                   <FaPhone className='footer__box-phone-icon' />
-                  <p className='footer__box-phone-number'>+99894-563-9595</p>
-                </a>
-              </li>
-              <li className='footer__phone'>
-                <a
-                  href='tel:+8210-2989-8641'
-                  className='footer__phone-container'
-                >
-                  <FaPhone className='footer__box-phone-icon' />
-                  <p className='footer__box-phone-number'>+8210-2989-8641</p>
-                </a>
-              </li>
-              <li className='footer__phone'>
-                <a
-                  href='tel:+8210-8383-2796'
-                  className='footer__phone-container'
-                >
-                  <FaPhone className='footer__box-phone-icon' />
-                  <p className='footer__box-phone-number'>+8210-8383-2796</p>
+                  <p className='footer__box-phone-number'>+99891-088-9595</p>
                 </a>
               </li>
               <li className='footer__phone'>

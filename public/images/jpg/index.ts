@@ -1,5 +1,6 @@
 import AkaTaxi from "./Aka-taxi.jpg";
 import RTMedline from "./rt-medline.jpg";
+import AboutImage from "./about-image.jpg";
 import DreamExpress from "./dream-express.jpg";
 import AboutBackgroundImage from "./about-background.jpg";
 import HeroBackgroundImage from "./hero-background-image.jpg";
@@ -29,6 +30,7 @@ import {
 export {
   AkaTaxi,
   RTMedline,
+  AboutImage,
   DreamExpress,
   FooterPicture1,
   FooterPicture2,
