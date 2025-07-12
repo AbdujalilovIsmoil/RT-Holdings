@@ -27,7 +27,6 @@ const Carousel = () => {
           grabCursor
           spaceBetween={20}
           slidesPerView={3}
-          className='carousel__list'
           navigation={{
             nextEl: rightButton.current,
             prevEl: leftButton.current,

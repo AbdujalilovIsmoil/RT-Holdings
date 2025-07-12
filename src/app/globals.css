@@ -313,7 +313,3 @@ a {
   border: 1px solid var(--main-orange-color);
   background-color: var(--main-orange-color);
 }
-
-.swiper-slide {
-  /* width: none !important; */
-}

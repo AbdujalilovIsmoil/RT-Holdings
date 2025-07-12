@@ -116,15 +116,15 @@ function CarCard({ car }: { car: CarData }) {
   return (
     <div className='car-card'>
       {/* Swiper Section */}
-      <div className='swiper-container'>
+      <div className='slide-container'>
         <div
-          className='swiper-wrapper'
+          className='slide-wrapper'
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {car.images.map((image, index) => (
             <div
               key={index}
-              className='swiper-slide'
+              className='slide-slide'
             >
               <Image
                 width={300}
@@ -140,13 +140,13 @@ function CarCard({ car }: { car: CarData }) {
         {car.images.length > 1 && (
           <>
             <button
-              className='swiper-navigation swiper-prev'
+              className='slide-navigation slide-prev'
               onClick={prevSlide}
             >
               ‹
             </button>
             <button
-              className='swiper-navigation swiper-next'
+              className='slide-navigation slide-next'
               onClick={nextSlide}
             >
               ›
@@ -156,11 +156,11 @@ function CarCard({ car }: { car: CarData }) {
 
         {/* Pagination Dots */}
         {car.images.length > 1 && (
-          <div className='swiper-pagination'>
+          <div className='slide-pagination'>
             {car.images.map((_, index) => (
               <div
                 key={index}
-                className={`swiper-dot ${
+                className={`slide-dot ${
                   index === currentSlide ? "active" : ""
                 }`}
                 onClick={() => goToSlide(index)}

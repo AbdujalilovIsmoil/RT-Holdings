@@ -7,10 +7,14 @@ import Score from "./Score";
 import Button from "./Button";
 import ContactUI from "./Contact";
 import AboutUsUI from "./AboutUs";
+import dynamic from "next/dynamic";
 import Portfolio from "./Portfolio";
 import Pagination from "./Pagination";
 import OurServices from "./OurServices";
-import Testimonials from "./Testimonials";
+
+const Testimonials = dynamic(() => import("@/components/ui/Testimonials"), {
+  ssr: true,
+});
 
 export {
   Hero,
