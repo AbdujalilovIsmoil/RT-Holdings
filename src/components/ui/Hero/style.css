@@ -129,7 +129,7 @@
 }
 
 .site-navigation {
-  z-index: 2;
+  z-index: 11;
   width: 100%;
   position: sticky;
   background-color: var(--main-dark-color);

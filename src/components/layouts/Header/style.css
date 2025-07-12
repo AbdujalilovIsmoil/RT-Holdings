@@ -1,7 +1,3 @@
-.header {
-  /* margin-bottom: 80px; */
-}
-
 .header__bars {
   padding: 0;
   border: none;
@@ -144,7 +140,7 @@
 
 .site-navigation {
   top: 0;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   position: sticky;
   transition: background-color 150ms linear;
