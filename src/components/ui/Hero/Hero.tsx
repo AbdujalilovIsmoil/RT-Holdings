@@ -41,8 +41,8 @@ const Hero = ({ page }: { page: string }) => {
     {
       id: 5,
       path: "/services",
-      title: "Bizning xizmatlar",
-      text: "Texnik maslahat, yetkazib berish va servis kabi ishonchli va tezkor xizmatlar taqdim etamiz.",
+      title: "Xizmat turlari",
+      text: "Har bir mijoz uchun individual yondashuv, har bir loyiha uchun yuqori mas’uliyat — bu bizning ish prinsipimizdir.",
     },
     {
       id: 6,
