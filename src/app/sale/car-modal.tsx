@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 interface CarData {
@@ -132,10 +133,10 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
               )}
 
               <div className='carousel-image-container'>
-                <img
+                <Image
+                  className='carousel-image'
                   src={carData.images[currentImageIndex] || "/placeholder.svg"}
                   alt={`${carData.title} - Image ${currentImageIndex + 1}`}
-                  className='carousel-image'
                 />
               </div>
 
