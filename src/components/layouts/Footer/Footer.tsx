@@ -11,6 +11,8 @@ import {
   FaTelegramPlane,
   AiFillInstagram,
 } from "@/assets/react-icons";
+import { IoLogoTiktok } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -38,7 +40,7 @@ const Footer = () => {
               <li className='footer__media'>
                 <a
                   target='_blank'
-                  href=''
+                  href='https://t.me/RT_Holdings'
                 >
                   <FaTelegramPlane className='footer__media-icon' />
                 </a>
@@ -46,7 +48,7 @@ const Footer = () => {
               <li className='footer__media'>
                 <a
                   target='_blank'
-                  href=''
+                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
                 >
                   <AiFillInstagram className='footer__media-icon' />
                 </a>
@@ -54,17 +56,25 @@ const Footer = () => {
               <li className='footer__media'>
                 <a
                   target='_blank'
-                  href=''
+                  href='https://youtube.com/@rt_holdings?si=P_sTdzEvwiT-ejP6'
                 >
                   <FaYoutube className='footer__media-icon' />
                 </a>
               </li>
-              <li className='footer__media'>
+              <li className='site__media'>
                 <a
-                  href=''
                   target='_blank'
+                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
                 >
-                  <FaFacebook className='footer__media-icon' />
+                  <IoLogoTiktok className='site__media-icon' />
+                </a>
+              </li>
+              <li className='site__media'>
+                <a
+                  target='_blank'
+                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
+                >
+                  <FaWhatsapp className='site__media-icon' />
                 </a>
               </li>
             </ul>

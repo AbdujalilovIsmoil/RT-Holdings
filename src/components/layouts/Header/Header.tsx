@@ -12,13 +12,11 @@ import {
   FaAngleDown,
   MdOutlineMailOutline,
 } from "@/assets/react-icons";
-import {
-  FaFacebook,
-  IoLogoInstagram,
-  FaTelegramPlane,
-} from "@/assets/react-icons";
+import { IoLogoInstagram, FaTelegramPlane } from "@/assets/react-icons";
 import { closeNavbar } from "@/utility";
 import { usePathname } from "next/navigation";
+import { IoLogoTiktok } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const pathname = usePathname();
@@ -489,24 +487,32 @@ const Header = () => {
             <ul className='site__medias'>
               <li className='site__media'>
                 <a
-                  href=''
                   target='_blank'
+                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
                 >
                   <IoLogoInstagram className='site__media-icon' />
                 </a>
               </li>
               <li className='site__media'>
                 <a
-                  href=''
                   target='_blank'
+                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
                 >
-                  <FaFacebook className='site__media-icon' />
+                  <IoLogoTiktok className='site__media-icon' />
                 </a>
               </li>
               <li className='site__media'>
                 <a
-                  href=''
                   target='_blank'
+                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
+                >
+                  <FaWhatsapp className='site__media-icon' />
+                </a>
+              </li>
+              <li className='site__media'>
+                <a
+                  target='_blank'
+                  href='https://t.me/RT_Holdings'
                 >
                   <FaTelegramPlane className='site__media-icon' />
                 </a>
