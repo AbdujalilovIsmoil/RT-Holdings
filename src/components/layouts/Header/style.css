@@ -384,6 +384,10 @@
   width: 78px;
 }
 
+.header-close__medias {
+  padding-top: 10px;
+}
+
 /* Languages */
 
 .language-switcher-wrapper {
