@@ -1,12 +1,26 @@
 "use client";
-
 import "./style.css";
 import Image from "next/image";
-import { Hero } from "@/components";
+import CarModal from "./car-modal";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { IoSearch } from "@/assets/react-icons";
-import { Button, Input, Pagination } from "@/components";
+import { Input, Button, Hero, Pagination } from "@/components";
+
+// Search Icon component
+const IoSearch = ({ className }: { className: string }) => (
+  <svg
+    className={className}
+    fill='none'
+    stroke='currentColor'
+    viewBox='0 0 24 24'
+  >
+    <path
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth={2}
+      d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+    />
+  </svg>
+);
 
 interface CarData {
   id: number;
@@ -98,7 +112,13 @@ const carsData: CarData[] = [
   },
 ];
 
-function CarCard({ car }: { car: CarData }) {
+function CarCard({
+  car,
+  onOpenModal,
+}: {
+  car: CarData;
+  onOpenModal: (car: CarData) => void;
+}) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -302,6 +322,7 @@ function CarCard({ car }: { car: CarData }) {
         <Button
           type='button'
           className='details-button'
+          onClick={() => onOpenModal(car)}
         >
           Ba'tafsil ma'lumot
         </Button>
@@ -311,7 +332,33 @@ function CarCard({ car }: { car: CarData }) {
 }
 
 const Sale = () => {
-  const pathName = usePathname();
+  const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (car: CarData) => {
+    setSelectedCar(car);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCar(null);
+  };
+
+  // Transform car data to match modal interface
+  const getModalCarData = (car: CarData) => ({
+    title: car.title,
+    images: car.images,
+    details: {
+      model: car.model,
+      year: car.year,
+      mileage: car.mileage,
+      color: car.color,
+      fuelType: car.fuel,
+      location: car.location,
+      price: car.price,
+    },
+  });
 
   useEffect(() => {
     scrollTo({
@@ -321,8 +368,7 @@ const Sale = () => {
 
   return (
     <>
-      <Hero page={pathName} />
-
+      <Hero page='/sale' />
       <section className='service'>
         <div className='container'>
           <div className='services__content services__contents'>
@@ -357,10 +403,20 @@ const Sale = () => {
                 <CarCard
                   key={car.id}
                   car={car}
+                  onOpenModal={openModal}
                 />
               ))}
             </div>
           </div>
+
+          {/* Car Modal */}
+          {selectedCar && (
+            <CarModal
+              isOpen={isModalOpen}
+              onClose={closeModal}
+              carData={getModalCarData(selectedCar)}
+            />
+          )}
 
           <Pagination itemsPerPage={1} />
         </div>

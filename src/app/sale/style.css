@@ -181,7 +181,8 @@
   top: 20px;
   left: 20px;
   z-index: 1;
-  font-size: 22px;
+  width: 22px;
+  height: 22px;
   position: absolute;
 
   @media only screen and (max-width: 576px) {
@@ -256,10 +257,30 @@
   justify-content: space-between;
 }
 
+/* Cards codes */
+
 .cars-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .cars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .car-card {
@@ -269,14 +290,6 @@
   background-color: #fff;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
-  -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
-  -moz-transition: transform 0.3s ease, box-shadow 0.3s ease;
-  -ms-transition: transform 0.3s ease, box-shadow 0.3s ease;
-  -o-transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .car-card:hover {
@@ -353,13 +366,13 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #9ca3af; /* Changed from rgba(255, 255, 255, 0.5) to gray */
+  background: #9ca3af;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .slide-dot.active {
-  background-color: var(--main-orange-color);
+  background-color: #ff6b35;
 }
 
 /* Card Content */
@@ -434,4 +447,310 @@
 
 .car-listing-container {
   margin-bottom: 60px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal-container {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #374151;
+  transform: scale(1.05);
+}
+
+.modal-content {
+  padding: 24px;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f3f4f6;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #111827;
+  letter-spacing: -0.025em;
+}
+
+/* Carousel Styles */
+.carousel-container {
+  margin-bottom: 32px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.carousel-image-container {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #374151;
+  z-index: 2;
+}
+
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-nav-left {
+  left: 12px;
+}
+
+.carousel-nav-right {
+  right: 12px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-dot:hover {
+  background: #9ca3af;
+  transform: scale(1.1);
+}
+
+.carousel-dot-active {
+  background: #f59e0b;
+  transform: scale(1.2);
+}
+
+/* Car Details Styles for Modal */
+.car-details-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-item-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.detail-item-modal:last-child {
+  border-bottom: none;
+}
+
+.detail-label-modal {
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.detail-value-modal {
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+  text-align: right;
+}
+
+.detail-price-modal {
+  color: #059669;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Animation for modal entrance */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .modal-overlay {
+    padding: 8px;
+  }
+
+  .modal-container {
+    max-height: 95vh;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-image-container {
+    height: 250px;
+  }
+
+  .carousel-nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .carousel-nav-left {
+    left: 8px;
+  }
+
+  .carousel-nav-right {
+    right: 8px;
+  }
+
+  .detail-item-modal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .detail-value-modal {
+    text-align: left;
+  }
+
+  .detail-price-modal {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .carousel-image-container {
+    height: 200px;
+  }
+
+  .carousel-dots {
+    gap: 6px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Touch-friendly carousel on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .carousel-nav {
+    opacity: 0.8;
+  }
+
+  .carousel-nav:active {
+    transform: translateY(-50%) scale(0.95);
+  }
 }
