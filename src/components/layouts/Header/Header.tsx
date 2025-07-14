@@ -98,7 +98,7 @@ const Header = () => {
         <div className='header-close__background'>
           <div className='header-close__top'>
             <div className='header-close__container container'>
-              <Link
+              {/* <Link
                 href='/'
                 onClick={openToggleVisible}
               >
@@ -109,7 +109,7 @@ const Header = () => {
                   alt='RT Holding'
                   className='header-close__top-logo'
                 />
-              </Link>
+              </Link> */}
               <Button
                 type='button'
                 onClick={openToggleVisible}
