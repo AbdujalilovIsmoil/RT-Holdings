@@ -151,3 +151,199 @@
   line-height: 150%;
   font-family: "Be Vietnam Pro";
 }
+
+/* Tablet va undan kichik ekranlar uchun */
+@media only screen and (max-width: 1024px) {
+  .news__container {
+    padding: 30px 0px;
+  }
+
+  .news-view-btn {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  .news-view-btn-icon {
+    font-size: 14px;
+  }
+
+  .news-view__container {
+    flex-direction: column; /* Asosiy kontent va bog'liq yangiliklarni vertikal joylashtirish */
+    gap: 40px;
+    padding: 30px 0px;
+  }
+
+  .news-view__box:nth-child(1),
+  .news-view__box:nth-child(2) {
+    max-width: 100%; /* Ikkala qutini ham to'liq kenglikda qilish */
+  }
+
+  .news-view__image-lists {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Katta tabletlar uchun 2 ustunli grid */
+    gap: 20px;
+    margin-bottom: 30px; /* Pastki bo'shliqni kamaytirish */
+  }
+
+  .news-view__image-item:nth-child(1) {
+    grid-row: auto; /* Katta rasmning qator va ustun bo'ylab cho'zilishini bekor qilish */
+    grid-column: auto;
+  }
+
+  .news-view__image-item-img {
+    width: 100%; /* Rasmlarni konteynerga moslash */
+    height: 150px; /* Grid ichidagi barcha rasmlar uchun bir xil balandlik */
+    object-fit: cover;
+  }
+
+  .news-view__content-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .news-view__content-text {
+    font-size: 15px;
+    line-height: 145%;
+  }
+
+  .news-view__item-img {
+    width: 100px; /* Bog'liq yangiliklar rasmlari uchun o'lchamni sozlash */
+    height: 70px;
+  }
+
+  .news-view__item-box-title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .news-view__item-box-text {
+    font-size: 13px;
+  }
+}
+
+/* Kichik tabletlar va landshaft mobil ekranlar uchun */
+@media only screen and (max-width: 768px) {
+  .news__container {
+    padding: 20px 0px;
+  }
+
+  .news-view-btn {
+    font-size: 15px;
+    padding: 7px 18px;
+  }
+
+  .news-view__container {
+    gap: 30px;
+    padding: 20px 0px;
+  }
+
+  .news-view__image-lists {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Kichik tabletlar uchun ham 2 ustunli grid */
+    gap: 16px;
+    margin-bottom: 25px;
+  }
+
+  .news-view__image-item-img {
+    height: 120px; /* Rasmlar balandligini yanada kamaytirish */
+  }
+
+  .news-view__content-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .news-view__content-text {
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  .news-view__item-img {
+    width: 90px;
+    height: 60px;
+  }
+
+  .news-view__item-box-title {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .news-view__item-box-text {
+    font-size: 12px;
+  }
+}
+
+/* Portret mobil ekranlar uchun */
+@media only screen and (max-width: 576px) {
+  .news__container {
+    padding: 15px 0px;
+  }
+
+  .news-view-btn {
+    font-size: 14px;
+    padding: 6px 15px;
+  }
+
+  .news-view__container {
+    gap: 25px;
+    padding: 15px 0px;
+  }
+
+  .news-view__image-lists {
+    grid-template-columns: 1fr; /* Mobil ekranlar uchun bitta ustunli grid */
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .news-view__image-item-img {
+    height: 180px; /* Bitta ustunda rasmlar balandligini oshirish */
+  }
+
+  .news-view__content-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .news-view__content-text {
+    font-size: 13px;
+    line-height: 135%;
+  }
+
+  .news-view__item-img {
+    width: 80px;
+    height: 55px;
+  }
+
+  .news-view__item-box-title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .news-view__item-box-text {
+    font-size: 11px;
+  }
+}
+
+/* Juda kichik mobil qurilmalar uchun */
+@media only screen and (max-width: 480px) {
+  .news-view__image-item-img {
+    height: 150px; /* Juda kichik ekranlar uchun rasm balandligini sozlash */
+  }
+
+  .news-view__content-title {
+    font-size: 18px;
+  }
+
+  .news-view__content-text {
+    font-size: 12px;
+  }
+
+  .news-view__item-img {
+    width: 70px;
+    height: 50px;
+  }
+}
