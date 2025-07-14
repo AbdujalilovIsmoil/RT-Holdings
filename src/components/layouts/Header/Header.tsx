@@ -91,6 +91,53 @@ const Header = () => {
     setFlagData(data);
   };
 
+  type Language = {
+    code: string;
+    name: string;
+  };
+
+  const languages: Language[] = [
+    { code: "uz", name: "O'zbek" },
+    { code: "ru", name: "Русский" },
+    { code: "en", name: "English" },
+    { code: "ko", name: "한국어" },
+  ];
+
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(
+    languages[0],
+  ); // Default til: O'zbek
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleLanguageChange = (lang: Language) => {
+    setCurrentLanguage(lang);
+    setIsLangOpen(false); // Til tanlangandan so'ng dropdownni yopish
+    console.log(`Til o'zgartirildi: ${lang.name}`);
+    // Bu yerda tilni o'zgartirish logikasini qo'shishingiz mumkin,
+    // masalan, i18n kutubxonasini ishlatish yoki kontekstni yangilash.
+  };
+
+  const toggleDropdown = () => {
+    setIsLangOpen(!isLangOpen);
+  };
+
+  // Dropdown tashqarisini bosganda yopish logikasi
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsLangOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <div className={`header-close ${isVisible ? "header-close--open" : ""}`}>
@@ -185,6 +232,54 @@ const Header = () => {
                   );
                 })}
             </ul>
+
+            <div
+              className='language-switcher-wrapper'
+              ref={dropdownRef}
+            >
+              <button
+                type='button'
+                className={`language-switcher-button ${
+                  isLangOpen ? "active" : ""
+                }`}
+                onClick={toggleDropdown}
+                aria-haspopup='true'
+                aria-expanded={isLangOpen}
+              >
+                <span>{currentLanguage.name}</span>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='currentColor'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className={`chevron-icon ${isLangOpen ? "rotate-180" : ""}`}
+                >
+                  <path d='m6 9 6 6 6-6' />
+                </svg>
+              </button>
+
+              {isLangOpen && (
+                <ul className='language-switcher-content'>
+                  {languages.map(lang => (
+                    <li
+                      key={lang.code}
+                      onClick={() => handleLanguageChange(lang)}
+                      className={`language-switcher-item ${
+                        currentLanguage.code === lang.code ? "selected" : ""
+                      }`}
+                      role='menuitem'
+                    >
+                      {lang.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
       </div>
