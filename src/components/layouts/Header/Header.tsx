@@ -17,7 +17,6 @@ import {
   IoLogoInstagram,
   FaTelegramPlane,
 } from "@/assets/react-icons";
-import { siteLogo } from "../../../../public/images/svg";
 import { closeNavbar } from "@/utility";
 import { usePathname } from "next/navigation";
 
