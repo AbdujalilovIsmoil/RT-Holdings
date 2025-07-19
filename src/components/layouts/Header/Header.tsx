@@ -37,14 +37,14 @@ const Header = () => {
     flag: string | StaticImageData;
   }
 
-  type Lang = "uz" | "ru" | "en" | "ko";
+  // type Lang = "uz" | "ru" | "en" | "ko";
 
-  const imageLangs: Record<Lang, string> = {
-    uz: "/images/png/flags/flag-image-1.png",
-    ru: "/images/png/flags/flag-image-3.png",
-    en: "/images/png/flags/flag-image-2.png",
-    ko: "/images/png/flags/flag-image-4.png",
-  };
+  // const imageLangs: Record<Lang, string> = {
+  //   uz: "/images/png/flags/flag-image-1.png",
+  //   ru: "/images/png/flags/flag-image-3.png",
+  //   en: "/images/png/flags/flag-image-2.png",
+  //   ko: "/images/png/flags/flag-image-4.png",
+  // };
 
   const navigationRef = useRef<HTMLDivElement>(null);
   // const [_, setFlagData] = useState<flagDataType>({
