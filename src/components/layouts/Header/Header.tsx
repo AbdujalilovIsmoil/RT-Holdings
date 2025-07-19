@@ -3,8 +3,16 @@
 import "./style.css";
 import Link from "next/link";
 import { Button } from "@/components";
+import { closeNavbar } from "@/utility";
+import { SET_LANG } from "@/context/action";
+import { FaWhatsapp } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { IoLogoTiktok } from "react-icons/io5";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { initialValuesTypes } from "@/context/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { IoLogoInstagram, FaTelegramPlane } from "@/assets/react-icons";
 import {
   FaBars,
   FiPhone,
@@ -12,14 +20,13 @@ import {
   FaAngleDown,
   MdOutlineMailOutline,
 } from "@/assets/react-icons";
-import { IoLogoInstagram, FaTelegramPlane } from "@/assets/react-icons";
-import { closeNavbar } from "@/utility";
-import { usePathname } from "next/navigation";
-import { IoLogoTiktok } from "react-icons/io5";
-import { FaWhatsapp } from "react-icons/fa";
 
 const Header = () => {
   const pathname = usePathname();
+  const dispatch = useDispatch();
+  const { appLang } = useSelector((state: initialValuesTypes) => state);
+
+  console.log(appLang);
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -30,11 +37,20 @@ const Header = () => {
     flag: string | StaticImageData;
   }
 
+  type Lang = "uz" | "ru" | "en" | "ko";
+
+  const imageLangs: Record<Lang, string> = {
+    uz: "/images/png/flags/flag-image-1.png",
+    ru: "/images/png/flags/flag-image-3.png",
+    en: "/images/png/flags/flag-image-2.png",
+    ko: "/images/png/flags/flag-image-4.png",
+  };
+
   const navigationRef = useRef<HTMLDivElement>(null);
-  const [flagData, setFlagData] = useState<flagDataType>({
-    lang: "uz",
-    flag: "/images/png/flags/flag-image-1.png",
-  });
+  // const [_, setFlagData] = useState<flagDataType>({
+  //   lang: `${appLang}`,
+  //   flag: imageLangs[appLang as Lang],
+  // });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -86,7 +102,9 @@ const Header = () => {
 
   const setLangData = (data: flagDataType) => {
     setIsOpen(false);
-    setFlagData(data);
+    // setFlagData(data);
+
+    dispatch(SET_LANG(data.lang));
   };
 
   type Language = {
@@ -104,22 +122,18 @@ const Header = () => {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
     languages[0],
-  ); // Default til: O'zbek
+  );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleLanguageChange = (lang: Language) => {
     setCurrentLanguage(lang);
-    setIsLangOpen(false); // Til tanlangandan so'ng dropdownni yopish
-    console.log(`Til o'zgartirildi: ${lang.name}`);
-    // Bu yerda tilni o'zgartirish logikasini qo'shishingiz mumkin,
-    // masalan, i18n kutubxonasini ishlatish yoki kontekstni yangilash.
+    setIsLangOpen(false);
   };
 
   const toggleDropdown = () => {
     setIsLangOpen(!isLangOpen);
   };
 
-  // Dropdown tashqarisini bosganda yopish logikasi
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -393,14 +407,55 @@ const Header = () => {
                   isOpen ? "site__language--open" : ""
                 }`}
               >
-                <Image
-                  width={35}
-                  height={35}
-                  alt='flag-image'
-                  src={flagData.flag}
-                  className='site__language-image'
-                />
-                <p className='site__language-text'>{flagData.lang}</p>
+                {appLang === "uz" ? (
+                  <>
+                    <Image
+                      width={35}
+                      height={35}
+                      loading='lazy'
+                      alt='flag-image'
+                      className='site__language-image'
+                      src={"/images/png/flags/flag-image-1.png"}
+                    />
+                    <p className='site__language-text'>uz</p>
+                  </>
+                ) : appLang === "ru" ? (
+                  <>
+                    <Image
+                      width={35}
+                      height={35}
+                      loading='lazy'
+                      alt='flag-image'
+                      className='site__language-image'
+                      src={"/images/png/flags/flag-image-3.png"}
+                    />
+                    <p className='site__language-text'>ru</p>
+                  </>
+                ) : appLang === "en" ? (
+                  <>
+                    <Image
+                      width={35}
+                      height={35}
+                      loading='lazy'
+                      alt='flag-image'
+                      className='site__language-image'
+                      src={"/images/png/flags/flag-image-2.png"}
+                    />
+                    <p className='site__language-text'>en</p>
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      width={35}
+                      height={35}
+                      loading='lazy'
+                      alt='flag-image'
+                      className='site__language-image'
+                      src={"/images/png/flags/flag-image-4.png"}
+                    />
+                    <p className='site__language-text'>ko</p>
+                  </>
+                )}
 
                 <FaAngleDown className='site__language-icon' />
               </div>

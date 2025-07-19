@@ -7,7 +7,6 @@ import { header } from "@/data";
 import {
   FaPhone,
   FaYoutube,
-  FaFacebook,
   FaTelegramPlane,
   AiFillInstagram,
 } from "@/assets/react-icons";

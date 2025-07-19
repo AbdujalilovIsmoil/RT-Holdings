@@ -1,4 +1,5 @@
 import "./globals.css";
+import ReduxProvider from "@/context";
 import "swiper/swiper-bundle.css";
 import { Header, Footer } from "@/components";
 import { Be_Vietnam_Pro, Exo, Poppins } from "next/font/google";
@@ -28,9 +29,11 @@ export default function RootLayout({
       <body
         className={`${beVietnamePro.className} ${poppins.className} ${exo.className}`}
       >
-        <Header />
-        <main className='main'>{children}</main>
-        <Footer />
+        <ReduxProvider>
+          <Header />
+          <main className='main'>{children}</main>
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
