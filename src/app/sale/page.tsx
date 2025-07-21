@@ -4,6 +4,8 @@ import Image from "next/image";
 import CarModal from "./car-modal";
 import { useEffect, useState } from "react";
 import { Input, Button, Hero, Pagination } from "@/components";
+import { useSelector } from "react-redux";
+import { initialValuesTypes } from "@/context/reducer";
 
 // Search Icon component
 const IoSearch = ({ className }: { className: string }) => (
@@ -335,6 +337,8 @@ const Sale = () => {
   const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const { appLang } = useSelector((state: initialValuesTypes) => state);
+
   const openModal = (car: CarData) => {
     setSelectedCar(car);
     setIsModalOpen(true);
@@ -366,6 +370,62 @@ const Sale = () => {
     });
   }, []);
 
+  interface contentDataTypes {
+    [key: string]: {
+      title: string;
+      description: string;
+    };
+  }
+
+  const contentData: contentDataTypes = {
+    uz: {
+      title: "Hamyonbop narxda texnika",
+      description:
+        "So‘nggi yangiliklar va muhim e’lonlar bilan doimo xabardor bo‘ling — biz bilan birga yangiliklardan orqada qolmang.",
+    },
+    ru: {
+      title: "Техника по доступным ценам",
+      description:
+        "Будьте в курсе последних новостей и важных объявлений — не отставайте от новостей вместе с нами.",
+    },
+    en: {
+      title: "Affordable Equipment",
+      description:
+        "Stay updated with the latest news and important announcements — don't fall behind with us.",
+    },
+    ko: {
+      title: "합리적인 가격의 장비",
+      description:
+        "최신 뉴스와 중요한 공지 사항을 항상 확인하세요 — 저희와 함께 뉴스에서 뒤처지지 마세요.",
+    },
+  };
+
+  interface formDataTypes {
+    [key: string]: {
+      search: string;
+      title: string;
+    };
+  }
+
+  const formData: formDataTypes = {
+    uz: {
+      search: "Qidirish",
+      title: "Texnika nomini kiriting",
+    },
+    ru: {
+      search: "Поиск",
+      title: "Введите название техники",
+    },
+    en: {
+      search: "Search",
+      title: "Enter equipment name",
+    },
+    ko: {
+      search: "검색",
+      title: "장비 이름 입력",
+    },
+  };
+
   return (
     <>
       <Hero page='/sale' />
@@ -373,11 +433,10 @@ const Sale = () => {
         <div className='container'>
           <div className='services__content services__contents'>
             <h2 className='services__content-title'>
-              Hamyonbop narxda texnika
+              {contentData[`${appLang}`].title}
             </h2>
             <p className='services__content-text'>
-              So‘nggi yangiliklar va muhim e’lonlar bilan doimo xabardor bo‘ling
-              — biz bilan birga yangiliklardan orqada qolmang.
+              {contentData[`${appLang}`].description}
             </p>
           </div>
 
@@ -387,13 +446,13 @@ const Sale = () => {
               required
               type='search'
               className='service__search-input'
-              placeholder='Texnika nomini kiriitng...'
+              placeholder={formData[`${appLang}`]?.title}
             />
             <Button
               type='submit'
               className='service__search-submit'
             >
-              Qidirish
+              {formData[`${appLang}`]?.search}
             </Button>
           </form>
 

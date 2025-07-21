@@ -1,10 +1,10 @@
 "use client";
 
 import "./style.css";
+import { useSelector } from "react-redux";
 import { ChangeEvent, useState } from "react";
 import { FaCircleCheck } from "@/assets/react-icons";
 import { Input, Textarea, Button } from "@/components";
-import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
 
 const FormComponent = () => {

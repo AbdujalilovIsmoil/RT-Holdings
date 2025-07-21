@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { Hero } from "@/components";
 import { Pagination } from "@/components";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
+import { initialValuesTypes } from "@/context/reducer";
 
 const News = () => {
   const pathName = usePathname();
@@ -17,6 +19,38 @@ const News = () => {
       top: 0,
     });
   }, []);
+
+  const { appLang } = useSelector((state: initialValuesTypes) => state);
+
+  interface newsContentTypes {
+    [key: string]: {
+      title: string;
+      description: string;
+    };
+  }
+
+  const newsContent: newsContentTypes = {
+    uz: {
+      title: "Yangiliklar",
+      description:
+        "So‘nggi yangiliklar va muhim e’lonlar bilan doimo xabardor bo‘ling — biz bilan birga yangiliklardan orqada qolmang.",
+    },
+    ru: {
+      title: "Новости",
+      description:
+        "Будьте в курсе последних новостей и важных объявлений — не отставайте от новостей вместе с нами.",
+    },
+    en: {
+      title: "News",
+      description:
+        "Stay updated with the latest news and important announcements — don't fall behind with us.",
+    },
+    ko: {
+      title: "뉴스",
+      description:
+        "최신 뉴스와 중요한 공지 사항을 항상 확인하세요 — 저희와 함께 뉴스에서 뒤처지지 마세요.",
+    },
+  };
 
   return (
     <>
@@ -28,10 +62,11 @@ const News = () => {
       <section className='service'>
         <div className='container'>
           <div className='services__content services__contents'>
-            <h2 className='services__content-title'>Yangiliklar</h2>
+            <h2 className='services__content-title'>
+              {newsContent[`${appLang}`]?.title}
+            </h2>
             <p className='services__content-text'>
-              So‘nggi yangiliklar va muhim e’lonlar bilan doimo xabardor bo‘ling
-              — biz bilan birga yangiliklardan orqada qolmang.
+              {newsContent[`${appLang}`]?.description}
             </p>
           </div>
 

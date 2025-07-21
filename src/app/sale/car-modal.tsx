@@ -134,6 +134,8 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
               <div className='carousel-image-container'>
                 <Image
+                  width={300}
+                  height={300}
                   className='carousel-image'
                   src={carData.images[currentImageIndex] || "/placeholder.svg"}
                   alt={`${carData.title} - Image ${currentImageIndex + 1}`}
