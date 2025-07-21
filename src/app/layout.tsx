@@ -1,6 +1,6 @@
 import "./globals.css";
-import ReduxProvider from "@/context";
 import "swiper/swiper-bundle.css";
+import ReduxProvider from "@/context";
 import { Header, Footer } from "@/components";
 import { Be_Vietnam_Pro, Exo, Poppins } from "next/font/google";
 

@@ -26,7 +26,57 @@ const Header = () => {
   const dispatch = useDispatch();
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  console.log(appLang);
+  type imageType = {
+    [key: string]: {
+      name: string;
+      src: string | StaticImageData;
+    };
+  };
+
+  const images: imageType = {
+    uz: {
+      name: "uz",
+      src: "/images/png/flags/flag-image-1.png",
+    },
+    ru: {
+      name: "ru",
+      src: "/images/png/flags/flag-image-3.png",
+    },
+    en: {
+      name: "en",
+      src: "/images/png/flags/flag-image-2.png",
+    },
+    ko: {
+      name: "ko",
+      src: "/images/png/flags/flag-image-4.png",
+    },
+  };
+
+  type callDataType = {
+    [key: string]: {
+      email: string;
+      callUs: string;
+    };
+  };
+
+  const callData: callDataType = {
+    uz: {
+      email: "Elektron pochta",
+      callUs: "Biz bilan aloqa",
+    },
+    ru: {
+      email: "Электронная почта",
+      callUs: "Связаться с нами",
+    },
+    ko: {
+      email: "이메일",
+      callUs: "문의하기",
+    },
+    en: {
+      email: "Email",
+      callUs: "Call Us",
+    },
+  };
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -37,20 +87,8 @@ const Header = () => {
     flag: string | StaticImageData;
   }
 
-  // type Lang = "uz" | "ru" | "en" | "ko";
-
-  // const imageLangs: Record<Lang, string> = {
-  //   uz: "/images/png/flags/flag-image-1.png",
-  //   ru: "/images/png/flags/flag-image-3.png",
-  //   en: "/images/png/flags/flag-image-2.png",
-  //   ko: "/images/png/flags/flag-image-4.png",
-  // };
-
   const navigationRef = useRef<HTMLDivElement>(null);
-  // const [_, setFlagData] = useState<flagDataType>({
-  //   lang: `${appLang}`,
-  //   flag: imageLangs[appLang as Lang],
-  // });
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -69,40 +107,66 @@ const Header = () => {
   interface linksType {
     id: number;
     path: string;
-    title: string;
+    title: {
+      [key: string]: string;
+    };
   }
 
   const links: linksType[] = [
     {
       id: 1,
       path: "/",
-      title: "Bosh sahifa",
+      title: {
+        uz: "Bosh sahifa",
+        ru: "Главная",
+        en: "Home",
+        ko: "홈",
+      },
     },
     {
       id: 2,
-      title: "Biz haqimizda",
+      title: {
+        uz: "Biz haqimizda",
+        ru: "О нас",
+        en: "About Us",
+        ko: "회사 소개",
+      },
       path: "/about",
     },
     {
       id: 3,
       path: "/services",
-      title: "Xizmatlar",
+      title: {
+        uz: "Xizmatlar",
+        ru: "Услуги",
+        en: "Services",
+        ko: "서비스",
+      },
     },
     {
       id: 4,
-      title: "Yangiliklar",
+      title: {
+        uz: "Yangiliklar",
+        ru: "Новости",
+        en: "News",
+        ko: "뉴스",
+      },
       path: "/news",
     },
     {
       id: 5,
-      title: "Sotuv",
+      title: {
+        uz: "Portfolio",
+        ru: "Портфолио",
+        en: "Portfolio",
+        ko: "포트폴리오",
+      },
       path: "/sale",
     },
   ];
 
   const setLangData = (data: flagDataType) => {
     setIsOpen(false);
-    // setFlagData(data);
 
     dispatch(SET_LANG(data.lang));
   };
@@ -150,24 +214,23 @@ const Header = () => {
     };
   }, []);
 
+  type contactTitleType = {
+    [key: string]: string;
+  };
+
+  const contactTitle: contactTitleType = {
+    uz: "Biz bilan aloqa",
+    ru: "Связаться с нами",
+    en: "Contact Us",
+    ko: "문의하기",
+  };
+
   return (
     <>
       <div className={`header-close ${isVisible ? "header-close--open" : ""}`}>
         <div className='header-close__background'>
           <div className='header-close__top'>
             <div className='header-close__container container'>
-              {/* <Link
-                href='/'
-                onClick={openToggleVisible}
-              >
-                <Image
-                  width={78}
-                  height={26}
-                  src={siteLogo}
-                  alt='RT Holding'
-                  className='header-close__top-logo'
-                />
-              </Link> */}
               <Button
                 type='button'
                 onClick={openToggleVisible}
@@ -237,7 +300,7 @@ const Header = () => {
                           activeClass: "header-close__item-link--active",
                         })}
                       >
-                        {el.title}
+                        {el.title[`${appLang}`] || el.title.uz}
                         <FaAngleDown className='header-close__item-arrow' />
                       </Link>
                     </li>
@@ -321,8 +384,12 @@ const Header = () => {
                   <MdOutlineMailOutline className='header__background-icon' />
                 </span>
                 <div className='header__content'>
-                  <p className='header__media-text'>Email</p>
-                  <p className='header__media-text'>contact</p>
+                  <p className='header__media-text'>
+                    {callData[`${appLang}`].email}:
+                  </p>
+                  <p className='header__media-text'>
+                    ismoilbek20050421@gmail.com
+                  </p>
                 </div>
               </a>
             </li>
@@ -335,7 +402,9 @@ const Header = () => {
                   <FiPhone className='header__background-icon' />
                 </span>
                 <div className='header__content'>
-                  <p className='header__media-text'>Call Us</p>
+                  <p className='header__media-text'>
+                    {callData[`${appLang}`].callUs}
+                  </p>
                   <p className='header__media-text'>+99891-088-9595</p>
                 </div>
               </a>
@@ -349,7 +418,9 @@ const Header = () => {
                   <FiPhone className='header__background-icon' />
                 </span>
                 <div className='header__content'>
-                  <p className='header__media-text'>Call Us</p>
+                  <p className='header__media-text'>
+                    {callData[`${appLang}`].callUs}
+                  </p>
                   <p className='header__media-text'>+8210-9687-9796</p>
                 </div>
               </a>
@@ -390,7 +461,7 @@ const Header = () => {
                           activeClass: "nav__item-link--active",
                         })}
                       >
-                        {el && el.title}
+                        {(el && el.title[`${appLang}`]) || el.title.uz}
                       </Link>
                     </li>
                   );
@@ -407,55 +478,20 @@ const Header = () => {
                   isOpen ? "site__language--open" : ""
                 }`}
               >
-                {appLang === "uz" ? (
-                  <>
-                    <Image
-                      width={35}
-                      height={35}
-                      loading='lazy'
-                      alt='flag-image'
-                      className='site__language-image'
-                      src={"/images/png/flags/flag-image-1.png"}
-                    />
-                    <p className='site__language-text'>uz</p>
-                  </>
-                ) : appLang === "ru" ? (
-                  <>
-                    <Image
-                      width={35}
-                      height={35}
-                      loading='lazy'
-                      alt='flag-image'
-                      className='site__language-image'
-                      src={"/images/png/flags/flag-image-3.png"}
-                    />
-                    <p className='site__language-text'>ru</p>
-                  </>
-                ) : appLang === "en" ? (
-                  <>
-                    <Image
-                      width={35}
-                      height={35}
-                      loading='lazy'
-                      alt='flag-image'
-                      className='site__language-image'
-                      src={"/images/png/flags/flag-image-2.png"}
-                    />
-                    <p className='site__language-text'>en</p>
-                  </>
-                ) : (
-                  <>
-                    <Image
-                      width={35}
-                      height={35}
-                      loading='lazy'
-                      alt='flag-image'
-                      className='site__language-image'
-                      src={"/images/png/flags/flag-image-4.png"}
-                    />
-                    <p className='site__language-text'>ko</p>
-                  </>
-                )}
+                <Image
+                  width={35}
+                  height={35}
+                  loading='lazy'
+                  alt='flag-image'
+                  className='site__language-image'
+                  src={
+                    images[`${appLang}`]?.src ||
+                    "/images/png/flags/flag-image-1.png"
+                  }
+                />
+                <p className='site__language-text'>
+                  {images[`${appLang}`]?.name || "uz"}
+                </p>
 
                 <FaAngleDown className='site__language-icon' />
               </div>
@@ -577,7 +613,7 @@ const Header = () => {
               href='/contact'
               className='site__contact-link'
             >
-              Biz bilan aloqa
+              {contactTitle[`${appLang}`] || contactTitle.uz}
             </Link>
           </div>
         </div>

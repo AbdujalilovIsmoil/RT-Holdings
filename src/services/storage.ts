@@ -7,7 +7,9 @@ const storage = {
 
     if (key && value) {
       if (typeof value === "string") {
-        return window.localStorage.setItem(key, value);
+        if (typeof window !== "undefined") {
+          return window.localStorage.setItem(key, value);
+        }
       } else {
         return window.localStorage.setItem(key, JSON.stringify(value));
       }

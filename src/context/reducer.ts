@@ -6,11 +6,11 @@ interface reducerTypes {
 }
 
 export interface initialValuesTypes {
-  appLang: string;
+  appLang?: string | null;
 }
 
 const initialValues: initialValuesTypes = {
-  appLang: storage.get("lang") || "uz",
+  appLang: storage.get("lang"),
 };
 
 export const reducer = (
