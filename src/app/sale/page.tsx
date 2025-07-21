@@ -143,7 +143,7 @@ function CarCard({
           className='slide-wrapper'
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          {car.images.map((image, index) => (
+          {car?.images?.map((image, index) => (
             <div
               key={index}
               className='slide-slide'
@@ -152,7 +152,7 @@ function CarCard({
                 width={300}
                 height={192}
                 src={`${image}`}
-                alt={`${car.title} - ${index + 1}`}
+                alt={`${car?.title} - ${index + 1}`}
               />
             </div>
           ))}
@@ -177,9 +177,9 @@ function CarCard({
         )}
 
         {/* Pagination Dots */}
-        {car.images.length > 1 && (
+        {car?.images?.length > 1 && (
           <div className='slide-pagination'>
-            {car.images.map((_, index) => (
+            {car?.images?.map((_, index) => (
               <div
                 key={index}
                 className={`slide-dot ${
@@ -433,10 +433,10 @@ const Sale = () => {
         <div className='container'>
           <div className='services__content services__contents'>
             <h2 className='services__content-title'>
-              {contentData[`${appLang}`].title}
+              {contentData[`${appLang}`]?.title}
             </h2>
             <p className='services__content-text'>
-              {contentData[`${appLang}`].description}
+              {contentData[`${appLang}`]?.description}
             </p>
           </div>
 
