@@ -3,7 +3,6 @@
 import "./style.css";
 import Link from "next/link";
 import Image from "next/image";
-import { header } from "@/data";
 import { useSelector } from "react-redux";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoLogoTiktok } from "react-icons/io5";
@@ -14,7 +13,6 @@ import {
   FaTelegramPlane,
   AiFillInstagram,
 } from "@/assets/react-icons";
-import { title } from "process";
 
 const Footer = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -251,7 +249,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className='footer__box'>
-            <h2 className='footer__box-title'>{sections[`${appLang}`]?.contactUs}</h2>
+            <h2 className='footer__box-title'>
+              {sections[`${appLang}`]?.contactUs}
+            </h2>
             <ul className='footer__phones'>
               <li className='footer__phone'>
                 <a
