@@ -385,7 +385,7 @@ const Header = () => {
                 </span>
                 <div className='header__content'>
                   <p className='header__media-text'>
-                    {callData[`${appLang}`].email}:
+                    {callData[`${appLang}`]?.email}:
                   </p>
                   <p className='header__media-text'>
                     ismoilbek20050421@gmail.com
