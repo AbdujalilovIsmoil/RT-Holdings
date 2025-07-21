@@ -300,7 +300,7 @@ const Header = () => {
                           activeClass: "header-close__item-link--active",
                         })}
                       >
-                        {el.title[`${appLang}`] || el.title.uz}
+                        {el?.title[`${appLang}`] || el.title.uz}
                         <FaAngleDown className='header-close__item-arrow' />
                       </Link>
                     </li>
