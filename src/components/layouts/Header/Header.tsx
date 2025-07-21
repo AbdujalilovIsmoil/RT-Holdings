@@ -403,7 +403,7 @@ const Header = () => {
                 </span>
                 <div className='header__content'>
                   <p className='header__media-text'>
-                    {callData[`${appLang}`].callUs}
+                    {callData[`${appLang}`]?.callUs}
                   </p>
                   <p className='header__media-text'>+99891-088-9595</p>
                 </div>
@@ -419,7 +419,7 @@ const Header = () => {
                 </span>
                 <div className='header__content'>
                   <p className='header__media-text'>
-                    {callData[`${appLang}`].callUs}
+                    {callData[`${appLang}`]?.callUs}
                   </p>
                   <p className='header__media-text'>+8210-9687-9796</p>
                 </div>
