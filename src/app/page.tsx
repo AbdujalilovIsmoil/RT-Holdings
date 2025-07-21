@@ -72,22 +72,22 @@ const Home = () => {
           backgroundImage: `linear-gradient(90deg, rgba(30, 36, 44, 0.8) 0%, rgba(30, 36, 44, 0.6) 43.96%, rgba(30, 36, 44, 0.6) 66.39%), url("/images/jpg/hero-background-image.jpg")`,
         }}
       >
-        <h1 className='visually-hidden'>{heroData[`${appLang}`].site_name}</h1>
+        <h1 className='visually-hidden'>{heroData[`${appLang}`]?.site_name}</h1>
 
         <div className='container'>
           <div className='site-hero__content'>
             <span className='site-hero__content-small'>
-              {heroData[`${appLang}`].hero_title}
+              {heroData[`${appLang}`]?.hero_title}
             </span>
             <h2
               className='site-hero__content-title'
               dangerouslySetInnerHTML={{
-                __html: heroData[`${appLang}`].hero_subtitle,
+                __html: heroData[`${appLang}`]?.hero_subtitle,
               }}
             ></h2>
 
             <p className='site-hero__content-text'>
-              {heroData[`${appLang}`].hero_text}
+              {heroData[`${appLang}`]?.hero_text}
             </p>
 
             <div className='site-hero__buttons'>
@@ -95,13 +95,13 @@ const Home = () => {
                 href='/services'
                 className='site-hero__buttons-button site-hero__buttons-button--active'
               >
-                {heroData[`${appLang}`].button_text}
+                {heroData[`${appLang}`]?.button_text}
               </Link>
               <Link
                 href='/about'
                 className='site-hero__buttons-button'
               >
-                {heroData[`${appLang}`].button_text2}
+                {heroData[`${appLang}`]?.button_text2}
               </Link>
             </div>
           </div>
