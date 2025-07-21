@@ -42,7 +42,7 @@ const Portfolio = () => {
         />
 
         <ul className='portfolio__cards'>
-          {portfolioContent.map(el => {
+          {portfolioContent?.map(el => {
             return (
               <li
                 key={el.id}

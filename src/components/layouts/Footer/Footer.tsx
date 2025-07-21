@@ -231,7 +231,7 @@ const Footer = () => {
               {sections[`${appLang}`]?.pages}
             </h2>
             <ul className='footer__links-group'>
-              {sections[`${appLang}`]?.list.map(el => {
+              {sections[`${appLang}`]?.list?.map(el => {
                 return (
                   <li
                     key={el?.id}

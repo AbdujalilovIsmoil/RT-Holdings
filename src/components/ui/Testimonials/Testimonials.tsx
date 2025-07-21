@@ -228,7 +228,7 @@ const Carousel = () => {
             },
           }}
         >
-          {usersData[`${appLang}`].map((user, index) => {
+          {usersData[`${appLang}`]?.map((user, index) => {
             return (
               <SwiperSlide key={index}>
                 <li className='carousel__item'>

@@ -265,7 +265,7 @@ const OurServices = () => {
         </div>
 
         <ul className='our-services__list'>
-          {serviceData[`${appLang}`]?.data.map((item, index) => (
+          {serviceData[`${appLang}`]?.data?.map((item, index) => (
             <li
               className='our-services__item'
               key={index}

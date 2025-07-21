@@ -180,7 +180,7 @@ const FormComponent = () => {
               {contactData[`${appLang}`]?.title}
             </h2>
             <ul className='contact__list'>
-              {contactData[`${appLang}`]?.data.map((item, index) => {
+              {contactData[`${appLang}`]?.data?.map((item, index) => {
                 return (
                   <li
                     key={index}

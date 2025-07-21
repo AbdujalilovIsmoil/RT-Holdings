@@ -165,7 +165,7 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
             {/* Carousel Dots */}
             {carData.images.length > 1 && (
               <div className='carousel-dots'>
-                {carData.images.map((_, index) => (
+                {carData?.images?.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToImage(index)}

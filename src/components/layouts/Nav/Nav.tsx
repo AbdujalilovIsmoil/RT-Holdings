@@ -16,8 +16,8 @@ const Nav = () => {
         <div className='site__container container'>
           <nav className='nav'>
             <ul className='nav__list'>
-              {header.links.length > 0 &&
-                header.links.map((el: linksType, index) => {
+              {header?.links?.length > 0 &&
+                header?.links?.map((el: linksType, index) => {
                   return (
                     <li
                       key={index}

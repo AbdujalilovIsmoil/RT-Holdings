@@ -171,7 +171,7 @@ const News = () => {
         </div>
 
         <ul className='news__list'>
-          {newsData[`${appLang}`]?.data.map((item, index) => (
+          {newsData[`${appLang}`]?.data?.map((item, index) => (
             <li
               className='news__item'
               key={index}

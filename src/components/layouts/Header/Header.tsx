@@ -283,8 +283,8 @@ const Header = () => {
             </ul>
 
             <ul className='header-close__list'>
-              {links.length > 0 &&
-                links.map((el: linksType, index) => {
+              {links?.length > 0 &&
+                links?.map((el: linksType, index) => {
                   return (
                     <li
                       key={index}
@@ -340,16 +340,16 @@ const Header = () => {
 
               {isLangOpen && (
                 <ul className='language-switcher-content'>
-                  {languages.map(lang => (
+                  {languages?.map(lang => (
                     <li
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang)}
                       className={`language-switcher-item ${
-                        currentLanguage.code === lang.code ? "selected" : ""
+                        currentLanguage?.code === lang?.code ? "selected" : ""
                       }`}
                       role='menuitem'
                     >
-                      {lang.name}
+                      {lang?.name}
                     </li>
                   ))}
                 </ul>
@@ -445,15 +445,15 @@ const Header = () => {
         <div className='site__container container'>
           <nav className='nav'>
             <ul className='nav__list'>
-              {links.length > 0 &&
-                links.map((el: linksType, index) => {
+              {links?.length > 0 &&
+                links?.map((el: linksType, index) => {
                   return (
                     <li
                       key={index}
                       className='nav__item'
                     >
                       <Link
-                        href={el.path}
+                        href={el?.path}
                         className={closeNavbar({
                           staticPath: el.path,
                           publicPath: pathname,
