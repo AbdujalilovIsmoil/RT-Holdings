@@ -57,11 +57,11 @@ const Error = () => {
             className='not-found__content-image'
           />
           <h1 className='not-found__content-title'>
-            {notFoundData[`${appLang}`].title}
+            {notFoundData[`${appLang}`]?.title}
           </h1>
 
           <p className='not-found__content-text'>
-            {notFoundData[`${appLang}`].description}
+            {notFoundData[`${appLang}`]?.description}
           </p>
         </div>
       </div>

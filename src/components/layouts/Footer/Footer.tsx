@@ -236,14 +236,14 @@ const Footer = () => {
               {sections[`${appLang}`]?.list.map(el => {
                 return (
                   <li
-                    key={el.id}
+                    key={el?.id}
                     className='footer__link-group'
                   >
                     <Link
-                      href={el.path}
+                      href={el?.path}
                       className='footer__link-group-link'
                     >
-                      {el.title}
+                      {el?.title}
                     </Link>
                   </li>
                 );

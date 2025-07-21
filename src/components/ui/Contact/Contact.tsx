@@ -183,8 +183,8 @@ const FormComponent = () => {
               {contactData[`${appLang}`]?.data.map((item, index) => {
                 return (
                   <li
-                    className='contact__itme'
                     key={index}
+                    className='contact__itme'
                   >
                     <FaCircleCheck className='contact__item-icon' />
                     <p className='contact__item-text'>{item?.text}</p>
@@ -212,7 +212,7 @@ const FormComponent = () => {
                   name='name'
                   value={form.name}
                   onChange={changeInput}
-                  placeholder={formData[`${appLang}`].name}
+                  placeholder={formData[`${appLang}`]?.name}
                   className='contact-request-form__box-input'
                 />
                 <Input

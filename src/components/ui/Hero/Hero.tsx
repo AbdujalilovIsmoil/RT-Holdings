@@ -206,10 +206,10 @@ const Hero = ({ page }: { page: string }) => {
       >
         <h1 className='visually-hidden'>RT Holdings</h1>
         <div className='container'>
-          {pageData[`${appLang}`].length > 0 &&
+          {pageData[`${appLang}`]?.length > 0 &&
             [
               pageData[`${appLang}`].find(
-                (el: pageDataProperties) => el.path === page,
+                (el: pageDataProperties) => el?.path === page,
               ),
             ].map(el => {
               return (
@@ -217,8 +217,8 @@ const Hero = ({ page }: { page: string }) => {
                   key={el?.id}
                   className='content'
                 >
-                  <h2 className='content-title'>{el && el.title}</h2>
-                  <p className='content-text'>{el && el.text}</p>
+                  <h2 className='content-title'>{el && el?.title}</h2>
+                  <p className='content-text'>{el && el?.text}</p>
                 </div>
               );
             })}

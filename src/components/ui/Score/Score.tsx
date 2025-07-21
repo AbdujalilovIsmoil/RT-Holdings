@@ -89,15 +89,15 @@ const Score = () => {
   return (
     <section className='score'>
       <div className='container'>
-        <h2 className='score-title'>{scoreData[`${appLang}`].title}</h2>
+        <h2 className='score-title'>{scoreData[`${appLang}`]?.title}</h2>
         <ul className='score__list'>
-          {scoreData[`${appLang}`].items.map((item, index) => (
+          {scoreData[`${appLang}`]?.items.map((item, index) => (
             <li
               key={index}
               className='score__item'
             >
-              <h3 className='score__item-title'>{item.text}</h3>
-              <p className='score__item-text'>{item.title}</p>
+              <h3 className='score__item-title'>{item?.text}</h3>
+              <p className='score__item-text'>{item?.title}</p>
             </li>
           ))}
         </ul>

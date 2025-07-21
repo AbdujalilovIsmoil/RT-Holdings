@@ -18,14 +18,14 @@ const Post = (props: PostInterface) => {
       <div className='container'>
         <div className='post__content'>
           <Image
-            src={props.image.url}
-            alt={props.image.alt}
-            width={props.image.width}
-            height={props.image.height}
+            src={props?.image?.url}
+            alt={props?.image?.alt}
+            width={props?.image?.width}
+            height={props?.image?.height}
             className='post__content-image'
           />
-          <h2 className='post__content-title'>{props.title}</h2>
-          <p className='post__content-text'>{props.description}</p>
+          <h2 className='post__content-title'>{props?.title}</h2>
+          <p className='post__content-text'>{props?.description}</p>
         </div>
       </div>
     </section>

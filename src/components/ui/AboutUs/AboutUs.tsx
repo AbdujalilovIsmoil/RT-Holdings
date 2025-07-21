@@ -81,8 +81,8 @@ const About = () => {
       <div className='container'>
         <div className='container'>
           <Texts
-            title={textData[`${appLang}`].title}
-            text={textData[`${appLang}`].text}
+            title={textData[`${appLang}`]?.title}
+            text={textData[`${appLang}`]?.text}
           />
         </div>
 
@@ -99,14 +99,14 @@ const About = () => {
 
           <div className='about__box'>
             <span className='about__box-small-text'>
-              {aboutData[`${appLang}`].smallText}
+              {aboutData[`${appLang}`]?.smallText}
             </span>
             <h3 className='about__box-title'>
-              {aboutData[`${appLang}`].title}
+              {aboutData[`${appLang}`]?.title}
             </h3>
 
             <ul className='about__list'>
-              {aboutData[`${appLang}`].listItems.map((item, index) => (
+              {aboutData[`${appLang}`]?.listItems.map((item, index) => (
                 <li
                   key={index}
                   className='about__item'

@@ -300,7 +300,7 @@ const Header = () => {
                           activeClass: "header-close__item-link--active",
                         })}
                       >
-                        {el?.title[`${appLang}`] || el.title.uz}
+                        {el?.title[`${appLang}`] || el?.title?.uz}
                         <FaAngleDown className='header-close__item-arrow' />
                       </Link>
                     </li>
@@ -461,7 +461,7 @@ const Header = () => {
                           activeClass: "nav__item-link--active",
                         })}
                       >
-                        {(el && el.title[`${appLang}`]) || el.title.uz}
+                        {(el && el?.title[`${appLang}`]) || el?.title?.uz}
                       </Link>
                     </li>
                   );
@@ -613,7 +613,7 @@ const Header = () => {
               href='/contact'
               className='site__contact-link'
             >
-              {contactTitle[`${appLang}`] || contactTitle.uz}
+              {contactTitle[`${appLang}`] || contactTitle?.uz}
             </Link>
           </div>
         </div>
