@@ -192,6 +192,9 @@ const Header = () => {
   const handleLanguageChange = (lang: Language) => {
     setCurrentLanguage(lang);
     setIsLangOpen(false);
+    dispatch(SET_LANG(lang.code));
+
+    console.log(`Language changed to: ${lang.name} (${lang.code})`);
   };
 
   const toggleDropdown = () => {
@@ -345,7 +348,7 @@ const Header = () => {
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang)}
                       className={`language-switcher-item ${
-                        currentLanguage?.code === lang?.code ? "selected" : ""
+                        appLang === lang?.code ? "selected" : ""
                       }`}
                       role='menuitem'
                     >
