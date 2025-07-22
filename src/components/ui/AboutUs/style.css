@@ -63,7 +63,6 @@
   letter-spacing: 0%;
 }
 
-/* Tablet and smaller screens */
 @media only screen and (max-width: 1024px) {
   .about {
     padding: 80px 0px;
@@ -78,7 +77,6 @@
   }
 }
 
-/* Mobile landscape and smaller tablets */
 @media only screen and (max-width: 768px) {
   .about {
     padding: 60px 0px;
@@ -142,7 +140,6 @@
   }
 }
 
-/* Small mobile devices */
 @media only screen and (max-width: 480px) {
   .about {
     padding: 40px 0px;

@@ -25,12 +25,10 @@
   }
 }
 
-/* Cards codes */
-
 .cars-grid {
+  gap: 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
 }
 
 @media (max-width: 1200px) {
@@ -209,8 +207,8 @@
 }
 
 .details-button:hover {
-  background: #e8e8e8;
   border-color: #ccc;
+  background: #e8e8e8;
 }
 
 .car-listing-container {
@@ -219,23 +217,22 @@
 
 .pagination-container {
   display: flex;
-  justify-content: center;
   margin-top: 40px;
+  justify-content: center;
 }
 
-/* Modal Styles */
 .modal-overlay {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
+  padding: 16px;
   display: flex;
+  z-index: 1000;
+  position: fixed;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .modal-container {
@@ -309,7 +306,6 @@
   letter-spacing: -0.025em;
 }
 
-/* Carousel Styles */
 .carousel-container {
   margin-bottom: 32px;
 }
@@ -392,7 +388,6 @@
   transform: scale(1.2);
 }
 
-/* Car Details Styles for Modal */
 .car-details-modal {
   display: flex;
   flex-direction: column;
@@ -430,7 +425,6 @@
   font-weight: 700;
 }
 
-/* Animation for modal entrance */
 @keyframes modalFadeIn {
   from {
     opacity: 0;
@@ -442,7 +436,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 640px) {
   .modal-overlay {
     padding: 8px;
@@ -479,9 +472,9 @@
   }
 
   .detail-item-modal {
+    gap: 4px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
   }
 
   .detail-value-modal {
@@ -512,7 +505,6 @@
   }
 }
 
-/* Touch-friendly carousel on mobile */
 @media (hover: none) and (pointer: coarse) {
   .carousel-nav {
     opacity: 0.8;

@@ -54,23 +54,9 @@
   }
 }
 
-
-
 .site-hero__conetent-among {
   color: var(--main-orange-color);
 }
-
-/* .site-hero__content-text {
-  margin-bottom: 25px;
-  font-family: "Be Vietnam Pro";
-  color: var(--main-light-color);
-  font-size: var(--main-text-size);
-  font-weight: calc(var(--site-weight-number) - 500);
-
-  @media only screen and (max-width: 576px) {
-    font-size: calc(var(--main-text-size) - 2px);
-  }
-} */
 
 .site-hero__buttons {
   display: flex;

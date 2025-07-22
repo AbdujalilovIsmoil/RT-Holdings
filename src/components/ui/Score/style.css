@@ -36,10 +36,9 @@
   letter-spacing: 0px;
 }
 
-/* Tablet and smaller screens */
 @media only screen and (max-width: 1024px) {
   .score {
-    padding: 30px 60px; /* Adjust horizontal padding */
+    padding: 30px 60px;
   }
 
   .score-title {
@@ -60,10 +59,9 @@
   }
 }
 
-/* Mobile landscape and smaller tablets */
 @media only screen and (max-width: 768px) {
   .score {
-    padding: 25px 40px; /* Further adjust padding */
+    padding: 25px 40px;
   }
 
   .score-title {
@@ -72,8 +70,8 @@
   }
 
   .score__list {
-    flex-direction: column; /* Stack items vertically */
-    gap: 30px; /* Adjust gap for vertical stacking */
+    flex-direction: column;
+    gap: 30px;
   }
 
   .score__item-title {
@@ -85,16 +83,15 @@
   }
 }
 
-/* Mobile portrait */
 @media only screen and (max-width: 576px) {
   .score {
-    padding: 20px 20px; /* Minimal padding for small screens */
+    padding: 20px 20px;
   }
 
   .score-title {
     font-size: 24px;
     margin-bottom: 30px;
-    line-height: 120%; /* Improve readability for smaller titles */
+    line-height: 120%;
   }
 
   .score__list {
@@ -111,7 +108,6 @@
   }
 }
 
-/* Very small mobile devices */
 @media only screen and (max-width: 480px) {
   .score-title {
     font-size: 22px;

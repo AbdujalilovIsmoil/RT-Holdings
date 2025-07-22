@@ -6,8 +6,8 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { Hero } from "@/components";
 import { Pagination } from "@/components";
-import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
+import { usePathname } from "next/navigation";
 import { initialValuesTypes } from "@/context/reducer";
 
 const News = () => {
