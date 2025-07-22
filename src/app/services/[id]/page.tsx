@@ -6,12 +6,12 @@ import Image from "next/image";
 import { Hero } from "@/components";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
-import {
-  FaYoutube,
-  FaFacebook,
-  FaTelegramPlane,
-  AiFillInstagram,
-} from "@/assets/react-icons";
+// import {
+//   FaYoutube,
+//   FaFacebook,
+//   FaTelegramPlane,
+//   AiFillInstagram,
+// } from "@/assets/react-icons";
 import { usePathname } from "next/navigation";
 
 const ServicesView = () => {
