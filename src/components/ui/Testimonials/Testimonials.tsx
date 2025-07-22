@@ -54,24 +54,24 @@ const Carousel = () => {
   const usersData: UsersDataType = {
     uz: [
       {
-        name: "Абдужалилов Исмоил",
-        job: "Пользователь",
+        name: "Abdujalilov Ismoil",
+        job: "Foydalanuvchi",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
         rate: 5,
       },
       {
-        name: "Абдурахманов Фарход",
-        job: "Клиент",
+        name: "Abdurahmanov Farhod",
+        job: "Client",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
         rate: 5,
       },
       {
-        name: "Саидов Алишер",
-        job: "Пользователь",
+        name: "Saidov Alisher",
+        job: "Foydalanuvchi",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
@@ -130,8 +130,8 @@ const Carousel = () => {
         rate: 5,
       },
       {
-        name: "Abdurahmanov Farhod",
-        job: "Client",
+        name: "Abdurahmanov Farkhod",
+        job: "User",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
@@ -147,7 +147,7 @@ const Carousel = () => {
       },
       {
         name: "Tursunov Shukhrat",
-        job: "Client",
+        job: "User",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
@@ -165,7 +165,7 @@ const Carousel = () => {
       },
       {
         name: "압두라흐마노프 파르호드",
-        job: "클라이언트",
+        job: "사용자",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
@@ -181,7 +181,7 @@ const Carousel = () => {
       },
       {
         name: "투르수노프 슈크라트",
-        job: "클라이언트",
+        job: "사용자",
         image: "https://picsum.photos/460/370",
         description:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
