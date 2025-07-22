@@ -156,7 +156,7 @@ const Header = () => {
     {
       id: 5,
       title: {
-        uz: "Portfolio",
+        uz: "Ishlar",
         ru: "Портфолио",
         en: "Portfolio",
         ko: "포트폴리오",
@@ -303,7 +303,7 @@ const Header = () => {
                           activeClass: "header-close__item-link--active",
                         })}
                       >
-                        {el?.title[`${appLang}`] || el?.title?.uz}
+                        {el?.title[`${appLang}`]}
                         <FaAngleDown className='header-close__item-arrow' />
                       </Link>
                     </li>

@@ -15,14 +15,6 @@ import HeroBackgroundImage2 from "./hero-background-image-2.jpg";
 import HeroBackgroundImage3 from "./hero-background-image-3.jpg";
 import HeroBackgroundImage4 from "./hero-background-image-4.jpg";
 import HeroBackgroundImage5 from "./hero-background-image-5.jpg";
-import {
-  PortfolioImage1,
-  PortfolioImage2,
-  PortfolioImage3,
-  PortfolioImage4,
-  PortfolioImage5,
-  PortfolioImage6,
-} from "./portfolio";
 
 import {
   FooterPicture1,
@@ -52,12 +44,6 @@ export {
   FooterPicture5,
   FooterPicture6,
   FooterPicture7,
-  PortfolioImage1,
-  PortfolioImage2,
-  PortfolioImage3,
-  PortfolioImage4,
-  PortfolioImage5,
-  PortfolioImage6,
   HeroBackgroundImage,
   HeroBackgroundImage1,
   HeroBackgroundImage2,

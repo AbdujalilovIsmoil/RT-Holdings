@@ -75,7 +75,6 @@
   color: var(--main-orange-color);
 }
 
-/* Tablet and smaller screens */
 @media only screen and (max-width: 1024px) {
   .services__logo {
     padding: 60px 0;
@@ -83,8 +82,8 @@
   }
 
   .services__logo-img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
   }
 
   .services-view__list {
@@ -120,7 +119,6 @@
   }
 }
 
-/* Mobile landscape and smaller tablets */
 @media only screen and (max-width: 768px) {
   .services__logo {
     padding: 50px 0;
@@ -164,7 +162,6 @@
   }
 }
 
-/* Mobile portrait */
 @media only screen and (max-width: 576px) {
   .services__logo {
     padding: 40px 0;
@@ -172,8 +169,8 @@
   }
 
   .services__logo-img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
   }
 
   .services-view__list {
@@ -209,10 +206,9 @@
   }
 }
 
-/* Small mobile devices */
 @media only screen and (max-width: 480px) {
   .services__logo-img {
-    width: 100%; /* Make image responsive */
+    width: 100%;
   }
 
   .services-view__item-title {

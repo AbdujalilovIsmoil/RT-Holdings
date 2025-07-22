@@ -158,7 +158,6 @@ function CarCard({
           ))}
         </div>
 
-        {/* Navigation Arrows */}
         {car.images.length > 1 && (
           <>
             <button

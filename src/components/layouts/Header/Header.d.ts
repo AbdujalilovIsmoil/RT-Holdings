@@ -11,5 +11,4 @@ export interface servicesTypes {
   telegram_link: string;
   facebook_link: string;
   instagram_link: string;
-  phone_numbers: phoneNumbersTypes[];
 }
