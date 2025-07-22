@@ -46,7 +46,7 @@ const ServicesView = () => {
       data: [
         {
           image: "/images/jpg/our-services-1.jpg",
-          link: "dream-motors",
+          link: "rt-motors",
           more: "Ba’tafsil ma’lumot",
           products: [
             {
@@ -398,6 +398,8 @@ const ServicesView = () => {
     el => el.link === pathName.split("/")[2],
   );
 
+  console.log(serviceData[`${appLang}`].data);
+
   return (
     <section className='services-view'>
       <Hero page='/services' />
@@ -407,7 +409,9 @@ const ServicesView = () => {
             width={400}
             height={200}
             alt='Aka Taxi'
-            src={`${findData?.image}`}
+            src={`${
+              findData ? findData?.image : "/images/jpg/our-services-1.jpg"
+            }`}
             className='services__logo-img'
           />
         </div>
