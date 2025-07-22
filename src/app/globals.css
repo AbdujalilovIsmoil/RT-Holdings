@@ -182,8 +182,8 @@ a {
   font-size: 36px;
   color: var(--main-light-color);
   font-weight: calc(var(--site-weight-number) - 200);
-  line-height: calc(var(--main-medium-size) + 7.5px);
-  margin-bottom: 25px;
+  line-height: calc(var(--main-medium-size));
+  margin-bottom: 10px;
 
   @media only screen and (max-width: 992px) {
     font-size: 36px;
@@ -274,7 +274,7 @@ a {
   font-size: var(--main-text-size);
   line-height: calc(var(--main-text-size) + 4.77px);
   font-weight: calc(var(--site-weight-number) - 500);
-  margin-bottom: calc(var(--main-medium-size) + 30px);
+  margin-bottom: calc(var(--main-medium-size));
 
   @media only screen and (max-width: 992px) {
     margin-bottom: var(--main-medium-size);
@@ -282,7 +282,6 @@ a {
 
   @media only screen and (max-width: 576px) {
     font-size: calc(var(--main-text-size) - 2px);
-    margin-bottom: calc(var(--main-medium-size) - 20px);
   }
 }
 
