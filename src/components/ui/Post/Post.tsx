@@ -2,14 +2,14 @@ import "./style.css";
 import Image from "next/image";
 
 interface PostInterface {
+  title: string;
+  description: string;
   image: {
     url: string;
     alt: string;
     width: number;
     height: number;
   };
-  title: string;
-  description: string;
 }
 
 const Post = (props: PostInterface) => {

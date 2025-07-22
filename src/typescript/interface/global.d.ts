@@ -35,9 +35,18 @@ export interface postDataTypes {
   phone_number: string;
 }
 
+export interface properties {
+  title: string;
+  text: string;
+}
+
 export interface globalAboutDataTypes {
+  [key: string]: properties;
+}
+
+export interface ScoreDataType {
   [key: string]: {
     title: string;
-    text: string;
+    items: properties[];
   };
 }

@@ -2,7 +2,6 @@
 
 import "./style.css";
 import Image from "next/image";
-import { useRef } from "react";
 import { useSelector } from "react-redux";
 import { IoStar } from "@/assets/react-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,9 +10,6 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { initialValuesTypes } from "@/context/reducer";
 
 const Carousel = () => {
-  const leftButton = useRef<null | HTMLButtonElement>(null);
-  const rightButton = useRef<null | HTMLButtonElement>(null);
-
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
   const testimonialsData: globalAboutDataTypes = {
@@ -202,10 +198,6 @@ const Carousel = () => {
           grabCursor
           spaceBetween={20}
           slidesPerView={3}
-          navigation={{
-            nextEl: rightButton.current,
-            prevEl: leftButton.current,
-          }}
           modules={[Autoplay, Navigation]}
           autoplay={{
             delay: 2500,

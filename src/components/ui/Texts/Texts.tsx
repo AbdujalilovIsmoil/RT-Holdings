@@ -1,11 +1,7 @@
 import "./style.css";
+import { properties } from "@/typescript";
 
-interface textTypes {
-  text: string;
-  title: string;
-}
-
-const Texts = ({ text, title }: textTypes) => {
+const Texts = ({ text, title }: properties) => {
   return (
     <div className='all__content'>
       <h2 className='all__content-title'>{title}</h2>

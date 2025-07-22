@@ -1,19 +1,10 @@
 import "./style.css";
 import { useSelector } from "react-redux";
+import { ScoreDataType } from "@/typescript";
 import { initialValuesTypes } from "@/context/reducer";
 
 const Score = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
-
-  type ScoreDataType = {
-    [key: string]: {
-      title: string;
-      items: {
-        title: string;
-        text: string;
-      }[];
-    };
-  };
 
   const scoreData: ScoreDataType = {
     uz: {
