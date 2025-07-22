@@ -36,21 +36,24 @@ const OurServices = () => {
           description:
             "RT Motors - Janubiy Koreyadan hashamatlik avtomobillarni zakaz orqali butun dunyoqga yetkazib beradi",
           image: "/images/jpg/our-services-1.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-motors",
           more: "Ba’tafsil ma’lumot",
         },
         {
           title: "RT MEDLINE",
           description:
-            "RT Motors - Janubiy Koreyadan hashamatlik avtomobillarni zakaz orqali butun dunyoqga yetkazib beradi",
+            "Ko'p tarmoqli oilaviy shifoxonasi. bu shifoxonada 20 dan ortiq malakali shifokorlar 10 ga yaqin sohalarda o’z faoliyatini olib kelmoqda.",
           image: "/images/jpg/our-services-2.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-medline",
           more: "Ba’tafsil ma’lumot",
         },
         {
           title: "RT HS GROUP LOGISTICS",
-          description:
-            "RT Motors - Janubiy Koreyadan hashamatlik avtomobillarni zakaz orqali butun dunyoqga yetkazib beradi",
+          description: `2023-yil 8-iyunda Koreyaning HS Express logistics hamda O'zbekistonning RT Holdings kampaniyasi 
+          tomonidan kompleks lagistik tizim yaratash uchun yaratilgan kampaniyadir. Hozirda dunyoni ishtalgan chekkasiga
+          yuklarni yetkazib berish imkoniyatiga ega. RT HS Groupning afzalliklari: Bizning xizmatlarimiz nisbatan arzon,
+          yuk kelishi tez va eshikdan eshikkacha yetkaziladi. Mahsulotlar sifatiga kafolat beriladi. Deklarantlik xizmati
+          ham mavjud.`,
           image: "/images/jpg/our-services-3.jpg",
           link: "/services/rt-hs-group-logistics",
           more: "Ba’tafsil ma’lumot",
@@ -65,8 +68,10 @@ const OurServices = () => {
         },
         {
           title: "KORTEX OIL",
-          description:
-            "2025- yildan buyon avtomobillar va maxsus tex nikalar uchun turli xil yuqori sifatdagi motor moylari ishlab chiqarib kelmoqda.",
+          description: `RT HOLDINGS tarmog’idagi muvaffaqiyatli loyihalardan bir hisoblanadi. Bu loyihamiz 2025-yil 
+          6-mart oyida Janubiy Koreyaning moy ishlab chiqarish bo’yicha yetakchilaridan biri bo’lgan World Oil Korea
+          Co., LTD kompaniyasi bilan shartnoma imzolandi. Shundan buyon avtomobillar va maxsus texnikalar uchun turli
+          xil yuqori sifatdagi motor moylari ishlab chiqarib kelmoqda.`,
           image: "/images/jpg/our-services-5.jpg",
           link: "/services/kortex-oil",
           more: "Ba’tafsil ma’lumot",
@@ -93,21 +98,23 @@ const OurServices = () => {
           description:
             "RT Motors — поставка роскошных автомобилей из Южной Кореи по всему миру по индивидуальному заказу",
           image: "/images/jpg/our-services-1.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-motors",
           more: "Подробнее",
         },
         {
           title: "RT MEDLINE",
           description:
-            "RT Motors — поставка роскошных автомобилей из Южной Кореи по всему миру по индивидуальному заказу",
+            "Многопрофильная семейная больница. В ней работают более 20 квалифицированных врачей примерно в 10 областях.",
           image: "/images/jpg/our-services-2.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-medline",
           more: "Подробнее",
         },
         {
           title: "RT HS GROUP LOGISTICS",
-          description:
-            "RT Motors — поставка роскошных автомобилей из Южной Кореи по всему миру по индивидуальному заказу",
+          description: `8 июня 2023 года корейская компания HS Express Logistics и узбекская компания RT Holdings создали 
+          комплексную логистическую систему. В настоящее время компания имеет возможность доставлять грузы в любую точку
+          мира. Преимущества RT HS Group: относительно невысокая стоимость услуг, быстрая доставка грузов «от двери до
+          двери». Гарантия качества продукции. Также доступен сервис декларирования.`,
           image: "/images/jpg/our-services-3.jpg",
           link: "/services/rt-hs-group-logistics",
           more: "Подробнее",
@@ -122,8 +129,9 @@ const OurServices = () => {
         },
         {
           title: "KORTEX OIL",
-          description:
-            "С 2025 года производит высококачественные моторные масла для автомобилей и специальной техники.",
+          description: `Это один из успешных проектов в сети RT HOLDINGS. 6 марта 2025 года мы подписали контракт с 
+          компанией World Oil Korea Co., LTD — одним из ведущих производителей моторных масел в Южной Корее. С тех пор
+          мы производим различные виды высококачественных моторных масел для автомобилей и специальной техники.`,
           image: "/images/jpg/our-services-5.jpg",
           link: "/services/kortex-oil",
           more: "Подробнее",
@@ -150,21 +158,23 @@ const OurServices = () => {
           description:
             "RT Motors - Delivery of luxury cars from South Korea worldwide by order",
           image: "/images/jpg/our-services-1.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-motors",
           more: "Learn more",
         },
         {
           title: "RT MEDLINE",
           description:
-            "RT Motors - Delivery of luxury cars from South Korea worldwide by order",
+            "A multidisciplinary family hospital. This hospital has more than 20 qualified doctors working in about 10 areas.",
           image: "/images/jpg/our-services-2.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-medline",
           more: "Learn more",
         },
         {
           title: "RT HS GROUP LOGISTICS",
-          description:
-            "RT Motors - Delivery of luxury cars from South Korea worldwide by order",
+          description: `On June 8, 2023, the Korean company HS Express Logistics and the Uzbek company RT Holdings 
+          established a comprehensive logistics system. Today, the company has the capability to deliver cargo to any
+          destination in the world. Advantages of RT HS Group: relatively low service costs, fast door-to-door delivery,
+          and guaranteed product quality. A customs declaration service is also available.`,
           image: "/images/jpg/our-services-3.jpg",
           link: "/services/rt-hs-group-logistics",
           more: "Learn more",
@@ -179,8 +189,9 @@ const OurServices = () => {
         },
         {
           title: "KORTEX OIL",
-          description:
-            "Since 2025, producing high-quality motor oils for cars and special equipment.",
+          description: `This is one of the successful projects within the RT HOLDINGS network. On March 6, 2025, we 
+          signed a contract with World Oil Korea Co., LTD — one of the leading motor oil producers in South Korea. Since
+          then, we have been producing various types of high-quality motor oils for automobiles and special machinery.`,
           image: "/images/jpg/our-services-5.jpg",
           link: "/services/kortex-oil",
           more: "Learn more",
@@ -206,21 +217,22 @@ const OurServices = () => {
           description:
             "RT Motors - 주문에 따라 전 세계에 고급 자동차를 배송합니다.",
           image: "/images/jpg/our-services-1.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-motors",
           more: "자세히 알아보기",
         },
         {
           title: "RT MEDLINE",
           description:
-            "RT Motors - 주문에 따라 전 세계에 고급 자동차를 배송합니다.",
+            "다학제 가정병원입니다. 이 병원에는 약 10개 분야에서 20명 이상의 자격을 갖춘 의사가 근무하고 있습니다.",
           image: "/images/jpg/our-services-2.jpg",
-          link: "/services/dream-express",
+          link: "/services/rt-medline",
           more: "자세히 알아보기",
         },
         {
           title: "RT HS GROUP LOGISTICS",
-          description:
-            "RT Motors - 주문에 따라 전 세계에 고급 자동차를 배송합니다.",
+          description: `2023년 6월 8일, 한국의 HS 익스프레스 로지스틱스와 우즈베키스탄의 RT 홀딩스는 종합 물류 시스템을 구축하였습니다. 현재 이 
+          회사는 전 세계 어디든지 화물을 배송할 수 있는 역량을 갖추고 있습니다. RT HS 그룹의 장점: 비교적 저렴한 서비스 비용, 빠른 문앞까지의 배송(도어 투
+          도어), 그리고 보장된 제품 품질. 통관 신고 서비스도 제공됩니다.`,
           image: "/images/jpg/our-services-3.jpg",
           link: "/services/rt-hs-group-logistics",
           more: "자세히 알아보기",
@@ -235,8 +247,9 @@ const OurServices = () => {
         },
         {
           title: "KORTEX OIL",
-          description:
-            "2025년부터 자동차 및 특수 장비용 고품질 엔진 오일을 생산하고 있습니다.",
+          description: `이 프로젝트는 RT HOLDINGS 네트워크 내에서 성공적인 프로젝트 중 하나입니다. 2025년 3월 6일, 우리는 대한민국의 주요 윤활유 
+          제조업체 중 하나인 World Oil Korea Co., LTD와 계약을 체결하였습니다. 그 이후로 자동차 및 특수 장비용 다양한 고품질 엔진 오일을 생산하고
+          있습니다.`,
           image: "/images/jpg/our-services-5.jpg",
           link: "/services/kortex-oil",
           more: "자세히 알아보기",
@@ -279,10 +292,14 @@ const OurServices = () => {
               />
 
               <div className='our-services__item-box'>
-                <h3 className='our-services__item-box-title'>{item?.title}</h3>
-                <p className='our-services__item-box-text'>
-                  {item?.description}
-                </p>
+                <div className='our-services__small-content'>
+                  <h3 className='our-services__item-box-title'>
+                    {item?.title}
+                  </h3>
+                  <p className='our-services__item-box-text'>
+                    {item?.description}
+                  </p>
+                </div>
                 <Link
                   role='button'
                   href={item?.link}

@@ -33,8 +33,8 @@ const Hero = async ({ params }: { params: Promise<{ id: string }> }) => {
       title: "RT Medline",
       image: "/images/jpg/rt-medline.jpg",
       description: `
-        RT Medline - ko'p tarmoqli oilaviy shifoxonasi. bu shifoxonada 20 dan ortiq malakali shifokorlar
-        10 ga yaqin sohalarda o’z faoliyatini olib kelmoqda.
+        ko'p tarmoqli oilaviy shifoxonasi. bu shifoxonada 20 dan ortiq malakali shifokorlar 10 ga yaqin sohalarda o’z
+        faoliyatini olib kelmoqda.
       `,
     },
     {
