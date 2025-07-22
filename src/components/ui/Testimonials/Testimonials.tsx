@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { useSelector } from "react-redux";
 import { IoStar } from "@/assets/react-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { globalAboutDataTypes } from "@/typescript";
 import { Autoplay, Navigation } from "swiper/modules";
 import { initialValuesTypes } from "@/context/reducer";
 
@@ -15,14 +16,7 @@ const Carousel = () => {
 
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  type TestimonialsDataType = {
-    [key: string]: {
-      title: string;
-      text: string;
-    };
-  };
-
-  const testimonialsData: TestimonialsDataType = {
+  const testimonialsData: globalAboutDataTypes = {
     uz: {
       title: "Foydalanuvchilar",
       text: "Biz haqimizda mijozlarimiz qanday fikrda?",

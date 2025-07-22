@@ -3,6 +3,7 @@
 import "./style.css";
 import { useSelector } from "react-redux";
 import { ChangeEvent, useState } from "react";
+import { globalAboutDataTypes } from "@/typescript";
 import { FaCircleCheck } from "@/assets/react-icons";
 import { Input, Textarea, Button } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
@@ -104,14 +105,7 @@ const FormComponent = () => {
     },
   };
 
-  type offerDataType = {
-    [key: string]: {
-      title: string;
-      text: string;
-    };
-  };
-
-  const offerData: offerDataType = {
+  const offerData: globalAboutDataTypes = {
     uz: {
       title: "Taklif so‘rash",
       text: "Mahsulotlar ustidan to‘liq nazorat bizga mijozlarimizga eng yuqori sifat, qulay narxlar va ishonchli xizmatlar taklif etish imkonini beradi. Jhontraktor kompaniyasi sifatida biz qilayotgan har bir ishimizdan faxrlanamiz.",

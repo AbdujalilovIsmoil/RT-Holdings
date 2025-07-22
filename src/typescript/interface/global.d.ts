@@ -34,3 +34,10 @@ export interface postDataTypes {
   service: string;
   phone_number: string;
 }
+
+export interface globalAboutDataTypes {
+  [key: string]: {
+    title: string;
+    text: string;
+  };
+}

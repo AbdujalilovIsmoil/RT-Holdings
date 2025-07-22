@@ -2,19 +2,13 @@ import "./style.css";
 import Image from "next/image";
 import { Texts } from "@/components";
 import { useSelector } from "react-redux";
+import { globalAboutDataTypes } from "@/typescript";
 import { initialValuesTypes } from "@/context/reducer";
 
 const About = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  type TextsType = {
-    [key: string]: {
-      title: string;
-      text: string;
-    };
-  };
-
-  const textData: TextsType = {
+  const textData: globalAboutDataTypes = {
     uz: {
       title: "Biz haqimizda",
       text: "Kompaniyamiz faoliyati, qadriyatlari va maqsadlari bilan tanishing — biz qanday ishlaymiz, kimlar bilan hamkorlik qilamiz va mijozlarimizga qanday yechimlar taklif etamiz.",

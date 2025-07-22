@@ -3,6 +3,13 @@ import {
   UIInterface,
   postDataTypes,
   FieldInterface,
+  globalAboutDataTypes,
 } from "./global";
 
-export type { FieldInterface, UIInterface, dataTypes, postDataTypes };
+export type {
+  dataTypes,
+  UIInterface,
+  postDataTypes,
+  FieldInterface,
+  globalAboutDataTypes,
+};
