@@ -83,7 +83,7 @@
   }
 
   .services__logo-img {
-    max-width: 300px; /* Make image responsive */
+    width: 100%; /* Make image responsive */
     height: auto; /* Maintain aspect ratio */
   }
 
@@ -128,7 +128,7 @@
   }
 
   .services__logo-img {
-    max-width: 250px;
+    width: 100%;
   }
 
   .services-view__list {
@@ -172,7 +172,8 @@
   }
 
   .services__logo-img {
-    max-width: 200px;
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .services-view__list {
@@ -211,7 +212,7 @@
 /* Small mobile devices */
 @media only screen and (max-width: 480px) {
   .services__logo-img {
-    max-width: 180px;
+    width: 100%; /* Make image responsive */
   }
 
   .services-view__item-title {
