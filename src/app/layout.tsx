@@ -3,7 +3,6 @@ import "swiper/swiper-bundle.css";
 import ReduxProvider from "@/context";
 import { Header, Footer } from "@/components";
 import { Be_Vietnam_Pro, Exo, Poppins } from "next/font/google";
-import { Suspense } from "react";
 
 const poppins = Poppins({
   weight: ["400"],
@@ -31,11 +30,9 @@ export default function RootLayout({
         className={`${beVietnamePro.className} ${poppins.className} ${exo.className}`}
       >
         <ReduxProvider>
-     
-            <Header />
-            <main className='main'>{children}</main>
-            <Footer />
-        
+          <Header />
+          <main className='main'>{children}</main>
+          <Footer />
         </ReduxProvider>
       </body>
     </html>
