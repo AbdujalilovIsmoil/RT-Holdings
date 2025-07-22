@@ -18,8 +18,6 @@ const ServicesView = () => {
   const pathName = usePathname();
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  console.log(pathName.split("/")[2]);
-
   type ServiceDataType = {
     [key: string]: {
       title: string;
@@ -417,9 +415,12 @@ const ServicesView = () => {
 
       <div className='container'>
         <ul className='services-view__list'>
-          {findData?.products?.map(el => {
+          {findData?.products?.map((el, index) => {
             return (
-              <li className='services-view__item'>
+              <li
+                key={index}
+                className='services-view__item'
+              >
                 <h2 className='services-view__item-title'>{el?.title}</h2>
                 <p className='services-view__item-text'>{el?.description}</p>
               </li>
