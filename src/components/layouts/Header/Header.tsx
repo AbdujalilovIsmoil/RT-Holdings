@@ -381,7 +381,7 @@ const Header = () => {
             <li className='header__media'>
               <a
                 className='header__link'
-                href={`mailto:`}
+                href={`mailto:rtholdingsgroup@gmail.com`}
               >
                 <span className='header__background'>
                   <MdOutlineMailOutline className='header__background-icon' />
@@ -391,7 +391,7 @@ const Header = () => {
                     {callData[`${appLang}`]?.email}:
                   </p>
                   <p className='header__media-text'>
-                    ismoilbek20050421@gmail.com
+                    rtholdingsgroup@gmail.com
                   </p>
                 </div>
               </a>
