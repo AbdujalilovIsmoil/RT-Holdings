@@ -8,7 +8,7 @@ import { initialValuesTypes } from "@/context/reducer";
 const Score = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const { data } = useGet({ path: "/our_activity_number/list/" });
+  const data = useGet({ path: "/our_activity_number/list/" });
 
   interface scoreDataInterface {
     [key: string]: {

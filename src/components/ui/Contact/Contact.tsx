@@ -7,6 +7,7 @@ import { globalAboutDataTypes } from "@/typescript";
 import { FaCircleCheck } from "@/assets/react-icons";
 import { Input, Textarea, Button } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
+import { useGet } from "@/hooks";
 
 const FormComponent = () => {
   const [form, setForm] = useState({
@@ -165,6 +166,18 @@ const FormComponent = () => {
     },
   };
 
+  const data = useGet({ path: "/service_type/list/" });
+
+  type Lang = "uz" | "ru" | "en" | "ko";
+
+  type TitleField = `title_${Lang}`; // 'title_uz' | 'title_ru' | ...
+
+  type Items = {
+    id: string;
+  } & {
+    [K in TitleField]: string;
+  };
+
   return (
     <>
       <section className='contact'>
@@ -236,8 +249,11 @@ const FormComponent = () => {
                   onChange={changeInput}
                   className='contact-request-form__box-input select'
                 >
-                  <option disabled>{formData[`${appLang}`]?.service}</option>
-                  {/* <option value='value 1'>Qiymat 1</option> */}
+                  {Array.isArray(data) &&
+                    data.map((el: Items) => {
+                      const key = `title_${appLang}` as keyof Items;
+                      return <option key={el.id}>{el[key]}</option>;
+                    })}
                 </select>
               </label>
               <Textarea

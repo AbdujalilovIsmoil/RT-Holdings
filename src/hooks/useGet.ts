@@ -20,14 +20,14 @@ const useGet = ({ path }: useGetInterface) => {
 
     const response = await request.json();
 
-    setData(response);
+    setData(response.results ? response.results : response);
   };
 
   useEffect(() => {
     getRequest();
   }, []);
 
-  return { data, isLoading, isError };
+  return data;
 };
 
 export default useGet;

@@ -68,12 +68,12 @@
   background-color: #d5d5d5;
 }
 
+.news {
+  padding-bottom: 100px;
+}
+
 /* Tablet and smaller screens */
 @media only screen and (max-width: 1024px) {
-  .news {
-    padding: 60px 0;
-  }
-
   .news__content {
     margin-bottom: 40px;
   }
