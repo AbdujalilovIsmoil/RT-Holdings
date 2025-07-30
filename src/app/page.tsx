@@ -2,16 +2,16 @@
 
 import "./not-found.css";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { initialValuesTypes } from "@/context/reducer";
 import {
   News,
   Score,
   AboutUsUI,
   ContactUI,
   OurServices,
-  Testimonials,
+  // Testimonials,
 } from "@/components";
-import { useSelector } from "react-redux";
-import { initialValuesTypes } from "@/context/reducer";
 
 const Home = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -111,7 +111,7 @@ const Home = () => {
       <Score />
       <OurServices />
       <News />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <ContactUI />
     </>
   );

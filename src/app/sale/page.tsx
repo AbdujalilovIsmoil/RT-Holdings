@@ -2,10 +2,11 @@
 import "./style.css";
 import Image from "next/image";
 import CarModal from "./car-modal";
-import { useEffect, useState } from "react";
-import { Input, Button, Hero, Pagination } from "@/components";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { initialValuesTypes } from "@/context/reducer";
+import { Input, Button, Hero, Pagination } from "@/components";
+import { useGet } from "@/hooks";
 
 // Search Icon component
 const IoSearch = ({ className }: { className: string }) => (
@@ -333,8 +334,10 @@ function CarCard({
 }
 
 const Sale = () => {
-  const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
+  const { data } = useGet({ path: "/product/list" });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
 
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
