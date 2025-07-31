@@ -1,12 +1,12 @@
 "use client";
 import "./style.css";
 import Image from "next/image";
+import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { initialValuesTypes } from "@/context/reducer";
 import { Input, Button, Hero, Pagination } from "@/components";
-import { useGet } from "@/hooks";
 
 // Search Icon component
 const IoSearch = ({ className }: { className: string }) => (
@@ -334,7 +334,7 @@ function CarCard({
 }
 
 const Sale = () => {
-  const { data } = useGet({ path: "/product/list" });
+  // const { data } = useGet({ path: "/product/list" });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
