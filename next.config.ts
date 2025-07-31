@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       new URL("https://picsum.photos/460/370"),
-      new URL("https://test.repid.uz/media/media/service/images/**"),
+      new URL("https://test.repid.uz/media/media/**"),
     ],
   },
 };

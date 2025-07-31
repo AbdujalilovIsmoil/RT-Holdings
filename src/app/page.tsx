@@ -2,6 +2,7 @@
 
 import "./not-found.css";
 import Link from "next/link";
+import { useGet } from "@/hooks";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
 import {
@@ -62,6 +63,11 @@ const Home = () => {
     },
   };
 
+  const data = useGet({
+    path: "/news/list",
+    
+  });
+
   return (
     <>
       <section
@@ -110,7 +116,7 @@ const Home = () => {
       <AboutUsUI />
       <Score />
       <OurServices />
-      <News />
+      <News data={Array.isArray(data) ? data.slice(0,4) : []}/>
       {/* <Testimonials /> */}
       <ContactUI />
     </>

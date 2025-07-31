@@ -3,11 +3,13 @@
 import "./style.css";
 import ReactPaginate from "react-paginate";
 
-const items: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
-function PaginatedItems({ itemsPerPage }: { itemsPerPage: number }) {
-  const pageCount = Math.ceil(items.length / itemsPerPage);
-
+function PaginatedItems({
+  pageCount,
+  handlePageClick,
+}: {
+  pageCount: number;
+  handlePageClick: (event: { selected: number }) => void;
+}) {
   return (
     <>
       <ReactPaginate
@@ -16,6 +18,7 @@ function PaginatedItems({ itemsPerPage }: { itemsPerPage: number }) {
         previousLabel='<'
         pageCount={pageCount}
         pageRangeDisplayed={2}
+        onPageChange={handlePageClick}
         renderOnZeroPageCount={null}
         breakClassName='pagination-break'
         nextLinkClassName='pagination-button'

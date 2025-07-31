@@ -1,3 +1,7 @@
+.news__item {
+  width: 100%;
+}
+
 .news__list {
   gap: 24px;
   display: grid;
