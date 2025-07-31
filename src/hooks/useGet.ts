@@ -8,7 +8,8 @@ const useGet = ({ path }: useGetInterface) => {
   const [data, setData] = useState([]);
 
   const getRequest = async () => {
-    const request = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}`);
+    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+    const request = await fetch(`${baseUrl}${path}`);
 
     const response = await request.json();
 
