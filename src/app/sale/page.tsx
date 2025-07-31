@@ -1,7 +1,7 @@
 "use client";
 import "./style.css";
 import Image from "next/image";
-import { useGet } from "@/hooks";
+// import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
