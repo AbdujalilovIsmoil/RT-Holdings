@@ -2,19 +2,24 @@
 
 import "./style.css";
 import { useSelector } from "react-redux";
+import { useGet, usePost } from "@/hooks";
 import { ChangeEvent, useState } from "react";
 import { globalAboutDataTypes } from "@/typescript";
 import { FaCircleCheck } from "@/assets/react-icons";
 import { Input, Textarea, Button } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
-import { useGet } from "@/hooks";
 
 const FormComponent = () => {
-  const [form, setForm] = useState({
-    text: "",
-    name: "",
+  const [service_type, setServiceType] = useState<string>("");
+  const [form, setForm] = useState<{
+    email: string;
+    comment: string;
+    full_name: string;
+    phone_number: string;
+  }>({
     email: "",
-    service: "",
+    comment: "",
+    full_name: "",
     phone_number: "",
   });
 
@@ -178,6 +183,18 @@ const FormComponent = () => {
     [K in TitleField]: string;
   };
 
+  const { isLoading, mutate } = usePost({
+    lang: `${appLang}`,
+  });
+
+  const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log(form);
+
+    mutate({ ...form, service_type: [service_type] });
+  };
+
   return (
     <>
       <section className='contact'>
@@ -216,8 +233,8 @@ const FormComponent = () => {
                 <Input
                   required
                   type='text'
-                  name='name'
-                  value={form.name}
+                  name='full_name'
+                  value={form.full_name}
                   onChange={changeInput}
                   placeholder={formData[`${appLang}`]?.name}
                   className='contact-request-form__box-input'
@@ -244,29 +261,42 @@ const FormComponent = () => {
                 />
                 <select
                   required
-                  name='service'
-                  value={form.service}
-                  onChange={changeInput}
+                  name='service_type'
+                  value={service_type}
+                  onChange={e => setServiceType(e.target.value)}
                   className='contact-request-form__box-input select'
                 >
                   {Array.isArray(data) &&
                     data.map((el: Items) => {
                       const key = `title_${appLang}` as keyof Items;
-                      return <option key={el.id}>{el[key]}</option>;
+                      return (
+                        <option
+                          key={el.id}
+                          value={el.id}
+                        >
+                          {el[key]}
+                        </option>
+                      );
                     })}
                 </select>
               </label>
               <Textarea
-                name='text'
-                value={form.text}
+                name='comment'
+                value={form.comment}
                 onChange={changeInput}
                 className='contact-request-form__box-textarea'
               ></Textarea>
               <Button
                 type='submit'
+                onClick={onSubmit}
+                disabled={isLoading}
                 className='contact-request-form__box-submit'
               >
-                {formData[`${appLang}`]?.send}
+                {isLoading ? (
+                  <span className='small-loader'></span>
+                ) : (
+                  formData[`${appLang}`]?.send
+                )}
               </Button>
             </form>
           </div>

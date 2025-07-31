@@ -1,3 +1,4 @@
 import useGet from "./useGet";
+import usePost from "./usePost";
 
-export { useGet };
+export { useGet, usePost };

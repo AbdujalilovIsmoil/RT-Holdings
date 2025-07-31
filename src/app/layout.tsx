@@ -2,6 +2,7 @@ import "./globals.css";
 import "swiper/swiper-bundle.css";
 import ReduxProvider from "@/context";
 import { Header, Footer } from "@/components";
+import { ToastContainer } from "react-toastify";
 import { Be_Vietnam_Pro, Exo, Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -33,6 +34,7 @@ export default function RootLayout({
           <Header />
           <main className='main'>{children}</main>
           <Footer />
+          <ToastContainer />
         </ReduxProvider>
       </body>
     </html>

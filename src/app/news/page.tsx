@@ -22,9 +22,9 @@ const News = () => {
 
   const itemsPerPage = 4;
 
-  const [currentPage, setCurrentPage] = useState<number>(0); // sahifa indeksi (0-based)
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const pageCount = Math.ceil(data.length / itemsPerPage); // jami sahifalar soni
+  const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
