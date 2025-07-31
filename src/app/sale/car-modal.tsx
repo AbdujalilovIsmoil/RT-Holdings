@@ -1,28 +1,51 @@
 "use client";
+import { initialValuesTypes } from "@/context/reducer";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
-interface CarData {
-  title: string;
-  images: string[];
-  details: {
-    model: string;
-    year: string;
-    mileage: string;
-    color: string;
-    fuelType: string;
-    location: string;
-    price: string;
-  };
+interface cardImageTypes {
+  id: string;
+  image: string;
+}
+
+interface cardTypes {
+  id: string;
+  year: string;
+  price: string;
+  name_uz: string;
+  name_ru: string;
+  name_en: string;
+  name_ko: string;
+  color_en: string;
+  color_ru: string;
+  color_uz: string;
+  color_ko: string;
+  distance: string;
+  model_uz: string;
+  model_ru: string;
+  model_en: string;
+  model_ko: string;
+  location_uz: string;
+  location_ru: string;
+  location_en: string;
+  location_ko: string;
+  fuel_type_en: string;
+  fuel_type_uz: string;
+  fuel_type_ru: string;
+  fuel_type_ko: string;
+  product_images: cardImageTypes[];
 }
 
 interface CarModalProps {
   isOpen: boolean;
   onClose: () => void;
-  carData: CarData;
+  carData: cardTypes;
 }
 
 export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
+  const { appLang } = useSelector((state: initialValuesTypes) => state);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -62,13 +85,13 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
   const nextImage = () => {
     setCurrentImageIndex(prev =>
-      prev === carData.images.length - 1 ? 0 : prev + 1,
+      prev === carData.product_images.length - 1 ? 0 : prev + 1,
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex(prev =>
-      prev === 0 ? carData.images.length - 1 : prev - 1,
+      prev === 0 ? carData.product_images.length - 1 : prev - 1,
     );
   };
 
@@ -108,12 +131,16 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
         {/* Modal Content */}
         <div className='modal-content'>
           {/* Title */}
-          <h1 className='modal-title'>{carData.title}</h1>
+          <h1 className='modal-title'>
+            {typeof carData[`name_${appLang}` as keyof cardTypes] === "string"
+              ? (carData[`name_${appLang}` as keyof cardTypes] as string)
+              : "Noma'lum nom"}
+          </h1>
 
           {/* Image Carousel */}
           <div className='carousel-container'>
             <div className='carousel-wrapper'>
-              {carData.images.length > 1 && (
+              {carData.product_images.length > 1 && (
                 <button
                   onClick={prevImage}
                   className='carousel-nav carousel-nav-left'
@@ -137,12 +164,22 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                   width={300}
                   height={300}
                   className='carousel-image'
-                  src={carData.images[currentImageIndex] || "/placeholder.svg"}
-                  alt={`${carData.title} - Image ${currentImageIndex + 1}`}
+                  src={
+                    carData.product_images[currentImageIndex].image ||
+                    "/placeholder.svg"
+                  }
+                  alt={
+                    typeof carData[`name_${appLang}` as keyof cardTypes] ===
+                    "string"
+                      ? (carData[
+                          `name_${appLang}` as keyof cardTypes
+                        ] as string)
+                      : "Noma'lum nom"
+                  }
                 />
               </div>
 
-              {carData.images.length > 1 && (
+              {carData.product_images.length > 1 && (
                 <button
                   onClick={nextImage}
                   className='carousel-nav carousel-nav-right'
@@ -163,9 +200,9 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
             </div>
 
             {/* Carousel Dots */}
-            {carData.images.length > 1 && (
+            {carData.product_images.length > 1 && (
               <div className='carousel-dots'>
-                {carData?.images?.map((_, index) => (
+                {carData?.product_images?.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToImage(index)}
@@ -184,41 +221,39 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>Model:</span>
               <span className='detail-value-modal'>
-                {carData.details.model}
+                {carData[`model_${appLang}` as keyof cardTypes] as string}
               </span>
             </div>
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>Yili:</span>
-              <span className='detail-value-modal'>{carData.details.year}</span>
+              <span className='detail-value-modal'>{carData.year}</span>
             </div>
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>Yurgan masofasi:</span>
-              <span className='detail-value-modal'>
-                {carData.details.mileage}
-              </span>
+              <span className='detail-value-modal'>{carData.distance}</span>
             </div>
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>Rangi:</span>
               <span className='detail-value-modal'>
-                {carData.details.color}
+                {carData[`color_${appLang}` as keyof cardTypes] as string}
               </span>
             </div>
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>{"Yoqilg'i turi"}:</span>
               <span className='detail-value-modal'>
-                {carData.details.fuelType}
+                {carData[`fuel_type_${appLang}` as keyof cardTypes] as string}
               </span>
             </div>
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>Manzil:</span>
               <span className='detail-value-modal'>
-                {carData.details.location}
+                {carData[`location_${appLang}` as keyof cardTypes] as string}
               </span>
             </div>
             <div className='detail-item-modal'>
               <span className='detail-label-modal'>Narxi:</span>
               <span className='detail-value-modal detail-price-modal'>
-                {carData.details.price}
+                {carData.price}
               </span>
             </div>
           </div>

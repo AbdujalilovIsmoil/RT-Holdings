@@ -2,11 +2,45 @@
 import "./style.css";
 import Image from "next/image";
 // import { useGet } from "@/hooks";
+import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { Input, Button, Hero } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
+
+interface cardImageTypes {
+  id: string;
+  image: string;
+}
+
+interface cardTypes {
+  id: string;
+  year: string;
+  price: string;
+  name_uz: string;
+  name_ru: string;
+  name_en: string;
+  name_ko: string;
+  color_en: string;
+  color_ru: string;
+  color_uz: string;
+  color_ko: string;
+  distance: string;
+  model_uz: string;
+  model_ru: string;
+  model_en: string;
+  model_ko: string;
+  location_uz: string;
+  location_ru: string;
+  location_en: string;
+  location_ko: string;
+  fuel_type_en: string;
+  fuel_type_uz: string;
+  fuel_type_ru: string;
+  fuel_type_ko: string;
+  product_images: cardImageTypes[];
+}
 
 // Search Icon component
 const IoSearch = ({ className }: { className: string }) => (
@@ -25,116 +59,32 @@ const IoSearch = ({ className }: { className: string }) => (
   </svg>
 );
 
-interface CarData {
-  id: number;
-  title: string;
-  model: string;
-  year: string;
-  mileage: string;
-  color: string;
-  fuel: string;
-  location: string;
-  price: string;
-  images: string[];
-}
-
-const carsData: CarData[] = [
-  {
-    id: 1,
-    title: "AMG G63",
-    model: "G63 AMG Manufacture (3rd...)",
-    year: "2023/10",
-    mileage: "2 800 km",
-    color: "Dark gray",
-    fuel: "Benzin",
-    location: "Janubiy korea",
-    price: "160 000$",
-    images: [
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-    ],
-  },
-  {
-    id: 2,
-    title: "BMW X7",
-    model: "X7 xDrive40i M Sport",
-    year: "2022/08",
-    mileage: "15 500 km",
-    color: "Black",
-    fuel: "Benzin",
-    location: "Germaniya",
-    price: "95 000$",
-    images: [
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-    ],
-  },
-  {
-    id: 3,
-    title: "Audi Q8",
-    model: "Q8 55 TFSI Quattro",
-    year: "2023/03",
-    mileage: "8 200 km",
-    color: "White",
-    fuel: "Benzin",
-    location: "AQSH",
-    price: "78 500$",
-    images: [
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-      "/images/png/sale-image.png",
-    ],
-  },
-  {
-    id: 4,
-    title: "Range Rover",
-    model: "Range Rover Vogue SE",
-    year: "2023/12",
-    mileage: "1 200 km",
-    color: "Silver",
-    fuel: "Benzin",
-    location: "Angliya",
-    price: "125 000$",
-    images: ["/images/png/sale-image.png", "/images/png/sale-image.png"],
-  },
-  {
-    id: 5,
-    title: "Range Rover",
-    model: "Range Rover Vogue SE",
-    year: "2023/12",
-    mileage: "1 200 km",
-    color: "Silver",
-    fuel: "Benzin",
-    location: "Angliya",
-    price: "125 000$",
-    images: ["/images/png/sale-image.png", "/images/png/sale-image.png"],
-  },
-];
-
 function CarCard({
   car,
   onOpenModal,
 }: {
-  car: CarData;
-  onOpenModal: (car: CarData) => void;
+  car: cardTypes;
+  onOpenModal: (car: cardTypes) => void;
 }) {
+  const { appLang } = useSelector((state: initialValuesTypes) => state);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide(prev => (prev + 1) % car.images.length);
+    setCurrentSlide(prev => (prev + 1) % car.product_images.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide(prev => (prev - 1 + car.images.length) % car.images.length);
+    setCurrentSlide(
+      prev =>
+        (prev - 1 + car.product_images.length) % car.product_images.length,
+    );
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
+
+  alert(appLang);
 
   return (
     <div className='car-card'>
@@ -144,7 +94,7 @@ function CarCard({
           className='slide-wrapper'
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          {car?.images?.map((image, index) => (
+          {car?.product_images?.map((image, index) => (
             <div
               key={index}
               className='slide-slide'
@@ -152,14 +102,16 @@ function CarCard({
               <Image
                 width={300}
                 height={192}
-                src={`${image}`}
-                alt={`${car?.title} - ${index + 1}`}
+                src={`${image.image}`}
+                alt={`${car[`name_${appLang}` as keyof cardTypes]} - ${
+                  index + 1
+                }`}
               />
             </div>
           ))}
         </div>
 
-        {car.images.length > 1 && (
+        {car.product_images.length > 1 && (
           <>
             <button
               className='slide-navigation slide-prev'
@@ -177,11 +129,11 @@ function CarCard({
         )}
 
         {/* Pagination Dots */}
-        {car?.images?.length > 1 && (
+        {car?.product_images?.length > 1 && (
           <div className='slide-pagination'>
-            {car?.images?.map((_, index) => (
+            {car?.product_images?.map((el, index) => (
               <div
-                key={index}
+                key={el.id}
                 className={`slide-dot ${
                   index === currentSlide ? "active" : ""
                 }`}
@@ -194,7 +146,11 @@ function CarCard({
 
       <div className='card-content'>
         {/* Title */}
-        <h1 className='car-title'>{car.title}</h1>
+        <h1 className='car-title'>
+          {typeof car[`name_${appLang}` as keyof cardTypes] === "string"
+            ? (car[`name_${appLang}` as keyof cardTypes] as string)
+            : "Invalid car name"}
+        </h1>
 
         {/* Car Details */}
         <div className='car-details'>
@@ -214,7 +170,11 @@ function CarCard({
               ></path>
             </svg>
             <span className='detail-label'>Model:</span>
-            <span className='detail-value'>{car.model}</span>
+            <span className='detail-value'>
+              {typeof car[`model_${appLang}` as keyof cardTypes] === "string"
+                ? (car[`model_${appLang}` as keyof cardTypes] as string)
+                : "Invalid car model"}
+            </span>
           </div>
 
           <div className='detail-item'>
@@ -250,7 +210,7 @@ function CarCard({
               />
             </svg>
             <span className='detail-label'>Yurgan masofasi:</span>
-            <span className='detail-value'>{car.mileage}</span>
+            <span className='detail-value'>{car.distance}</span>
           </div>
 
           <div className='detail-item'>
@@ -268,7 +228,11 @@ function CarCard({
               />
             </svg>
             <span className='detail-label'>Rangi:</span>
-            <span className='detail-value'>{car.color}</span>
+            <span className='detail-value'>
+              {typeof car[`color_${appLang}` as keyof cardTypes] === "string"
+                ? (car[`color_${appLang}` as keyof cardTypes] as string)
+                : "Invalid car color"}
+            </span>
           </div>
 
           <div className='detail-item'>
@@ -280,7 +244,12 @@ function CarCard({
               <path d='M16 3H5a1 1 0 0 0-1 1v17h2v1a1 1 0 0 0 2 0v-1h6v1a1 1 0 0 0 2 0v-1h2v-9l2 2v3a1 1 0 0 0 2 0v-3a2 2 0 0 0-.59-1.41l-1.41-1.41A2 2 0 0 1 18 11V5a2 2 0 0 0-2-2zm0 8a4 4 0 0 0 1 2.65V18h-1V3h1a1 1 0 0 1 1 1v6h-1a1 1 0 0 1-1-1v-2h-1zm-2 10H7V5h7z' />
             </svg>
             <span className='detail-label'>Yoqilg'i turi:</span>
-            <span className='detail-value'>{car.fuel}</span>
+            <span className='detail-value'>
+              {typeof car[`fuel_type_${appLang}` as keyof cardTypes] ===
+              "string"
+                ? (car[`fuel_type_${appLang}` as keyof cardTypes] as string)
+                : "Invalid car fuel_type"}
+            </span>
           </div>
 
           <div className='detail-item'>
@@ -304,7 +273,11 @@ function CarCard({
               />
             </svg>
             <span className='detail-label'>Manzil:</span>
-            <span className='detail-value'>{car.location}</span>
+            <span className='detail-value'>
+              {typeof car[`location_${appLang}` as keyof cardTypes] === "string"
+                ? (car[`location_${appLang}` as keyof cardTypes] as string)
+                : "Invalid car location"}
+            </span>
           </div>
 
           <div className='detail-item'>
@@ -334,14 +307,12 @@ function CarCard({
 }
 
 const Sale = () => {
-  // const { data } = useGet({ path: "/product/list" });
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCar, setSelectedCar] = useState<CarData | null>(null);
-
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const openModal = (car: CarData) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState<cardTypes | null>(null);
+
+  const openModal = (car: cardTypes) => {
     setSelectedCar(car);
     setIsModalOpen(true);
   };
@@ -352,18 +323,37 @@ const Sale = () => {
   };
 
   // Transform car data to match modal interface
-  const getModalCarData = (car: CarData) => ({
-    title: car.title,
-    images: car.images,
-    details: {
-      model: car.model,
-      year: car.year,
-      mileage: car.mileage,
-      color: car.color,
-      fuelType: car.fuel,
-      location: car.location,
-      price: car.price,
-    },
+  const getModalCarData = (car: cardTypes): cardTypes => ({
+    id: car.id,
+    year: car.year,
+    price: car.price,
+    distance: car.distance,
+    product_images: car.product_images,
+
+    name_uz: car.name_uz,
+    name_ru: car.name_ru,
+    name_en: car.name_en,
+    name_ko: car.name_ko,
+
+    model_uz: car.model_uz,
+    model_ru: car.model_ru,
+    model_en: car.model_en,
+    model_ko: car.model_ko,
+
+    color_uz: car.color_uz,
+    color_ru: car.color_ru,
+    color_en: car.color_en,
+    color_ko: car.color_ko,
+
+    location_uz: car.location_uz,
+    location_ru: car.location_ru,
+    location_en: car.location_en,
+    location_ko: car.location_ko,
+
+    fuel_type_uz: car.fuel_type_uz,
+    fuel_type_ru: car.fuel_type_ru,
+    fuel_type_en: car.fuel_type_en,
+    fuel_type_ko: car.fuel_type_ko,
   });
 
   useEffect(() => {
@@ -428,6 +418,12 @@ const Sale = () => {
     },
   };
 
+  const data = useGet({
+    path: "/product/list",
+  });
+
+  console.log(data);
+
   return (
     <>
       <Hero page='/sale' />
@@ -460,13 +456,14 @@ const Sale = () => {
 
           <div className='car-listing-container'>
             <div className='cars-grid'>
-              {carsData.map(car => (
-                <CarCard
-                  key={car.id}
-                  car={car}
-                  onOpenModal={openModal}
-                />
-              ))}
+              {Array.isArray(data) &&
+                data.map((car: cardTypes) => (
+                  <CarCard
+                    car={car}
+                    key={car.id}
+                    onOpenModal={openModal}
+                  />
+                ))}
             </div>
           </div>
 
