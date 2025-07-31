@@ -8,7 +8,7 @@ const useGet = ({ path }: useGetInterface) => {
   const [data, setData] = useState([]);
 
   const getRequest = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+    const baseUrl = "https://test.repid.uz/api/v1/common";
     const request = await fetch(`${baseUrl}${path}`);
 
     const response = await request.json();
