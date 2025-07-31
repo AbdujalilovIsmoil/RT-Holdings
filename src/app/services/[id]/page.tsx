@@ -45,7 +45,7 @@ const ServicesView = () => {
           .map((el: Items) => {
             return (
               <>
-                <div className='services__logo'>
+                <div className='services__logo' key={el.id}>
                   <div className='container services__logo-container'>
                     <Image
                       width={400}
