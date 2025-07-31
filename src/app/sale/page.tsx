@@ -5,8 +5,8 @@ import Image from "next/image";
 import CarModal from "./car-modal";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Input, Button, Hero } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
-import { Input, Button, Hero, Pagination } from "@/components";
 
 // Search Icon component
 const IoSearch = ({ className }: { className: string }) => (
@@ -479,7 +479,7 @@ const Sale = () => {
             />
           )}
 
-          <Pagination itemsPerPage={1} />
+          {/* <Pagination itemsPerPage={1} /> */}
         </div>
       </section>
     </>
