@@ -40,6 +40,7 @@ const usePost = ({ lang }: usePostTypes) => {
     axios
       .post(baseUrl, data)
       .then(_ => {
+        setIsLoading(false);
         toast.success(langSuccessData[lang], toastProps);
       })
       .catch(_ => {

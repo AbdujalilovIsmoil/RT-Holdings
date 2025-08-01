@@ -6,7 +6,7 @@ import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Input, Button, Hero } from "@/components";
+import { Input, Button, Hero, Pagination } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
 
 interface cardImageTypes {
@@ -83,8 +83,6 @@ function CarCard({
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-
-  alert(appLang);
 
   return (
     <div className='car-card'>
@@ -422,7 +420,19 @@ const Sale = () => {
     path: "/product/list",
   });
 
-  console.log(data);
+  const itemsPerPage = 4;
+
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const pageCount = Math.ceil(data.length / itemsPerPage);
+
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const sliceData = data.slice(startIndex, endIndex);
+
+  const handlePageClick = (event: { selected: number }) => {
+    setCurrentPage(event.selected);
+  };
 
   return (
     <>
@@ -456,8 +466,8 @@ const Sale = () => {
 
           <div className='car-listing-container'>
             <div className='cars-grid'>
-              {Array.isArray(data) &&
-                data.map((car: cardTypes) => (
+              {Array.isArray(sliceData) &&
+                sliceData.map((car: cardTypes) => (
                   <CarCard
                     car={car}
                     key={car.id}
@@ -477,6 +487,10 @@ const Sale = () => {
           )}
 
           {/* <Pagination itemsPerPage={1} /> */}
+          <Pagination
+            pageCount={pageCount}
+            handlePageClick={handlePageClick}
+          />
         </div>
       </section>
     </>

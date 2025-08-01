@@ -10,16 +10,17 @@ import { Input, Textarea, Button } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
 
 const FormComponent = () => {
-  const [service_type, setServiceType] = useState<string>("");
   const [form, setForm] = useState<{
     email: string;
     comment: string;
     full_name: string;
     phone_number: string;
+    service_type: string;
   }>({
     email: "",
     comment: "",
     full_name: "",
+    service_type: "",
     phone_number: "",
   });
 
@@ -192,7 +193,7 @@ const FormComponent = () => {
 
     console.log(form);
 
-    mutate({ ...form, service_type: [service_type] });
+    mutate(form);
   };
 
   return (
@@ -262,8 +263,8 @@ const FormComponent = () => {
                 <select
                   required
                   name='service_type'
-                  value={service_type}
-                  onChange={e => setServiceType(e.target.value)}
+                  onChange={changeInput}
+                  value={form.service_type}
                   className='contact-request-form__box-input select'
                 >
                   {Array.isArray(data) &&
