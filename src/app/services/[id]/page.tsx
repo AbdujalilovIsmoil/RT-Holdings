@@ -8,16 +8,18 @@ import { Hero } from "@/components";
 import { useSelector } from "react-redux";
 import { usePathname } from "next/navigation";
 import { initialValuesTypes } from "@/context/reducer";
-// import {
-//   FaYoutube,
-//   FaFacebook,
-//   FaTelegramPlane,
-//   AiFillInstagram,
-// } from "@/assets/react-icons";
+import {
+  FaYoutube,
+  FaFacebook,
+  FaTelegramPlane,
+  AiFillInstagram,
+} from "@/assets/react-icons";
 
 const ServicesView = () => {
   const pathName = usePathname();
   const data = useGet({ path: "/service_type/list" });
+
+  console.log(data);
 
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
@@ -29,6 +31,12 @@ const ServicesView = () => {
   type DescriptionField = `description_${Lang}`;
 
   type Items = {
+    watsup_link: string;
+    youtube_link: string;
+    tiktok_link: string;
+    telegram_link: string;
+    instagram_link: string;
+    facebook_link: string;
     id: string;
     more: string;
     image: string;
@@ -44,8 +52,8 @@ const ServicesView = () => {
           .filter((el: Items) => el.id === id)
           .map((el: Items) => {
             return (
-              <>
-                <div className='services__logo' key={el.id}>
+              <div key={el.id}>
+                <div className='services__logo'>
                   <div className='container services__logo-container'>
                     <Image
                       width={400}
@@ -72,47 +80,59 @@ const ServicesView = () => {
                     </li>
                   </ul>
 
-                  {/* <div className='services-view-media__container'>
-          <h3 className='service-view-media__container-title'>
-            Ijtimoiy tarmoqlar
-          </h3>
-          <ul className='services-view__medias'>
-            <li className='services-view__media'>
-              <a
-                href='#'
-                target='_blank'
-              >
-                <FaTelegramPlane className='services-view__media-icon' />
-              </a>
-            </li>
-            <li className='services-view__media'>
-              <a
-                href='#'
-                target='_blank'
-              >
-                <AiFillInstagram className='services-view__media-icon' />
-              </a>
-            </li>
-            <li className='services-view__media'>
-              <a
-                href='#'
-                target='_blank'
-              >
-                <FaYoutube className='services-view__media-icon' />
-              </a>
-            </li>
-            <li className='services-view__media'>
-              <a
-                href='#'
-                target='_blank'
-              >
-                <FaFacebook className='services-view__media-icon' />
-              </a>
-            </li>
-          </ul>
-        </div> */}
+                  <div className='services-view-media__container'>
+                    <h3 className='service-view-media__container-title'>
+                      Ijtimoiy tarmoqlar
+                    </h3>
+                    <ul className='services-view__medias'>
+                      {el.telegram_link ? (
+                        <li className='services-view__media'>
+                          <a
+                            href='#'
+                            target='_blank'
+                          >
+                            <FaTelegramPlane className='services-view__media-icon' />
+                          </a>
+                        </li>
+                      ) : (
+                        ""
+                      )}
+                      {el.instagram_link ? (
+                        <li className='services-view__media'>
+                          <a
+                            href='#'
+                            target='_blank'
+                          >
+                            <AiFillInstagram className='services-view__media-icon' />
+                          </a>
+                        </li>
+                      ) : (
+                        ""
+                      )}
+                      {el.youtube_link ? (
+                        <li className='services-view__media'>
+                          <a
+                            href='#'
+                            target='_blank'
+                          >
+                            <FaYoutube className='services-view__media-icon' />
+                          </a>
+                        </li>
+                      ) : (
+                        ""
+                      )}
+                      <li className='services-view__media'>
+                        <a
+                          href='#'
+                          target='_blank'
+                        >
+                          <FaFacebook className='services-view__media-icon' />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </>
+              </div>
             );
           })}
 
