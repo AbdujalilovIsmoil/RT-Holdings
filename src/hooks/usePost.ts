@@ -39,11 +39,13 @@ const usePost = ({ lang }: usePostTypes) => {
 
     axios
       .post(baseUrl, data)
-      .then(_ => {
+      .then(data => {
+        console.log(data);
         setIsLoading(false);
         toast.success(langSuccessData[lang], toastProps);
       })
-      .catch(_ => {
+      .catch(data => {
+        console.error(data);
         toast.error(langErrorData[lang], toastProps);
         setIsLoading(false);
       });
