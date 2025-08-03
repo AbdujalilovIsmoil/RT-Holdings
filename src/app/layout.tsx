@@ -27,6 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        <meta
+          name='google-site-verification'
+          content='google-site-verification=oE1lvIwh5ARYbfr4pLj_481O7WPBtb5vFZpts_h-r8o'
+        />
+      </head>
       <body
         className={`${beVietnamePro.className} ${poppins.className} ${exo.className}`}
       >
