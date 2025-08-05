@@ -203,7 +203,7 @@ function CarCard({
         <h1 className='car-title'>
           {typeof car[`name_${appLang}` as keyof cardTypes] === "string"
             ? (car[`name_${appLang}` as keyof cardTypes] as string)
-            : "Invalid car name"}
+            : ""}
         </h1>
 
         {/* Car Details */}
@@ -230,7 +230,8 @@ function CarCard({
               <span className='detail-value'>
                 {typeof car[`model_${appLang}` as keyof cardTypes] === "string"
                   ? (car[`model_${appLang}` as keyof cardTypes] as string)
-                  : ""}
+                  : null}
+                
               </span>
             </div>
           ) : (
@@ -255,7 +256,7 @@ function CarCard({
               <span className='detail-label'>
                 {cardContents[`${appLang}`].year}:
               </span>
-              <span className='detail-value'>{car.year}</span>
+              <span className='detail-value'>{car.year ? car.year : ""}</span>
             </div>
           ) : (
             ""
@@ -336,7 +337,7 @@ function CarCard({
             ""
           )}
 
-          {car[`location_${appLang}` as keyof cardTypes] ? (
+          {car[`location_${appLang}` as keyof cardTypes] && (
             <div className='detail-item'>
               <svg
                 className='detail-icon'
@@ -367,11 +368,9 @@ function CarCard({
                   : "Invalid car location"}
               </span>
             </div>
-          ) : (
-            ""
           )}
 
-          {car.price ? (
+          {car.price && (
             <div className='detail-item'>
               <svg
                 viewBox='0 0 384 512'
@@ -383,10 +382,8 @@ function CarCard({
               <span className='detail-label'>
                 {cardContents[`${appLang}`].price}:
               </span>
-              <span className='detail-value'>{car.price}</span>
+              <span className='detail-value'>{car.price ? car.price : ""}</span>
             </div>
-          ) : (
-            ""
           )}
         </div>
 
@@ -576,7 +573,6 @@ const Sale = () => {
             </div>
           </div>
 
-          {/* Car Modal */}
           {selectedCar && (
             <CarModal
               isOpen={isModalOpen}
@@ -585,7 +581,6 @@ const Sale = () => {
             />
           )}
 
-          {/* <Pagination itemsPerPage={1} /> */}
           <Pagination
             pageCount={pageCount}
             handlePageClick={handlePageClick}
