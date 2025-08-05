@@ -4,7 +4,7 @@
   display: none;
   background-color: transparent;
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1300px) {
     display: block;
   }
 }
@@ -19,7 +19,7 @@
   padding: var(--main-text-size) 0px;
   background-color: var(--main-dark-color);
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1300px) {
     padding: 10px 0px 10px 0px;
   }
 }
@@ -45,7 +45,7 @@
   align-items: center;
   gap: calc(var(--main-medium-size) - 10px);
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1300px) {
     display: none;
   }
 }
@@ -169,7 +169,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1300px) {
   .header-close--open {
     left: 0;
   }

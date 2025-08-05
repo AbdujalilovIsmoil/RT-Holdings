@@ -1,6 +1,7 @@
 import "./globals.css";
 import "swiper/swiper-bundle.css";
 import ReduxProvider from "@/context";
+import { GA_TRACKING_ID } from "@/lib/gtag";
 import { Header, Footer } from "@/components";
 import { ToastContainer } from "react-toastify";
 import { Be_Vietnam_Pro, Exo, Poppins } from "next/font/google";
@@ -30,7 +31,23 @@ export default function RootLayout({
       <head>
         <meta
           name='google-site-verification'
-          content='google-site-verification=oE1lvIwh5ARYbfr4pLj_481O7WPBtb5vFZpts_h-r8o'
+          content='oE1lvIwh5ARYbfr4pLj_481O7WPBtb5vFZpts_h-r8o'
+        />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){ window.dataLayer.push(arguments); }
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
         />
       </head>
       <body

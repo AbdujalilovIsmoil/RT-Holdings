@@ -219,7 +219,7 @@ a {
   transition: background-color 150ms linear;
   padding: calc(var(--main-text-size) + 2px) 0px;
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1300px) {
     display: none;
   }
 }
