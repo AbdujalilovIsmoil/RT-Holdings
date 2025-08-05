@@ -101,6 +101,62 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
   if (!isOpen) return null;
 
+  interface cardContentsTypes {
+    [key: string]: {
+      more: string;
+      year: string;
+      fuel: string;
+      model: string;
+      price: string;
+      colour: string;
+      distance: string;
+      location: string;
+    };
+  }
+
+  const cardContents: cardContentsTypes = {
+    uz: {
+      year: "Yili",
+      model: "Model",
+      price: "Narxi",
+      colour: "Rangi",
+      location: "Manzil",
+      fuel: "Yoqilg'i turi",
+      more: "Batafsil ma'lumot",
+      distance: "Yurgan masofasi",
+    },
+    ru: {
+      year: "Год",
+      price: "Цена",
+      colour: "Цвет",
+      model: "Модель",
+      more: "Подробнее",
+      location: "Адрес",
+      fuel: "Тип топлива",
+      distance: "Пешком можно дойти",
+    },
+    en: {
+      year: "Year",
+      fuel: "Fuel",
+      price: "Price",
+      model: "Model",
+      colour: "Colour",
+      more: "Learn more",
+      distance: "Distance",
+      location: "Location",
+    },
+    ko: {
+      year: "년도",
+      fuel: "연료",
+      price: "가격",
+      model: "모델",
+      colour: "색상",
+      distance: "거리",
+      location: "위치",
+      more: "더 알아보기",
+    },
+  };
+
   return (
     <div
       className='modal-overlay'
@@ -128,16 +184,13 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
           </svg>
         </button>
 
-        {/* Modal Content */}
         <div className='modal-content'>
-          {/* Title */}
           <h1 className='modal-title'>
             {typeof carData[`name_${appLang}` as keyof cardTypes] === "string"
               ? (carData[`name_${appLang}` as keyof cardTypes] as string)
-              : "Noma'lum nom"}
+              : ""}
           </h1>
 
-          {/* Image Carousel */}
           <div className='carousel-container'>
             <div className='carousel-wrapper'>
               {carData.product_images.length > 1 && (
@@ -174,7 +227,7 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                       ? (carData[
                           `name_${appLang}` as keyof cardTypes
                         ] as string)
-                      : "Noma'lum nom"
+                      : ""
                   }
                 />
               </div>
@@ -218,44 +271,87 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
           {/* Car Details */}
           <div className='car-details-modal'>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>Model:</span>
-              <span className='detail-value-modal'>
-                {carData[`model_${appLang}` as keyof cardTypes] as string}
-              </span>
-            </div>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>Yili:</span>
-              <span className='detail-value-modal'>{carData.year}</span>
-            </div>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>Yurgan masofasi:</span>
-              <span className='detail-value-modal'>{carData.distance}</span>
-            </div>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>Rangi:</span>
-              <span className='detail-value-modal'>
-                {carData[`color_${appLang}` as keyof cardTypes] as string}
-              </span>
-            </div>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>{"Yoqilg'i turi"}:</span>
-              <span className='detail-value-modal'>
-                {carData[`fuel_type_${appLang}` as keyof cardTypes] as string}
-              </span>
-            </div>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>Manzil:</span>
-              <span className='detail-value-modal'>
-                {carData[`location_${appLang}` as keyof cardTypes] as string}
-              </span>
-            </div>
-            <div className='detail-item-modal'>
-              <span className='detail-label-modal'>Narxi:</span>
-              <span className='detail-value-modal detail-price-modal'>
-                {carData.price}
-              </span>
-            </div>
+            {carData[`model_${appLang}` as keyof cardTypes] ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].model}:
+                </span>
+                <span className='detail-value-modal'>
+                  {carData[`model_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData.year ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].year}:
+                </span>
+                <span className='detail-value-modal'>{carData.year}</span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData.distance ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].distance}:
+                </span>
+                <span className='detail-value-modal'>{carData.distance}</span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData[`color_${appLang}` as keyof cardTypes] ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].colour}:
+                </span>
+                <span className='detail-value-modal'>
+                  {carData[`color_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+
+            {carData[`fuel_type_${appLang}` as keyof cardTypes] ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].fuel}:
+                </span>
+                <span className='detail-value-modal'>
+                  {carData[`fuel_type_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData[`location_${appLang}` as keyof cardTypes] ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].location}:
+                </span>
+                <span className='detail-value-modal'>
+                  {carData[`location_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData.price ? (
+              <div className='detail-item-modal'>
+                <span className='detail-label-modal'>
+                  {cardContents[`${appLang}`].price}:
+                </span>
+                <span className='detail-value-modal detail-price-modal'>
+                  {carData.price}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
