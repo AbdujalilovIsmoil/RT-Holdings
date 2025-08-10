@@ -9,7 +9,7 @@ export interface initialValuesTypes {
   appLang?: string | null;
 }
 
-const initialValues: initialValuesTypes = {
+export const initialValues: initialValuesTypes = {
   appLang: storage.get("lang") || "uz",
 };
 

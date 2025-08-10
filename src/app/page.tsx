@@ -3,6 +3,7 @@
 import "./not-found.css";
 import Link from "next/link";
 import { useGet } from "@/hooks";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
 import {
@@ -65,8 +66,23 @@ const Home = () => {
 
   const data = useGet({
     path: "/news/list",
-    
   });
+
+  type descritionsTypes = {
+    [key: string]: string;
+  };
+
+
+   const language: descritionsTypes = {
+    ko: "홈 페이지",
+    en: "Home page",
+    uz: "Bosh sahifa",
+    ru: "Главная страница",
+  };
+
+  useEffect(() => {
+    document.title = language[`${appLang}`];
+  }, [appLang]);
 
   return (
     <>

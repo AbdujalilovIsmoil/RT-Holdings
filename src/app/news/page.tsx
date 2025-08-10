@@ -3,11 +3,14 @@
 import Head from "next/head";
 import { useGet } from "@/hooks";
 import { Pagination } from "@/components";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { initialValuesTypes } from "@/context/reducer";
 import { Hero, News as NewsComponent } from "@/components";
 
 const News = () => {
+  const { appLang } = useSelector((state: initialValuesTypes) => state);
   const pathName = usePathname();
 
   useEffect(() => {
@@ -34,6 +37,21 @@ const News = () => {
     setCurrentPage(event.selected);
   };
 
+  interface langugageTypes {
+    [key: string]: string;
+  }
+
+  const language: langugageTypes = {
+    ko: "뉴스",
+    en: "News",
+    ru: "Новости",
+    uz: "Yangiliklar",
+  };
+
+  useEffect(() => {
+    document.title = language[`${appLang}`];
+  }, [appLang]);
+
   return (
     <>
       <Head>
@@ -41,14 +59,11 @@ const News = () => {
       </Head>
 
       <Hero page={pathName} />
-      <section className='service'>
-        <div className='container'>
+      <section className="service">
+        <div className="container">
           <NewsComponent data={Array.isArray(sliceData) ? sliceData : []} />
 
-          <Pagination
-            pageCount={pageCount}
-            handlePageClick={handlePageClick}
-          />
+          <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
         </div>
       </section>
     </>
