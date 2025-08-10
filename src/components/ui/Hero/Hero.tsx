@@ -178,15 +178,13 @@ const Hero = ({ page }: { page: string }) => {
     if (page === "/about") {
       return "hero-background-image-1.jpg";
     } else if (page === "/contact") {
-      return "hero-background-image-4.jpg";
-    } else if (page === "/portfolio") {
-      return "hero-background-image-3.jpg";
+      return "hero-background-image-9.jpg";
     } else if (page === "/news") {
-      return "hero-background-image-2.jpg";
+      return "hero-background-image-8.jpg";
     } else if (page === "/sale") {
       return "hero-background-image-5.jpg";
     } else if (page === "/services") {
-      return "hero-background-image-1.jpg";
+      return "hero-background-image-7.jpg";
     }
   };
 
@@ -194,31 +192,25 @@ const Hero = ({ page }: { page: string }) => {
     backgroundSize: "cover",
     backgroundPosition: "center center",
     backgroundImage: `linear-gradient(90deg, rgba(30, 36, 44, 0.8) 0%, rgba(30, 36, 44, 0.6) 43.96%, rgba(30, 36, 44, 0.6) 66.39%), url(/images/jpg/${getImage(
-      page,
+      page
     )})`,
   };
 
   if (page !== "/") {
     return (
-      <section
-        style={heroStyle}
-        className='site-hero'
-      >
-        <h1 className='visually-hidden'>RT Holdings</h1>
-        <div className='container'>
+      <section style={heroStyle} className="site-hero">
+        <h1 className="visually-hidden">RT Holdings</h1>
+        <div className="container">
           {pageData[`${appLang}`]?.length > 0 &&
             [
               pageData[`${appLang}`].find(
-                (el: pageDataProperties) => el?.path === page,
+                (el: pageDataProperties) => el?.path === page
               ),
-            ].map(el => {
+            ].map((el) => {
               return (
-                <div
-                  key={el?.id}
-                  className='content'
-                >
-                  <h2 className='content-title'>{el && el?.title}</h2>
-                  <p className='content-text'>{el && el?.text}</p>
+                <div key={el?.id} className="content">
+                  <h2 className="content-title">{el && el?.title}</h2>
+                  <p className="content-text">{el && el?.text}</p>
                 </div>
               );
             })}

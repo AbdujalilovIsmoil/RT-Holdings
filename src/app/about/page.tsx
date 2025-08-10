@@ -36,12 +36,12 @@ const About = () => {
     <>
       <Hero page={pathName} />
       <Post
-        title='RT Holdings'
+        title="RT Holdings"
         image={{
           width: 510,
           height: 500,
           alt: "image",
-          url: "/images/jpg/hero-background-image-1.jpg",
+          url: "/images/jpg/hero-background-image-6.jpg",
         }}
         description={descriptions[`${appLang}`]}
       />

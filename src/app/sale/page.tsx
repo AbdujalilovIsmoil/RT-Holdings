@@ -1,4 +1,5 @@
 "use client";
+
 import "./style.css";
 import Image from "next/image";
 // import { useGet } from "@/hooks";

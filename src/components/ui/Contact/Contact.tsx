@@ -25,7 +25,7 @@ const FormComponent = () => {
   });
 
   const changeInput = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
 
@@ -198,83 +198,77 @@ const FormComponent = () => {
 
   return (
     <>
-      <section className='contact'>
-        <div className='container'>
-          <div className='contact__content'>
-            <h2 className='contact__content-title'>
+      <section className="contact">
+        <div className="container">
+          <div className="contact__content">
+            <h2 className="contact__content-title">
               {contactData[`${appLang}`]?.title}
             </h2>
-            <ul className='contact__list'>
+            <ul className="contact__list">
               {contactData[`${appLang}`]?.data?.map((item, index) => {
                 return (
-                  <li
-                    key={index}
-                    className='contact__itme'
-                  >
-                    <FaCircleCheck className='contact__item-icon' />
-                    <p className='contact__item-text'>{item?.text}</p>
+                  <li key={index} className="contact__itme">
+                    <FaCircleCheck className="contact__item-icon" />
+                    <p className="contact__item-text">{item?.text}</p>
                   </li>
                 );
               })}
             </ul>
           </div>
 
-          <div className='contact-request'>
-            <div className='contact-request__content'>
-              <h3 className='contact-request__content-title'>
+          <div className="contact-request">
+            <div className="contact-request__content">
+              <h3 className="contact-request__content-title">
                 {offerData[`${appLang}`]?.title}
               </h3>
-              <p className='contact-request__content-text'>
+              <p className="contact-request__content-text">
                 {offerData[`${appLang}`]?.text}
               </p>
             </div>
 
-            <form className='contact-request-form'>
-              <label className='contact-request-form__box'>
+            <form className="contact-request-form">
+              <label className="contact-request-form__box">
                 <Input
                   required
-                  type='text'
-                  name='full_name'
+                  type="text"
+                  name="full_name"
                   value={form.full_name}
                   onChange={changeInput}
                   placeholder={formData[`${appLang}`]?.name}
-                  className='contact-request-form__box-input'
+                  className="contact-request-form__box-input"
                 />
                 <Input
                   required
-                  type='email'
-                  name='email'
+                  type="email"
+                  name="email"
                   value={form.email}
                   onChange={changeInput}
                   placeholder={formData[`${appLang}`]?.email}
-                  className='contact-request-form__box-input'
+                  className="contact-request-form__box-input"
                 />
               </label>
-              <label className='contact-request-form__box'>
+              <label className="contact-request-form__box">
                 <Input
                   required
-                  type='number'
-                  name='phone_number'
+                  type="number"
+                  name="phone_number"
                   onChange={changeInput}
                   value={form.phone_number}
                   placeholder={formData[`${appLang}`]?.phone_number}
-                  className='contact-request-form__box-input'
+                  className="contact-request-form__box-input"
                 />
                 <select
                   required
-                  name='service_type'
+                  name="service_type"
                   onChange={changeInput}
                   value={form.service_type}
-                  className='contact-request-form__box-input select'
+                  className="contact-request-form__box-input select"
                 >
                   {Array.isArray(data) &&
                     data.map((el: Items) => {
                       const key = `title_${appLang}` as keyof Items;
                       return (
-                        <option
-                          key={el.id}
-                          value={el.id}
-                        >
+                        <option key={el.id} value={el.id}>
                           {el[key]}
                         </option>
                       );
@@ -282,19 +276,19 @@ const FormComponent = () => {
                 </select>
               </label>
               <Textarea
-                name='comment'
+                name="comment"
                 value={form.comment}
                 onChange={changeInput}
-                className='contact-request-form__box-textarea'
+                className="contact-request-form__box-textarea"
               ></Textarea>
               <Button
-                type='submit'
+                type="submit"
                 onClick={onSubmit}
                 disabled={isLoading}
-                className='contact-request-form__box-submit'
+                className="contact-request-form__box-submit"
               >
                 {isLoading ? (
-                  <span className='small-loader'></span>
+                  <span className="small-loader"></span>
                 ) : (
                   formData[`${appLang}`]?.send
                 )}
