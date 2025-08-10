@@ -27,11 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <head>
         <meta
-          name='google-site-verification'
-          content='oE1lvIwh5ARYbfr4pLj_481O7WPBtb5vFZpts_h-r8o'
+          name="google-site-verification"
+          content="oE1lvIwh5ARYbfr4pLj_481O7WPBtb5vFZpts_h-r8o"
         />
         <script
           async
@@ -55,7 +55,7 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <Header />
-          <main className='main'>{children}</main>
+          <main className="main">{children}</main>
           <Footer />
           <ToastContainer />
         </ReduxProvider>
