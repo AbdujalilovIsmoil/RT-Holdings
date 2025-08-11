@@ -116,7 +116,7 @@
 
 .news-view__image-lists {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 ustun */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 24px;
   margin-bottom: 50px;
 }

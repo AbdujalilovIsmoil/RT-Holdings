@@ -159,7 +159,6 @@
   color: var(--main-dark-color);
 }
 
-/* header-close */
 
 .header-close {
   top: 0;
@@ -272,7 +271,6 @@
   padding-top: 10px;
 }
 
-/* Languages */
 
 .language-switcher-wrapper {
   position: relative;

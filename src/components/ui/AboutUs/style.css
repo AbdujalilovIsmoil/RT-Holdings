@@ -105,7 +105,6 @@
   }
 }
 
-/* Mobile portrait */
 @media only screen and (max-width: 576px) {
   .about {
     padding: 50px 0px;

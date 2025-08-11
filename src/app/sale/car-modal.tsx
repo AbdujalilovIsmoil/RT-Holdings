@@ -84,14 +84,14 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
   }, [isOpen, carData]);
 
   const nextImage = () => {
-    setCurrentImageIndex(prev =>
-      prev === carData.product_images.length - 1 ? 0 : prev + 1,
+    setCurrentImageIndex((prev) =>
+      prev === carData.product_images.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
-    setCurrentImageIndex(prev =>
-      prev === 0 ? carData.product_images.length - 1 : prev - 1,
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? carData.product_images.length - 1 : prev - 1
     );
   };
 
@@ -158,65 +158,58 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
   };
 
   return (
-    <div
-      className='modal-overlay'
-      onClick={onClose}
-    >
-      <div
-        className='modal-container'
-        onClick={e => e.stopPropagation()}
-      >
-        {/* Close Button */}
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
-          className='modal-close-btn'
-          aria-label='Close modal'
+          className="modal-close-btn"
+          aria-label="Close modal"
         >
           <svg
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
           >
-            <path d='M18 6L6 18M6 6l12 12' />
+            <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
 
-        <div className='modal-content'>
-          <h1 className='modal-title'>
+        <div className="modal-content">
+          <h1 className="modal-title">
             {typeof carData[`name_${appLang}` as keyof cardTypes] === "string"
               ? (carData[`name_${appLang}` as keyof cardTypes] as string)
               : ""}
           </h1>
 
-          <div className='carousel-container'>
-            <div className='carousel-wrapper'>
+          <div className="carousel-container">
+            <div className="carousel-wrapper">
               {carData.product_images.length > 1 && (
                 <button
                   onClick={prevImage}
-                  className='carousel-nav carousel-nav-left'
-                  aria-label='Previous image'
+                  className="carousel-nav carousel-nav-left"
+                  aria-label="Previous image"
                 >
                   <svg
-                    width='20'
-                    height='20'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth='2'
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   >
-                    <path d='M15 18l-6-6 6-6' />
+                    <path d="M15 18l-6-6 6-6" />
                   </svg>
                 </button>
               )}
 
-              <div className='carousel-image-container'>
+              <div className="carousel-image-container">
                 <Image
                   width={300}
                   height={300}
-                  className='carousel-image'
+                  className="carousel-image"
                   src={
                     carData.product_images[currentImageIndex].image ||
                     "/placeholder.svg"
@@ -235,26 +228,25 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
               {carData.product_images.length > 1 && (
                 <button
                   onClick={nextImage}
-                  className='carousel-nav carousel-nav-right'
-                  aria-label='Next image'
+                  className="carousel-nav carousel-nav-right"
+                  aria-label="Next image"
                 >
                   <svg
-                    width='20'
-                    height='20'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    stroke='currentColor'
-                    strokeWidth='2'
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   >
-                    <path d='M9 18l6-6-6-6' />
+                    <path d="M9 18l6-6-6-6" />
                   </svg>
                 </button>
               )}
             </div>
 
-            {/* Carousel Dots */}
             {carData.product_images.length > 1 && (
-              <div className='carousel-dots'>
+              <div className="carousel-dots">
                 {carData?.product_images?.map((_, index) => (
                   <button
                     key={index}
@@ -269,14 +261,13 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
             )}
           </div>
 
-          {/* Car Details */}
-          <div className='car-details-modal'>
+          <div className="car-details-modal">
             {carData[`model_${appLang}` as keyof cardTypes] ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].model}:
                 </span>
-                <span className='detail-value-modal'>
+                <span className="detail-value-modal">
                   {carData[`model_${appLang}` as keyof cardTypes] as string}
                 </span>
               </div>
@@ -284,31 +275,31 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
               ""
             )}
             {carData.year ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].year}:
                 </span>
-                <span className='detail-value-modal'>{carData.year}</span>
+                <span className="detail-value-modal">{carData.year}</span>
               </div>
             ) : (
               ""
             )}
             {carData.distance ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].distance}:
                 </span>
-                <span className='detail-value-modal'>{carData.distance}</span>
+                <span className="detail-value-modal">{carData.distance}</span>
               </div>
             ) : (
               ""
             )}
             {carData[`color_${appLang}` as keyof cardTypes] ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].colour}:
                 </span>
-                <span className='detail-value-modal'>
+                <span className="detail-value-modal">
                   {carData[`color_${appLang}` as keyof cardTypes] as string}
                 </span>
               </div>
@@ -317,11 +308,11 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
             )}
 
             {carData[`fuel_type_${appLang}` as keyof cardTypes] ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].fuel}:
                 </span>
-                <span className='detail-value-modal'>
+                <span className="detail-value-modal">
                   {carData[`fuel_type_${appLang}` as keyof cardTypes] as string}
                 </span>
               </div>
@@ -329,11 +320,11 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
               ""
             )}
             {carData[`location_${appLang}` as keyof cardTypes] ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].location}:
                 </span>
-                <span className='detail-value-modal'>
+                <span className="detail-value-modal">
                   {carData[`location_${appLang}` as keyof cardTypes] as string}
                 </span>
               </div>
@@ -341,11 +332,11 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
               ""
             )}
             {carData.price ? (
-              <div className='detail-item-modal'>
-                <span className='detail-label-modal'>
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
                   {cardContents[`${appLang}`].price}:
                 </span>
-                <span className='detail-value-modal detail-price-modal'>
+                <span className="detail-value-modal detail-price-modal">
                   {carData.price}
                 </span>
               </div>

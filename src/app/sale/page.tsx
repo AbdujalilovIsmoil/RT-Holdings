@@ -143,7 +143,6 @@ function CarCard({
 
   return (
     <div className="car-card">
-      {/* Swiper Section */}
       <div className="slide-container">
         <div
           className="slide-wrapper"
@@ -174,7 +173,6 @@ function CarCard({
           </>
         )}
 
-        {/* Pagination Dots */}
         {car?.product_images?.length > 1 && (
           <div className="slide-pagination">
             {car?.product_images?.map((el, index) => (
@@ -191,14 +189,12 @@ function CarCard({
       </div>
 
       <div className="card-content">
-        {/* Title */}
         <h1 className="car-title">
           {typeof car[`name_${appLang}` as keyof cardTypes] === "string"
             ? (car[`name_${appLang}` as keyof cardTypes] as string)
             : ""}
         </h1>
 
-        {/* Car Details */}
         <div className="car-details">
           {car[`model_${appLang}` as keyof cardTypes] ? (
             <div className="detail-item">
@@ -378,7 +374,6 @@ function CarCard({
           )}
         </div>
 
-        {/* More Details Button */}
         <Button
           type="button"
           className="details-button"
