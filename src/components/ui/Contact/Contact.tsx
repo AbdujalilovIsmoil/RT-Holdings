@@ -176,7 +176,7 @@ const FormComponent = () => {
 
   type Lang = "uz" | "ru" | "en" | "ko";
 
-  type TitleField = `title_${Lang}`; // 'title_uz' | 'title_ru' | ...
+  type TitleField = `title_${Lang}`; 
 
   type Items = {
     id: string;
@@ -190,8 +190,6 @@ const FormComponent = () => {
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    console.log(form);
 
     mutate(form);
   };

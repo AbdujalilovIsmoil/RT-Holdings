@@ -80,7 +80,7 @@ const Header = () => {
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
-  const openToggleVisible = () => setIsVisible(prevState => !prevState);
+  const openToggleVisible = () => setIsVisible((prevState) => !prevState);
 
   interface flagDataType {
     lang: string;
@@ -185,7 +185,7 @@ const Header = () => {
 
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
-    languages[0],
+    languages[0]
   );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -193,8 +193,6 @@ const Header = () => {
     setCurrentLanguage(lang);
     setIsLangOpen(false);
     dispatch(SET_LANG(lang.code));
-
-    console.log(`Language changed to: ${lang.name} (${lang.code})`);
   };
 
   const toggleDropdown = () => {
@@ -231,68 +229,45 @@ const Header = () => {
   return (
     <>
       <div className={`header-close ${isVisible ? "header-close--open" : ""}`}>
-        <div className='header-close__background'>
-          <div className='header-close__top'>
-            <div className='header-close__container container'>
+        <div className="header-close__background">
+          <div className="header-close__top">
+            <div className="header-close__container container">
               <Button
-                type='button'
+                type="button"
                 onClick={openToggleVisible}
-                className='header-close__btn'
+                className="header-close__btn"
               >
-                <FaTimes className='header-close__btn-times' />
+                <FaTimes className="header-close__btn-times" />
               </Button>
             </div>
           </div>
-          <div className='container'>
-            <ul className='header-close__medias'>
-              {/* <li className='header-close__media'>
-                <a
-                  target='_blank'
-                  className='header-close__link'
-                  href={`mailto:${data && data.email}`}
-                >
-                  <div className='header-close__bg'>
-                    <MdOutlineMailOutline className='header-close__link-icon' />
-                  </div>
-                  <p className='header-close__link-text'>
-                    {data && data.email}
-                  </p>
-                </a>
-              </li> */}
-              <li className='header-close__media'>
-                <a
-                  href='tel:+99891-088-9595'
-                  className='header-close__link'
-                >
-                  <div className='header-close__bg'>
-                    <FiPhone className='header-close__link-icon' />
+          <div className="container">
+            <ul className="header-close__medias">
+              <li className="header-close__media">
+                <a href="tel:+99891-088-9595" className="header-close__link">
+                  <div className="header-close__bg">
+                    <FiPhone className="header-close__link-icon" />
                   </div>
 
-                  <p className='header-close__link-text'>+99891-088-9595</p>
+                  <p className="header-close__link-text">+99891-088-9595</p>
                 </a>
               </li>
-              <li className='header-close__media'>
-                <a
-                  href='tel:+8210-9687-9796'
-                  className='header-close__link'
-                >
-                  <div className='header-close__bg'>
-                    <FiPhone className='header-close__link-icon' />
+              <li className="header-close__media">
+                <a href="tel:+8210-9687-9796" className="header-close__link">
+                  <div className="header-close__bg">
+                    <FiPhone className="header-close__link-icon" />
                   </div>
 
-                  <p className='header-close__link-text'>+8210-9687-9796</p>
+                  <p className="header-close__link-text">+8210-9687-9796</p>
                 </a>
               </li>
             </ul>
 
-            <ul className='header-close__list'>
+            <ul className="header-close__list">
               {links?.length > 0 &&
                 links?.map((el: linksType, index) => {
                   return (
-                    <li
-                      key={index}
-                      className='header-close__item'
-                    >
+                    <li key={index} className="header-close__item">
                       <Link
                         href={el.path}
                         onClick={openToggleVisible}
@@ -304,53 +279,50 @@ const Header = () => {
                         })}
                       >
                         {el && el?.title[`${appLang}`]}
-                        <FaAngleDown className='header-close__item-arrow' />
+                        <FaAngleDown className="header-close__item-arrow" />
                       </Link>
                     </li>
                   );
                 })}
             </ul>
 
-            <div
-              className='language-switcher-wrapper'
-              ref={dropdownRef}
-            >
+            <div className="language-switcher-wrapper" ref={dropdownRef}>
               <button
-                type='button'
+                type="button"
                 className={`language-switcher-button ${
                   isLangOpen ? "active" : ""
                 }`}
                 onClick={toggleDropdown}
-                aria-haspopup='true'
+                aria-haspopup="true"
                 aria-expanded={isLangOpen}
               >
                 <span>{currentLanguage.name}</span>
                 <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  width='24'
-                  height='24'
-                  viewBox='0 0 24 24'
-                  fill='none'
-                  stroke='currentColor'
-                  strokeWidth='2'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   className={`chevron-icon ${isLangOpen ? "rotate-180" : ""}`}
                 >
-                  <path d='m6 9 6 6 6-6' />
+                  <path d="m6 9 6 6 6-6" />
                 </svg>
               </button>
 
               {isLangOpen && (
-                <ul className='language-switcher-content'>
-                  {languages?.map(lang => (
+                <ul className="language-switcher-content">
+                  {languages?.map((lang) => (
                     <li
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang)}
                       className={`language-switcher-item ${
                         appLang === lang?.code ? "selected" : ""
                       }`}
-                      role='menuitem'
+                      role="menuitem"
                     >
                       {lang?.name}
                     </li>
@@ -362,80 +334,71 @@ const Header = () => {
         </div>
       </div>
 
-      <div
-        ref={navigationRef}
-        className='header__top'
-      >
-        <div className='header__top-container container'>
-          <Link href='/'>
+      <div ref={navigationRef} className="header__top">
+        <div className="header__top-container container">
+          <Link href="/">
             <Image
               width={210}
               height={70}
-              alt='RT Holdings'
-              className='header__top-logo'
+              alt="RT Holdings"
+              className="header__top-logo"
               src={"/images/svg/site-header/site-logo.svg"}
             />
           </Link>
 
-          <ul className='header__medias'>
-            <li className='header__media'>
+          <ul className="header__medias">
+            <li className="header__media">
               <a
-                className='header__link'
+                className="header__link"
                 href={`mailto:rtholdingsgroup@gmail.com`}
               >
-                <span className='header__background'>
-                  <MdOutlineMailOutline className='header__background-icon' />
+                <span className="header__background">
+                  <MdOutlineMailOutline className="header__background-icon" />
                 </span>
-                <div className='header__content'>
-                  <p className='header__media-text'>
+                <div className="header__content">
+                  <p className="header__media-text">
                     {callData[`${appLang}`]?.email}:
                   </p>
-                  <p className='header__media-text'>
+                  <p className="header__media-text">
                     rtholdingsgroup@gmail.com
                   </p>
                 </div>
               </a>
             </li>
-            <li className='header__media'>
-              <a
-                className='header__link'
-                href='tel:+99891-088-9595'
-              >
-                <span className='header__background'>
-                  <FiPhone className='header__background-icon' />
+            <li className="header__media">
+              <a className="header__link" href="tel:+99891-088-9595">
+                <span className="header__background">
+                  <FiPhone className="header__background-icon" />
                 </span>
-                <div className='header__content'>
-                  <p className='header__media-text'>
+                <div className="header__content">
+                  <p className="header__media-text">
                     {callData[`${appLang}`]?.callUs}
                   </p>
-                  <p className='header__media-text'>+99891-088-9595</p>
+                  <p className="header__media-text">+99891-088-9595</p>
                 </div>
               </a>
             </li>
-            <li className='header__media'>
-              <a
-                className='header__link'
-                href='tel:+8210-9687-9796'
-              >
-                <span className='header__background'>
-                  <FiPhone className='header__background-icon' />
+            <li className="header__media">
+              <a className="header__link" href="tel:+8210-9687-9796">
+                <span className="header__background">
+                  <FiPhone className="header__background-icon" />
                 </span>
-                <div className='header__content'>
-                  <p className='header__media-text'>
+                <div className="header__content">
+                  <p className="header__media-text">
                     {callData[`${appLang}`]?.callUs}
                   </p>
-                  <p className='header__media-text'>+8210-9687-9796</p>
+                  <p className="header__media-text">+8210-9687-9796</p>
                 </div>
               </a>
             </li>
           </ul>
 
           <Button
-            type='button'
-            className='header__bars'
+            type="button"
+            className="header__bars"
             onClick={openToggleVisible}
           >
-            <FaBars className='header__bars-icon' />
+            <FaBars className="header__bars-icon" />
           </Button>
         </div>
       </div>
@@ -445,16 +408,13 @@ const Header = () => {
           isScrolled ? "site-navigation--scroll" : ""
         }`}
       >
-        <div className='site__container container'>
-          <nav className='nav'>
-            <ul className='nav__list'>
+        <div className="site__container container">
+          <nav className="nav">
+            <ul className="nav__list">
               {links?.length > 0 &&
                 links?.map((el: linksType, index) => {
                   return (
-                    <li
-                      key={index}
-                      className='nav__item'
-                    >
+                    <li key={index} className="nav__item">
                       <Link
                         href={el?.path}
                         className={closeNavbar({
@@ -473,11 +433,11 @@ const Header = () => {
             </ul>
           </nav>
 
-          <div className='site__contact'>
-            <div className='site__languages'>
+          <div className="site__contact">
+            <div className="site__languages">
               <div
-                role='button'
-                onClick={() => setIsOpen(prevState => !prevState)}
+                role="button"
+                onClick={() => setIsOpen((prevState) => !prevState)}
                 className={`site__language ${
                   isOpen ? "site__language--open" : ""
                 }`}
@@ -485,19 +445,19 @@ const Header = () => {
                 <Image
                   width={35}
                   height={35}
-                  loading='lazy'
-                  alt='flag-image'
-                  className='site__language-image'
+                  loading="lazy"
+                  alt="flag-image"
+                  className="site__language-image"
                   src={
                     images[`${appLang}`]?.src ||
                     "/images/png/flags/flag-image-1.png"
                   }
                 />
-                <p className='site__language-text'>
+                <p className="site__language-text">
                   {images[`${appLang}`]?.name || "uz"}
                 </p>
 
-                <FaAngleDown className='site__language-icon' />
+                <FaAngleDown className="site__language-icon" />
               </div>
 
               <ul
@@ -506,7 +466,7 @@ const Header = () => {
                 }`}
               >
                 <li
-                  className='site__languages-item'
+                  className="site__languages-item"
                   onClick={() =>
                     setLangData({
                       lang: "uz",
@@ -517,14 +477,14 @@ const Header = () => {
                   <Image
                     width={35}
                     height={35}
-                    alt='flag-image'
-                    className='site__languages-item-image'
-                    src='/images/png/flags/flag-image-1.png'
+                    alt="flag-image"
+                    className="site__languages-item-image"
+                    src="/images/png/flags/flag-image-1.png"
                   />
-                  <p className='site__languages-item-text'>uz</p>
+                  <p className="site__languages-item-text">uz</p>
                 </li>
                 <li
-                  className='site__languages-item'
+                  className="site__languages-item"
                   onClick={() =>
                     setLangData({
                       lang: "ru",
@@ -535,14 +495,14 @@ const Header = () => {
                   <Image
                     width={35}
                     height={35}
-                    alt='flag-image'
-                    className='site__languages-item-image'
-                    src='/images/png/flags/flag-image-3.png'
+                    alt="flag-image"
+                    className="site__languages-item-image"
+                    src="/images/png/flags/flag-image-3.png"
                   />
-                  <p className='site__languages-item-text'>ru</p>
+                  <p className="site__languages-item-text">ru</p>
                 </li>
                 <li
-                  className='site__languages-item'
+                  className="site__languages-item"
                   onClick={() =>
                     setLangData({
                       lang: "en",
@@ -553,14 +513,14 @@ const Header = () => {
                   <Image
                     width={35}
                     height={35}
-                    alt='flag-image'
-                    className='site__languages-item-image'
-                    src='/images/png/flags/flag-image-2.png'
+                    alt="flag-image"
+                    className="site__languages-item-image"
+                    src="/images/png/flags/flag-image-2.png"
                   />
-                  <p className='site__languages-item-text'>en</p>
+                  <p className="site__languages-item-text">en</p>
                 </li>
                 <li
-                  className='site__languages-item'
+                  className="site__languages-item"
                   onClick={() =>
                     setLangData({
                       lang: "ko",
@@ -571,52 +531,46 @@ const Header = () => {
                   <Image
                     width={35}
                     height={35}
-                    alt='flag-image'
-                    className='site__languages-item-image'
-                    src='/images/png/flags/flag-image-4.png'
+                    alt="flag-image"
+                    className="site__languages-item-image"
+                    src="/images/png/flags/flag-image-4.png"
                   />
-                  <p className='site__languages-item-text'>ko</p>
+                  <p className="site__languages-item-text">ko</p>
                 </li>
               </ul>
             </div>
-            <ul className='site__medias'>
-              <li className='site__media'>
+            <ul className="site__medias">
+              <li className="site__media">
                 <a
-                  target='_blank'
-                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
+                  target="_blank"
+                  href="https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=="
                 >
-                  <IoLogoInstagram className='site__media-icon' />
+                  <IoLogoInstagram className="site__media-icon" />
                 </a>
               </li>
-              <li className='site__media'>
+              <li className="site__media">
                 <a
-                  target='_blank'
-                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
+                  target="_blank"
+                  href="https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=="
                 >
-                  <IoLogoTiktok className='site__media-icon' />
+                  <IoLogoTiktok className="site__media-icon" />
                 </a>
               </li>
-              <li className='site__media'>
+              <li className="site__media">
                 <a
-                  target='_blank'
-                  href='https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=='
+                  target="_blank"
+                  href="https://www.instagram.com/rt_holdings?igsh=MXY2NXJsYWRheTU0dw=="
                 >
-                  <FaWhatsapp className='site__media-icon' />
+                  <FaWhatsapp className="site__media-icon" />
                 </a>
               </li>
-              <li className='site__media'>
-                <a
-                  target='_blank'
-                  href='https://t.me/RT_Holdings'
-                >
-                  <FaTelegramPlane className='site__media-icon' />
+              <li className="site__media">
+                <a target="_blank" href="https://t.me/RT_Holdings">
+                  <FaTelegramPlane className="site__media-icon" />
                 </a>
               </li>
             </ul>
-            <Link
-              href='/contact'
-              className='site__contact-link'
-            >
+            <Link href="/contact" className="site__contact-link">
               {contactTitle[`${appLang}`] || contactTitle?.uz}
             </Link>
           </div>

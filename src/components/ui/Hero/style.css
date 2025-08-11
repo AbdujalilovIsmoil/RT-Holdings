@@ -26,6 +26,9 @@
   );
 
   @media only screen and (max-width: 992px) {
+    padding-top: calc(
+      (var(--main-medium-size)) + var(--main-text-size) + 8px
+    );
     padding-bottom: calc(
       (var(--main-medium-size)) + var(--main-text-size) + 8px
     );
