@@ -1,3 +1,4 @@
+import { api } from "@/services";
 import { useEffect, useState } from "react";
 
 interface useGetInterface {
@@ -8,8 +9,7 @@ const useGet = ({ path }: useGetInterface) => {
   const [data, setData] = useState([]);
 
   const getRequest = async () => {
-    const baseUrl = "https://test.repid.uz/api/v1/common";
-    const request = await fetch(`${baseUrl}${path}`);
+    const request = await fetch(`${api.baseUrl}${path}`);
 
     const response = await request.json();
 

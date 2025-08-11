@@ -1,4 +1,5 @@
 import axios from "axios";
+import { api } from "@/services";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -35,10 +36,9 @@ const usePost = ({ lang }: usePostTypes) => {
 
   async function mutate<T>(data: T) {
     setIsLoading(true);
-    const baseUrl: string = `https://test.repid.uz/api/v1/common/contact_us/`;
 
     axios
-      .post(baseUrl, data)
+      .post(api.baseUrl, data)
       .then((data) => {
         console.log(data);
         setIsLoading(false);
