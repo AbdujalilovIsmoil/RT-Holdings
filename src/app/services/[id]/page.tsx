@@ -1,10 +1,12 @@
 "use client";
 
 import "./style.css";
-import React, { useEffect } from "react";
 import Image from "next/image";
 import { useGet } from "@/hooks";
+import { useEffect } from "react";
+import { language } from "./data";
 import { Hero } from "@/components";
+import { Items } from "@/typescript";
 import { useSelector } from "react-redux";
 import { usePathname } from "next/navigation";
 import { initialValuesTypes } from "@/context/reducer";
@@ -22,36 +24,6 @@ const ServicesView = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
   const id = pathName.split("/").at(-1);
-
-  type Lang = "uz" | "ru" | "en" | "ko";
-
-  type TitleField = `title_${Lang}`;
-  type DescriptionField = `description_${Lang}`;
-
-  type Items = {
-    watsup_link: string;
-    youtube_link: string;
-    tiktok_link: string;
-    telegram_link: string;
-    instagram_link: string;
-    facebook_link: string;
-    id: string;
-    more: string;
-    image: string;
-  } & {
-    [K in TitleField]: string;
-  } & { [K in DescriptionField]: string };
-
-  interface langugageTypes {
-    [key: string]: string;
-  }
-
-  const language: langugageTypes = {
-    ko: "서비스 상세",
-    ru: "Детали услуги",
-    en: "Service Details",
-    uz: "Xizmat tafsiloti",
-  };
 
   useEffect(() => {
     document.title = language[`${appLang}`];

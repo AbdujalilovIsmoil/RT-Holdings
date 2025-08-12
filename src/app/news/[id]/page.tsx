@@ -5,26 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useGet } from "@/hooks";
 import { useEffect } from "react";
+import { language } from "../data";
 import { useSelector } from "react-redux";
 import { Button, Hero } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
 import { FaArrowLeftLong } from "@/assets/react-icons";
 import { usePathname, useRouter } from "next/navigation";
-
-type Lang = "uz" | "ru" | "en" | "ko";
-
-type TitleField = `title_${Lang}`;
-type DescriptionField = `description_${Lang}`;
-
-type Items = {
-  id: string;
-  more: string;
-  news_images: {
-    id: string;
-    image: string;
-  }[];
-} & Record<TitleField, string> &
-  Record<DescriptionField, string>;
+import { DescriptionField, Items, TitleField } from "@/typescript";
 
 const NewsView = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -36,17 +23,6 @@ const NewsView = () => {
   const id = pathName.split("/").at(-1);
 
   const data = useGet({ path: "/news/list" });
-
-  interface langugageTypes {
-    [key: string]: string;
-  }
-
-  const language: langugageTypes = {
-    ko: "뉴스 상세",
-    en: "News Details",
-    ru: "Детали новости",
-    uz: "Yangilik tafsiloti",
-  };
 
   useEffect(() => {
     document.title = language[`${appLang}`];

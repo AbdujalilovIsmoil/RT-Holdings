@@ -1,55 +1,13 @@
 import "./style.css";
 import Link from "next/link";
 import Image from "next/image";
+import { newsData } from "./data";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
-
-type Lang = "uz" | "ru" | "en" | "ko";
-
-type TitleField = `title_${Lang}`;
-type DescriptionField = `description_${Lang}`;
-
-type Items = {
-  id: string;
-  more: string;
-  news_images: {
-    id: string;
-    image: string;
-  }[];
-} & Record<TitleField, string> &
-  Record<DescriptionField, string>;
-
-type NewsItemType = {
-  [key: string]: {
-    [key: string]: string;
-  };
-};
+import { Items, TitleField, DescriptionField } from "@/typescript";
 
 const News = (props: { data: Items[] }) => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
-
-  const newsData: NewsItemType = {
-    uz: {
-      more: "Batafsil",
-      title: "Yangiliklar",
-      text: "So‘nggi yangiliklar va muhim e’lonlar bilan doimo xabardor bo‘ling — biz bilan birga yangiliklardan orqada qolmang.",
-    },
-    ru: {
-      title: "Новости",
-      more: "Подробнее",
-      text: "Будьте в курсе последних новостей и важных объявлений — не отставайте от новостей вместе с нами.",
-    },
-    en: {
-      title: "News",
-      more: "Read more",
-      text: "Stay updated with the latest news and important announcements — don't fall behind with us.",
-    },
-    ko: {
-      title: "뉴스",
-      more: "자세히 보기",
-      text: "최신 뉴스와 중요한 공지사항을 확인하세요 — 저희와 함께 뉴스에서 뒤처지지 마세요.",
-    },
-  };
 
   return (
     <section className="news">

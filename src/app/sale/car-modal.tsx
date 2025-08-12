@@ -1,46 +1,15 @@
 "use client";
-import { initialValuesTypes } from "@/context/reducer";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { cardTypes, StringInnerTypes } from "@/typescript";
 import { useSelector } from "react-redux";
-
-interface cardImageTypes {
-  id: string;
-  image: string;
-}
-
-interface cardTypes {
-  id: string;
-  year: string;
-  price: string;
-  name_uz: string;
-  name_ru: string;
-  name_en: string;
-  name_ko: string;
-  color_en: string;
-  color_ru: string;
-  color_uz: string;
-  color_ko: string;
-  distance: string;
-  model_uz: string;
-  model_ru: string;
-  model_en: string;
-  model_ko: string;
-  location_uz: string;
-  location_ru: string;
-  location_en: string;
-  location_ko: string;
-  fuel_type_en: string;
-  fuel_type_uz: string;
-  fuel_type_ru: string;
-  fuel_type_ko: string;
-  product_images: cardImageTypes[];
-}
+import { useState, useEffect } from "react";
+import { initialValuesTypes } from "@/context/reducer";
+import { cardContents } from "./data";
 
 interface CarModalProps {
   isOpen: boolean;
-  onClose: () => void;
   carData: cardTypes;
+  onClose: () => void;
 }
 
 export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
@@ -76,7 +45,6 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
     };
   }, [isOpen, onClose]);
 
-  // Reset image index when modal opens with new car
   useEffect(() => {
     if (isOpen) {
       setCurrentImageIndex(0);
@@ -100,62 +68,6 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
   };
 
   if (!isOpen) return null;
-
-  interface cardContentsTypes {
-    [key: string]: {
-      more: string;
-      year: string;
-      fuel: string;
-      model: string;
-      price: string;
-      colour: string;
-      distance: string;
-      location: string;
-    };
-  }
-
-  const cardContents: cardContentsTypes = {
-    uz: {
-      year: "Yili",
-      model: "Model",
-      price: "Narxi",
-      colour: "Rangi",
-      location: "Manzil",
-      fuel: "Yoqilg'i turi",
-      more: "Batafsil ma'lumot",
-      distance: "Yurgan masofasi",
-    },
-    ru: {
-      year: "Год",
-      price: "Цена",
-      colour: "Цвет",
-      model: "Модель",
-      more: "Подробнее",
-      location: "Адрес",
-      fuel: "Тип топлива",
-      distance: "Пешком можно дойти",
-    },
-    en: {
-      year: "Year",
-      fuel: "Fuel",
-      price: "Price",
-      model: "Model",
-      colour: "Colour",
-      more: "Learn more",
-      distance: "Distance",
-      location: "Location",
-    },
-    ko: {
-      year: "년도",
-      fuel: "연료",
-      price: "가격",
-      model: "모델",
-      colour: "색상",
-      distance: "거리",
-      location: "위치",
-      more: "더 알아보기",
-    },
-  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>

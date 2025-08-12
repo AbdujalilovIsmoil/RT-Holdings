@@ -2,17 +2,19 @@
 
 import "./style.css";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components";
 import { closeNavbar } from "@/utility";
 import { SET_LANG } from "@/context/action";
 import { FaWhatsapp } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { IoLogoTiktok } from "react-icons/io5";
-import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { initialValuesTypes } from "@/context/reducer";
 import { useDispatch, useSelector } from "react-redux";
+import { StringInnerTypes, StringMap } from "@/typescript";
 import { IoLogoInstagram, FaTelegramPlane } from "@/assets/react-icons";
+import { callData, contactTitle, images, languages, links } from "./data";
 import {
   FaBars,
   FiPhone,
@@ -21,71 +23,22 @@ import {
   MdOutlineMailOutline,
 } from "@/assets/react-icons";
 
+interface linksType {
+  id: number;
+  path: string;
+  title: {
+    [key: string]: string;
+  };
+}
+
 const Header = () => {
   const pathname = usePathname();
   const dispatch = useDispatch();
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  type imageType = {
-    [key: string]: {
-      name: string;
-      src: string | StaticImageData;
-    };
-  };
-
-  const images: imageType = {
-    uz: {
-      name: "uz",
-      src: "/images/png/flags/flag-image-1.png",
-    },
-    ru: {
-      name: "ru",
-      src: "/images/png/flags/flag-image-3.png",
-    },
-    en: {
-      name: "en",
-      src: "/images/png/flags/flag-image-2.png",
-    },
-    ko: {
-      name: "ko",
-      src: "/images/png/flags/flag-image-4.png",
-    },
-  };
-
-  type callDataType = {
-    [key: string]: {
-      email: string;
-      callUs: string;
-    };
-  };
-
-  const callData: callDataType = {
-    uz: {
-      email: "Elektron pochta",
-      callUs: "Biz bilan aloqa",
-    },
-    ru: {
-      email: "Электронная почта",
-      callUs: "Связаться с нами",
-    },
-    ko: {
-      email: "이메일",
-      callUs: "문의하기",
-    },
-    en: {
-      email: "Email",
-      callUs: "Call Us",
-    },
-  };
-
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const openToggleVisible = () => setIsVisible((prevState) => !prevState);
-
-  interface flagDataType {
-    lang: string;
-    flag: string | StaticImageData;
-  }
 
   const navigationRef = useRef<HTMLDivElement>(null);
 
@@ -104,92 +57,19 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  interface linksType {
-    id: number;
-    path: string;
-    title: {
-      [key: string]: string;
-    };
-  }
-
-  const links: linksType[] = [
-    {
-      id: 1,
-      path: "/",
-      title: {
-        uz: "Bosh sahifa",
-        ru: "Главная",
-        en: "Home",
-        ko: "홈",
-      },
-    },
-    {
-      id: 2,
-      title: {
-        uz: "Biz haqimizda",
-        ru: "О нас",
-        en: "About Us",
-        ko: "회사 소개",
-      },
-      path: "/about",
-    },
-    {
-      id: 3,
-      path: "/services",
-      title: {
-        uz: "Xizmatlar",
-        ru: "Услуги",
-        en: "Services",
-        ko: "서비스",
-      },
-    },
-    {
-      id: 4,
-      title: {
-        uz: "Yangiliklar",
-        ru: "Новости",
-        en: "News",
-        ko: "뉴스",
-      },
-      path: "/news",
-    },
-    {
-      id: 5,
-      title: {
-        uz: "Ishlar",
-        ru: "Портфолио",
-        en: "Portfolio",
-        ko: "포트폴리오",
-      },
-      path: "/sale",
-    },
-  ];
-
-  const setLangData = (data: flagDataType) => {
+  const setLangData = (data: StringInnerTypes) => {
     setIsOpen(false);
 
     dispatch(SET_LANG(data.lang));
   };
 
-  type Language = {
-    code: string;
-    name: string;
-  };
-
-  const languages: Language[] = [
-    { code: "uz", name: "O'zbek" },
-    { code: "ru", name: "Русский" },
-    { code: "en", name: "English" },
-    { code: "ko", name: "한국어" },
-  ];
-
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState<Language>(
+  const [currentLanguage, setCurrentLanguage] = useState<StringMap>(
     languages[0]
   );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleLanguageChange = (lang: Language) => {
+  const handleLanguageChange = (lang: StringMap) => {
     setCurrentLanguage(lang);
     setIsLangOpen(false);
     dispatch(SET_LANG(lang.code));
@@ -214,17 +94,6 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  type contactTitleType = {
-    [key: string]: string;
-  };
-
-  const contactTitle: contactTitleType = {
-    uz: "Biz bilan aloqa",
-    ru: "Связаться с нами",
-    en: "Contact Us",
-    ko: "문의하기",
-  };
 
   return (
     <>

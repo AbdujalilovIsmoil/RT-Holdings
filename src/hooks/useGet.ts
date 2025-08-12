@@ -1,11 +1,8 @@
 import { api } from "@/services";
+import { StringMap } from "@/typescript";
 import { useEffect, useState } from "react";
 
-interface useGetInterface {
-  path: string;
-}
-
-const useGet = ({ path }: useGetInterface) => {
+const useGet = ({ path }: StringMap) => {
   const [data, setData] = useState([]);
 
   const getRequest = async () => {

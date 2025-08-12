@@ -6,6 +6,7 @@ import { useGet } from "@/hooks";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
+import { StringInnerTypes, StringMap } from "@/typescript";
 import {
   News,
   Score,
@@ -18,18 +19,7 @@ import {
 const Home = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  type HeroDataType = {
-    [key: string]: {
-      site_name: string;
-      hero_title: string;
-      hero_subtitle: string;
-      hero_text: string;
-      button_text: string;
-      button_text2: string;
-    };
-  };
-
-  const heroData: HeroDataType = {
+  const heroData: StringInnerTypes = {
     uz: {
       site_name: "RT Holdings",
       hero_title: "Sizning tanlovingiz biz uchun muhim!",
@@ -68,25 +58,21 @@ const Home = () => {
     path: "/news/list",
   });
 
-  type descritionsTypes = {
-    [key: string]: string;
-  };
-
-  const language: descritionsTypes = {
+  const language: StringMap = {
     ko: "홈 페이지",
     en: "Home page",
     uz: "Bosh sahifa",
     ru: "Главная страница",
   };
 
-  const metaKeywords: descritionsTypes = {
+  const metaKeywords: StringMap = {
     uz: "RT Holdings, qurilish texnikalari, sanoat uskunalari, logistika texnikalari, Janubiy Koreya texnikalari, Yevropa texnikalari, Xitoy texnikalari, texnika importi, texnika eksporti, O‘zbekistonda texnika, MDH texnika bozori",
     ru: "RT Holdings, строительная техника, промышленное оборудование, логистическая техника, техника из Южной Кореи, техника из Европы, техника из Китая, импорт техники, экспорт техники, техника в Узбекистане, рынок техники СНГ",
     en: "RT Holdings, construction equipment, industrial machinery, logistics equipment, Korean equipment, European equipment, Chinese equipment, equipment import, equipment export, Uzbekistan machinery, CIS machinery market",
     ko: "RT Holdings, 건설 장비, 산업 기계, 물류 장비, 한국 장비, 유럽 장비, 중국 장비, 장비 수입, 장비 수출, 우즈베키스탄 기계, CIS 기계 시장",
   };
 
-  const metaDescriptions: descritionsTypes = {
+  const metaDescriptions: StringMap = {
     uz: "RT Holdings – O‘zbekistonda qurilish, sanoat va logistika sohalarida yuqori sifatli texnika importi va eksportida yetakchi kompaniya.",
     ru: "RT Holdings – ведущая компания в Узбекистане по импорту и экспорту строительной, промышленной и логистической техники.",
     en: "RT Holdings – a leading company in Uzbekistan for importing and exporting construction, industrial, and logistics equipment.",

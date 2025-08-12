@@ -2,48 +2,15 @@
 
 import "./style.css";
 import Image from "next/image";
-// import { useGet } from "@/hooks";
 import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
+import { cardTypes } from "@/typescript";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Input, Button, Hero, Pagination } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
+import { Input, Button, Hero, Pagination } from "@/components";
+import { cardContents, contentData, formData, language } from "./data";
 
-interface cardImageTypes {
-  id: string;
-  image: string;
-}
-
-interface cardTypes {
-  id: string;
-  year: string;
-  price: string;
-  name_uz: string;
-  name_ru: string;
-  name_en: string;
-  name_ko: string;
-  color_en: string;
-  color_ru: string;
-  color_uz: string;
-  color_ko: string;
-  distance: string;
-  model_uz: string;
-  model_ru: string;
-  model_en: string;
-  model_ko: string;
-  location_uz: string;
-  location_ru: string;
-  location_en: string;
-  location_ko: string;
-  fuel_type_en: string;
-  fuel_type_uz: string;
-  fuel_type_ru: string;
-  fuel_type_ko: string;
-  product_images: cardImageTypes[];
-}
-
-// Search Icon component
 const IoSearch = ({ className }: { className: string }) => (
   <svg
     className={className}
@@ -83,62 +50,6 @@ function CarCard({
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
-  };
-
-  interface cardContentsTypes {
-    [key: string]: {
-      more: string;
-      year: string;
-      fuel: string;
-      model: string;
-      price: string;
-      colour: string;
-      distance: string;
-      location: string;
-    };
-  }
-
-  const cardContents: cardContentsTypes = {
-    uz: {
-      year: "Yili",
-      model: "Model",
-      price: "Narxi",
-      colour: "Rangi",
-      location: "Manzil",
-      fuel: "Yoqilg'i turi",
-      more: "Batafsil ma'lumot",
-      distance: "Yurgan masofasi",
-    },
-    ru: {
-      year: "Год",
-      price: "Цена",
-      colour: "Цвет",
-      model: "Модель",
-      more: "Подробнее",
-      location: "Адрес",
-      fuel: "Тип топлива",
-      distance: "Пешком можно дойти",
-    },
-    en: {
-      year: "Year",
-      fuel: "Fuel",
-      price: "Price",
-      model: "Model",
-      colour: "Colour",
-      more: "Learn more",
-      distance: "Distance",
-      location: "Location",
-    },
-    ko: {
-      year: "년도",
-      fuel: "연료",
-      price: "가격",
-      model: "모델",
-      colour: "색상",
-      distance: "거리",
-      location: "위치",
-      more: "더 알아보기",
-    },
   };
 
   return (
@@ -389,17 +300,6 @@ function CarCard({
 const Sale = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  interface langugageTypes {
-    [key: string]: string;
-  }
-
-  const language: langugageTypes = {
-    ko: "작업",
-    en: "Works",
-    ru: "Работы",
-    uz: "Ishlar",
-  };
-
   useEffect(() => {
     document.title = language[`${appLang}`];
   }, [appLang]);
@@ -417,8 +317,7 @@ const Sale = () => {
     setSelectedCar(null);
   };
 
-  // Transform car data to match modal interface
-  const getModalCarData = (car: cardTypes): cardTypes => ({
+  const getModalCarData = (car: cardTypes) => ({
     id: car.id,
     year: car.year,
     price: car.price,
@@ -456,62 +355,6 @@ const Sale = () => {
       top: 0,
     });
   }, []);
-
-  interface contentDataTypes {
-    [key: string]: {
-      title: string;
-      description: string;
-    };
-  }
-
-  const contentData: contentDataTypes = {
-    uz: {
-      title: "Hamyonbop narxda texnika",
-      description:
-        "So‘nggi yangiliklar va muhim e’lonlar bilan doimo xabardor bo‘ling — biz bilan birga yangiliklardan orqada qolmang.",
-    },
-    ru: {
-      title: "Техника по доступным ценам",
-      description:
-        "Будьте в курсе последних новостей и важных объявлений — не отставайте от новостей вместе с нами.",
-    },
-    en: {
-      title: "Affordable Equipment",
-      description:
-        "Stay updated with the latest news and important announcements — don't fall behind with us.",
-    },
-    ko: {
-      title: "합리적인 가격의 장비",
-      description:
-        "최신 뉴스와 중요한 공지 사항을 항상 확인하세요 — 저희와 함께 뉴스에서 뒤처지지 마세요.",
-    },
-  };
-
-  interface formDataTypes {
-    [key: string]: {
-      search: string;
-      title: string;
-    };
-  }
-
-  const formData: formDataTypes = {
-    uz: {
-      search: "Qidirish",
-      title: "Texnika nomini kiriting",
-    },
-    ru: {
-      search: "Поиск",
-      title: "Введите название техники",
-    },
-    en: {
-      search: "Search",
-      title: "Enter equipment name",
-    },
-    ko: {
-      search: "검색",
-      title: "장비 이름 입력",
-    },
-  };
 
   const data = useGet({
     path: "/product/list",

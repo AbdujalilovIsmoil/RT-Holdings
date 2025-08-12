@@ -6,22 +6,14 @@ import {
   sectionsTypes,
   StringInnerTypes,
   DescriptionField,
-} from "./types";
-import {
-  UIInterface,
-  ScoreDataType,
-  FieldInterface,
-} from "./interface";
+} from "./global";
 
 export type {
   Items,
-  cardTypes,
   StringMap,
+  cardTypes,
   TitleField,
-  UIInterface,
   sectionsTypes,
-  ScoreDataType,
-  FieldInterface,
-  DescriptionField,
   StringInnerTypes,
+  DescriptionField,
 };

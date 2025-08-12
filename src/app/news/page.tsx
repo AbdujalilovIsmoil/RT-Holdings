@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import { useGet } from "@/hooks";
+import { language } from "./data";
 import { Pagination } from "@/components";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -35,17 +36,6 @@ const News = () => {
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
-  };
-
-  interface langugageTypes {
-    [key: string]: string;
-  }
-
-  const language: langugageTypes = {
-    ko: "뉴스",
-    en: "News",
-    ru: "Новости",
-    uz: "Yangiliklar",
   };
 
   useEffect(() => {

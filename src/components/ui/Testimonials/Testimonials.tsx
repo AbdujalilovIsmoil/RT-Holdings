@@ -5,31 +5,12 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import { IoStar } from "@/assets/react-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { globalAboutDataTypes } from "@/typescript";
 import { Autoplay, Navigation } from "swiper/modules";
 import { initialValuesTypes } from "@/context/reducer";
+import { testimonialsData } from "./data";
 
 const Carousel = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
-
-  const testimonialsData: globalAboutDataTypes = {
-    uz: {
-      title: "Foydalanuvchilar",
-      text: "Biz haqimizda mijozlarimiz qanday fikrda?",
-    },
-    ru: {
-      title: "Пользователи",
-      text: "Что говорят наши клиенты о нас?",
-    },
-    en: {
-      title: "Users",
-      text: "What do our clients think about us?",
-    },
-    ko: {
-      title: "사용자",
-      text: "고객은 우리에 대해 어떻게 생각합니까?",
-    },
-  };
 
   type UsersDataType = {
     [key: string]: {
@@ -181,14 +162,14 @@ const Carousel = () => {
   };
 
   return (
-    <section className='carousel'>
-      <div className='container'>
-        <div className='carousel__header'>
-          <div className='carousel__box'>
-            <span className='carousel__box-small-text'>
+    <section className="carousel">
+      <div className="container">
+        <div className="carousel__header">
+          <div className="carousel__box">
+            <span className="carousel__box-small-text">
               {testimonialsData[`${appLang}`]?.title}
             </span>
-            <h2 className='carousel__box-title'>
+            <h2 className="carousel__box-title">
               {testimonialsData[`${appLang}`]?.text}
             </h2>
           </div>
@@ -217,38 +198,35 @@ const Carousel = () => {
           {usersData[`${appLang}`]?.map((user, index) => {
             return (
               <SwiperSlide key={index}>
-                <li className='carousel__item'>
-                  <div className='carousel__user'>
-                    <div className='carousel__border'>
+                <li className="carousel__item">
+                  <div className="carousel__user">
+                    <div className="carousel__border">
                       <Image
                         width={50}
                         height={50}
-                        alt='image'
-                        className='carousel__border-icon'
+                        alt="image"
+                        className="carousel__border-icon"
                         src={user?.image}
                       />
                     </div>
-                    <div className='carousel__info'>
-                      <h3 className='carousel__info-fullname'>{user?.name}</h3>
-                      <p className='carousel__info-job'>{user?.job}</p>
+                    <div className="carousel__info">
+                      <h3 className="carousel__info-fullname">{user?.name}</h3>
+                      <p className="carousel__info-job">{user?.job}</p>
                     </div>
                   </div>
-                  <p className='carousel-text'>
+                  <p className="carousel-text">
                     <q>
                       <em>{user?.description}</em>
                     </q>
                   </p>
 
-                  <ul className='carousel-stars__list'>
+                  <ul className="carousel-stars__list">
                     {Array(5)
                       .fill(5)
                       .map((_, index) => {
                         return (
-                          <li
-                            key={index}
-                            className='carousel-stars__item'
-                          >
-                            <IoStar className='carousel-stars__item-icon' />
+                          <li key={index} className="carousel-stars__item">
+                            <IoStar className="carousel-stars__item-icon" />
                           </li>
                         );
                       })}

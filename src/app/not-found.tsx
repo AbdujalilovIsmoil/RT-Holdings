@@ -1,10 +1,11 @@
 "use client";
 
-import { initialValuesTypes } from "@/context/reducer";
 import "./not-found.css";
 import Image from "next/image";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { StringInnerTypes } from "@/typescript";
+import { initialValuesTypes } from "@/context/reducer";
 
 const Error = () => {
   useEffect(() => {
@@ -15,14 +16,7 @@ const Error = () => {
 
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  interface NotFoundData {
-    [key: string]: {
-      title: string;
-      description: string;
-    };
-  }
-
-  const notFoundData: NotFoundData = {
+  const notFoundData: StringInnerTypes = {
     uz: {
       title: "404, Sahifa topilmadi",
       description:
@@ -46,21 +40,21 @@ const Error = () => {
   };
 
   return (
-    <section className='not-found'>
-      <div className='container'>
-        <div className='not-found__content'>
+    <section className="not-found">
+      <div className="container">
+        <div className="not-found__content">
           <Image
             width={500}
             height={500}
-            alt='not-found'
-            src='/images/png/not-found.png'
-            className='not-found__content-image'
+            alt="not-found"
+            src="/images/png/not-found.png"
+            className="not-found__content-image"
           />
-          <h1 className='not-found__content-title'>
+          <h1 className="not-found__content-title">
             {notFoundData[`${appLang}`]?.title}
           </h1>
 
-          <p className='not-found__content-text'>
+          <p className="not-found__content-text">
             {notFoundData[`${appLang}`]?.description}
           </p>
         </div>
