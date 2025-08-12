@@ -2,9 +2,9 @@
 
 import "./style.css";
 import { useGet } from "@/hooks";
+import { scoreData } from "./data";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
-import { scoreData } from "./data";
 
 const Score = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);

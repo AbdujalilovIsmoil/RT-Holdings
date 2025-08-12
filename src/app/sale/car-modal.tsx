@@ -1,10 +1,11 @@
 "use client";
+
 import Image from "next/image";
-import { cardTypes, StringInnerTypes } from "@/typescript";
+import { cardContents } from "./data";
+import { cardTypes } from "@/typescript";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { initialValuesTypes } from "@/context/reducer";
-import { cardContents } from "./data";
 
 interface CarModalProps {
   isOpen: boolean;
