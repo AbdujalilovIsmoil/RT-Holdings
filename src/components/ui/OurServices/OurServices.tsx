@@ -2,17 +2,26 @@
 
 import "./style.css";
 import Link from "next/link";
+import { get } from "lodash";
 import Image from "next/image";
 import { useGet } from "@/hooks";
-import { Items } from "@/typescript";
 import { useSelector } from "react-redux";
 import { moreObj, serviceData } from "./data";
 import { initialValuesTypes } from "@/context/reducer";
 
 const OurServices = () => {
+  interface servicesTypes {
+    id: string;
+    attributes: {
+      image: string;
+      title: "uz" | "ru" | "en" | "ko";
+      description: "uz" | "ru" | "en" | "ko";
+    };
+  }
+
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const data = useGet({ path: "/service_type/list" });
+  const data = useGet({ path: "/services" });
 
   return (
     <section className="our-services">
@@ -27,31 +36,31 @@ const OurServices = () => {
         </div>
 
         <ul className="our-services__list">
-          {Array.isArray(data) &&
-            data.map((el: Items) => {
+          {Array.isArray(get(data, "data", [])) &&
+            get(data, "data", []).map((el: servicesTypes) => {
               return (
                 <li className="our-services__item" key={el.id}>
                   <Image
                     width={385}
                     height={270}
-                    src={el?.image}
-                    alt={el.title_uz}
+                    src={get(el, "attributes.image", "")}
                     className="our-services__item-img"
+                    alt={get(el, `attributes.title_${appLang}`, "")}
                   />
 
                   <div className="our-services__item-box">
                     <div className="our-services__small-content">
                       <h3 className="our-services__item-box-title">
-                        {el[`title_${appLang}` as keyof Items]}
+                        {get(el, `attributes.title_${appLang}`, "")}
                       </h3>
                       <p className="our-services__item-box-text">
-                        {el[`description_${appLang}` as keyof Items]}
+                        {get(el, `attributes.description_${appLang}`, "")}
                       </p>
                     </div>
                     <Link
                       role="button"
-                      href={`/services/${el.id}`}
                       className="our-services__item-box-btn"
+                      href={`/services/${get(el, "id", "")}`}
                     >
                       {moreObj[`${appLang}`]}
                     </Link>
