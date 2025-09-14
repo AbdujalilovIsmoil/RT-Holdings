@@ -1,10 +1,19 @@
 import "./style.css";
 import Link from "next/link";
+import { get } from "lodash";
 import Image from "next/image";
 import { newsData } from "./data";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
-import { Items, TitleField, DescriptionField } from "@/typescript";
+
+interface Items {
+  id: string;
+  attributes: {
+    image: string;
+    title: "uz" | "ru" | "en" | "ko";
+    description: "uz" | "ru" | "en" | "ko";
+  };
+}
 
 const News = (props: { data: Items[] }) => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -27,20 +36,20 @@ const News = (props: { data: Items[] }) => {
                   <Image
                     width={300}
                     height={190}
-                    alt={el.title_uz}
                     className="news__item-image"
-                    src={el?.news_images[0]?.image}
+                    src={get(el, "attributes.image", "")}
+                    alt={get(el, `attributes.title_${appLang}`, "")}
                   />
                   <h3 className="news__item-title">
-                    {el[`title_${appLang}` as TitleField]}
+                    {get(el, `attributes.title_${appLang}`, "")}
                   </h3>
                   <p className="news__item-text">
-                    {el[`description_${appLang}` as DescriptionField]}
+                    {get(el, `attributes.description_${appLang}`, "")}
                   </p>
                   <Link
                     role="button"
-                    href={`/news/${el.id}`}
                     className="news__item-link"
+                    href={`/news/${get(el, "id", "")}`}
                   >
                     {newsData[`${appLang}`].more}
                   </Link>

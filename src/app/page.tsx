@@ -15,6 +15,7 @@ import {
   OurServices,
   // Testimonials,
 } from "@/components";
+import { get } from "lodash";
 
 const Home = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -55,7 +56,7 @@ const Home = () => {
   };
 
   const data = useGet({
-    path: "/news/list",
+    path: "/posts",
   });
 
   const language: StringMap = {
@@ -156,7 +157,13 @@ const Home = () => {
       <AboutUsUI />
       <Score />
       <OurServices />
-      <News data={Array.isArray(data) ? data.slice(0, 4) : []} />
+      <News
+        data={
+          Array.isArray(get(data, "data", []))
+            ? get(data, "data", []).slice(0, 4)
+            : []
+        }
+      />
       {/* <Testimonials /> */}
       <ContactUI />
     </>
