@@ -1,14 +1,21 @@
 "use client";
 
 import "./style.css";
+import { get } from "lodash";
 import { useSelector } from "react-redux";
 import { useGet, usePost } from "@/hooks";
-import { TitleField } from "@/typescript";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { FaCircleCheck } from "@/assets/react-icons";
 import { Input, Textarea, Button } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
 import { contactData, formData, offerData } from "./data";
+
+interface Items {
+  id: string;
+  attributes: {
+    title: "uz" | "ru" | "en" | "ko";
+  };
+}
 
 const FormComponent = () => {
   const [form, setForm] = useState<{
@@ -16,45 +23,71 @@ const FormComponent = () => {
     comment: string;
     full_name: string;
     phone_number: string;
-    service_type: string;
+    service: string;
   }>({
     email: "",
     comment: "",
     full_name: "",
-    service_type: "",
+    service: "",
     phone_number: "",
   });
 
-  const changeInput = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-
-    setForm({ ...form, [name]: value });
-  };
-
-  const {} = usePost({
-    
-  })
+  const {} = usePost({});
 
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const data = useGet({ path: "/service_type/list/" });
-
-  type Items = {
-    id: string;
-  } & {
-    [K in TitleField]: string;
-  };
-
-  const { isLoading, mutate } = usePost({
+  const { isLoading, mutate, isSuccess } = usePost({
     lang: `${appLang}`,
+    path: "/offers/",
   });
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     mutate(form);
+  };
+
+  const data = useGet({
+    path: "/services/",
+  });
+
+  useEffect(() => {
+    if (
+      Array.isArray(get(data, "data", [])) &&
+      get(data, "data", []).length > 0
+    ) {
+      setForm((prev) => ({
+        ...prev,
+        service: get(data, "data[0].id", ""),
+      }));
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      setForm({
+        email: "",
+        service: get(data, "data[0].id", ""),
+        comment: "",
+        full_name: "",
+        phone_number: "",
+      });
+    }
+  }, [isSuccess]);
+
+  const changeInput = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setForm({
+      ...form,
+      [name]: value,
+      service:
+        name === "service"
+          ? value || get(data, "data[0].id", "")
+          : form.service,
+    });
   };
 
   return (
@@ -120,17 +153,20 @@ const FormComponent = () => {
                 />
                 <select
                   required
-                  name="service_type"
+                  name="service"
+                  value={form.service}
                   onChange={changeInput}
-                  value={form.service_type}
                   className="contact-request-form__box-input select"
                 >
-                  {Array.isArray(data) &&
-                    data.map((el: Items) => {
-                      const key = `title_${appLang}` as keyof Items;
+                  {Array.isArray(get(data, "data", [])) &&
+                    get(data, "data", []).map((el: Items) => {
                       return (
-                        <option key={el.id} value={el.id}>
-                          {el[key]}
+                        <option
+                          key={get(el, "id", "")}
+                          value={get(el, "id", "")}
+                          defaultValue={get(data, "data[0].id", "")}
+                        >
+                          {get(el, `attributes.title_${appLang}`, "")}
                         </option>
                       );
                     })}

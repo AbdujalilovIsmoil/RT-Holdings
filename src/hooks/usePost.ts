@@ -25,15 +25,26 @@ const toastProps = {
 };
 
 const usePost = ({ lang, path }: StringMap) => {
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function mutate<T>(data: T) {
     setIsLoading(true);
 
     axios
-      .post(`${api.baseUrl}${path}`, data)
-      .then((data) => {
-        console.log(data);
+      .post(
+        `${api.baseUrl}${path}`,
+
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: "Basic cG9zdGdyZXM6MQ==",
+          },
+        }
+      )
+      .then((_) => {
+        setIsSuccess(true);
         setIsLoading(false);
         toast.success(langSuccessData[lang], toastProps);
       })
@@ -44,7 +55,7 @@ const usePost = ({ lang, path }: StringMap) => {
       });
   }
 
-  return { mutate, isLoading };
+  return { mutate, isLoading, isSuccess };
 };
 
 export default usePost;
