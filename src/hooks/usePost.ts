@@ -24,14 +24,14 @@ const toastProps = {
   pauseOnHover: false,
 };
 
-const usePost = ({ lang }: StringMap) => {
+const usePost = ({ lang, path }: StringMap) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   async function mutate<T>(data: T) {
     setIsLoading(true);
 
     axios
-      .post(api.baseUrl, data)
+      .post(`${api.baseUrl}${path}`, data)
       .then((data) => {
         console.log(data);
         setIsLoading(false);

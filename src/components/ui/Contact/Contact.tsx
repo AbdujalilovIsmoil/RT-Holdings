@@ -33,6 +33,10 @@ const FormComponent = () => {
     setForm({ ...form, [name]: value });
   };
 
+  const {} = usePost({
+    
+  })
+
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
   const data = useGet({ path: "/service_type/list/" });

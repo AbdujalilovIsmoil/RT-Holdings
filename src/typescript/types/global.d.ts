@@ -37,7 +37,6 @@ export type Items = Record<string, string> & {
 
 type ListItem = Record<"id", number> & Record<"title" | "path", string>;
 
-type SectionData = Record<"pages" | "contactUs", string> &
-  Record<"list", ListItem[]>;
+type SectionData = Record<"pages" | "contactUs", string> & Record<"list", ListItem[]>;
 
 export type sectionsTypes = Record<string, SectionData>;
