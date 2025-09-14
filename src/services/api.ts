@@ -1,5 +1,5 @@
 const api = {
-  baseUrl: "https://test.repid.uz/api/v1/common",
+  baseUrl: "https://rholdings-api.jprq.site",
 };
 
 export default api;
