@@ -16,9 +16,14 @@ import { usePathname, useRouter } from "next/navigation";
 interface Items {
   id: string;
   attributes: {
-    image: string;
     title: "uz" | "ru" | "en" | "ko";
     description: "uz" | "ru" | "en" | "ko";
+    images: [
+      {
+        id: string;
+        image: string;
+      }
+    ];
   };
 }
 
@@ -59,8 +64,8 @@ const NewsView = () => {
                 return (
                   <div key={get(el, "id", "")} className="news-view__container">
                     <div className="news-view__box">
-                      {/* <ul className="news-view__image-lists">
-                        {el.news_images.map((item) => {
+                      <ul className="news-view__image-lists">
+                        {el.attributes.images.map((item) => {
                           return (
                             <li key={item.id} className="news-view__image-item">
                               <Image
@@ -68,12 +73,19 @@ const NewsView = () => {
                                 height={120}
                                 src={item.image}
                                 className="news-view__image-item-img"
-                                alt={el[`title_${appLang}` as TitleField]}
+                                alt={
+                                  (
+                                    el.attributes as unknown as Record<
+                                      string,
+                                      string
+                                    >
+                                  )[`title_${appLang}`]
+                                }
                               />
                             </li>
                           );
                         })}
-                      </ul> */}
+                      </ul>
 
                       <div className="news-view__content">
                         <h3 className="news-view__content-title">
@@ -92,17 +104,27 @@ const NewsView = () => {
                               <li key={el.id} className="news-view__item">
                                 <Link href={`/news/${el.id}`}>
                                   <div className="new-view__item-container">
-                                    <Image
-                                      width={125}
-                                      height={85}
-                                      src={get(el, "attributes.image")}
-                                      className="news-view__item-img"
-                                      alt={get(
-                                        el,
-                                        `attributes.title_${appLang}`,
-                                        ""
-                                      )}
-                                    />
+                                    {get(
+                                      el,
+                                      `attributes.images[0].image`,
+                                      ""
+                                    ) && (
+                                      <Image
+                                        width={125}
+                                        height={85}
+                                        src={get(
+                                          el,
+                                          `attributes.images[0].image`,
+                                          ""
+                                        )}
+                                        className="news-view__item-img"
+                                        alt={get(
+                                          el,
+                                          `attributes.title_${appLang}`,
+                                          ""
+                                        )}
+                                      />
+                                    )}
 
                                     <div className="news-view__item-box">
                                       <h3 className="news-view__item-box-title">

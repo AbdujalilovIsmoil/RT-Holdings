@@ -12,6 +12,12 @@ interface Items {
     image: string;
     title: "uz" | "ru" | "en" | "ko";
     description: "uz" | "ru" | "en" | "ko";
+    images: [
+      {
+        id: string;
+        image: string;
+      }
+    ];
   };
 }
 
@@ -30,16 +36,20 @@ const News = (props: { data: Items[] }) => {
 
         <ul className="news__list">
           {Array.isArray(props.data) &&
-            props.data.map((el) => {
+            props.data.map((el: Items) => {
+              console.log(get(el, "attributes.images[0].image", null));
               return (
                 <li key={el.id} className="news__item">
-                  <Image
-                    width={300}
-                    height={190}
-                    className="news__item-image"
-                    src={get(el, "attributes.image", "")}
-                    alt={get(el, `attributes.title_${appLang}`, "")}
-                  />
+                  {get(el, `attributes.images[0].image`, null) && (
+                    <Image
+                      width={600}
+                      height={400}
+                      className="news__item-image"
+                      src={get(el, `attributes.images[0].image`, "")}
+                      alt={get(el, `attributes.title_${appLang}`, "")}
+                    />
+                  )}
+
                   <h3 className="news__item-title">
                     {get(el, `attributes.title_${appLang}`, "")}
                   </h3>

@@ -2,6 +2,7 @@ import "./style.css";
 import Image from "next/image";
 import { Texts } from "@/components";
 import { useSelector } from "react-redux";
+import AboutUSImage from "../../../../public/images/png/about-image.png";
 import { aboutData, textData } from "./data";
 import { initialValuesTypes } from "@/context/reducer";
 
@@ -24,7 +25,7 @@ const About = () => {
               width={590}
               height={400}
               className="about__box-image"
-              src="/images/png/about-image.png"
+              src={AboutUSImage}
               alt="RT Holdings kompaniya haqida"
             />
           </div>

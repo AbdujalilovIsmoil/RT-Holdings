@@ -1,5 +1,5 @@
 const api = {
-  baseUrl: "https://rholdings-api.jprq.site",
+  baseUrl: "https://api.rtholdings.uz",
 };
 
 export default api;
