@@ -159,17 +159,17 @@ const FormComponent = () => {
   //   path: "/services/",
   // });
 
-  useEffect(() => {
-    if (
-      Array.isArray(get(data, "data", [])) &&
-      get(data, "data", []).length > 0
-    ) {
-      setForm((prev) => ({
-        ...prev,
-        service: get(data, "data[0].id", ""),
-      }));
-    }
-  }, [data]);
+  // useEffect(() => {
+  //   if (
+  //     Array.isArray(get(data, "data", [])) &&
+  //     get(data, "data", []).length > 0
+  //   ) {
+  //     setForm((prev) => ({
+  //       ...prev,
+  //       service: get(data, "data[0].id", ""),
+  //     }));
+  //   }
+  // }, [data]);
 
   useEffect(() => {
     if (isSuccess) {
