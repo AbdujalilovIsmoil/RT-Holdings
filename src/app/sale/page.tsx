@@ -2,7 +2,7 @@
 
 import "./style.css";
 import { get } from "lodash";
-import Image from "next/image";
+// import Image from "next/image";
 import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
 import { cardTypes } from "@/typescript";
@@ -36,16 +36,16 @@ function CarCard({
   onOpenModal: (car: { attributes: cardTypes }) => void;
 }) {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
+  // const goToSlide = (index: number) => {
+  //   setCurrentSlide(index);
+  // };
 
   return (
     <div className="car-card">
       <div className="slide-container">
-        <div
+        {/* <div
           className="slide-wrapper"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
@@ -57,9 +57,9 @@ function CarCard({
               alt={`${car.attributes[`name_${appLang}` as keyof cardTypes]}`}
             />
           </div>
-        </div>
+        </div> */}
 
-        {car.product_images.length > 1 && (
+        {/* {car.product_images.length > 1 && (
           <>
             <button className="slide-navigation slide-prev" onClick={prevSlide}>
               ‹
@@ -68,9 +68,9 @@ function CarCard({
               ›
             </button>
           </>
-        )}
+        )} */}
 
-        {car?.product_images?.length > 1 && (
+        {/* {car?.product_images?.length > 1 && (
           <div className="slide-pagination">
             {car?.product_images?.map((el, index) => (
               <div
@@ -82,7 +82,7 @@ function CarCard({
               />
             ))}
           </div>
-        )}
+        )} */}
       </div>
 
       <div className="card-content">
