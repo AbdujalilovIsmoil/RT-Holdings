@@ -99,7 +99,7 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
           <div className="carousel-container">
             <div className="carousel-wrapper">
-              {carData.product_images.length > 1 && (
+              {/* {carData.length > 1 && (
                 <button
                   onClick={prevImage}
                   className="carousel-nav carousel-nav-left"
@@ -116,17 +116,14 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                     <path d="M15 18l-6-6 6-6" />
                   </svg>
                 </button>
-              )}
+              )} */}
 
               <div className="carousel-image-container">
                 <Image
                   width={300}
                   height={300}
                   className="carousel-image"
-                  src={
-                    carData.product_images[currentImageIndex].image ||
-                    "/placeholder.svg"
-                  }
+                  src={carData.image || "/placeholder.svg"}
                   alt={
                     typeof carData[`name_${appLang}` as keyof cardTypes] ===
                     "string"
@@ -138,7 +135,7 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                 />
               </div>
 
-              {carData.product_images.length > 1 && (
+              {/* {carData.product_images.length > 1 && (
                 <button
                   onClick={nextImage}
                   className="carousel-nav carousel-nav-right"
@@ -155,10 +152,10 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                     <path d="M9 18l6-6-6-6" />
                   </svg>
                 </button>
-              )}
+              )} */}
             </div>
 
-            {carData.product_images.length > 1 && (
+            {/* {carData.product_images.length > 1 && (
               <div className="carousel-dots">
                 {carData?.product_images?.map((_, index) => (
                   <button
@@ -171,7 +168,7 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                   />
                 ))}
               </div>
-            )}
+            )} */}
           </div>
 
           <div className="car-details-modal">

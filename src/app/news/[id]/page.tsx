@@ -59,7 +59,7 @@ const NewsView = () => {
                 return (
                   <div key={get(el, "id", "")} className="news-view__container">
                     <div className="news-view__box">
-                      {/* <ul className="news-view__image-lists">
+                      <ul className="news-view__image-lists">
                         {el.news_images.map((item) => {
                           return (
                             <li key={item.id} className="news-view__image-item">
@@ -73,7 +73,7 @@ const NewsView = () => {
                             </li>
                           );
                         })}
-                      </ul> */}
+                      </ul>
 
                       <div className="news-view__content">
                         <h3 className="news-view__content-title">

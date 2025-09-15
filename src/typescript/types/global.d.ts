@@ -11,7 +11,7 @@ type ScalarKey = "id" | "year" | "price" | "distance";
 type MultiKey = "name" | "model" | "color" | "location" | "fuel_type";
 
 export type cardTypes = Record<ScalarKey | MultiLangKey, string> & {
-  product_images: CardImage[];
+  image: string;
 };
 
 export type StringInnerTypes = Record<string, StringMap | StaticImageData>;

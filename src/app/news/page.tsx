@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { initialValuesTypes } from "@/context/reducer";
 import { Hero, News as NewsComponent } from "@/components";
+import { get } from "lodash";
 
 const News = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -21,18 +22,18 @@ const News = () => {
   }, []);
 
   const data = useGet({
-    path: "/news/list",
+    path: "/posts/",
   });
 
   const itemsPerPage = 4;
 
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const pageCount = Math.ceil(data.length / itemsPerPage);
+  const pageCount = Math.ceil(get(data, "data", []).length / itemsPerPage);
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const sliceData = data.slice(startIndex, endIndex);
+  const sliceData = get(data, "data", []).slice(startIndex, endIndex);
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);

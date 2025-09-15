@@ -46,26 +46,26 @@ export const links: linksType[] = [
       ko: "서비스",
     },
   },
-  {
-    id: 4,
-    title: {
-      uz: "Yangiliklar",
-      ru: "Новости",
-      en: "News",
-      ko: "뉴스",
-    },
-    path: "/news",
-  },
-  {
-    id: 5,
-    title: {
-      uz: "Ishlar",
-      ru: "Портфолио",
-      en: "Portfolio",
-      ko: "포트폴리오",
-    },
-    path: "/sale",
-  },
+  // {
+  //   id: 4,
+  //   title: {
+  //     uz: "Yangiliklar",
+  //     ru: "Новости",
+  //     en: "News",
+  //     ko: "뉴스",
+  //   },
+  //   path: "/news",
+  // },
+  // {
+  //   id: 4,
+  //   title: {
+  //     uz: "Ishlar",
+  //     ru: "Портфолио",
+  //     en: "Portfolio",
+  //     ko: "포트폴리오",
+  //   },
+  //   path: "/sale",
+  // },
 ];
 
 export const images: StringInnerTypes = {

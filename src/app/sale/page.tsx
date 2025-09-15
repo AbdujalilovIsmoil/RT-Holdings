@@ -1,6 +1,7 @@
 "use client";
 
 import "./style.css";
+import { get } from "lodash";
 import Image from "next/image";
 import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
@@ -31,22 +32,11 @@ function CarCard({
   car,
   onOpenModal,
 }: {
-  car: cardTypes;
-  onOpenModal: (car: cardTypes) => void;
+  car: { id: string; attributes: cardTypes };
+  onOpenModal: (car: { attributes: cardTypes }) => void;
 }) {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % car.product_images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(
-      (prev) =>
-        (prev - 1 + car.product_images.length) % car.product_images.length
-    );
-  };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -59,18 +49,14 @@ function CarCard({
           className="slide-wrapper"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          {car?.product_images?.map((image, index) => (
-            <div key={index} className="slide-slide">
-              <Image
-                width={300}
-                height={192}
-                src={`${image.image}`}
-                alt={`${car[`name_${appLang}` as keyof cardTypes]} - ${
-                  index + 1
-                }`}
-              />
-            </div>
-          ))}
+          <div className="slide-slide">
+            <Image
+              width={300}
+              height={192}
+              src={`${car.attributes.image ? car.attributes.image : ""}`}
+              alt={`${car.attributes[`name_${appLang}` as keyof cardTypes]}`}
+            />
+          </div>
         </div>
 
         {car.product_images.length > 1 && (
@@ -101,13 +87,11 @@ function CarCard({
 
       <div className="card-content">
         <h1 className="car-title">
-          {typeof car[`name_${appLang}` as keyof cardTypes] === "string"
-            ? (car[`name_${appLang}` as keyof cardTypes] as string)
-            : ""}
+          {`${car.attributes[`name_${appLang}` as keyof cardTypes]}`}
         </h1>
 
         <div className="car-details">
-          {car[`model_${appLang}` as keyof cardTypes] ? (
+          {car.attributes[`model_${appLang}` as keyof cardTypes] ? (
             <div className="detail-item">
               <svg
                 className="detail-icon"
@@ -127,16 +111,14 @@ function CarCard({
                 {cardContents[`${appLang}`].model}:
               </span>
               <span className="detail-value">
-                {typeof car[`model_${appLang}` as keyof cardTypes] === "string"
-                  ? (car[`model_${appLang}` as keyof cardTypes] as string)
-                  : null}
+                {car.attributes[`model_${appLang}` as keyof cardTypes]}
               </span>
             </div>
           ) : (
             ""
           )}
 
-          {car.year ? (
+          {car.attributes.year ? (
             <div className="detail-item">
               <svg
                 className="detail-icon"
@@ -154,13 +136,15 @@ function CarCard({
               <span className="detail-label">
                 {cardContents[`${appLang}`].year}:
               </span>
-              <span className="detail-value">{car.year ? car.year : ""}</span>
+              <span className="detail-value">
+                {car.attributes.year ? car.attributes.year : ""}
+              </span>
             </div>
           ) : (
             ""
           )}
 
-          {car.distance ? (
+          {car.attributes.distance ? (
             <div className="detail-item">
               <svg
                 className="detail-icon"
@@ -178,13 +162,13 @@ function CarCard({
               <span className="detail-label">
                 {cardContents[`${appLang}`].distance}:
               </span>
-              <span className="detail-value">{car.distance}</span>
+              <span className="detail-value">{car.attributes.distance}</span>
             </div>
           ) : (
             ""
           )}
 
-          {car[`color_${appLang}` as keyof cardTypes] ? (
+          {car.attributes[`color_${appLang}` as keyof cardTypes] ? (
             <div className="detail-item">
               <svg
                 className="detail-icon"
@@ -203,16 +187,14 @@ function CarCard({
                 {cardContents[`${appLang}`].colour}:
               </span>
               <span className="detail-value">
-                {typeof car[`color_${appLang}` as keyof cardTypes] === "string"
-                  ? (car[`color_${appLang}` as keyof cardTypes] as string)
-                  : "Invalid car color"}
+                {car.attributes[`color_${appLang}` as keyof cardTypes]}
               </span>
             </div>
           ) : (
             ""
           )}
 
-          {car[`fuel_type_${appLang}` as keyof cardTypes] ? (
+          {car.attributes[`fuel_type_${appLang}` as keyof cardTypes] ? (
             <div className="detail-item">
               <svg
                 viewBox="0 0 24 24"
@@ -225,17 +207,14 @@ function CarCard({
                 {cardContents[`${appLang}`].fuel}:
               </span>
               <span className="detail-value">
-                {typeof car[`fuel_type_${appLang}` as keyof cardTypes] ===
-                "string"
-                  ? (car[`fuel_type_${appLang}` as keyof cardTypes] as string)
-                  : "Invalid car fuel_type"}
+                {car.attributes[`fuel_type_${appLang}` as keyof cardTypes]}
               </span>
             </div>
           ) : (
             ""
           )}
 
-          {car[`location_${appLang}` as keyof cardTypes] && (
+          {car.attributes[`location_${appLang}` as keyof cardTypes] && (
             <div className="detail-item">
               <svg
                 className="detail-icon"
@@ -260,15 +239,12 @@ function CarCard({
                 {cardContents[`${appLang}`].location}:
               </span>
               <span className="detail-value">
-                {typeof car[`location_${appLang}` as keyof cardTypes] ===
-                "string"
-                  ? (car[`location_${appLang}` as keyof cardTypes] as string)
-                  : "Invalid car location"}
+                {car.attributes[`location_${appLang}` as keyof cardTypes]}
               </span>
             </div>
           )}
 
-          {car.price && (
+          {car.attributes.price && (
             <div className="detail-item">
               <svg
                 viewBox="0 0 384 512"
@@ -280,7 +256,9 @@ function CarCard({
               <span className="detail-label">
                 {cardContents[`${appLang}`].price}:
               </span>
-              <span className="detail-value">{car.price ? car.price : ""}</span>
+              <span className="detail-value">
+                {car.attributes.price ? car.attributes.price : ""}
+              </span>
             </div>
           )}
         </div>
@@ -305,9 +283,11 @@ const Sale = () => {
   }, [appLang]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCar, setSelectedCar] = useState<cardTypes | null>(null);
+  const [selectedCar, setSelectedCar] = useState<{
+    attributes: cardTypes;
+  } | null>(null);
 
-  const openModal = (car: cardTypes) => {
+  const openModal = (car: { attributes: cardTypes }) => {
     setSelectedCar(car);
     setIsModalOpen(true);
   };
@@ -317,37 +297,37 @@ const Sale = () => {
     setSelectedCar(null);
   };
 
-  const getModalCarData = (car: cardTypes) => ({
-    id: car.id,
-    year: car.year,
-    price: car.price,
-    distance: car.distance,
-    product_images: car.product_images,
+  const getModalCarData = (car: { attributes: cardTypes }) => ({
+    id: car.attributes.id,
+    year: car.attributes.year,
+    price: car.attributes.price,
+    image: car.attributes.image,
+    distance: car.attributes.distance,
 
-    name_uz: car.name_uz,
-    name_ru: car.name_ru,
-    name_en: car.name_en,
-    name_ko: car.name_ko,
+    name_uz: car.attributes.name_uz,
+    name_ru: car.attributes.name_ru,
+    name_en: car.attributes.name_en,
+    name_ko: car.attributes.name_ko,
 
-    model_uz: car.model_uz,
-    model_ru: car.model_ru,
-    model_en: car.model_en,
-    model_ko: car.model_ko,
+    model_uz: car.attributes.model_uz,
+    model_ru: car.attributes.model_ru,
+    model_en: car.attributes.model_en,
+    model_ko: car.attributes.model_ko,
 
-    color_uz: car.color_uz,
-    color_ru: car.color_ru,
-    color_en: car.color_en,
-    color_ko: car.color_ko,
+    color_uz: car.attributes.color_uz,
+    color_ru: car.attributes.color_ru,
+    color_en: car.attributes.color_en,
+    color_ko: car.attributes.color_ko,
 
-    location_uz: car.location_uz,
-    location_ru: car.location_ru,
-    location_en: car.location_en,
-    location_ko: car.location_ko,
+    location_uz: car.attributes.location_uz,
+    location_ru: car.attributes.location_ru,
+    location_en: car.attributes.location_en,
+    location_ko: car.attributes.location_ko,
 
-    fuel_type_uz: car.fuel_type_uz,
-    fuel_type_ru: car.fuel_type_ru,
-    fuel_type_en: car.fuel_type_en,
-    fuel_type_ko: car.fuel_type_ko,
+    fuel_type_uz: car.attributes.fuel_type_uz,
+    fuel_type_ru: car.attributes.fuel_type_ru,
+    fuel_type_en: car.attributes.fuel_type_en,
+    fuel_type_ko: car.attributes.fuel_type_ko,
   });
 
   useEffect(() => {
@@ -357,18 +337,18 @@ const Sale = () => {
   }, []);
 
   const data = useGet({
-    path: "/product/list",
+    path: "/products",
   });
 
   const itemsPerPage = 4;
 
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const pageCount = Math.ceil(data.length / itemsPerPage);
+  const pageCount = Math.ceil(get(data, "data", []).length / itemsPerPage);
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const sliceData = data.slice(startIndex, endIndex);
+  const sliceData = get(data, "data", []).slice(startIndex, endIndex);
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
@@ -404,7 +384,7 @@ const Sale = () => {
           <div className="car-listing-container">
             <div className="cars-grid">
               {Array.isArray(sliceData) &&
-                sliceData.map((car: cardTypes) => (
+                sliceData.map((car: { id: string; attributes: cardTypes }) => (
                   <CarCard car={car} key={car.id} onOpenModal={openModal} />
                 ))}
             </div>

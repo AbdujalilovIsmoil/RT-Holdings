@@ -2,7 +2,8 @@
 
 import "./not-found.css";
 import Link from "next/link";
-import { useGet } from "@/hooks";
+// import { get } from "lodash";
+// import { useGet } from "@/hooks";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
@@ -15,7 +16,6 @@ import {
   OurServices,
   // Testimonials,
 } from "@/components";
-import { get } from "lodash";
 
 const Home = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -55,9 +55,9 @@ const Home = () => {
     },
   };
 
-  const data = useGet({
-    path: "/posts",
-  });
+  // const data = useGet({
+  //   path: "/posts",
+  // });
 
   const language: StringMap = {
     ko: "홈 페이지",
@@ -157,13 +157,13 @@ const Home = () => {
       <AboutUsUI />
       <Score />
       <OurServices />
-      <News
+      {/* <News
         data={
           Array.isArray(get(data, "data", []))
             ? get(data, "data", []).slice(0, 4)
             : []
         }
-      />
+      /> */}
       {/* <Testimonials /> */}
       <ContactUI />
     </>
