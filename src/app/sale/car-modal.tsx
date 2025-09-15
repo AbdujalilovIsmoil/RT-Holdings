@@ -4,7 +4,7 @@ import Image from "next/image";
 import { cardContents } from "./data";
 import { cardTypes } from "@/typescript";
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { initialValuesTypes } from "@/context/reducer";
 
 interface CarModalProps {
@@ -16,7 +16,7 @@ interface CarModalProps {
 export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     if (isOpen) {
@@ -48,25 +48,25 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
   useEffect(() => {
     if (isOpen) {
-      setCurrentImageIndex(0);
+      // setCurrentImageIndex(0);
     }
   }, [isOpen, carData]);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === carData.product_images.length - 1 ? 0 : prev + 1
-    );
-  };
+  // const nextImage = () => {
+  //   setCurrentImageIndex((prev) =>
+  //     prev === carData.product_images.length - 1 ? 0 : prev + 1
+  //   );
+  // };
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? carData.product_images.length - 1 : prev - 1
-    );
-  };
+  // const prevImage = () => {
+  //   setCurrentImageIndex((prev) =>
+  //     prev === 0 ? carData.product_images.length - 1 : prev - 1
+  //   );
+  // };
 
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
-  };
+  // const goToImage = (index: number) => {
+  //   setCurrentImageIndex(index);
+  // };
 
   if (!isOpen) return null;
 

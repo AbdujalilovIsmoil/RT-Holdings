@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";
 import { StringInnerTypes, StringMap } from "@/typescript";
 import {
-  News,
+  // News,
   Score,
   AboutUsUI,
   ContactUI,
