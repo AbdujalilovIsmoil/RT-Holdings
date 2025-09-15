@@ -37,7 +37,6 @@ const News = (props: { data: Items[] }) => {
         <ul className="news__list">
           {Array.isArray(props.data) &&
             props.data.map((el: Items) => {
-              console.log(get(el, "attributes.images[0].image", null));
               return (
                 <li key={el.id} className="news__item">
                   {get(el, `attributes.images[0].image`, null) && (
