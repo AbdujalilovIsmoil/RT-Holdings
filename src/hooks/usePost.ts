@@ -43,7 +43,8 @@ const usePost = ({ lang, path }: StringMap) => {
           },
         }
       )
-      .then((_) => {
+      .then((data) => {
+        console.log(data);
         setIsSuccess(true);
         setIsLoading(false);
         toast.success(langSuccessData[lang], toastProps);

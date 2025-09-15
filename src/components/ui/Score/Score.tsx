@@ -1,7 +1,7 @@
 "use client";
 
 import "./style.css";
-import { useGet } from "@/hooks";
+// import { useGet } from "@/hooks";
 import { scoreData } from "./data";
 import { useSelector } from "react-redux";
 import { initialValuesTypes } from "@/context/reducer";

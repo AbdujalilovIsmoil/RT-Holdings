@@ -6,16 +6,16 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { language } from "./data";
 import { Hero } from "@/components";
-import { Items } from "@/typescript";
+// import { Items } from "@/typescript";
 import { useSelector } from "react-redux";
 import { usePathname } from "next/navigation";
 import { initialValuesTypes } from "@/context/reducer";
-import {
-  FaYoutube,
-  FaFacebook,
-  FaTelegramPlane,
-  AiFillInstagram,
-} from "@/assets/react-icons";
+// import {
+//   FaYoutube,
+//   FaFacebook,
+//   FaTelegramPlane,
+//   AiFillInstagram,
+// } from "@/assets/react-icons";
 
 const ServicesView = () => {
   const pathName = usePathname();
