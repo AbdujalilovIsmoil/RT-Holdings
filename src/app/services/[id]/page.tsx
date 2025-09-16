@@ -31,24 +31,6 @@ const ServicesView = () => {
     document.title = language[`${appLang}`];
   }, [appLang]);
 
-  interface ScoreTypes {
-    image: string;
-    title_uz: string;
-    title_ru: string;
-    title_en: string;
-    title_ko: string;
-    id: string | number;
-    youtube_link?: string;
-    telegram_link?: string;
-    description_uz: string;
-    description_ru: string;
-    description_en: string;
-    description_ko: string;
-    instagram_link?: string;
-  }
-
-  console.log(data);
-
   type Lang = "uz" | "ru" | "en" | "ko";
 
   const descriptionKey = `description_${appLang}` as `description_${Lang}`;
