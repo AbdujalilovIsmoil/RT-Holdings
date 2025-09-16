@@ -42,6 +42,8 @@ const NewsView = () => {
     document.title = language[`${appLang}`];
   }, [appLang]);
 
+  
+
   return (
     <section className="news-view">
       <Hero page="/news" />
