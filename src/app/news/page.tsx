@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { initialValuesTypes } from "@/context/reducer";
 import { Hero, News as NewsComponent } from "@/components";
-import { get } from "lodash";
 
 const News = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);

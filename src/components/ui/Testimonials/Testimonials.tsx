@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useGet } from "@/hooks";
 import { useSelector } from "react-redux";
 import { IoStar } from "@/assets/react-icons";
-import { Lang } from "@/typescript/types/global";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { initialValuesTypes } from "@/context/reducer";
