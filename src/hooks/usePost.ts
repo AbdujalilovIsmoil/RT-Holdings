@@ -35,13 +35,7 @@ const usePost = ({ lang, path }: StringMap) => {
       .post(
         `${api.baseUrl}${path}`,
 
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: "Basic cG9zdGdyZXM6MQ==",
-          },
-        }
+        data
       )
       .then((data) => {
         console.log(data);

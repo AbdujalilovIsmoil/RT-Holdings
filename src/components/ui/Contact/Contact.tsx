@@ -10,25 +10,21 @@ import { initialValuesTypes } from "@/context/reducer";
 import { ChangeEvent, useEffect, useState } from "react";
 import { contactData, formData, offerData } from "./data";
 
-interface Items {
-  id: string;
-  attributes: {
-    title: "uz" | "ru" | "en" | "ko";
-  };
+interface FormItems {
+  email: string;
+  comment: string;
+  full_name: string;
+  id?: string | number;
+  phone_number: string;
+  service_type: string;
 }
 
 const FormComponent = () => {
-  const [form, setForm] = useState<{
-    email: string;
-    comment: string;
-    full_name: string;
-    phone_number: string;
-    service: string;
-  }>({
+  const [form, setForm] = useState<FormItems>({
     email: "",
     comment: "",
     full_name: "",
-    service: "",
+    service_type: "",
     phone_number: "",
   });
 
@@ -36,7 +32,7 @@ const FormComponent = () => {
 
   const { isLoading, mutate, isSuccess } = usePost({
     lang: `${appLang}`,
-    path: "/offers/",
+    path: "/contact_us/",
   });
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
@@ -46,17 +42,14 @@ const FormComponent = () => {
   };
 
   const data = useGet({
-    path: "/services/",
-  });
+    path: "/service_type/list",
+  }) as FormItems[];
 
   useEffect(() => {
-    if (
-      Array.isArray(get(data, "data", [])) &&
-      get(data, "data", []).length > 0
-    ) {
-      setForm((prev) => ({
+    if (Array.isArray(data) && data.length > 0) {
+      setForm((prev: FormItems) => ({
         ...prev,
-        service: get(data, "data[0].id", ""),
+        service_type: `${data[0].id}`,
       }));
     }
   }, [data]);
@@ -65,7 +58,7 @@ const FormComponent = () => {
     if (isSuccess) {
       setForm({
         email: "",
-        service: get(data, "data[0].id", ""),
+        service_type: get(data, "data[0].id", ""),
         comment: "",
         full_name: "",
         phone_number: "",
@@ -81,10 +74,10 @@ const FormComponent = () => {
     setForm({
       ...form,
       [name]: value,
-      service:
-        name === "service"
+      service_type:
+        name === "service_type"
           ? value || get(data, "data[0].id", "")
-          : form.service,
+          : form.service_type,
     });
   };
 
@@ -152,19 +145,19 @@ const FormComponent = () => {
                 <select
                   required
                   name="service"
-                  value={form.service}
                   onChange={changeInput}
+                  value={form.service_type}
                   className="contact-request-form__box-input select"
                 >
-                  {Array.isArray(get(data, "data", [])) &&
-                    get(data, "data", []).map((el: Items) => {
+                  {Array.isArray(data) &&
+                    data.map((el: FormItems) => {
                       return (
                         <option
                           value={get(el, "id")}
                           key={get(el, "id", "")}
                           defaultValue={get(el, "")}
                         >
-                          {get(el, `attributes.title_${appLang}`, "")}
+                          {get(el, `title_${appLang}`, "")}
                         </option>
                       );
                     })}

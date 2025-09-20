@@ -12,15 +12,13 @@ import { initialValuesTypes } from "@/context/reducer";
 const OurServices = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const data = useGet({ path: "/services" });
+  const data = useGet({ path: "/service_type/list" });
 
   interface servicesTypes {
     id: string;
-    attributes: {
-      image: string;
-      title: "uz" | "ru" | "en" | "ko";
-      description: "uz" | "ru" | "en" | "ko";
-    };
+    image: string;
+    title: "uz" | "ru" | "en" | "ko";
+    description: "uz" | "ru" | "en" | "ko";
   }
 
   return (
@@ -36,25 +34,25 @@ const OurServices = () => {
         </div>
 
         <ul className="our-services__list">
-          {Array.isArray(get(data, "data", [])) &&
-            get(data, "data", []).map((el: servicesTypes) => {
+          {Array.isArray(data) &&
+            data.map((el: servicesTypes) => {
               return (
                 <li className="our-services__item" key={get(el, "id", "")}>
                   <Image
                     width={385}
                     height={270}
                     className="our-services__item-img"
-                    src={get(el, "attributes.image", "")}
-                    alt={get(el, `attributes.title_${appLang}`, "")}
+                    src={get(el, "image", "")}
+                    alt={get(el, `title_${appLang}`, "")}
                   />
 
                   <div className="our-services__item-box">
                     <div className="our-services__small-content">
                       <h3 className="our-services__item-box-title">
-                        {get(el, `attributes.title_${appLang}`, "")}
+                        {get(el, `title_${appLang}`, "")}
                       </h3>
                       <p className="our-services__item-box-text">
-                        {get(el, `attributes.description_${appLang}`, "")}
+                        {get(el, `description_${appLang}`, "")}
                       </p>
                     </div>
                     <Link

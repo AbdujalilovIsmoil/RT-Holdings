@@ -1,14 +1,13 @@
 "use client";
 import "./style.css";
+import { get } from "lodash";
 import Image from "next/image";
-// import { useGet } from "@/hooks";
 import { useGet } from "@/hooks";
 import CarModal from "./car-modal";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { Input, Button, Hero, Pagination } from "@/components";
+import { Button, Hero, Pagination } from "@/components";
 import { initialValuesTypes } from "@/context/reducer";
-import { get } from "lodash";
 
 interface cardImageTypes {
   id: string;
@@ -16,34 +15,31 @@ interface cardImageTypes {
 }
 
 interface cardTypes {
-  id?: string;
-  attributes: {
-    id: string;
-    year: string;
-    price: string;
-    name_uz: string;
-    name_ru: string;
-    name_en: string;
-    name_ko: string;
-    color_en: string;
-    color_ru: string;
-    color_uz: string;
-    color_ko: string;
-    distance: string;
-    model_uz: string;
-    model_ru: string;
-    model_en: string;
-    model_ko: string;
-    location_uz: string;
-    location_ru: string;
-    location_en: string;
-    location_ko: string;
-    fuel_type_en: string;
-    fuel_type_uz: string;
-    fuel_type_ru: string;
-    fuel_type_ko: string;
-    images: cardImageTypes[];
-  };
+  id: string;
+  year: string;
+  price: string;
+  name_uz: string;
+  name_ru: string;
+  name_en: string;
+  name_ko: string;
+  color_en: string;
+  color_ru: string;
+  color_uz: string;
+  color_ko: string;
+  distance: string;
+  model_uz: string;
+  model_ru: string;
+  model_en: string;
+  model_ko: string;
+  location_uz: string;
+  location_ru: string;
+  location_en: string;
+  location_ko: string;
+  fuel_type_en: string;
+  fuel_type_uz: string;
+  fuel_type_ru: string;
+  fuel_type_ko: string;
+  product_images: cardImageTypes[];
 }
 
 // Search Icon component
@@ -74,18 +70,74 @@ function CarCard({
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % car.attributes.images.length);
+    setCurrentSlide((prev) => (prev + 1) % car.product_images.length);
   };
 
   const prevSlide = () => {
     setCurrentSlide(
       (prev) =>
-        (prev - 1 + car.attributes.images.length) % car.attributes.images.length
+        (prev - 1 + car.product_images.length) % car.product_images.length
     );
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+  };
+
+  interface cardAnotherDataInterface {
+    [key: string]: {
+      year: string;
+      more: string;
+      model: string;
+      price: string;
+      color: string;
+      location: string;
+      distance: string;
+      fuel_type: string;
+    };
+  }
+
+  const cardAnotherData: cardAnotherDataInterface = {
+    uz: {
+      year: "Yili",
+      model: "Model",
+      price: "Narxi",
+      color: "Rangi",
+      location: "Manzil",
+      more: "Batafsil ma'lumot",
+      fuel_type: "Yoqilg'i turi",
+      distance: "Yurgan masofasi",
+    },
+    ru: {
+      year: "Год",
+      model: "Модель",
+      price: "Цена",
+      color: "Цвет",
+      location: "Местоположение",
+      more: "Подробнее",
+      fuel_type: "Тип топлива",
+      distance: "Пробег",
+    },
+    en: {
+      year: "Year",
+      model: "Model",
+      price: "Price",
+      color: "Color",
+      location: "Location",
+      more: "More details",
+      fuel_type: "Fuel type",
+      distance: "Mileage",
+    },
+    ko: {
+      year: "연식",
+      model: "모델",
+      price: "가격",
+      color: "색상",
+      location: "위치",
+      more: "자세히 보기",
+      fuel_type: "연료 종류",
+      distance: "주행 거리",
+    },
   };
 
   return (
@@ -96,7 +148,7 @@ function CarCard({
           className="slide-wrapper"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
-          {car.attributes.images.map((image, index) => (
+          {car.product_images.map((image, index) => (
             <div key={index} className="slide-slide">
               <Image
                 width={300}
@@ -110,7 +162,7 @@ function CarCard({
           ))}
         </div>
 
-        {car.attributes.images.length > 1 && (
+        {car.product_images.length > 1 && (
           <>
             <button className="slide-navigation slide-prev" onClick={prevSlide}>
               ‹
@@ -122,9 +174,9 @@ function CarCard({
         )}
 
         {/* Pagination Dots */}
-        {car.attributes.images.length > 1 && (
+        {car.product_images.length > 1 && (
           <div className="slide-pagination">
-            {car.attributes.images.map((el, index) => (
+            {car.product_images.map((el, index) => (
               <div
                 key={el.id}
                 className={`slide-dot ${
@@ -139,9 +191,7 @@ function CarCard({
 
       <div className="card-content">
         {/* Title */}
-        <h1 className="car-title">
-          {get(car, `attributes.name_${appLang}`, "")}
-        </h1>
+        <h1 className="car-title">{get(car, `name_${appLang}`, "")}</h1>
 
         {/* Car Details */}
         <div className="car-details">
@@ -160,9 +210,11 @@ function CarCard({
                 d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
               ></path>
             </svg>
-            <span className="detail-label">Model:</span>
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].model}:
+            </span>
             <span className="detail-value">
-              {get(car, `attributes.model_${appLang}`, "")}
+              {get(car, `model_${appLang}`, "")}
             </span>
           </div>
 
@@ -180,10 +232,10 @@ function CarCard({
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span className="detail-label">Yili:</span>
-            <span className="detail-value">
-              {get(car, "attributes.year", "")}
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].year}:
             </span>
+            <span className="detail-value">{get(car, "year", "")}</span>
           </div>
 
           <div className="detail-item">
@@ -200,10 +252,10 @@ function CarCard({
                 d="M13 10V3L4 14h7v7l9-11h-7z"
               />
             </svg>
-            <span className="detail-label">Yurgan masofasi:</span>
-            <span className="detail-value">
-              {get(car, "attributes.distance")}
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].distance}:
             </span>
+            <span className="detail-value">{get(car, "distance")}</span>
           </div>
 
           <div className="detail-item">
@@ -220,10 +272,10 @@ function CarCard({
                 d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
               />
             </svg>
-            <span className="detail-label">Rangi:</span>
-            <span className="detail-value">
-              {get(car, `attributes.color_${appLang}`)}
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].color}:
             </span>
+            <span className="detail-value">{get(car, `color_${appLang}`)}</span>
           </div>
 
           <div className="detail-item">
@@ -234,9 +286,11 @@ function CarCard({
             >
               <path d="M16 3H5a1 1 0 0 0-1 1v17h2v1a1 1 0 0 0 2 0v-1h6v1a1 1 0 0 0 2 0v-1h2v-9l2 2v3a1 1 0 0 0 2 0v-3a2 2 0 0 0-.59-1.41l-1.41-1.41A2 2 0 0 1 18 11V5a2 2 0 0 0-2-2zm0 8a4 4 0 0 0 1 2.65V18h-1V3h1a1 1 0 0 1 1 1v6h-1a1 1 0 0 1-1-1v-2h-1zm-2 10H7V5h7z" />
             </svg>
-            <span className="detail-label">Yoqilg'i turi:</span>
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].fuel_type}:
+            </span>
             <span className="detail-value">
-              {get(car, `attributes.fuel_type_${appLang}`, "")}
+              {get(car, `fuel_type_${appLang}`, "")}
             </span>
           </div>
 
@@ -260,9 +314,11 @@ function CarCard({
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <span className="detail-label">Manzil:</span>
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].location}:
+            </span>
             <span className="detail-value">
-              {get(car, `attributes.location_${appLang}`, "")}
+              {get(car, `location_${appLang}`, "")}
             </span>
           </div>
 
@@ -274,10 +330,10 @@ function CarCard({
             >
               <path d="M192 0c17.7 0 32 14.3 32 32V50.3c38.3 5.5 74 22.2 102.7 47.6c13.3 12 14.3 32.4 2.3 45.2s-32.4 14.3-45.2 2.3C260.6 123.6 228.3 112 192 112c-40.6 0-72 22.5-72 48c0 25.5 31.4 48 72 48c84.7 0 152 57.3 152 128c0 60.6-51.5 110.3-120 123.3V480c0 17.7-14.3 32-32 32s-32-14.3-32-32v-50.3c-38.3-5.5-74-22.2-102.7-47.6c-13.3-12-14.3-32.4-2.3-45.2s32.4-14.3 45.2-2.3C123.4 388.4 155.7 400 192 400c40.6 0 72-22.5 72-48c0-25.5-31.4-48-72-48c-84.7 0-152-57.3-152-128C40 115.4 91.5 65.7 160 52.7V32c0-17.7 14.3-32 32-32z" />
             </svg>
-            <span className="detail-label">Narxi:</span>
-            <span className="detail-value">
-              {get(car, "attributes.price", "")}
+            <span className="detail-label">
+              {cardAnotherData[`${appLang}`].price}:
             </span>
+            <span className="detail-value">{get(car, "price", "")}</span>
           </div>
         </div>
 
@@ -287,7 +343,7 @@ function CarCard({
           className="details-button"
           onClick={() => onOpenModal(car)}
         >
-          Ba'tafsil ma'lumot
+          {cardAnotherData[`${appLang}`].more}
         </Button>
       </div>
     </div>
@@ -312,38 +368,36 @@ const Sale = () => {
 
   // Transform car data to match modal interface
   const getModalCarData = (car: cardTypes): cardTypes => ({
-    attributes: {
-      id: car.attributes.id,
-      year: car.attributes.year,
-      price: car.attributes.price,
-      distance: car.attributes.distance,
-      images: car.attributes.images,
+    id: car.id,
+    year: car.year,
+    price: car.price,
+    distance: car.distance,
+    product_images: car.product_images,
 
-      name_uz: car.attributes.name_uz,
-      name_ru: car.attributes.name_ru,
-      name_en: car.attributes.name_en,
-      name_ko: car.attributes.name_ko,
+    name_uz: car.name_uz,
+    name_ru: car.name_ru,
+    name_en: car.name_en,
+    name_ko: car.name_ko,
 
-      model_uz: car.attributes.model_uz,
-      model_ru: car.attributes.model_ru,
-      model_en: car.attributes.model_en,
-      model_ko: car.attributes.model_ko,
+    model_uz: car.model_uz,
+    model_ru: car.model_ru,
+    model_en: car.model_en,
+    model_ko: car.model_ko,
 
-      color_uz: car.attributes.color_uz,
-      color_ru: car.attributes.color_ru,
-      color_en: car.attributes.color_en,
-      color_ko: car.attributes.color_ko,
+    color_uz: car.color_uz,
+    color_ru: car.color_ru,
+    color_en: car.color_en,
+    color_ko: car.color_ko,
 
-      location_uz: car.attributes.location_uz,
-      location_ru: car.attributes.location_ru,
-      location_en: car.attributes.location_en,
-      location_ko: car.attributes.location_ko,
+    location_uz: car.location_uz,
+    location_ru: car.location_ru,
+    location_en: car.location_en,
+    location_ko: car.location_ko,
 
-      fuel_type_uz: car.attributes.fuel_type_uz,
-      fuel_type_ru: car.attributes.fuel_type_ru,
-      fuel_type_en: car.attributes.fuel_type_en,
-      fuel_type_ko: car.attributes.fuel_type_ko,
-    },
+    fuel_type_uz: car.fuel_type_uz,
+    fuel_type_ru: car.fuel_type_ru,
+    fuel_type_en: car.fuel_type_en,
+    fuel_type_ko: car.fuel_type_ko,
   });
 
   useEffect(() => {
@@ -409,18 +463,18 @@ const Sale = () => {
   };
 
   const data = useGet({
-    path: "/products",
+    path: "/product/list",
   });
 
   const itemsPerPage = 4;
 
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const pageCount = Math.ceil(get(data, "data", []).length / itemsPerPage);
+  const pageCount = Math.ceil(data.length / itemsPerPage);
 
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const sliceData = get(data, "data", []).slice(startIndex, endIndex);
+  const sliceData = data.slice(startIndex, endIndex);
 
   const handlePageClick = (event: { selected: number }) => {
     setCurrentPage(event.selected);
@@ -440,7 +494,7 @@ const Sale = () => {
             </p>
           </div>
 
-          <form className="service__search">
+          {/* <form className="service__search">
             <IoSearch className="search__search-icon" />
             <Input
               required
@@ -451,7 +505,7 @@ const Sale = () => {
             <Button type="submit" className="service__search-submit">
               {formData[`${appLang}`]?.search}
             </Button>
-          </form>
+          </form> */}
 
           <div className="car-listing-container">
             <div className="cars-grid">

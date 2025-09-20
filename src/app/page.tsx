@@ -14,8 +14,10 @@ import {
   AboutUsUI,
   ContactUI,
   OurServices,
-  // Testimonials,
+  News,
+  Testimonials,
 } from "@/components";
+import { useGet } from "@/hooks";
 
 const Home = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
@@ -55,9 +57,9 @@ const Home = () => {
     },
   };
 
-  // const data = useGet({
-  //   path: "/posts",
-  // });
+  const data = useGet({
+    path: "/news/list",
+  });
 
   const language: StringMap = {
     ko: "홈 페이지",
@@ -157,14 +159,8 @@ const Home = () => {
       <AboutUsUI />
       <Score />
       <OurServices />
-      {/* <News
-        data={
-          Array.isArray(get(data, "data", []))
-            ? get(data, "data", []).slice(0, 4)
-            : []
-        }
-      /> */}
-      {/* <Testimonials /> */}
+      <News data={Array.isArray(data) ? data.slice(0, 4) : []} />
+      <Testimonials />
       <ContactUI />
     </>
   );

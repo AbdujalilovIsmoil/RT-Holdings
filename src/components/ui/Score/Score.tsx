@@ -10,14 +10,12 @@ import { initialValuesTypes } from "@/context/reducer";
 const Score = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  const data = useGet({ path: "/activities" });
+  const data = useGet({ path: "/our_activity_number/list/" });
 
   interface scoreTypes {
     id: string;
-    attributes: {
-      number: string;
-      title: "uz" | "ru" | "en" | "ko";
-    };
+    number: string;
+    title: "uz" | "ru" | "en" | "ko";
   }
 
   return (
@@ -25,20 +23,14 @@ const Score = () => {
       <div className="container">
         <h2 className="score-title">{scoreData[`${appLang}`]?.title}</h2>
         <ul className="score__list">
-          {Array.isArray(get(data, "data", [])) &&
-            get(data, "data", []).map((item: scoreTypes) => (
+          {Array.isArray(data) &&
+            data.map((item: scoreTypes) => (
               <li key={get(item, "id")} className="score__item">
                 <h3 className="score__item-title">
-                  {get(item, "attributes.number", "")}+
+                  {get(item, "number", "")}+
                 </h3>
                 <p className="score__item-text">
-                  {
-                    get(
-                      item,
-                      `attributes.title_${appLang}`,
-                      ""
-                    ) as keyof scoreTypes
-                  }
+                  {get(item, `title_${appLang}`, "") as keyof scoreTypes}
                 </p>
               </li>
             ))}

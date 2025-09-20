@@ -1,9 +1,8 @@
 "use client";
-import { initialValuesTypes } from "@/context/reducer";
-import { get } from "lodash";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { initialValuesTypes } from "@/context/reducer";
 
 interface cardImageTypes {
   id: string;
@@ -11,45 +10,41 @@ interface cardImageTypes {
 }
 
 interface cardTypes {
-  attributes: {
-    id: string;
-    year: string;
-    price: string;
-    name_uz: string;
-    name_ru: string;
-    name_en: string;
-    name_ko: string;
-    color_en: string;
-    color_ru: string;
-    color_uz: string;
-    color_ko: string;
-    distance: string;
-    model_uz: string;
-    model_ru: string;
-    model_en: string;
-    model_ko: string;
-    location_uz: string;
-    location_ru: string;
-    location_en: string;
-    location_ko: string;
-    fuel_type_en: string;
-    fuel_type_uz: string;
-    fuel_type_ru: string;
-    fuel_type_ko: string;
-    images: cardImageTypes[];
-  };
+  id: string;
+  year: string;
+  price: string;
+  name_uz: string;
+  name_ru: string;
+  name_en: string;
+  name_ko: string;
+  color_en: string;
+  color_ru: string;
+  color_uz: string;
+  color_ko: string;
+  distance: string;
+  model_uz: string;
+  model_ru: string;
+  model_en: string;
+  model_ko: string;
+  location_uz: string;
+  location_ru: string;
+  location_en: string;
+  location_ko: string;
+  fuel_type_en: string;
+  fuel_type_uz: string;
+  fuel_type_ru: string;
+  fuel_type_ko: string;
+  product_images: cardImageTypes[];
 }
 
 interface CarModalProps {
   isOpen: boolean;
   onClose: () => void;
-  carData: Partial<cardTypes>;
+  carData: cardTypes;
 }
 
 export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
-
-  console.log(carData);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -90,13 +85,13 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
   const nextImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === Number(carData.attributes?.images?.length) - 1 ? 0 : prev + 1
+      prev === carData.product_images.length - 1 ? 0 : prev + 1
     );
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? Number(carData.attributes?.images?.length) - 1 : prev - 1
+      prev === 0 ? carData.product_images.length - 1 : prev - 1
     );
   };
 
@@ -106,7 +101,61 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
   if (!isOpen) return null;
 
-  console.log("image", carData.attributes?.images[currentImageIndex].image);
+  interface cardContentsTypes {
+    [key: string]: {
+      more: string;
+      year: string;
+      fuel: string;
+      model: string;
+      price: string;
+      colour: string;
+      distance: string;
+      location: string;
+    };
+  }
+
+  const cardContents: cardContentsTypes = {
+    uz: {
+      year: "Yili",
+      model: "Model",
+      price: "Narxi",
+      colour: "Rangi",
+      location: "Manzil",
+      fuel: "Yoqilg'i turi",
+      more: "Batafsil ma'lumot",
+      distance: "Yurgan masofasi",
+    },
+    ru: {
+      year: "Год",
+      price: "Цена",
+      colour: "Цвет",
+      model: "Модель",
+      more: "Подробнее",
+      location: "Адрес",
+      fuel: "Тип топлива",
+      distance: "Пешком можно дойти",
+    },
+    en: {
+      year: "Year",
+      fuel: "Fuel",
+      price: "Price",
+      model: "Model",
+      colour: "Colour",
+      more: "Learn more",
+      distance: "Distance",
+      location: "Location",
+    },
+    ko: {
+      year: "년도",
+      fuel: "연료",
+      price: "가격",
+      model: "모델",
+      colour: "색상",
+      distance: "거리",
+      location: "위치",
+      more: "더 알아보기",
+    },
+  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -129,17 +178,16 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
           </svg>
         </button>
 
-        {/* Modal Content */}
         <div className="modal-content">
-          {/* Title */}
           <h1 className="modal-title">
-            {get(carData, `attributes.name_${appLang}`)}
+            {typeof carData[`name_${appLang}` as keyof cardTypes] === "string"
+              ? (carData[`name_${appLang}` as keyof cardTypes] as string)
+              : ""}
           </h1>
 
-          {/* Image Carousel */}
           <div className="carousel-container">
             <div className="carousel-wrapper">
-              {Number(carData.attributes?.images?.length) > 1 && (
+              {carData.product_images.length > 1 && (
                 <button
                   onClick={prevImage}
                   className="carousel-nav carousel-nav-left"
@@ -163,16 +211,26 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
                   width={300}
                   height={300}
                   className="carousel-image"
-                  src={carData.attributes?.images[currentImageIndex].image || ""}
-                  alt={get(carData, `attributes.name_${appLang}`, "")}
+                  src={
+                    carData.product_images[currentImageIndex].image ||
+                    "/placeholder.svg"
+                  }
+                  alt={
+                    typeof carData[`name_${appLang}` as keyof cardTypes] ===
+                    "string"
+                      ? (carData[
+                          `name_${appLang}` as keyof cardTypes
+                        ] as string)
+                      : ""
+                  }
                 />
               </div>
 
-              {Number(carData.attributes?.images?.length) > 1 && (
+              {carData.product_images.length > 1 && (
                 <button
                   onClick={nextImage}
-                  aria-label="Next image"
                   className="carousel-nav carousel-nav-right"
+                  aria-label="Next image"
                 >
                   <svg
                     width="20"
@@ -189,9 +247,9 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
             </div>
 
             {/* Carousel Dots */}
-            {Number(carData.attributes?.images?.length) > 1 && (
+            {carData.product_images.length > 1 && (
               <div className="carousel-dots">
-                {carData?.attributes?.images?.map((_, index) => (
+                {carData?.product_images?.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToImage(index)}
@@ -207,48 +265,87 @@ export default function CarModal({ isOpen, onClose, carData }: CarModalProps) {
 
           {/* Car Details */}
           <div className="car-details-modal">
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">Model:</span>
-              <span className="detail-value-modal">
-                {get(carData, `attributes.model_${appLang}`)}
-              </span>
-            </div>
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">Yili:</span>
-              <span className="detail-value-modal">
-                {get(carData, "attributes.year", "")}
-              </span>
-            </div>
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">Yurgan masofasi:</span>
-              <span className="detail-value-modal">
-                {get(carData, "attributes.distance", "")}
-              </span>
-            </div>
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">Rangi:</span>
-              <span className="detail-value-modal">
-                {get(carData, `attributes.color_${appLang}`)}
-              </span>
-            </div>
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">{"Yoqilg'i turi"}:</span>
-              <span className="detail-value-modal">
-                {get(carData, `attributes.fuel_type_${appLang}`)}
-              </span>
-            </div>
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">Manzil:</span>
-              <span className="detail-value-modal">
-                {get(carData, `attributes.location_${appLang}`)}
-              </span>
-            </div>
-            <div className="detail-item-modal">
-              <span className="detail-label-modal">Narxi:</span>
-              <span className="detail-value-modal detail-price-modal">
-                {get(carData, "attributes.price", "")}
-              </span>
-            </div>
+            {carData[`model_${appLang}` as keyof cardTypes] ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].model}:
+                </span>
+                <span className="detail-value-modal">
+                  {carData[`model_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData.year ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].year}:
+                </span>
+                <span className="detail-value-modal">{carData.year}</span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData.distance ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].distance}:
+                </span>
+                <span className="detail-value-modal">{carData.distance}</span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData[`color_${appLang}` as keyof cardTypes] ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].colour}:
+                </span>
+                <span className="detail-value-modal">
+                  {carData[`color_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+
+            {carData[`fuel_type_${appLang}` as keyof cardTypes] ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].fuel}:
+                </span>
+                <span className="detail-value-modal">
+                  {carData[`fuel_type_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData[`location_${appLang}` as keyof cardTypes] ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].location}:
+                </span>
+                <span className="detail-value-modal">
+                  {carData[`location_${appLang}` as keyof cardTypes] as string}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
+            {carData.price ? (
+              <div className="detail-item-modal">
+                <span className="detail-label-modal">
+                  {cardContents[`${appLang}`].price}:
+                </span>
+                <span className="detail-value-modal detail-price-modal">
+                  {carData.price}
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

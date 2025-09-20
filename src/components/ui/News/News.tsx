@@ -24,6 +24,9 @@ interface Items {
 const News = (props: { data: Items[] }) => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
+  console.log(props.data);
+  
+
   return (
     <section className="news">
       <div className="container">
@@ -39,21 +42,21 @@ const News = (props: { data: Items[] }) => {
             props.data.map((el: Items) => {
               return (
                 <li key={el.id} className="news__item">
-                  {get(el, `attributes.images[0].image`, null) && (
+                  {get(el, `news_images[0].image`, null) && (
                     <Image
                       width={600}
                       height={400}
                       className="news__item-image"
-                      src={get(el, `attributes.images[0].image`, "")}
-                      alt={get(el, `attributes.title_${appLang}`, "")}
+                      src={get(el, `news_images[0].image`, "")}
+                      alt={get(el, `title_${appLang}`, "")}
                     />
                   )}
 
                   <h3 className="news__item-title">
-                    {get(el, `attributes.title_${appLang}`, "")}
+                    {get(el, `title_${appLang}`, "")}
                   </h3>
                   <p className="news__item-text">
-                    {get(el, `attributes.description_${appLang}`, "")}
+                    {get(el, `description_${appLang}`, "")}
                   </p>
                   <Link
                     role="button"

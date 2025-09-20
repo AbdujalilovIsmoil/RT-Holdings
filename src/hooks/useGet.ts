@@ -6,12 +6,7 @@ const useGet = ({ path }: StringMap) => {
   const [data, setData] = useState([]);
 
   const getRequest = async () => {
-    const request = await fetch(`${api.baseUrl}${path}`, {
-      headers: {
-        accept: "application/vnd.api+json",
-        Authorization: "Basic cG9zdGdyZXM6MQ==",
-      },
-    });
+    const request = await fetch(`${api.baseUrl}${path}`);
 
     const response = await request.json();
 

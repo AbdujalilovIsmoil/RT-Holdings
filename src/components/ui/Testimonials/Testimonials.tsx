@@ -2,164 +2,38 @@
 
 import "./style.css";
 import Image from "next/image";
+import { useGet } from "@/hooks";
 import { useSelector } from "react-redux";
 import { IoStar } from "@/assets/react-icons";
+import { Lang } from "@/typescript/types/global";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { initialValuesTypes } from "@/context/reducer";
 import { testimonialsData } from "./data";
+import UserProfile from "../../../../public/images/png/user-profile.png";
+import { get } from "lodash";
+
+interface commentInterface {
+  position_uz: string;
+  position_ru: string;
+  position_en: string;
+  position_ko: string;
+  comment_uz: string;
+  comment_ru: string;
+  comment_en: string;
+  comment_ko: string;
+  full_name: string;
+  id: string | number;
+}
 
 const Carousel = () => {
   const { appLang } = useSelector((state: initialValuesTypes) => state);
 
-  type UsersDataType = {
-    [key: string]: {
-      name: string;
-      job: string;
-      image: string;
-      description: string;
-      rate: number;
-    }[];
-  };
+  const data = useGet({
+    path: "/feedback/list/",
+  });
 
-  const usersData: UsersDataType = {
-    uz: [
-      {
-        name: "Abdujalilov Ismoil",
-        job: "Foydalanuvchi",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Abdurahmanov Farhod",
-        job: "Client",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Saidov Alisher",
-        job: "Foydalanuvchi",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Турсунов Шухрат",
-        job: "Клиент",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-    ],
-    ru: [
-      {
-        name: "Абдужалилов Исмоил",
-        job: "Пользователь",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Абдурахманов Фарход",
-        job: "Клиент",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Саидов Алишер",
-        job: "Пользователь",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Турсунов Шухрат",
-        job: "Клиент",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-    ],
-    en: [
-      {
-        name: "Abdujalilov Ismoil",
-        job: "User",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Abdurahmanov Farkhod",
-        job: "User",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Saidov Alisher",
-        job: "User",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "Tursunov Shukhrat",
-        job: "User",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-    ],
-    ko: [
-      {
-        name: "압두잘릴로프 이스모일",
-        job: "사용자",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "압두라흐마노프 파르호드",
-        job: "사용자",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "사이도프 알리셰르",
-        job: "사용자",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-      {
-        name: "투르수노프 슈크라트",
-        job: "사용자",
-        image: "https://picsum.photos/460/370",
-        description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid facere voluptate sequi maiores, eaque, rerum a atque autem tenetur, temporibus inventore eveniet esse ex earum!",
-        rate: 5,
-      },
-    ],
-  };
+  console.log(data);
 
   return (
     <section className="carousel">
@@ -195,46 +69,49 @@ const Carousel = () => {
             },
           }}
         >
-          {usersData[`${appLang}`]?.map((user, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <li className="carousel__item">
-                  <div className="carousel__user">
-                    <div className="carousel__border">
-                      <Image
-                        width={50}
-                        height={50}
-                        alt="image"
-                        className="carousel__border-icon"
-                        src={user?.image}
-                      />
+          {Array.isArray(data) &&
+            data.map((el: commentInterface) => {
+              return (
+                <SwiperSlide key={el.id}>
+                  <li className="carousel__item">
+                    <div className="carousel__user">
+                      <div className="carousel__border">
+                        <Image
+                          width={50}
+                          height={50}
+                          src={UserProfile}
+                          alt={el.full_name}
+                          className="carousel__border-icon"
+                        />
+                      </div>
+                      <div className="carousel__info">
+                        <h3 className="carousel__info-fullname">
+                          {el.full_name}
+                        </h3>
+                        <p className="carousel__info-job">
+                          {get(el, `position_${appLang}`, "")}
+                        </p>
+                      </div>
                     </div>
-                    <div className="carousel__info">
-                      <h3 className="carousel__info-fullname">{user?.name}</h3>
-                      <p className="carousel__info-job">{user?.job}</p>
-                    </div>
-                  </div>
-                  <p className="carousel-text">
-                    <q>
-                      <em>{user?.description}</em>
-                    </q>
-                  </p>
+                    <p className="carousel-text">
+                      <q>{get(el, `comment_${appLang}`, "")}</q>
+                    </p>
 
-                  <ul className="carousel-stars__list">
-                    {Array(5)
-                      .fill(5)
-                      .map((_, index) => {
-                        return (
-                          <li key={index} className="carousel-stars__item">
-                            <IoStar className="carousel-stars__item-icon" />
-                          </li>
-                        );
-                      })}
-                  </ul>
-                </li>
-              </SwiperSlide>
-            );
-          })}
+                    <ul className="carousel-stars__list">
+                      {Array(5)
+                        .fill(5)
+                        .map((_, index) => {
+                          return (
+                            <li key={index} className="carousel-stars__item">
+                              <IoStar className="carousel-stars__item-icon" />
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </li>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </section>
