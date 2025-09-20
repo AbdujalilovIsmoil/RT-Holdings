@@ -1,5 +1,5 @@
 const api = {
-  baseUrl: process.env.NEXT_PUBLIC_BASE_URL,
+  baseUrl: "https://api.rtholdings.uz/api/v1/common",
 };
 
 export default api;
