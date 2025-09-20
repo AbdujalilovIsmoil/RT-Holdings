@@ -3,6 +3,7 @@
 import "./not-found.css";
 import Image from "next/image";
 import { useEffect } from "react";
+import NotFoundImage from "../../public/images/png/not-found.png";
 import { useSelector } from "react-redux";
 import { StringInnerTypes } from "@/typescript";
 import { initialValuesTypes } from "@/context/reducer";
@@ -47,7 +48,7 @@ const Error = () => {
             width={500}
             height={500}
             alt="not-found"
-            src="/images/png/not-found.png"
+            src={NotFoundImage}
             className="not-found__content-image"
           />
           <h1 className="not-found__content-title">
